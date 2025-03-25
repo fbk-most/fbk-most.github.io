@@ -16,7 +16,8 @@ permalink: /people/
       <p>{{ person.position }}</p>
       {% if person.excerpt %}
         {{ person.excerpt }}
-        <a href="{{ person.url | relative_url }}">Read more...</a>
+        <a href="{{ person.url | relative_url }}">Read
+        more about {{ person.name}} ...</a>
       {% endif %}
     </div>
   {% endfor %}
@@ -31,7 +32,8 @@ permalink: /people/
       <h3><a href="{{ person.url | relative_url }}">{{ person.name }}</a></h3>
       {% if person.excerpt %}
         {{ person.excerpt }}
-        <a href="{{ person.url | relative_url }}">Read more...</a>
+        <a href="{{ person.url | relative_url }}">Read
+        more about {{ person.name}} ...</a>
       {% endif %}
     </div>
   {% endfor %}
