@@ -1,0 +1,19 @@
+# Site settings
+title: Modeling and Simulation of Techno-Social Systems
+description: >-
+  Modeling and Simulation of Techno-Social Systems is a research unit of the
+  Digital Society Center at Fondazione Bruno Kessler, Trento, Italy.
+baseurl: ""
+url: "https://fbk-most.github.io"
+
+# Build settings
+markdown: kramdown
+
+# Manage automatic collections
+collections:
+  people:
+    output: true
+    permalink: /people/:path/
+  posts:
+    output: true
+    permalink: /news/:year/:month/:day/:title/

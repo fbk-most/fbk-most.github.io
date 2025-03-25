@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+
+  <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>{{ site.title }}</h1>
+      <nav>
+        <ul>
+          <li><a href="{{ "/" | relative_url }}">Home</a></li>
+          <li><a href="{{ "/people" | relative_url }}">People</a></li>
+          <li><a href="{{ "/news" | relative_url }}">News</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="content">
+    <div class="container">
+      {{ content }}
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      {% include shared/footer.html %}
+    </div>
+  </footer>
+
+  <!--
+  At the end of the body for performance reasons. This way,
+  users see the content of the page sooner.
+  -->
+  <script src="{{ "/assets/js/main.js" | relative_url }}"></script>
+</body>
+</html>

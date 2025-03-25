@@ -1,0 +1,8 @@
+---
+layout: base
+---
+
+<section class="description">
+    {% capture description_content %}{% include home/description.md %}{%
+    endcapture %} {{ description_content | markdownify }}
+</section>
