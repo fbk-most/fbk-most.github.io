@@ -11,7 +11,8 @@ permalink: /news/
       <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
       {% if post.excerpt %}
         {{ post.excerpt }}
-        <a href="{{ post.url | relative_url }}">Read more...</a>
+        <a href="{{ post.url | relative_url }}">Read
+        more about "{{ post.title }}"...</a>
       {% endif %}
     </li>
   {% endfor %}
