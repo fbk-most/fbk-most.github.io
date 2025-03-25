@@ -1,0 +1,19 @@
+# This workflow builds the website using the actions that GitHub
+# would use to deploy, so we can check for errors inside PRs.
+name: Test Jekyll Build
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
