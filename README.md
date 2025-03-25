@@ -141,9 +141,8 @@ from the full post content shown when the post is opened.
 
 ## Getting Help
 
-If you run into trouble or have doubts, [@bassosimone](
-https://github.com/bassosimone) is here to help! (Insert here
-pretty obvious Doctor Who quote.)
+If you run into trouble, [@bassosimone](https://github.com/bassosimone) is
+here to help! (Insert here obligatory Doctor Who quote.)
 
 ## License
 
