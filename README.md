@@ -78,8 +78,10 @@ git commit -m "My commit message"
 git push -u origin doc/my-change-name
 ```
 
-Finally, open a pull request on GitHub and ask for a review. Once the pull
-request has been merged the website will be automatically updated.
+Finally, open a pull request on GitHub and ask for a review. The pull request
+contains automatic checks to ensure that the changes, once deployed, would not
+break the website. Once the pull request has been merged the website will be
+automatically deployed and updated.
 
 ### Adding a New Team Member
 
