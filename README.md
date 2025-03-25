@@ -105,12 +105,16 @@ Brief bio goes here.
 Extended bio and information goes here.
 ```
 
-Make sure you add the corresponding image to the `assets/images/people` directory. Note that, in general, [splitting the name and the surname of
-people consistently is complex across cultures](https://shinesolutions.com/2018/01/08/falsehoods-programmers-believe-about-names-with-examples/). For
-this reason, we chose to let each member to choose how they want their full
+Make sure you add the corresponding image to the `assets/images/people` directory. Note that, in general, [splitting the name and the
+surname of people consistently is complex across cultures](
+https://shinesolutions.com/2018/01/08/falsehoods-programmers-believe-about-names-with-examples/).
+For this reason, we chose to let each member to choose how they want their full
 name to be written (on the file system and using UTF-8). The name
 used in the filesystem inside `_people` maps to the URL that uniquely
 identifies the new team member.
+
+The `<!--more-->` tag is used to separate the excerpt shown as a preview
+from the full post content shown when the post is opened.
 
 ### Adding a News Post
 
@@ -134,6 +138,12 @@ Full post content goes here.
 
 The `<!--more-->` tag is used to separate the excerpt shown as a preview
 from the full post content shown when the post is opened.
+
+## Getting Help
+
+If you run into trouble or have doubts, [@bassosimone](
+https://github.com/bassosimone) is here to help! (Insert here
+pretty obvious Doctor Who quote.)
 
 ## License
 
