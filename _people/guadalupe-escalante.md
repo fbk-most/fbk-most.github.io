@@ -1,7 +1,7 @@
 ---
 layout: page
 name: "Guadalupe Sol Escalante"
-position: "Job Title"
+position: "Visiting Student"
 status: "visitor"
 image: "/assets/images/people/guadalupe-escalante.jpg"
 ---
