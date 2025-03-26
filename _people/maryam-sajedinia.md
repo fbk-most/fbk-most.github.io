@@ -10,7 +10,7 @@ github: "maryamsajedi"
 scholar: "qsY6O_UAAAAJ"
 ---
 
-Maryam Sajedinia is a Research Assistant at the [MoST research unit].She currently works on development of the
+Maryam Sajedinia is a Research Assistant at the [MoST research unit]. She currently works on development of the
 [DT Model](https://github.com/fbk-most/dt-model) evaluation engine.
 <!--more-->
 
