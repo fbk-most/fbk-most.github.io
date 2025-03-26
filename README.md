@@ -4,46 +4,15 @@ This repository contains the sources of MoST research unit website. We're a
 research unit of the [Digital Society center](https://digis.fbk.eu) at
 [Fondazione Bruno Kessler](https://www.fbk.eu) in Trento, Italy.
 
-## Architecture
+## Deployment Location
 
-This repository contains a pretty standard [Jekyll](https://jekyllrb.com/)
-website. The website is hosted on GitHub Pages and is automatically built
-whenever a pull request is merged into the `main` branch.
+In its current form, the website is deployed at the following URL:
 
-The following directories are of interest:
+https://fbk-most.github.io/
 
-- [_includes/home](_includes/home): content included into the home page.
+When it will be ready for production, it will also be available at:
 
-- [_includes/shared](includes/shared): content shared across multiple pages.
-
-- [_layouts/base.html](_layouts/base.html): the base layout for all pages.
-
-- [_layouts/home.html](_layouts/home.html): the layout for the home page.
-
-- [_layouts/page.html](_layouts/page.html): the layout for all other pages.
-
-- [_people](_people): information about the people in the research unit,
-including current members, alumni, and visitors.
-
-- [_posts](_posts): blog posts.
-
-- [assets/css](assets/css): CSS files.
-
-- [assets/img](assets/img): images.
-
-- [assets/js](assets/js): JavaScript files.
-
-- [_config.yml](config.yml): configuration file for
-[Jekyll](https://jekyllrb.com/).
-
-- [index.md](index.md): the home page.
-
-- [news.md](news.md): the news page containing blog posts.
-
-- [people.md](people.md): the people page.
-
-When building the website, [Jekyll](https://jekyllrb.com/) will generate the
-content of the news and people pages automatically.
+https://most.fbk.eu/
 
 ## Content Management
 
@@ -111,7 +80,8 @@ Make sure you add the corresponding image to the `assets/images/people` director
 surname of people consistently is complex across cultures](
 https://shinesolutions.com/2018/01/08/falsehoods-programmers-believe-about-names-with-examples/).
 For this reason, we chose to let each member to choose how they want their full
-name to be written (on the file system and using UTF-8). The name
+name to be written (on the file system and using UTF-8) as long as each name
+component is separated by a dash character (i.e., `-`). The name
 used in the filesystem inside `_people` maps to the URL that uniquely
 identifies the new team member.
 
@@ -145,6 +115,47 @@ from the full post content shown when the post is opened.
 
 If you run into trouble, [@bassosimone](https://github.com/bassosimone) is
 here to help! (Insert here obligatory Doctor Who quote.)
+
+## Architecture
+
+This repository contains a pretty standard [Jekyll](https://jekyllrb.com/)
+website. The website is hosted on GitHub Pages and is automatically built
+whenever a pull request is merged into the `main` branch.
+
+The following directories are of interest:
+
+- [_includes/home](_includes/home): content included into the home page.
+
+- [_includes/shared](includes/shared): content shared across multiple pages.
+
+- [_layouts/base.html](_layouts/base.html): the base layout for all pages.
+
+- [_layouts/home.html](_layouts/home.html): the layout for the home page.
+
+- [_layouts/page.html](_layouts/page.html): the layout for all other pages.
+
+- [_people](_people): information about the people in the research unit,
+including current members, alumni, and visitors.
+
+- [_posts](_posts): blog posts.
+
+- [assets/css](assets/css): CSS files.
+
+- [assets/img](assets/img): images.
+
+- [assets/js](assets/js): JavaScript files.
+
+- [_config.yml](config.yml): configuration file for
+[Jekyll](https://jekyllrb.com/).
+
+- [index.md](index.md): the home page.
+
+- [news.md](news.md): the news page containing blog posts.
+
+- [people.md](people.md): the people page.
+
+When building the website, [Jekyll](https://jekyllrb.com/) will generate the
+content of the news and people pages automatically.
 
 ## License
 
