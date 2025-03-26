@@ -3,7 +3,7 @@ layout: page
 name: "Maryam Sajedinia"
 position: "Research Assistant"
 status: "current"
-image: "/assets/images/people/maryam-sajedinia.jpg"
+image: "/assets/images/people/maryam-sajedinia.jpeg"
 website: "https://github.com/maryamsajedi"
 twitter: "maryamsajedinia"
 github: "maryamsajedi"
@@ -15,4 +15,3 @@ Maryam Sajedinia is a Research Assistant at the [MoST research unit]. She curren
 <!--more-->
 
 Maryam earned a **Master’s degree in Stochastic and Data Science** from the [University of Torino](https://www.unito.it/).
-
