@@ -6,7 +6,7 @@ status: "visiting student"
 image: "/assets/images/people/guadalupe-escalante.jpg" 
 ---
 
-Guadalupe Escalante is a Geospatial Engineer from the National Universit of córdoba, Argentina; currently doing an internship at the [MoST research unit](/), where she explores the contribution of remote sensing to digital twins projects.
+Guadalupe Escalante is a Geospatial Engineer from the National University of Córdoba, Argentina; currently doing an internship at the [MoST research unit](/), where she explores the contribution of remote sensing to digital twins projects.
 
 <!--more--> 
 
