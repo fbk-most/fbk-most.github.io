@@ -5,7 +5,6 @@ position: "PostDoc Researcher"
 status: "current"
 image: "/assets/images/people/arianna-burzacchi.jpg"
 website: "https://github.com/bassosimone"
-twitter:
 github: "araiari"
 scholar: "pjltXLAAAAAJ"
 ---
