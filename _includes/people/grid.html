@@ -1,0 +1,24 @@
+{% comment %}
+  Usage: {% include people/grid.html people=people_collection title="Section Title" %}
+{% endcomment %}
+
+{% if include.people.size > 0 %}
+  <h2>{{ include.title }}</h2>
+  <div class="people-grid">
+    {% for person in include.people %}
+      <div class="person-card">
+        {% if person.image and include.show_images != false %}
+          <img src="{{ person.image | relative_url }}" alt="{{ person.name }}">
+        {% endif %}
+        <h3><a href="{{ person.url | relative_url }}">{{ person.name }}</a></h3>
+        {% if person.position %}
+          <p>{{ person.position }}</p>
+        {% endif %}
+        {% if person.excerpt %}
+          {{ person.excerpt }}
+          <a href="{{ person.url | relative_url }}">Read more about {{ person.name }} ...</a>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
