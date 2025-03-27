@@ -3,7 +3,7 @@ layout: page
 name: "Piergiorgio Vivenzio"
 position: "Visiting PhD Student"
 status: "current"
-#image: "/assets/images/people/piergiorgio-vivenzio.jpg"
+image: "/assets/images/people/piergiorgio-vivenzio.jpg"
 linkedin: "www.linkedin.com/in/piergiorgio-vivenzio-a44720242"
 ---
 
