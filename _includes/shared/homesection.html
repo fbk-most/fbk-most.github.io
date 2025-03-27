@@ -1,0 +1,12 @@
+{% comment %}
+  Renders a markdown include file in a section with a specified class
+  Usage: {% include shared/homesection.html source="home/vision.md" class="vision" %}
+{% endcomment %}
+
+{% capture section_content %}{% include {{ include.source }} %}{% endcapture %}
+{% assign trimmed_content = section_content | strip %}
+{% if trimmed_content != "" %}
+<section class="{{ include.class }}">
+  {{ section_content | markdownify }}
+</section>
+{% endif %}
