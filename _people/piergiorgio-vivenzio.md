@@ -4,7 +4,7 @@ name: "Piergiorgio Vivenzio"
 position: "Visiting PhD Student"
 status: "visitor"
 image: "/assets/images/people/piergiorgio-vivenzio.jpg"
-linkedin: "www.linkedin.com/in/piergiorgio-vivenzio-a44720242"
+linkedin: "https://www.linkedin.com/in/piergiorgio-vivenzio-a44720242"
 ---
 
 Piergiorgio Vivenzio is a PhD student in Urban and Regional Development at the Politecnico di Torino.
