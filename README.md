@@ -118,11 +118,8 @@ here to help! (Insert here obligatory Doctor Who quote.)
 
 ## Testing Changes Locally
 
-On a Debian/Ubuntu box, install `docker-compose` using:
-
-```bash
-sudo apt install docker-compose
-```
+Install Docker Compose using [the official instructions published on
+the Docker website](https://docs.docker.com/compose/install/).
 
 Then, run the following command to start a local server:
 
