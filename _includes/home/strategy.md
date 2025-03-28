@@ -1,0 +1,4 @@
+- Interdisciplinarity: we collaborate across domains—from computer science to urban studies
+- Co-design: we involve stakeholders from day one
+- Open Science: we develop reproducible, transparent research
+- Reflexivity: we remain aware of our positionality in shaping civic futures

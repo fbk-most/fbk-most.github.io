@@ -116,6 +116,23 @@ from the full post content shown when the post is opened.
 If you run into trouble, [@bassosimone](https://github.com/bassosimone) is
 here to help! (Insert here obligatory Doctor Who quote.)
 
+## Testing Changes Locally
+
+On a Debian/Ubuntu box, install `docker-compose` using:
+
+```bash
+sudo apt install docker-compose
+```
+
+Then, run the following command to start a local server:
+
+```bash
+docker-compose up
+```
+
+and follow the instructions printed on the screen, including the URL of the
+locally-running website, which should be `http://127.0.0.1:4000/`.
+
 ## Architecture
 
 This repository contains a pretty standard [Jekyll](https://jekyllrb.com/)
