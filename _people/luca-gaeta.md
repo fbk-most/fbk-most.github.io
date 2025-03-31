@@ -2,7 +2,7 @@
 layout: page
 name: "Luca Gaeta"
 position: "Visiting research fellow"
-status: "current"
+status: "visitor"
 image: "assets/images/people/luca-gaeta.jpg"
 website: "(https://onlineservices.polimi.it/manifesti/manifesti/controller/ricerche/RicercaPerDocentiPublic.do?EVN_ELENCO_DIDATTICA=evento&lang=IT&k_doc=72234&aa=2023&n_docente=gaeta&tab_ricerca=2&jaf_currentWFID=main)"
 github: "lgaeta68"
