@@ -1,5 +1,5 @@
 git checkout main
----
+---git checkout -b doc/my-change-name
 layout: page
 title: People
 permalink: /people/
