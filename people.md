@@ -1,3 +1,4 @@
+git checkout main
 ---
 layout: page
 title: People
