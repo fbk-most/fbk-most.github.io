@@ -3,7 +3,7 @@ layout: page
 name: "Sammer Sheereen"
 position: "PhD Student"
 status: "current" 
-image: "/assets/images/people/filename.jpg" # optional
+image: "/assets/images/people/sammer-sheereen.jpg" 
 website: "https://github.com/ssheereen" 
 github: "ssheereen" 
 ---
