@@ -6,7 +6,7 @@ research unit of the [Digital Society center](https://digis.fbk.eu) at
 
 ## Deployment Location
 
-In its current form, the website is deployed at the following URL:
+In its current form, the website is deployed at the following URL:  
 
 https://fbk-most.github.io/
 
