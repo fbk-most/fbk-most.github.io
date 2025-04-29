@@ -6,7 +6,7 @@ research unit of the [Digital Society center](https://digis.fbk.eu) at
 
 ## Deployment Location
 
-In its current form, the website is deployed at the following URL:  
+In its current form, the website is deployed at the following URL:
 
 https://fbk-most.github.io/
 
@@ -158,6 +158,8 @@ including current members, alumni, and visitors.
 - [assets/img](assets/img): images.
 
 - [assets/js](assets/js): JavaScript files.
+
+- [assets/vendor](assets/vendor): vendored dependencies.
 
 - [_config.yml](config.yml): configuration file for
 [Jekyll](https://jekyllrb.com/).
