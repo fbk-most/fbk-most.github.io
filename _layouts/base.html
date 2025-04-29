@@ -6,30 +6,31 @@
 
   <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
 
+  <link rel="stylesheet" href="{{ "/assets/vendor/bootstrap/css/bootstrap.min.css" | relative_url }}">
   <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
 </head>
 <body>
 
-  <header>
+  <header class="most-header">
     <div class="container">
-      <h1>{{ site.title }}</h1>
+      <h1 class="most-header-title">{{ site.title }}</h1>
       <nav>
-        <ul>
-          <li><a href="{{ "/" | relative_url }}">Home</a></li>
-          <li><a href="{{ "/people" | relative_url }}">People</a></li>
-          <li><a href="{{ "/news" | relative_url }}">News</a></li>
+        <ul class="most-nav-list">
+          <li class="most-nav-item"><a class="most-nav-link" href="{{ "/" | relative_url }}">Home</a></li>
+          <li class="most-nav-item"><a class="most-nav-link" href="{{ "/people" | relative_url }}">People</a></li>
+          <li class="most-nav-item"><a class="most-nav-link" href="{{ "/news" | relative_url }}">News</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <div class="content">
+  <div class="most-content">
     <div class="container">
       {{ content }}
     </div>
   </div>
 
-  <footer>
+  <footer class="most-footer">
     <div class="container">
       {% include shared/footer.html %}
     </div>
@@ -39,6 +40,7 @@
   At the end of the body for performance reasons. This way,
   users see the content of the page sooner.
   -->
+  <script src="{{ "/assets/vendor/bootstrap/js/bootstrap.bundle.min.js" | relative_url }}"></script>
   <script src="{{ "/assets/js/main.js" | relative_url }}"></script>
 </body>
 </html>

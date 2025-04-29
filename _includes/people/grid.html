@@ -3,14 +3,16 @@
 {% endcomment %}
 
 {% if include.people.size > 0 %}
-  <h2>{{ include.title }}</h2>
-  <div class="people-grid">
+  <h2 class="most-people-title">{{ include.title }}</h2>
+  <div class="most-people-grid">
     {% for person in include.people %}
-      <div class="person-card">
+      <div class="most-person-card">
         {% if person.image and include.show_images != false %}
           <img src="{{ person.image | relative_url }}" alt="{{ person.name }}">
         {% endif %}
-        <h3><a href="{{ person.url | relative_url }}">{{ person.name }}</a></h3>
+        <h3 class="most-person-name">
+          <a href="{{ person.url | relative_url }}">{{ person.name }}</a>
+        </h3>
         {% if person.position %}
           <p>{{ person.position }}</p>
         {% endif %}

@@ -1,7 +1,7 @@
 ---
 layout: page
 name: "Simone Basso"
-position: "Senior Technologist (T3)"
+position: "Senior Technologist"
 status: "current"
 image: "/assets/images/people/simone-basso.jpg"
 website: "https://github.com/bassosimone"
@@ -10,7 +10,7 @@ github: "bassosimone"
 scholar: "f_TerfgAAAAJ"
 ---
 
-Simone Basso is a Senior Technologist (T3) at the [MoST research
+Simone Basso is a Senior Technologist at the [MoST research
 unit](/) where he manages the development of the
 [DT Model](https://github.com/fbk-most/dt-model) evaluation engine.
 
