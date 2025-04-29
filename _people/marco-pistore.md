@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: person
 name: "Marco Pistore"
 position: "Head of Unit"
 status: "current"
@@ -29,6 +29,3 @@ technology to address key challenges of the future digital society.
 Marco has strong leadership and management experience, gained primarily in science and academia, but with significant
 experience in business. An eclectic approach to research and leadership that has led him to learn about and adopt a
 variety of scientific and management methods and approaches and helped develop his critical thinking skills.
-
-
-

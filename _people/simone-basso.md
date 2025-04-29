@@ -1,10 +1,9 @@
 ---
-layout: page
+layout: person
 name: "Simone Basso"
 position: "Senior Technologist"
 status: "current"
 image: "/assets/images/people/simone-basso.jpg"
-website: "https://github.com/bassosimone"
 twitter: "bassosimone"
 github: "bassosimone"
 scholar: "f_TerfgAAAAJ"

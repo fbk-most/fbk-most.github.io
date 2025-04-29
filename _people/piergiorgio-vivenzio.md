@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: person
 name: "Piergiorgio Vivenzio"
 position: "Visiting PhD Student"
 status: "visitor"
@@ -14,4 +14,3 @@ He is currently a visiting researcher at FBK's MoST unit, where he is studying a
 
 He holds a degree in Statistical and Economic Methods for Decision Making and has worked as a research fellow at the University of Turin.
 He has also collaborated with the startup MetroPolis SRL.
-

@@ -75,10 +75,12 @@
 }
 
 .most-person-card img {
-    max-width: 150px;
-    height: auto;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     margin-bottom: 1rem;
+    object-fit: cover;
+    object-position: center;
 }
 
 .most-person-card h3 {
@@ -132,4 +134,80 @@
     left: 0;
     right: 0;
     z-index: 1030;
+}
+
+/* Person page styling */
+.most-person-page-header {
+    display: flex;
+    align-items: start;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: #f9f9f9;
+    border-radius: 4px;
+}
+
+.most-person-page-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    flex-shrink: 0;
+}
+
+.most-person-page-info {
+    flex-grow: 1;
+}
+
+.most-person-page-title {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.most-person-page-position {
+    color: #666;
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+}
+
+.most-person-page-links {
+    margin-top: 1rem;
+}
+
+.most-person-page-links a {
+    display: inline-block;
+    margin-right: 1rem;
+    padding: 0.3rem 0.8rem;
+    background: #eee;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #444;
+}
+
+.most-person-page-links a:hover {
+    background: #ddd;
+    color: #000;
+}
+
+/* Make it responsive */
+@media (max-width: 768px) {
+    .most-person-page-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .most-person-page-image {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto;
+    }
+
+    .most-person-page-links {
+        text-align: center;
+    }
+
+    .most-person-page-links a {
+        margin: 0.25rem;
+    }
 }

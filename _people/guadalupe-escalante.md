@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: person
 name: "Guadalupe Sol Escalante"
 position: "Visiting Student"
 status: "visitor"
