@@ -1,0 +1,33 @@
+---
+layout: base
+---
+
+<div class="most-person-page-header">
+  {% if page.image %}
+  <img src="{{ page.image | relative_url }}" alt="{{ page.name }}" class="most-person-page-image">
+  {% endif %}
+  <div class="most-person-page-info">
+    <h1 class="most-person-page-title">{{ page.name }}</h1>
+    {% if page.position %}
+    <div class="most-person-page-position">{{ page.position }}</div>
+    {% endif %}
+    <div class="most-person-page-links">
+      {% if page.website %}
+      <a href="{{ page.website }}" target="_blank">Website</a>
+      {% endif %}
+      {% if page.github %}
+      <a href="https://github.com/{{ page.github }}" target="_blank">GitHub</a>
+      {% endif %}
+      {% if page.twitter %}
+      <a href="https://twitter.com/{{ page.twitter }}" target="_blank">Twitter</a>
+      {% endif %}
+      {% if page.scholar %}
+      <a href="https://scholar.google.com/citations?user={{ page.scholar }}" target="_blank">Google Scholar</a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<div class="most-page-content">
+  {{ content }}
+</div>
