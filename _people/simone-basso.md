@@ -7,13 +7,12 @@ image: "/assets/images/people/simone-basso.jpg"
 twitter: "bassosimone"
 github: "bassosimone"
 scholar: "f_TerfgAAAAJ"
+order: 1
 ---
 
 Simone Basso is a Senior Technologist at the [MoST research
 unit](/) where he manages the development of the
 [DT Model](https://github.com/fbk-most/dt-model) evaluation engine.
-
-<!--more-->
 
 Before joining [FBK](https://www.fbk.eu/), Simone was measuring
 internet censorship at the [Open Observatory of Network Interference](

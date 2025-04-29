@@ -58,19 +58,13 @@
 
 /* People page */
 .most-people-title {
-}
-
-.most-people-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 2rem;
+    text-align: center;
     margin: 2rem 0;
 }
 
 .most-person-card {
+    background: #f9f9f9;
     padding: 1rem;
-    background: #f9f9f9; /* This gave the gray block effect */
-    border-radius: 4px;
     text-align: center;
 }
 

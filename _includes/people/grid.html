@@ -4,22 +4,22 @@
 
 {% if include.people.size > 0 %}
   <h2 class="most-people-title">{{ include.title }}</h2>
-  <div class="most-people-grid">
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
     {% for person in include.people %}
-      <div class="most-person-card">
-        {% if person.image and include.show_images != false %}
-          <img src="{{ person.image | relative_url }}" alt="{{ person.name }}">
-        {% endif %}
-        <h3 class="most-person-name">
-          <a href="{{ person.url | relative_url }}">{{ person.name }}</a>
-        </h3>
-        {% if person.position %}
-          <p>{{ person.position }}</p>
-        {% endif %}
-        {% if person.excerpt %}
-          {{ person.excerpt }}
-          <a href="{{ person.url | relative_url }}">Read more about {{ person.name }} ...</a>
-        {% endif %}
+      <div class="col">
+        <div class="card h-100">
+          <div class="card-body most-person-card">
+            {% if person.image and include.show_images != false %}
+              <img src="{{ person.image | relative_url }}" alt="{{ person.name }}">
+            {% endif %}
+            <h3 class="most-person-name">
+              <a href="{{ person.url | relative_url }}">{{ person.name }}</a>
+            </h3>
+            {% if person.position %}
+              <p>{{ person.position }}</p>
+            {% endif %}
+         </div>
+        </div>
       </div>
     {% endfor %}
   </div>

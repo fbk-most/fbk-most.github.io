@@ -8,12 +8,11 @@ website: "https://onlineservices.polimi.it/manifesti/manifesti/controller/ricerc
 github: "lgaeta68"
 linkedin: "https://it.linkedin.com/in/luca-gaeta-672b31337"
 research_gate: "https://www.researchgate.net/profile/Luca-Gaeta"
+order: 0
 ---
 
 Luca Gaeta is a Visiting research fellow at the [MoST research
 unit](/) where he studies urban hybrid spaces and related planning issues.
-
-<!--more-->
 
 Beyond visiting [FBK](https://www.fbk.eu/), Luca is a full professor of urban planning
 at Politecnico di Milano, [Department of Architecture and Urban Studies](

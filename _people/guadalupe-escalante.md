@@ -4,14 +4,13 @@ name: "Guadalupe Sol Escalante"
 position: "Visiting Student"
 status: "visitor"
 image: "/assets/images/people/guadalupe-escalante.jpg"
+order: 4
 ---
 
 Guadalupe Escalante is a Geospatial Engineer from the National University
 of Córdoba, Argentina; currently doing an internship at the
 [MoST research unit](/), where she explores the contribution
 of remote sensing to digital twins projects.
-
-<!--more-->
 
 Guadalupe is pursuing a Master's degree in Spatial Information
 Applications at the [Gulich Institute](https://ig.conae.unc.edu.ar/)
