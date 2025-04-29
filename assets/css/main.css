@@ -190,7 +190,6 @@
     color: #000;
 }
 
-/* Make it responsive */
 @media (max-width: 768px) {
     .most-person-page-header {
         flex-direction: column;
