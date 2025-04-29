@@ -13,7 +13,7 @@ of remote sensing to digital twins projects.
 
 <!--more-->
 
-Guadalupe is porsuing a Master's degree in Spatial Information
+Guadalupe is pursuing a Master's degree in Spatial Information
 Applications at the [Gulich Institute](https://ig.conae.unc.edu.ar/)
 (CONAE/UNC), where she is conducting this internship. She focuses on the
 study of territorial dynamics, has participated in projects at the
