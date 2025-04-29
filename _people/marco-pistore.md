@@ -4,7 +4,7 @@ name: "Marco Pistore"
 position: "Head of Unit"
 status: "current"
 image: "/assets/images/people/marco-pistore.png"
-linkedin: "https://www.linkedin.com/in/marco-pistore/"
+linkedin: "marco-pistore"
 order: 0
 ---
 
