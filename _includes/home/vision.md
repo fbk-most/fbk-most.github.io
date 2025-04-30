@@ -1,12 +1,12 @@
+## Vision
+
 As societies face rapid transformations and increasing interdependence
 between technical and social systems, we envision a future in which
-digital technologies serve as transparent, participatory tools
-that empower citizens and strengthen collective agency. We aim to
-contribute to how society makes sense of complex challenges—such
-as implementing inclusive urban policies, addressing
-congestion in shared spaces and infrastructure, or
-responding to emergencies—through collaborative
-and democratic means. To this end, we champion
-a civic vision in which data-driven systems are
-open, interpretable, and co-designed with the
+digital technologies become essential for society to makes sense of
+complex environmental, social, and technological
+challenges and transformation processes.
+This requires not only more effective and efficient analysis and decision-making tools, 
+but also new approaches to democratize the access to these tools. 
+To this end, we champion a vision in which data-driven systems are
+open, interpretable, co-designed with the
 relevant institutions, organizations, and communities.
