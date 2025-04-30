@@ -3,86 +3,86 @@ layout: base
 ---
 
 <div class="card bg-light">
-    <div class="card-body">
-        <article class="most-person">
-            <!-- Header section -->
-            <header class="text-center mb-4">
-                <h1 class="card-title mb-2">{{ page.name }}</h1>
-                {% if page.position %}
-                <div class="text-muted">{{ page.position }}</div>
-                {% endif %}
-            </header>
+  <div class="card-body">
+    <article class="most-person">
+      <!-- Header section -->
+      <header class="text-center mb-4">
+        <h1 class="card-title mb-2">{{ page.name }}</h1>
+        {% if page.position %}
+        <div class="text-muted">{{ page.position }}</div>
+        {% endif %}
+      </header>
 
-            <!-- Image section -->
-            {% if page.image %}
-            <div class="text-center mb-4">
-                <img
-                    src="{{ page.image | relative_url }}"
-                    alt="{{ page.name }}"
-                    class="most-person__image rounded-circle"
-                    style="width: 250px; height: 250px; object-fit: cover"
-                />
-            </div>
-            {% endif %}
+      <!-- Image section -->
+      {% if page.image %}
+      <div class="text-center mb-4">
+        <img
+          src="{{ page.image | relative_url }}"
+          alt="{{ page.name }}"
+          class="most-person__image rounded-circle"
+          style="width: 250px; height: 250px; object-fit: cover"
+        />
+      </div>
+      {% endif %}
 
-            <!-- Social links section -->
-            {% if page.website or page.github or page.twitter or page.linkedin
-            or page.scholar or page.research_gate %}
-            <div class="most-person__social text-center mb-4">
-                {% if page.website %}
-                <a
-                    href="{{ page.website }}"
-                    class="btn btn-light btn-sm m-1"
-                    target="_blank"
-                >
-                    <i class="fas fa-globe"></i> Website
-                </a>
-                {% endif %} {% if page.github %}
-                <a
-                    href="https://github.com/{{ page.github }}"
-                    class="btn btn-light btn-sm m-1"
-                    target="_blank"
-                >
-                    <i class="fab fa-github"></i> GitHub
-                </a>
-                {% endif %} {% if page.twitter %}
-                <a
-                    href="https://x.com/{{ page.twitter }}"
-                    class="btn btn-light btn-sm m-1"
-                    target="_blank"
-                >
-                    <i class="fab fa-twitter"></i> X
-                </a>
-                {% endif %} {% if page.linkedin %}
-                <a
-                    href="https://www.linkedin.com/in/{{ page.linkedin }}"
-                    class="btn btn-light btn-sm m-1"
-                    target="_blank"
-                >
-                    <i class="fab fa-linkedin"></i> LinkedIn
-                </a>
-                {% endif %} {% if page.scholar %}
-                <a
-                    href="https://scholar.google.com/citations?user={{ page.scholar }}"
-                    class="btn btn-light btn-sm m-1"
-                    target="_blank"
-                >
-                    <i class="fas fa-graduation-cap"></i> Google Scholar
-                </a>
-                {% endif %} {% if page.research_gate %}
-                <a
-                    href="https://www.researchgate.net/profile/{{ page.research_gate }}"
-                    class="btn btn-light btn-sm m-1"
-                    target="_blank"
-                >
-                    <i class="fab fa-researchgate"></i> ResearchGate
-                </a>
-                {% endif %}
-            </div>
-            {% endif %}
+      <!-- Social links section -->
+      {% if page.website or page.github or page.twitter or page.linkedin
+      or page.scholar or page.research_gate %}
+      <div class="most-person__social text-center mb-4">
+        {% if page.website %}
+        <a
+          href="{{ page.website }}"
+          class="btn btn-light btn-sm m-1"
+          target="_blank"
+        >
+          <i class="fas fa-globe"></i> Website
+        </a>
+        {% endif %} {% if page.github %}
+        <a
+          href="https://github.com/{{ page.github }}"
+          class="btn btn-light btn-sm m-1"
+          target="_blank"
+        >
+          <i class="fab fa-github"></i> GitHub
+        </a>
+        {% endif %} {% if page.twitter %}
+        <a
+          href="https://x.com/{{ page.twitter }}"
+          class="btn btn-light btn-sm m-1"
+          target="_blank"
+        >
+          <i class="fab fa-twitter"></i> X
+        </a>
+        {% endif %} {% if page.linkedin %}
+        <a
+          href="https://www.linkedin.com/in/{{ page.linkedin }}"
+          class="btn btn-light btn-sm m-1"
+          target="_blank"
+        >
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+        {% endif %} {% if page.scholar %}
+        <a
+          href="https://scholar.google.com/citations?user={{ page.scholar }}"
+          class="btn btn-light btn-sm m-1"
+          target="_blank"
+        >
+          <i class="fas fa-graduation-cap"></i> Google Scholar
+        </a>
+        {% endif %} {% if page.research_gate %}
+        <a
+          href="https://www.researchgate.net/profile/{{ page.research_gate }}"
+          class="btn btn-light btn-sm m-1"
+          target="_blank"
+        >
+          <i class="fab fa-researchgate"></i> ResearchGate
+        </a>
+        {% endif %}
+      </div>
+      {% endif %}
 
-            <!-- Bio content -->
-            <div class="most-person__bio">{{ content }}</div>
-        </article>
-    </div>
+      <!-- Bio content -->
+      <div class="most-person__bio">{{ content }}</div>
+    </article>
+  </div>
 </div>
