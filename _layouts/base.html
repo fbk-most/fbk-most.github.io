@@ -68,25 +68,25 @@
     </div>
   </footer>
 
+  <!-- Cookie Alert -->
+  <div class="most-cookie alert alert-dark text-center fixed-bottom mb-0" style="display: none;" role="alert">
+    <div class="container">
+      <strong>FBK websites use cookies</strong> -
+      <a href="https://www.fbk.eu/en/privacy-cookies-policy/"
+         target="_blank"
+         class="most-cookie__link">More info about Privacy and cookies policy</a>
+      <button type="button" class="btn btn-primary btn-sm ms-3 most-cookie__accept" >
+        I agree
+      </button>
+    </div>
+  </div>
+
   <!--
   At the end of the body for performance reasons. This way,
   users see the content of the page sooner.
   -->
   <script src="{{ "/assets/vendor/bootstrap/js/bootstrap.bundle.min.js" | relative_url }}"></script>
   <script src="{{ "/assets/js/main.js" | relative_url }}"></script>
-
-  <!-- Cookie Alert -->
-  <div class="most-cookie bg-dark text-white text-center fixed-bottom mb-0 d-none" role="alert">
-    <div class="container">
-      <strong>FBK websites use cookies</strong> -
-      <a href="https://www.fbk.eu/en/privacy-cookies-policy/"
-         target="_blank"
-         class="most-cookie__link">More info about Privacy and cookies policy</a>
-      <button type="button" class="btn btn-primary btn-sm ms-3 most-cookie__accept">
-        I agree
-      </button>
-    </div>
-  </div>
 
 </body>
 </html>

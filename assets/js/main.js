@@ -1,8 +1,8 @@
 // mostMaybeCookieAlert shows the cookie alert if it hasn't been shown before.
 function mostMaybeCookieAlert() {
   // Get the cookie alert elements
-  const cookieAlert = document.querySelector(".most-cookie-alert");
-  const acceptButton = document.querySelector(".most-cookie-accept");
+  const cookieAlert = document.querySelector(".most-cookie");
+  const acceptButton = document.querySelector(".most-cookie__accept");
 
   // Function to set cookie with proper encoding
   function setCookie(name, value, days) {
@@ -41,13 +41,13 @@ function mostMaybeCookieAlert() {
 
   // Show the alert if the cookie hasn't been set
   if (!getCookie(cookieName)) {
-    cookieAlert.classList.remove("d-none");
+    cookieAlert.style.display = "block";
   }
 
   // Handle the accept button click
   acceptButton.addEventListener("click", function () {
     setCookie(cookieName, "true", 365);
-    cookieAlert.classList.add("d-none");
+    cookieAlert.style.display = "none";
   });
 }
 
