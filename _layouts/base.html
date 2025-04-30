@@ -19,11 +19,11 @@
         <!-- Left: FBK Logo -->
         <a class="navbar-brand" href="https://www.fbk.eu">
           <img src="{{ '/assets/images/fbk-logo.png' | relative_url }}"
-              alt="FBK Logo" class="most-header-logo">
+              alt="FBK Logo" class="most-header__logo">
         </a>
 
         <!-- Center: Title -->
-        <h1 class="most-header-title d-none d-lg-block position-absolute start-50 translate-middle-x mb-0">
+        <h1 class="most-header__title d-none d-lg-block position-absolute start-50 translate-middle-x mb-0">
           {{ site.title }}
         </h1>
 
@@ -56,11 +56,11 @@
     </div>
   </header>
 
-  <div class="most-content">
+  <main class="most-content">
     <div class="container">
       {{ content }}
     </div>
-  </div>
+  </main>
 
   <footer class="most-footer">
     <div class="container">
@@ -76,13 +76,13 @@
   <script src="{{ "/assets/js/main.js" | relative_url }}"></script>
 
   <!-- Cookie Alert -->
-  <div class="most-cookie-alert alert alert-dark text-center fixed-bottom mb-0 d-none" role="alert">
+  <div class="most-cookie bg-dark text-white text-center fixed-bottom mb-0 d-none" role="alert">
     <div class="container">
       <strong>FBK websites use cookies</strong> -
       <a href="https://www.fbk.eu/en/privacy-cookies-policy/"
          target="_blank"
-         class="alert-link">More info about Privacy and cookies policy</a>
-      <button type="button" class="btn btn-primary btn-sm ms-3 most-cookie-accept">
+         class="most-cookie__link">More info about Privacy and cookies policy</a>
+      <button type="button" class="btn btn-primary btn-sm ms-3 most-cookie__accept">
         I agree
       </button>
     </div>
