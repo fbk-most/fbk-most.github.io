@@ -1,46 +1,29 @@
 /* We use bootstrap and bootstrap variables to define custom styles. */
 
-/* Header */
+/* Header styling */
 .most-header {
-    background-color: var(--bs-gray-100);
+    background-color: white;
     border-bottom: 1px solid var(--bs-border-color);
-    padding: 20px 0;
+    padding: 10px 0;
+}
+
+.navbar-brand img {
+    height: 50px;
+    width: auto;
 }
 
 .most-header-title {
-    margin: 0;
-    font-size: 1.8rem;
-}
-
-/* Navigation */
-.most-nav-list {
-    list-style: none;
-    padding: 0;
-    margin: 1rem 0 0;
-}
-
-.most-nav-item {
-    display: inline;
-    margin-right: 20px;
-}
-
-.most-nav-link {
-    text-decoration: none;
+    font-size: 1.2rem;
     color: #444;
-    font-weight: 600;
 }
 
-.most-nav-link:hover {
-    color: #000;
-}
-
-/* Main content */
+/* Main content area */
 .most-content {
     min-height: 500px;
     padding: 40px 0;
 }
 
-/* Footer */
+/* Footer styling */
 .most-footer {
     background-color: var(--bs-gray-100);
     padding: 20px 0;
@@ -48,15 +31,26 @@
     text-align: center;
 }
 
-/* Home page sections */
-.most-description {
-    margin: 2rem 0;
-    padding: 1rem;
-    background: #f0f0f0;
-    border-left: 4px solid #444;
+/* CC license in footer */
+.most-cc-license {
+    margin-top: var(--bs-spacer-3);
 }
 
-/* People page */
+.most-cc-license img {
+    border-width: 0;
+    height: 31px;
+}
+
+/* Cookie Alert */
+.most-cookie-alert {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+}
+
+/* People page styling */
 .most-people-title {
     text-align: center;
     margin: 2rem 0;
@@ -81,73 +75,6 @@
     font-size: 1.2rem;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
-}
-
-.most-person-name {
-}
-
-.most-person-page-links a {
-    display: inline-block;
-    margin: 0.5rem 1rem 0.5rem 0;
-    padding: 0.5rem 1rem;
-    background: var(--bs-gray-100);
-    border-radius: 0.25rem;
-    text-decoration: none;
-    color: var(--bs-gray-700);
-    transition: all 0.2s ease;
-}
-
-.most-person-page-links a:hover {
-    background: var(--bs-gray-200);
-    color: var(--bs-gray-900);
-}
-
-.most-person-page-links i {
-    margin-right: 0.5rem;
-}
-
-/* Generic page */
-.most-page-title {
-}
-
-.most-page-content {
-}
-
-/* News page */
-.most-post-list {
-    list-style: none;
-    padding: 0;
-}
-
-.most-post-list li {
-    margin-bottom: var(--bs-spacer-3);
-    padding-bottom: var(--bs-spacer-3);
-    border-bottom: 1px solid var(--bs-border-color);
-}
-
-.most-post-date {
-    color: var(--bs-gray-600);
-    font-size: var(--bs-font-size-sm);
-}
-
-/* CC license in footer */
-.most-cc-license {
-    margin-top: var(--bs-spacer-3);
-}
-
-/* CC license image */
-.most-cc-license img {
-    border-width: 0;
-    height: 31px;
-}
-
-/* Cookie Alert */
-.most-cookie-alert {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1030;
 }
 
 /* Person page styling */
@@ -191,36 +118,44 @@
 
 .most-person-page-links a {
     display: inline-block;
-    margin-right: 1rem;
-    padding: 0.3rem 0.8rem;
-    background: #eee;
-    border-radius: 4px;
+    margin: 0.5rem 1rem 0.5rem 0;
+    padding: 0.5rem 1rem;
+    background: var(--bs-gray-100);
+    border-radius: 0.25rem;
     text-decoration: none;
-    color: #444;
+    color: var(--bs-gray-700);
+    transition: all 0.2s ease;
 }
 
 .most-person-page-links a:hover {
-    background: #ddd;
-    color: #000;
+    background: var(--bs-gray-200);
+    color: var(--bs-gray-900);
 }
 
-@media (max-width: 768px) {
-    .most-person-page-header {
-        flex-direction: column;
-        text-align: center;
-    }
+.most-person-page-links i {
+    margin-right: 0.5rem;
+}
 
-    .most-person-page-image {
-        width: 150px;
-        height: 150px;
-        margin: 0 auto;
-    }
+/* News page styling */
+.most-post-list {
+    list-style: none;
+    padding: 0;
+}
 
-    .most-person-page-links {
-        text-align: center;
-    }
+.most-post-list li {
+    margin-bottom: var(--bs-spacer-3);
+    padding-bottom: var(--bs-spacer-3);
+    border-bottom: 1px solid var(--bs-border-color);
+}
 
-    .most-person-page-links a {
-        margin: 0.25rem;
+.most-post-date {
+    color: var(--bs-gray-600);
+    font-size: var(--bs-font-size-sm);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        text-align: right;
     }
 }
