@@ -1,29 +1,27 @@
-/* We use bootstrap and bootstrap variables to define custom styles. */
-
-/* Header styling */
+/* Layout Components */
 .most-header {
     background-color: white;
     border-bottom: 1px solid var(--bs-border-color);
     padding: 10px 0;
 }
 
-.most-header-logo {
+.most-header__logo {
     width: auto;
     object-fit: contain;
 }
 
-.most-header-title {
+.most-header__title {
     font-size: 1.2rem;
     color: #444;
 }
 
-/* Main content area */
+/* Main content */
 .most-content {
     min-height: 500px;
     padding: 40px 0;
 }
 
-/* Footer styling */
+/* Footer */
 .most-footer {
     background-color: var(--bs-gray-100);
     padding: 20px 0;
@@ -31,18 +29,16 @@
     text-align: center;
 }
 
-/* CC license in footer */
-.most-cc-license {
+.most-footer__license {
     margin-top: var(--bs-spacer-3);
 }
 
-.most-cc-license img {
-    border-width: 0;
+.most-footer__license-image {
     height: 31px;
 }
 
 /* Cookie Alert */
-.most-cookie-alert {
+.most-cookie {
     position: fixed;
     bottom: 0;
     left: 0;
@@ -50,129 +46,82 @@
     z-index: 1030;
 }
 
-/* Home page styling */
+/* Description Block */
 .most-description {
     margin: 2rem 0;
     padding: 1rem;
-    background: #f9f9f9;
-    border-radius: 4px;
+    background: var(--bs-gray-100);
+    border-radius: var(--bs-border-radius);
 }
 
-/* People page styling */
-.most-people-title {
-    text-align: center;
-    margin: 2rem 0;
-}
-
-.most-person-card {
-    background: #f9f9f9;
+/* Person Components */
+.most-person {
+    background: var(--bs-gray-100);
     padding: 1rem;
     text-align: center;
 }
 
-.most-person-image {
+.most-person__image {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    margin-bottom: 1rem;
     object-fit: cover;
     object-position: center;
     display: block;
-    margin: 0 auto;
+    margin: 0 auto 1rem auto;
 }
 
-.most-person-image-large {
+.most-person__image--large {
     width: 250px;
     height: 250px;
 }
 
-.most-person-card h3 {
-    font-size: 1.2rem;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-}
-
-/* Person page styling */
-.most-person-page-header {
-    background: #f9f9f9;
-}
-
-@media (max-width: 767.98px) {
-    .most-person-page-header {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-}
-
-.most-person-page-image {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: center;
-    flex-shrink: 0;
-}
-
-.most-person-page-info {
-    flex-grow: 1;
-}
-
-.most-person-page-title {
-    margin: 0;
-    font-size: 2rem;
-}
-
-.most-person-page-position {
-    color: #666;
+.most-person__name {
     font-size: 1.2rem;
     margin: 0.5rem 0;
 }
 
-.most-person-page-links {
+.most-person__header {
+    background: var(--bs-gray-100);
+}
+
+.most-person__links {
     margin-top: 1rem;
 }
 
-.most-person-page-links a {
+.most-person__link {
     display: inline-block;
     margin: 0.5rem 1rem 0.5rem 0;
     padding: 0.5rem 1rem;
     background: var(--bs-gray-100);
-    border-radius: 0.25rem;
+    border-radius: var(--bs-border-radius);
     text-decoration: none;
     color: var(--bs-gray-700);
     transition: all 0.2s ease;
 }
 
-.most-person-page-links a:hover {
+.most-person__link:hover {
     background: var(--bs-gray-200);
     color: var(--bs-gray-900);
 }
 
-.most-person-page-links i {
+.most-person__link-icon {
     margin-right: 0.5rem;
 }
 
-/* News page styling */
-.most-post-list {
+/* News Components */
+.most-news {
     list-style: none;
     padding: 0;
 }
 
-.most-post-list li {
+.most-news__item {
     margin-bottom: var(--bs-spacer-3);
     padding-bottom: var(--bs-spacer-3);
     border-bottom: 1px solid var(--bs-border-color);
 }
 
-.most-post-date {
+.most-news__date {
     color: var(--bs-gray-600);
     font-size: var(--bs-font-size-sm);
-}
-
-/* Mobile responsiveness */
-@media (max-width: 991.98px) {
-    .navbar-collapse {
-        text-align: right;
-    }
 }

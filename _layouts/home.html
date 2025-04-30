@@ -2,13 +2,9 @@
 layout: base
 ---
 
-{% include shared/homesection.html source="home/description.md" class="most-description" %}
-{% include shared/homesection.html source="home/vision.md" class="vision" %}
-{% include shared/homesection.html source="home/mission.md" class="mission" %}
-{% include shared/homesection.html source="home/researchfocus.md" class="researchfocus" %}
-{% include shared/homesection.html source="home/impact.md" class="impact" %}
-{% include shared/homesection.html source="home/strategy.md" class="strategy" %}
-{% include shared/homesection.html source="home/organization.md" class="organization" %}
-{% include shared/homesection.html source="home/seminars.md" class="seminars" %}
-{% include shared/homesection.html source="home/contact.md" class="contact" %}
-{% include shared/homesection.html source="home/joinus.md" class="joinus" %}
+{% assign sections = "description,vision,mission,researchfocus,impact,strategy,organization,seminars,contact,joinus" | split: "," %}
+
+{% for section in sections %}
+  {% assign section_path = "home/" | append: section | append: ".md" %}
+  {% include shared/homesection.html source=section_path class=section %}
+{% endfor %}
