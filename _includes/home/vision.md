@@ -1,4 +1,4 @@
-## Vision
+### Vision
 
 As societies face rapid transformations and increasing interdependence
 between technical and social systems, we envision a future in which

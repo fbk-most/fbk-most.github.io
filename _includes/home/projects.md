@@ -1,6 +1,6 @@
-## Projects
+### Projects
 
-### AIxPA: Artificial Intelligence for Public Administration
+#### AIxPA: Artificial Intelligence for Public Administration
 
 **Description**. The AIxPA project – funded within the Flagship Project PNC-A.1.3 – Digitalization of the Public Administration of the
 Autonomous Province of Trento, CUP: C49G22001020001 – aims to implement an Artificial Intelligence (AI) solution
@@ -18,7 +18,7 @@ of the use-case on the effects of overtourism and possible mitigating actions.
 
 **Links**. [AIxPA web site](https://sites.fbk.eu/aixpa-en/)
 
-### BDT: Bologna Digital Twin
+#### BDT: Bologna Digital Twin
 
 **Description**. Bologna’s Digital Twin is a project promoted by the Municipality of Bologna to enhance the public value
 of data and support innovative decision-making processes.
