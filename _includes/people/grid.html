@@ -10,7 +10,7 @@
         <div class="card h-100">
           <div class="card-body most-person-card">
             {% if person.image and include.show_images != false %}
-              <img src="{{ person.image | relative_url }}" alt="{{ person.name }}">
+              <img src="{{ person.image | relative_url }}" alt="{{ person.name }}" class="most-person-image">
             {% endif %}
             <h3 class="most-person-name">
               <a href="{{ person.url | relative_url }}">{{ person.name }}</a>
