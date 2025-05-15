@@ -5,7 +5,7 @@ position: "Visiting student"
 status: "visitor"
 image: "/assets/images/people/maja-dallacqua.jpeg" 
 github: "majada14" 
-order: 6
+order: 4
 ---
 
 Maja Dall'Acqua is a student doing an internship at the [Most research unit](/), where she studies neighbourhoods dynamics in the city of Bologna using geospatial data.
