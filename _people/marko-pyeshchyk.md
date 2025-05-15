@@ -1,6 +1,6 @@
 ---
 layout: person
-name: "P'yeshchyk Marko"
+name: "Marko P'yeshchyk"
 position: "Visiting Student"
 status: "visitor"
 image: "/assets/images/people/marko-pyeshchyk.jpg"
