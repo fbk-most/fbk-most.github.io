@@ -2,7 +2,7 @@
 layout: person
 name: "Piergiorgio Vivenzio"
 position: "Visiting PhD Student"
-status: "visitor"
+status: "alumni"
 image: "/assets/images/people/piergiorgio-vivenzio.jpg"
 linkedin: "piergiorgio-vivenzio-a44720242"
 order: 3

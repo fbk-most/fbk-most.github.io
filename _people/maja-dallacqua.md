@@ -2,7 +2,7 @@
 layout: person
 name: "Maja Dall'Acqua"
 position: "Visiting student"
-status: "visitor"
+status: "alumni"
 image: "/assets/images/people/maja-dallacqua.jpeg" 
 github: "majada14" 
 order: 4
