@@ -2,7 +2,7 @@
 layout: person
 name: "Marko P'yeshchyk"
 position: "Visiting Student"
-status: "visitor"
+status: "alumni"
 image: "/assets/images/people/marko-pyeshchyk.jpg"
 order: 4
 ---
