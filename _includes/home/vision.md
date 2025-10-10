@@ -2,7 +2,7 @@
 
 As societies face rapid transformations and increasing interdependence
 between technical and social systems, we envision a future in which
-digital technologies become essential for society to makes sense of
+digital technologies become essential for society to make sense of
 complex environmental, social, and technological
 challenges and transformation processes.
 This requires not only more effective and efficient analysis and decision-making tools, 

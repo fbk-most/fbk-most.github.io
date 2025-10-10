@@ -9,6 +9,6 @@ to help institutions, large organizations, and
 communities understand complex transformation processes, explore what-if scenarios, 
 and make data-informed decisions in high-stakes, real-world contexts.
 
-Our **applications**  are in key domains such as cities (mobility, urban planning, 
+Our **applications** are in key domains such as cities (mobility, urban planning, 
 tourism, studentification, etc.), rural areas (tourism, climate neutrality, etc.), 
 and large organizations (in particular, Public Administration).
