@@ -2,7 +2,7 @@
 layout: person
 name: "Guadalupe Sol Escalante"
 position: "Visiting Student"
-status: "visitor"
+status: "alumni"
 image: "/assets/images/people/guadalupe-escalante.jpg"
 order: 4
 ---

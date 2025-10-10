@@ -2,7 +2,7 @@
 layout: person
 name: "Simone Basso"
 position: "Senior Technologist"
-status: "current"
+status: "alumni"
 image: "/assets/images/people/simone-basso.jpg"
 twitter: "bassosimone"
 github: "bassosimone"
