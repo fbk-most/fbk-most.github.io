@@ -3,8 +3,8 @@ layout: person
 name: "Jesús A. Moreno López"
 position: "PostDoc Researcher"
 status: "current"
-image: "/assets/images/people/jesus-moreno.jpg"
-github: "jeslop013"
+image: "/assets/images/people/jesus-moreno.png"
+github: "jmorenolopez"
 scholar: "0aDu28kAAAAJ"
 order: 2
 ---
