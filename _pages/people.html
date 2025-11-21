@@ -1,0 +1,57 @@
+---
+layout: base
+title: People
+permalink: /people/
+---
+
+<!-- ===== BANNER SECTION ===== -->
+<section class="most-section most-section--banner">
+  <h1>People</h1>
+</section>
+
+<!-- ===== TEAM SECTION ===== -->
+{% assign current_people = site.people | where: "status", "current" | sort: "order" %}
+<section id="team" class="most-section most-section--team">
+  <h2 class="most-section__title">Team</h2>
+  <div class="people-grid">
+    {% for person in current_people %}
+      {% include people/person-card.html person=person %}
+    {% endfor %}
+  </div>
+</section>
+
+<!-- ===== VISITING SECTION ===== 
+{% assign visiting_people = site.people | where: "status", "visitor" | sort: "order" %}
+<section id="visiting" class="most-section most-section--visiting">
+  <h2 class="most-section__title">Visiting</h2>
+  {% if visiting_people.size > 0 %}
+    <div class="people-grid">
+      {% for person in visiting_people %}
+        {% include people/person-card.html person=person %}
+      {% endfor %}
+    </div>
+  {% else %}
+    <p class="text-muted text-center">No visiting members at the moment.</p>
+  {% endif %}
+</section>-->
+
+<!-- ===== ALUMNI SECTION ===== -->
+{% assign alumni = site.people | where: "status", "alumni" | sort: "order" %}
+<section id="alumni" class="most-section most-section--alumni">
+  <h2 class="most-section__title">Alumni</h2>
+  <div class="people-grid">
+    {% for person in alumni %}
+      {% include people/person-card.html person=person %}
+    {% endfor %}
+  </div>
+</section>
+
+<!-- ===== OPEN POSITIONS ===== -->
+<section id="positions" class="most-section">
+  <h2 class="most-section__title">Open positions</h2>
+  <div class="most-section__content">
+    <div class="most-section__block">
+      We have no open positions yet.
+    </div>
+  </div>
+</section>

@@ -8,12 +8,24 @@ url: "https://fbk-most.github.io"
 
 # Build settings
 markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
 
 # Manage automatic collections
 collections:
+  pages:
+    output: true
   people:
     output: true
-    permalink: /people/:path/
-  posts:
+    permalink: /people/:name/
+  events:
     output: true
-    permalink: /news/:year/:month/:day/:title/
+    # people:
+  #   output: true
+  #   permalink: /people/:path/
+  # posts:
+  #   output: true
+  #   permalink: /news/:year/:month/:day/:title/

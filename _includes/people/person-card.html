@@ -1,0 +1,14 @@
+<div class="person-card">
+  <div class="person-card__main">
+    <img src="{{ include.person.image | relative_url }}" 
+         alt="{{ include.person.name }}" 
+         class="person-card__image">
+    <h3 class="person-card__name">{{ include.person.name }}</h3>
+    {% if include.person.position %}
+      <p class="person-card__position">{{ include.person.position }}</p>
+    {% endif %}
+  </div>
+  <div class="person-card__bio">
+    {{ include.person.content | markdownify }}
+  </div>
+</div>
