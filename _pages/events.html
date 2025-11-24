@@ -108,9 +108,10 @@ permalink: /events/
   <!-- === Recent events (last 3 months) === -->
   <div class="most-section__content">
       <div class="most-section__content calendar-container">
-        <iframe src="https://calendar.google.com/calendar/embed?src=YOUR_PUBLIC_CALENDAR_ID&ctz=Europe/Rome"
+        <iframe src="https://calendar.google.com/calendar/embed?src=c_d601bfc4336cbbdef82bd1f757c1a53dfb735d6017da5d29e97cf40943e68146%40group.calendar.google.com&ctz=Europe%2FRome" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+        <!-- <iframe src="https://calendar.google.com/calendar/embed?src=YOUR_PUBLIC_CALENDAR_ID&ctz=Europe/Rome"
                 style="border:0" width="100%" height="600" frameborder="0" scrolling="no">
-        </iframe>
+        </iframe> -->
       </div>
 
     {% assign events = site.posts | where: "category", "event" | sort: "date" | reverse %}

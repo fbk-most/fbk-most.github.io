@@ -1,5 +1,5 @@
 ---
-layout: person
+layout: default
 name: "Federica Lago"
 position: "Researcher"
 status: "current" # or "alumni" or "visitor"

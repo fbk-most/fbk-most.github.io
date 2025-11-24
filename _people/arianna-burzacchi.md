@@ -1,5 +1,5 @@
 ---
-layout: person
+layout: default
 name: "Arianna Burzacchi"
 position: "PostDoc Researcher"
 status: "current"

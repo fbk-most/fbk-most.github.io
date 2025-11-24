@@ -1,5 +1,5 @@
 ---
-layout: person
+layout: default
 name: "Marko P'yeshchyk"
 position: "Research assistant"
 mail: "mpyeshchyk@fbk.eu"

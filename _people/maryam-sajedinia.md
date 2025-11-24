@@ -1,5 +1,5 @@
 ---
-layout: person
+layout: default
 name: "Maryam Sajedinia"
 position: "Research Assistant"
 status: "current"

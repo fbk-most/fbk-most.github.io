@@ -1,5 +1,5 @@
 ---
-layout: person
+layout: default
 name: "Maja Dall'Acqua"
 position: "Visiting student"
 status: "alumni"

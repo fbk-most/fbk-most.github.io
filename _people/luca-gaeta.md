@@ -1,5 +1,5 @@
 ---
-layout: person
+layout: default
 name: "Luca Gaeta"
 position: "Visiting Research Fellow"
 status: "alumni"

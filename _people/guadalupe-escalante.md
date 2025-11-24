@@ -1,5 +1,5 @@
 ---
-layout: person
+layout: default
 name: "Guadalupe Sol Escalante"
 position: "Visiting Student"
 status: "alumni"
