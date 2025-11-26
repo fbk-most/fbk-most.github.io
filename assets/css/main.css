@@ -363,10 +363,12 @@ main {
 
 .people-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
+  justify-content: center;
+  grid-auto-flow: dense;
 }
 
 .person-card,
@@ -411,6 +413,14 @@ main {
 }
 
 /* Expand on click */
+.person-card.expanded {
+  grid-column: 1 / -1; /* spans all columns */
+  width: 100%;
+  max-width: 100%;
+  z-index: 10; /* above other cards */
+  transition: all 0.3s ease;
+}
+
 .person-card.expanded .person-card__image {
   transform: scale(1.05);
 }
@@ -446,8 +456,10 @@ main {
 
 /* Optional: subtle hover effect on desktop */
 @media (hover: hover) {
-  .person-card:hover {
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  .people-grid .person-card:hover {
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+    transform: translateY(-3px);
+    transition: all 0.3s ease;
   }
 }
 

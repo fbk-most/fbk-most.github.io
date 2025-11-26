@@ -54,35 +54,51 @@ document.addEventListener("DOMContentLoaded", mostMaybeCookieAlert);
 
 /* PEOPLE */
 
-document.addEventListener("DOMContentLoaded", function() {
-  const grids = document.querySelectorAll('.people-grid');
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".person-card");
+  const offset = 100; // Spacing from the top of the viewport
 
-  grids.forEach(grid => {
-    const cards = grid.querySelectorAll('.person-card');
+  // Ensure cards are focusable for accessibility
+  cards.forEach(card => {
+    if (!card.hasAttribute('tabindex')) {
+      card.setAttribute('tabindex', '0');
+    }
+  });
 
-    cards.forEach(card => {
-      const main = card.querySelector('.person-card__main');
+  cards.forEach(card => {
+    card.addEventListener("click", () => {
+      const isExpanded = card.classList.contains("expanded");
 
-      main.addEventListener('click', () => {
-        // Collapse all other cards in this grid
-        cards.forEach(c => {
-          if (c !== card) {
-            c.classList.remove('expanded');
-          }
-        });
+      // Collapse all cards first
+      cards.forEach(c => c.classList.remove("expanded"));
 
-        // Toggle the clicked card
-        card.classList.toggle('expanded');
+      if (!isExpanded) {
+        // Expand clicked card
+        card.classList.add("expanded");
 
-        // Optional: scroll into view if expanded (mobile-friendly)
-        if (card.classList.contains('expanded')) {
-          card.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
+        // Wait for the CSS transition and layout reflow to complete
+        // Adjust the time (e.g., 300ms) to be slightly longer than your CSS transition duration
+        setTimeout(() => {
+          // FIX: Use card.offsetTop (position relative to document) for a stable reference.
+          const cardTop = card.offsetTop;
+          
+          // Calculate the target scroll position:
+          // The absolute position of the card's top (cardTop) minus the desired top offset (offset).
+          const targetTop = cardTop - offset;
+          
+          window.scrollTo({
+            top: targetTop,
+            behavior: "smooth"
+          });
+
+          // Set focus on the card for accessibility
+          card.focus();
+          
+        }, 300); // Wait for CSS transition (ADJUST THIS TIME if needed!)
+      }
     });
   });
 });
-
 
 /* NEWS */
 document.addEventListener("DOMContentLoaded", function() {
