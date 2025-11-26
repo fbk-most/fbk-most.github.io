@@ -110,17 +110,59 @@
   </main>
 
   <!-- ===== FOOTER ===== -->
-  <footer class="most-footer mt-auto">
-    <div>
-      <span>
-        <a href="{{ '/contacts/' | relative_url }}">Contacts</a> | 
-        <a href="https://www.fbk.eu/en/">FBK</a> | 
-        <a href="https://digis.fbk.eu/">Digital Society</a> | 
-        <a href="https://most.fbk.eu/">MoST</a>
-      </span>
-      <div>Via Sommarive, 18 - 38123 Povo (Trento), Italy</div>
+  <footer class="most-footer minimal-footer">
+    <div class="minimal-footer__wrap">
+
+      <div class="minimal-footer__cols">
+
+        <!-- LEFT -->
+        <div class="minimal-footer__col">
+          <strong>Quick links</strong>
+          <div class="spaced__tabs">
+            <a href="https://www.fbk.eu/en/" target="_blank">FBK</a> |
+            <a href="https://digis.fbk.eu/" target="_blank">Digital Society</a> |
+            <a href="https://most.fbk.eu/" target="_blank">MoST</a>
+          </div>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="minimal-footer__col">
+          <strong>Contacts</strong>
+            <div class="spaced__tabs">
+              <span>Via Sommarive, 18</span> |
+              <span>38123</span> |
+              <span>Povo (Trento)</span> |
+              <span>Italy</span>
+            </div>
+          <a href="https://www.linkedin.com/" 
+            target="_blank" 
+            class="minimal-footer__social"
+            aria-label="MoST LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Bottom row -->
+      <div class="minimal-footer__meta">
+        <span class="minimal-footer__license">
+          Developed by MoST | 
+          <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <text x="12" y="16" text-anchor="middle" font-size="10" fill="currentColor" font-family="Arial">CC</text>
+            </svg>
+            BY-SA 4.0 License
+          </a>
+        </span>
+      </div>
+
+
     </div>
   </footer>
+
+
 
   <!-- Cookie consent banner -->
   <div class="most-cookie">
