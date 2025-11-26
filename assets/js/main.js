@@ -159,3 +159,41 @@ document.addEventListener("DOMContentLoaded", function() {
   showSlide(slideIndex);
 
 });
+
+/* ANIMATION FOR TEXT */
+document.addEventListener("DOMContentLoaded", () => {
+
+  /* ===== SECTIONS ANIMATION ===== */
+  const sections = document.querySelectorAll(".most-section");
+
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("in-view");
+        sectionObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.25 });
+
+  sections.forEach(section => sectionObserver.observe(section));
+
+
+  /* ===== PERSON CARDS ANIMATION ===== */
+  const grids = document.querySelectorAll(".people-grid");
+
+  const gridObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("in-view");
+
+        const cards = entry.target.querySelectorAll(".person-card");
+        cards.forEach(card => card.classList.add("reveal"));
+
+        gridObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  grids.forEach(grid => gridObserver.observe(grid));
+
+});
