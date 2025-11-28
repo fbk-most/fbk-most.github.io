@@ -581,57 +581,78 @@ main {
 }
 
 /* SLIDESHOW */
-.slideshow-wrapper {
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  margin: 0 auto;
-  position: relative;
-}
-
 .slideshow-container {
   position: relative;
-  width: 100%;
-  height: 400px;
-  overflow: hidden;
+  width: 1000px;
+  /* This enforces the container size/ratio. 
+     You can change 10/4 to 16/9 if you prefer a standard video look */
+  aspect-ratio: 10 / 4; 
+  overflow: hidden; /* Ensures the blurred background doesn't spill out */
+  background-color: #000; /* Fallback color */
 }
 
 .mySlides {
   display: none;
   width: 100%;
+  height: 100%; /* Force slide to fill container */
   position: relative;
+  justify-content: center;
+  align-items: center;
 }
 
-.mySlides img {
+/* 1. The Blurred Background */
+.slide-blur-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  background-position: center;
+  background-size: cover; /* Stretches to fill */
+  filter: blur(20px); /* Adjust blur intensity here */
+  transform: scale(1.1); /* Slight zoom to hide white edges caused by blur */
+  z-index: 1;
+  opacity: 0.6; /* Darkens the background slightly for contrast */
 }
 
-@media (max-width: 768px) {
-  .slideshow-container {
-    height: 300px; /* smaller height for tablets/mobile */
-  }
+/* 2. The Foreground Image */
+.slide-main-img {
+  position: relative;
+  z-index: 2; /* Sits on top of blur */
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain; /* CRITICAL: Ensures image is never cropped */
 }
 
-@media (max-width: 576px) {
-  .slideshow-container {
-    height: 200px; /* even smaller for phones */
-  }
-}
-
-/* Caption */
+/* Caption (Updated z-index) */
 .slide-caption {
   position: absolute;
   bottom: 1rem;
   left: 1rem;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.6); /* Slightly darker for better readability */
   color: white;
   padding: 1rem;
   border-radius: 4px;
   max-width: 90%;
   font-size: 1rem;
   line-height: 1.3;
+  z-index: 3; /* Must be higher than image */
+}
+
+/* Keep your existing Responsive rules for height */
+@media (max-width: 768px) {
+  .slideshow-container {
+    width: 100;
+    aspect-ratio: 10 / 4; /* Optional: reset aspect ratio on mobile if desired */
+  }
+}
+
+@media (max-width: 576px) {
+  .slideshow-container {
+    width: 100%;
+    aspect-ratio: 10 /4;
+  }
 }
 
 /* Arrows */

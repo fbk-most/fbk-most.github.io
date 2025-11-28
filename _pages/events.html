@@ -15,41 +15,42 @@ permalink: /events/
 
   <!-- === Highlights slideshow (4 newest announcements) === -->
   <div class="highlights-slideshow">
-  {% assign announcements = site.posts | where: "category", "announcement" | sort: "date" | reverse %}
-  {% assign highlights = announcements | slice: 0,4 %}
+    {% assign announcements = site.posts | where: "category", "announcement" | sort: "date" | reverse %}
+    {% assign highlights = announcements | slice: 0,4 %}
 
-  <div class="slideshow-container">
-    {% for post in highlights %}
-      {% assign display_date = post.date | default: post.insertion_date | date: "%d/%m/%Y" %}
-      {% if post.image %}
-        {% assign image_url = post.image %}
-      {% else %}
-        {% assign image_url = "/assets/images/digital-twin-fbk.jpg" %}
-      {% endif %}
+    <div class="slideshow-container">
+      {% for post in highlights %}
+        {% assign display_date = post.date | default: post.insertion_date | date: "%d/%m/%Y" %}
+        {% if post.image %}
+          {% assign image_url = post.image %}
+        {% else %}
+          {% assign image_url = "/assets/images/digital-twin-fbk.jpg" %}
+        {% endif %}
 
-      <div class="mySlides">
-        <img src="{{ image_url | relative_url }}" alt="{{ post.title }}">
-        <div class="slide-caption">
-          <h3>{{ display_date }} - {{ post.title }}</h3>
-          {% if post.description %}
-            <p>{{ post.description }}</p>
-          {% endif %}
+        <div class="mySlides">
+          <div class="slide-blur-bg" style="background-image: url('{{ image_url | relative_url }}');"></div>
+          
+          <img class="slide-main-img" src="{{ image_url | relative_url }}" alt="{{ post.title }}">
+          
+          <div class="slide-caption">
+            <h3>{{ display_date }} - {{ post.title }}</h3>
+            {% if post.description %}
+              <p>{{ post.description }}</p>
+            {% endif %}
+          </div>
         </div>
-      </div>
-    {% endfor %}
+      {% endfor %}
 
-    <!-- Navigation arrows -->
-    <button class="prev-slide"></button>
-    <button class="next-slide"></button>
-  </div>
+      <button class="prev-slide"></button>
+      <button class="next-slide"></button>
+    </div>
 
-  <!-- Dots indicator -->
-  <div class="dots-container">
-    {% for post in highlights %}
-      <span class="dot"></span>
-    {% endfor %}
+    <div class="dots-container">
+      {% for post in highlights %}
+        <span class="dot"></span>
+      {% endfor %}
+    </div>
   </div>
-</div>
 
   
   <!-- === Recent announcements (last 3 months) === -->
