@@ -6,17 +6,27 @@
   <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
 
   <link rel="stylesheet" href="{{ '/assets/vendor/bootstrap/css/bootstrap.min.css' | relative_url }}">
-  <link rel="stylesheet" href="{{ '/assets/vendor/fontawesome-free/css/all.min.css' | relative_url }}">
+  <!-- <link rel="stylesheet" href="{{ '/assets/vendor/fontawesome-free/css/all.min.css' | relative_url }}"> -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/people.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/news.css' | relative_url }}">
 </head>
 <body class="d-flex flex-column min-vh-100">
 
   <!-- ===== HEADER ===== -->
 <header class="most-header d-flex align-items-center justify-content-between px-3">
   <!-- Left: FBK Logo + MoST title -->
-  <div class="d-flex align-items-center">
+  <div class="d-flex align-items-center spaced__tabs">
     <a href="https://www.fbk.eu" target="_blank">
-      <img src="{{ '/assets/images/fbk-logo-new.png' | relative_url }}" 
+      <img src="{{ '/assets/images/fbk-logo-white.png' | relative_url }}" 
+           alt="FBK Logo" class="most-header__logo">
+    </a>
+    <a href="https://most.fbk.eu/" target="_blank">
+      <img src="{{ '/assets/images/most-logo-white.png' | relative_url }}" 
            alt="FBK Logo" class="most-header__logo">
     </a>
     <span class="ms-2">MoST</span>
@@ -59,7 +69,7 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navResearchToggle">
             <li><a class="dropdown-item" href="{{ '/research/#projects' | relative_url }}">Ongoing Projects</a></li>
-            <li><a class="dropdown-item" href="{{ '/research/#publications' | relative_url }}">Publications</a></li>
+            <!-- <li><a class="dropdown-item" href="{{ '/research/#publications' | relative_url }}">Publications</a></li> -->
             <li><a class="dropdown-item" href="{{ '/research/#resources' | relative_url }}">Resources</a></li>
           </ul>
         </li>
@@ -135,23 +145,23 @@
             <span>Italy</span>
           </div>
 
-          <div class="minimal-footer__socials" style="margin-top: 0.5rem; display: inline-flex; gap: 0.5rem;">
+          <!-- <div class="minimal-footer__socials" style="margin-top: 0.5rem; display: inline-flex; gap: 0.5rem;"> -->
             <!-- Email -->
-            <a href="mailto:info@most.fbk.eu" 
+<!--             <a href="mailto:info@most.fbk.eu" 
               target="_blank" 
               class="minimal-footer__social"
               aria-label="MoST Email">
               <i class="fas fa-envelope"></i>
-            </a>
+            </a> -->
 
             <!-- LinkedIn -->
-            <a href="https://www.linkedin.com/" 
+<!--             <a href="https://www.linkedin.com/" 
               target="_blank" 
               class="minimal-footer__social"
               aria-label="MoST LinkedIn">
               <i class="fab fa-linkedin"></i>
             </a>
-          </div>
+          </div> -->
         </div>
       </div>
 

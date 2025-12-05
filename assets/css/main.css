@@ -5,16 +5,23 @@
 
 /* --- GLOBAL VARIABLES --- */
 :root {
-  --fbk-blue: #0071ce;
+  --fbk-blue: #2d64bb; /*#0071ce;*/
   --fbk-light-blue: #e6f0fa;
   --fbk-dark-blue: #004b8d;
   --fbk-gray: #909090;
-  --text-dark: #212529;
+  --text-dark: #2b2b2b;
+
   --most-header-height: 80px;
+  --section-font-size: 1.1rem;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+html, body {
+  font-family: 'Quicksand', sans-serif;
+  color: var(--text-dark);
 }
 
 main {
@@ -266,8 +273,6 @@ main {
   top: -1px; /* micro optical adjustment */
 }
 
-
-
 /* --- BASE SECTION STYLE --- */
 .most-section {
   width: 100%;
@@ -278,14 +283,19 @@ main {
   justify-content: center;
   scroll-margin-top: calc(var(--most-header-height) + 1rem);
   transition: background-color 0.4s ease;
+  font-size: var(--section-font-size);
+  position: relative; /* Anchors the absolute hexagons */
+  overflow: hidden;   /* Cuts off hexagons that fly outside */
 }
 
 /* Section title */
 .most-section__title {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 2.3rem;
   font-size: 2rem;
   font-weight: 700;
+  position: relative; 
+  z-index: 10;
 }
 
 /* Section content: dynamic grid of blocks */
@@ -298,6 +308,8 @@ main {
   width: 100%;
   margin: 0 auto;
   text-align: justify;
+  position: relative;
+  z-index: 10;
 }
 
 /* Individual content blocks */
@@ -310,7 +322,7 @@ main {
 }
 
 .most-section--banner {
-  background-color: var(--fbk-gray);
+  background-color: var(--fbk-blue);
   color: var(--text-dark);
   text-align: center;
   padding: 5rem 2rem;
@@ -328,6 +340,9 @@ main {
   font-size: 3rem;
   font-weight: 700;
   line-height: 1.2;
+  position: relative;
+  z-index: 2;
+  color: white;
 }
 
 /* Initial hidden state */
@@ -383,388 +398,6 @@ main {
   word-break: break-word;
 }
 
-/* --- PEOPLE GRID --- */
-
-.people-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  justify-content: center;
-  grid-auto-flow: dense;
-}
-
-.person-card,
-.person-card *:not(a),
-.person-card *:not(a)::before,
-.person-card *:not(a)::after,
-.person-card .person-card__main,
-.person-card .person-card__bio,
-.person-card .person-card__name {
-  color: black !important; /* override section text color */
-}
-
-.person-card .person-card__position {
-  color: var(--fbk-gray) !important; /* override section text color */
-}
-
-/* Card base */
-.person-card {
-  background: #f9f9f9;
-  border-radius: 0.5rem;
-  overflow: hidden;
-  text-align: center;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Card main (image, name, position) */
-.person-card__main {
-  padding: 1rem;
-}
-
-/* Circular image */
-.person-card__image {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin: 0 auto 0.75rem auto;
-  transition: transform 0.3s ease;
-}
-
-/* Expand on click */
-.person-card.expanded {
-  grid-column: 1 / -1; /* spans all columns */
-  width: 100%;
-  max-width: 100%;
-  z-index: 10; /* above other cards */
-  transition: all 0.3s ease;
-}
-
-.person-card.expanded .person-card__image {
-  transform: scale(1.05);
-}
-
-/* Name and position */
-.person-card__name {
-  font-weight: 600;
-  margin: 0.25rem 0;
-  color: bl;
-}
-
-.person-card__position {
-  font-size: 0.95rem;
-  color: gray;
-  margin: 0;
-}
-
-/* Bio */
-.person-card__bio {
-  max-height: 0;
-  overflow: hidden;
-  padding: 0 1rem;
-  text-align: left;
-  transition: max-height 0.4s ease, padding 0.3s ease;
-  font-size: 0.9rem;
-  line-height: 1.4;
-}
-
-.person-card.expanded .person-card__bio {
-  max-height: 1000px; /* safe large value */
-  padding: 1rem;
-}
-
-/* Initial hidden state for cards */
-.person-card {
-  opacity: 0;
-  transform: translateY(25px);
-  transition:
-    opacity 1s ease 0.6s,
-    transform 1s ease 0.6s;
-}
-
-/* When visible */
-.people-grid.in-view .person-card.reveal {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Optional: subtle hover effect on desktop */
-@media (hover: hover) {
-  .people-grid .person-card:hover {
-    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
-    transform: translateY(-3px);
-    transition: all 0.3s ease;
-  }
-}
-
-/*NEWS*/
-
-#news .most-section__block {
-  margin-bottom: 2rem;
-  padding: 1rem;
-  border-bottom: 1px solid #ccc;
-}
-
-#news .most-section__block h3 {
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
-}
-
-#news .most-section__block p {
-  margin-bottom: 0.5rem;
-}
-
-#events .most-section__block {
-  margin-bottom: 2rem;
-  padding: 1rem;
-  border-bottom: 1px solid #ccc;
-}
-
-#events .most-section__block h3 {
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
-}
-
-#events .most-section__block p {
-  margin-bottom: 0.5rem;
-}
-
-.past-news-toggle {
-  background-color: var(--fbk-blue);
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  cursor: pointer;
-  font-weight: 500;
-  border-radius: 4px;
-  max-width: 1400px;
-  width: 100%;
-  margin-top: 1em;
-}
-
-.past-news-toggle:hover {
-  background-color: var(--fbk-dark-blue);
-}
-
-.past-news-list .most-section__block {
-  border-bottom: 1px solid #ccc;
-  padding: 0.5rem 0;
-}
-
-.most-section:nth-of-type(odd) .past-news-toggle {
-  background-color: var(--fbk-light-blue);
-  color: var(--fbk-dark-blue);
-}
-
-/* Optional: hover effect */
-.most-section:nth-of-type(odd) .past-news-toggle:hover {
-  background-color: var(--fbk-dark-blue);
-  color: white;
-}
-
-.calendar-container iframe {
-  width: 100%;
-  max-width: 100%;
-  height: 600px;
-  border: none;
-}
-@media (max-width: 768px) {
-  .calendar-container iframe {
-    height: 400px;
-  }
-}
-
-/* SLIDESHOW */
-.slideshow-container {
-  position: relative;
-  width: 1000px;
-  /* This enforces the container size/ratio. 
-     You can change 10/4 to 16/9 if you prefer a standard video look */
-  aspect-ratio: 10 / 4; 
-  overflow: hidden; /* Ensures the blurred background doesn't spill out */
-  background-color: #000; /* Fallback color */
-}
-
-.mySlides {
-  display: none;
-  width: 100%;
-  height: 100%; /* Force slide to fill container */
-  position: relative;
-  justify-content: center;
-  align-items: center;
-}
-
-/* 1. The Blurred Background */
-.slide-blur-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-position: center;
-  background-size: cover; /* Stretches to fill */
-  filter: blur(20px); /* Adjust blur intensity here */
-  transform: scale(1.1); /* Slight zoom to hide white edges caused by blur */
-  z-index: 1;
-  opacity: 0.6; /* Darkens the background slightly for contrast */
-}
-
-/* 2. The Foreground Image */
-.slide-main-img {
-  position: relative;
-  z-index: 2; /* Sits on top of blur */
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: contain; /* CRITICAL: Ensures image is never cropped */
-}
-
-/* Caption (Updated z-index) */
-.slide-caption {
-  position: absolute;
-  bottom: 1rem;
-  left: 1rem;
-  background: rgba(0,0,0,0.6); /* Slightly darker for better readability */
-  color: white;
-  padding: 1rem;
-  border-radius: 4px;
-  max-width: 90%;
-  font-size: 1rem;
-  line-height: 1.3;
-  z-index: 3; /* Must be higher than image */
-}
-
-/* Keep your existing Responsive rules for height */
-@media (max-width: 768px) {
-  .slideshow-container {
-    width: 100;
-    aspect-ratio: 10 / 4; /* Optional: reset aspect ratio on mobile if desired */
-  }
-}
-
-@media (max-width: 576px) {
-  .slideshow-container {
-    width: 100%;
-    aspect-ratio: 10 /4;
-  }
-}
-
-/* Arrows */
-.prev-slide, .next-slide {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0,0,0,0.5);
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  font-size: 2rem;
-  cursor: pointer;
-  border-radius: 4px;
-  z-index: 10;
-}
-
-/* Use pseudo-elements for arrows */
-.prev-slide::after, .next-slide::after {
-  content: '';
-  display: inline-block;
-  border: solid white;
-  border-width: 0 3px 3px 0;
-  padding: 6px;
-}
-
-.prev-slide::after {
-  transform: rotate(135deg);
-}
-
-.next-slide::after {
-  transform: rotate(-45deg);
-}
-
-/* Optional hover effect */
-.prev-slide:hover, .next-slide:hover {
-  background-color: rgba(0,0,0,0.8);
-}
-
-.prev-slide { left: 1rem; }
-.next-slide { right: 1rem; }
-
-
-/* Dots */
-.dots-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-  width: 100%;
-  flex-wrap: wrap;
-}
-
-.dots-container .dot {
-  height: 15px;
-  width: 15px;
-  margin: 4px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.dots-container .dot.active {
-  background-color: #717171;
-}
-
-/* ---------- Responsive adjustments ---------- */
-@media (max-width: 991px) {
-  .slide-caption {
-    font-size: 0.9rem;
-    padding: 0.75rem;
-    bottom: 0.75rem;
-    left: 0.75rem;
-    max-width: 95%;
-  }
-
-  .prev, .next {
-    font-size: 1.5rem;
-    padding: 0.4rem 0.8rem;
-  }
-
-  .dots-container .dot {
-    height: 12px;
-    width: 12px;
-    margin: 3px;
-  }
-}
-
-@media (max-width: 576px) {
-  .slide-caption {
-    font-size: 0.8rem;
-    padding: 0.5rem;
-    bottom: 0.5rem;
-    left: 0.5rem;
-  }
-
-  .prev, .next {
-    font-size: 1.2rem;
-    padding: 0.3rem 0.6rem;
-  }
-
-  .dots-container .dot {
-    height: 10px;
-    width: 10px;
-    margin: 2px;
-  }
-}
-
-
-
 /*COOKIES*/
 /* ---------- Cookie Banner ---------- */
 .most-cookie {
@@ -814,4 +447,43 @@ main {
 .most-cookie__accept:hover {
   background-color: var(--fbk-light-blue);
   color: var(--fbk-dark-blue);
+}
+
+/* =========================================
+   --- HEXAGON ANIMATION STYLES --- 
+   ========================================= */
+
+/* Hexagon cluster wrapper */
+.hex-cluster {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hex-cluster.top-left {
+    top: -50px;
+    left: -50px;
+}
+
+.hex-cluster.bottom-right {
+    bottom: -50px;
+    right: -50px;
+    transform: rotate(180deg);
+}
+
+.hex {
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+.hex-cluster.banner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0; /* behind banner content */
 }

@@ -1,0 +1,135 @@
+/* ==============================
+   FBK | MoST | Digital Society
+   Custom CSS for modern Jekyll theme
+   ============================== */
+
+/* --- PEOPLE GRID --- */
+
+.people-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-content: center;
+  grid-auto-flow: dense;
+}
+
+.person-card,
+.person-card *:not(a),
+.person-card *:not(a)::before,
+.person-card *:not(a)::after,
+.person-card .person-card__main,
+.person-card .person-card__bio,
+.person-card .person-card__name {
+  color: black !important; /* override section text color */
+}
+
+.person-card .person-card__position {
+  color: var(--fbk-gray) !important; /* override section text color */
+}
+
+/* Card base */
+.person-card {
+  background: #f9f9f9;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Card main (image, name, position) */
+.person-card__main {
+  padding: 1rem;
+}
+
+/* Circular image */
+.person-card__image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin: 0 auto 0.75rem auto;
+  transition: transform 0.3s ease;
+
+  /* Remove circle */
+  border-radius: 0;
+
+  /* Hexagon mask */
+  clip-path: polygon(
+    25% 6.7%,
+    75% 6.7%,
+    100% 50%,
+    75% 93.3%,
+    25% 93.3%,
+    0% 50%
+  );
+}
+
+/* Expand on click */
+.person-card.expanded {
+  grid-column: 1 / -1; /* spans all columns */
+  width: 100%;
+  max-width: 100%;
+  z-index: 10; /* above other cards */
+  transition: all 0.3s ease;
+}
+
+.person-card.expanded .person-card__image {
+  transform: scale(1.05);
+}
+
+/* Name and position */
+.person-card__name {
+  font-weight: 600;
+  margin: 0.25rem 0;
+  color: bl;
+}
+
+.person-card__position {
+  font-size: 0.95rem;
+  color: gray;
+  margin: 0;
+}
+
+/* Bio */
+.person-card__bio {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 1rem;
+  text-align: left;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.person-card.expanded .person-card__bio {
+  max-height: 1000px; /* safe large value */
+  padding: 1rem;
+}
+
+/* Initial hidden state for cards */
+.person-card {
+  opacity: 0;
+  transform: translateY(25px);
+  transition:
+    opacity 1s ease 0.6s,
+    transform 1s ease 0.6s;
+}
+
+/* When visible */
+.people-grid.in-view .person-card.reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Optional: subtle hover effect on desktop */
+@media (hover: hover) {
+  .people-grid .person-card:hover {
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+    transform: translateY(-3px);
+    transition: all 0.3s ease;
+  }
+}
