@@ -5,10 +5,10 @@
 
 /* --- GLOBAL VARIABLES --- */
 :root {
-  --fbk-blue: #2d64bb; /*#0071ce;*/
-  --fbk-light-blue: #e6f0fa;
+  --fbk-blue: #0057b7; /*#0071ce;*/
+  --fbk-light-blue: #0071ce;
   --fbk-dark-blue: #004b8d;
-  --fbk-gray: #909090;
+  --fbk-gray: #97999B;
   --text-dark: #2b2b2b;
 
   --most-header-height: 80px;
@@ -308,6 +308,7 @@ main {
   width: 100%;
   margin: 0 auto;
   text-align: justify;
+  text-justify: inter-word;
   position: relative;
   z-index: 10;
 }
@@ -427,7 +428,7 @@ main {
 }
 
 .most-cookie a {
-  color: var(--fbk-light-blue);
+  color: white;
   text-decoration: underline;
 }
 
@@ -445,7 +446,7 @@ main {
 }
 
 .most-cookie__accept:hover {
-  background-color: var(--fbk-light-blue);
+  background-color: white;
   color: var(--fbk-dark-blue);
 }
 

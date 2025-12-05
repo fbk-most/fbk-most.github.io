@@ -59,7 +59,7 @@
 }
 
 .most-section:nth-of-type(odd) .past-news-toggle {
-  background-color: var(--fbk-light-blue);
+  background-color: white;
   color: var(--fbk-dark-blue);
 }
 

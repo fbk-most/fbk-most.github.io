@@ -1,3 +1,7 @@
+const rootStyles = getComputedStyle(document.documentElement);
+const fbkBlue = rootStyles.getPropertyValue('--fbk-blue').trim();
+const fbkGray = rootStyles.getPropertyValue('--fbk-gray').trim();
+
 /* COOKIES */
 function mostMaybeCookieAlert() {
   const cookieAlert = document.querySelector(".most-cookie");
@@ -198,6 +202,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+/*******************
+ * HEXAGONS ANIMATION *
+ **********************/
+
 document.addEventListener("DOMContentLoaded", () => {
     const sections = document.querySelectorAll('.most-section');
     const hexPath = "M25 0 L50 14.4 L50 43.3 L25 57.7 L0 43.3 L0 14.4 Z";
@@ -206,9 +214,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const style = window.getComputedStyle(section);
         const bgColor = style.backgroundColor;
 
-        let hexFillColor = "#2d64bb"; // default blue
-        if(bgColor.includes("45, 100, 187") || section.classList.contains('most-section--banner')) {
-            hexFillColor = "#ffffff"; // white hex on blue background
+        let hexFillColor = "white"; // default blue
+        if(bgColor.includes("255, 255, 255")) {
+            hexFillColor = fbkBlue; // white hex on blue background
         }
 
         if (section.classList.contains('most-section--banner')) {
@@ -265,45 +273,46 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // ------------------ Hexagon creation ------------------
     function createHex(svg, color, maxWidth, maxHeight, minScale, maxScale, placedHexes, minDistance) {
-        const polygon = document.createElementNS("http://www.w3.org/2000/svg", "path");
-        polygon.setAttribute("d", hexPath);
-        polygon.classList.add('hex');
+      const polygon = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      polygon.setAttribute("d", hexPath);
+      polygon.classList.add('hex');
 
-        // Random scale
-        const scale = minScale + Math.random() * (maxScale - minScale);
+      // Random scale
+      const scale = minScale + Math.random() * (maxScale - minScale);
 
-        // Random position with minimal overlap
-        const { x, y } = getRandomPosition(maxWidth, maxHeight, scale, placedHexes, minDistance);
+      // Random rotation 0–90°
+      const rotation = Math.random() * 90;
 
-        polygon.style.transform = `translate(${x}px, ${y}px) scale(0)`; // start small
-        polygon.style.fill = color;
+      // Random position
+      const { x, y } = getRandomPosition(maxWidth, maxHeight, scale, placedHexes, minDistance);
 
-        // Opacity logic
-        const finalOpacity = color === "#ffffff"
-            ? (Math.random() * 0.10 + 0.05)
-            : (Math.random() * 0.20 + 0.05);
-        polygon.style.opacity = finalOpacity;
+      polygon.style.transform = `translate(${x}px, ${y}px) rotate(${rotation}deg) scale(0)`;
+      polygon.style.fill = color;
 
-        // Random delay & duration
-        const delay = Math.random() * 0.5;
-        const duration = 2 + Math.random() * 1.5;
+      // Opacity logic
+      const finalOpacity = (Math.random() * 0.20 + 0.05);
+      polygon.style.opacity = finalOpacity;
 
-        // Animate scale only
-        polygon.animate(
-            [
-                { transform: `translate(${x}px, ${y}px) scale(0)` },
-                { transform: `translate(${x}px, ${y}px) scale(${scale})` }
-            ],
-            {
-                duration: duration * 1000,
-                delay: delay * 1000,
-                fill: "forwards",
-                easing: "ease-out"
-            }
-        );
+      // Random delay & duration
+      const delay = Math.random() * 0.5;
+      const duration = 2 + Math.random() * 1.5;
 
-        svg.appendChild(polygon);
-    }
+      polygon.animate(
+          [
+              { transform: `translate(${x}px, ${y}px) rotate(${rotation}deg) scale(0)` },
+              { transform: `translate(${x}px, ${y}px) rotate(${rotation}deg) scale(${scale})` }
+          ],
+          {
+              duration: duration * 1000,
+              delay: delay * 1000,
+              fill: "forwards",
+              easing: "ease-out"
+          }
+      );
+
+      svg.appendChild(polygon);
+  }
+
 
     // ------------------ Helper: minimal overlap ------------------
     function getRandomPosition(maxWidth, maxHeight, scale, placedHexes, minDistance) {
