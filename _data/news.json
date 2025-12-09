@@ -1,47 +1,42 @@
 [
   {
     "TITLE": "Sketching Out Our Website!",
-    "DATE": "25/03/2025",
+    "DATE": "2025-03-25",
     "DESCRIPTION": "This is the beginning of our online presence. We're building a new website describing our research unit and its activities!",
     "Longer description": "We will use this first blog post to understand how to use the [Jekyll](https://jekyllrb.com/) static site generator and customize it to our publishing needs. We will therefore frequently change the content of this blog post to reflect our progress in setting up the website and to experiment with different features.",
     "Image": "/assets/images/news/new_website.jpg",
-    "Priority": 10,
-    "DateISO": "2025-03-25"
+    "Priority": 10
   },
   {
     "TITLE": "New logo!",
-    "DATE": "17/12/2025",
+    "DATE": "2025-12-17",
     "DESCRIPTION": "We are proud to share our new identity",
     "Longer description": "Hexagons, hexagons everywhere!",
     "Image": "/assets/images/digital-twin-fbk.jpg",
-    "Priority": 10,
-    "DateISO": "2025-12-17"
+    "Priority": 10
   },
   {
     "TITLE": "Test1",
-    "DATE": "18/12/2025",
+    "DATE": "2025-12-18",
     "DESCRIPTION": "This is the fist test!",
     "Longer description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     "Image": "/assets/images/digital-twin-fbk.jpg",
-    "Priority": 0,
-    "DateISO": "2025-12-18"
+    "Priority": 0
   },
   {
     "TITLE": "Test2",
-    "DATE": "21/12/2025",
+    "DATE": "2025-12-19",
     "DESCRIPTION": "This is the second test!",
     "Longer description": "ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.",
     "Image": "/assets/images/digital-twin-fbk.jpg",
-    "Priority": -1,
-    "DateISO": "2025-12-21"
+    "Priority": 0
   },
   {
     "TITLE": "Test3",
-    "DATE": "25/12/2025",
+    "DATE": "2025-12-25",
     "DESCRIPTION": "Buon Natale!",
     "Longer description": "E felice anno nuovo!",
     "Image": "/assets/images/digital-twin-fbk.jpg",
-    "Priority": 0,
-    "DateISO": "2025-12-25"
+    "Priority": 0
   }
 ]
