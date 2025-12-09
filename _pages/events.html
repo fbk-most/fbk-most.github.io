@@ -11,11 +11,10 @@ permalink: /events/
 
 <!-- ===== NEWS ===== -->
 <section id="news" class="most-section">
-  <h2 class="most-section__title">News</h2>
 
   <!-- === Highlights slideshow (4 newest announcements) === -->
   <div class="highlights-slideshow">
-    {% assign announcements = site.posts | where: "category", "announcement" | sort: "date" | reverse %}
+    {% assign announcements = site.posts | where: "category", "news" | sort: "date" | reverse %}
     {% assign highlights = announcements | slice: 0,4 %}
 
     <div class="slideshow-container">
@@ -52,70 +51,15 @@ permalink: /events/
     </div>
   </div>
 
+  <h2 class="most-section__title">News</h2>
   
-  <!-- === Recent announcements (last 3 months) === -->
-  <div class="most-section__content">
-    {% assign announcements = site.posts | where: "category", "announcement" | sort: "date" | reverse %}
-    {% assign now_ts = 'now' | date: "%s" | plus: 0 %}
-    {% assign three_months_ago_ts = now_ts | minus: 7776000 %}
-
-    {% for post in announcements %}
-      {% if post.date %}
-        {% assign post_ts = post.date | date: "%s" | plus: 0 %}
-      {% else %}
-        {% assign post_ts = post.insertion_date | date: "%s" | plus: 0 %}
-      {% endif %}
-
-      {% if post_ts >= three_months_ago_ts %}
-        <div class="most-section__block">
-          {% assign display_date = post.date | default: post.insertion_date | date: "%d/%m/%Y" %}
-          <h3>{{ display_date }} - {{ post.title }}</h3>
-          {% if post.description %}
-            <p><strong>{{ post.description }}</strong></p>
-          {% endif %}
-          {% if post.longer_description %}
-            <p>{{ post.longer_description }}</p>
-          {% endif %}
-        </div>
-      {% endif %}
-    {% endfor %}
-  </div>
-
-    <!-- === Past news (older than 3 months) === -->
-  <button class="past-news-toggle">Past news ▼</button>
-  <div class="most-section__content">
-    <div class="past-news-list" style="display:none; margin-top:1rem;">
-      {% for post in announcements %}
-        {% if post.date %}
-          {% assign post_ts = post.date | date: "%s" | plus: 0 %}
-        {% else %}
-          {% assign post_ts = post.insertion_date | date: "%s" | plus: 0 %}
-        {% endif %}
-
-        {% if post_ts < three_months_ago_ts %}
-          {% assign display_date = post.date | default: post.insertion_date | date: "%d/%m/%Y" %}
-          <div class="most-section__block">
-            <h3>{{ display_date }} - {{ post.title }}</h3>
-          </div>
-        {% endif %}
-      {% endfor %}
-    </div>
-  </div>
-</section>
-
-<!-- ===== EVENTS ===== -->
-<section id="events" class="most-section">
-  <h2 class="most-section__title">Events</h2>
-  <!-- === Recent events (last 3 months) === -->
+  <!-- === Recent news (last 3 months) === -->
   <div class="most-section__content">
       <div class="most-section__content calendar-container">
         <iframe src="https://calendar.google.com/calendar/embed?src=c_d601bfc4336cbbdef82bd1f757c1a53dfb735d6017da5d29e97cf40943e68146%40group.calendar.google.com&ctz=Europe%2FRome" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-        <!-- <iframe src="https://calendar.google.com/calendar/embed?src=YOUR_PUBLIC_CALENDAR_ID&ctz=Europe/Rome"
-                style="border:0" width="100%" height="600" frameborder="0" scrolling="no">
-        </iframe> -->
       </div>
 
-    {% assign events = site.posts | where: "category", "event" | sort: "date" | reverse %}
+    {% assign events = site.posts | where: "category", "news" | sort: "date" | reverse %}
     {% assign now_ts = 'now' | date: "%s" | plus: 0 %}
     {% assign three_months_ago_ts = now_ts | minus: 7776000 %}
 
