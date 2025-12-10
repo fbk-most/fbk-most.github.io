@@ -10,40 +10,71 @@ permalink: /people/
 </section>
 
 <!-- ===== TEAM SECTION ===== -->
-{% assign current_people = site.people | where: "status", "current" | sort: "order" %}
+
+{% assign current_people = site.people | where: "status", "current" %}
+{% assign visitor_people = site.people | where: "status", "visitor" %}
+{% assign team = current_people | concat: visitor_people | sort: "order" %}
 <section id="team" class="most-section most-section--team">
   <h2 class="most-section__title">Team</h2>
-  <div class="people-grid">
-    {% for person in current_people %}
-      {% include people/person-card.html person=person %}
-    {% endfor %}
-  </div>
-</section>
+      <ul id="hexGrid">
+        {% for person in team %}
+          <li class="hex">
+            <div class="hexIn">
+              <a class="hexLink"
+                href="#"
+                data-name="{{ person.name }}"
+                data-position="{{ person.position }}"
+                data-image="{{ person.image | relative_url }}"
+                data-bio="{{ person.content | markdownify | strip_newlines | escape }}"
+                data-website="{{ person.website }}"
+                data-github="{{ person.github }}"
+                data-twitter="{{ person.twitter }}"
+                data-linkedin="{{ person.linkedin }}"
+                data-scholar="{{ person.scholar }}"
+                data-research_gate="{{ person.research_gate }}">
+                <img src="{{ person.image | relative_url }}" alt="{{ person.name }}" />
+                <div class="hexContent">
+                  <h3>{{ person.name }}</h3>
+                  <p>{{ person.position }}</p>
+                </div>
+              </a>
+            </div>
+          </li>
+        {% endfor %}
+    </ul>
 
-<!-- ===== VISITING SECTION ===== 
-{% assign visiting_people = site.people | where: "status", "visitor" | sort: "order" %}
-<section id="visiting" class="most-section most-section--visiting">
-  <h2 class="most-section__title">Visiting</h2>
-  {% if visiting_people.size > 0 %}
-    <div class="people-grid">
-      {% for person in visiting_people %}
-        {% include people/person-card.html person=person %}
-      {% endfor %}
-    </div>
-  {% else %}
-    <p class="text-muted text-center">No visiting members at the moment.</p>
-  {% endif %}
-</section>-->
+</section>
 
 <!-- ===== ALUMNI SECTION ===== -->
 {% assign alumni = site.people | where: "status", "alumni" | sort: "order" %}
 <section id="alumni" class="most-section most-section--alumni">
   <h2 class="most-section__title">Alumni</h2>
-  <div class="people-grid">
-    {% for person in alumni %}
-      {% include people/person-card.html person=person %}
-    {% endfor %}
-  </div>
+      <ul id="hexGrid">
+        {% for person in alumni %}
+          <li class="hex">
+            <div class="hexIn">
+              <a class="hexLink"
+                href="#"
+                data-name="{{ person.name }}"
+                data-position="{{ person.position }}"
+                data-image="{{ person.image | relative_url }}"
+                data-bio="{{ person.content | markdownify | strip_newlines | escape }}"
+                data-website="{{ person.website }}"
+                data-github="{{ person.github }}"
+                data-twitter="{{ person.twitter }}"
+                data-linkedin="{{ person.linkedin }}"
+                data-scholar="{{ person.scholar }}"
+                data-research_gate="{{ person.research_gate }}">
+                <img src="{{ person.image | relative_url }}" alt="{{ person.name }}" />
+                <div class="hexContent">
+                  <h3>{{ person.name }}</h3>
+                  <p>{{ person.position }}</p>
+                </div>
+              </a>
+            </div>
+          </li>
+        {% endfor %}
+    </ul>
 </section>
 
 <!-- ===== OPEN POSITIONS ===== -->
@@ -55,3 +86,86 @@ permalink: /people/
     </div>
   </div>
 </section>
+
+<!-- ===== MODAL ===== -->
+
+<div id="hexModal" class="hexModal">
+  <div class="hexModal-content">
+    <button class="hexModal-close">&times;</button>
+
+    <div class="most-person text-center">
+      <img id="modalImage" class="most-person__image rounded-circle" src="" alt="" />
+      <h3 id="modalName" class="mb-1"></h3>
+      <div id="modalPosition" class="text-muted mb-3"></div>
+
+      <div id="modalSocial" class="most-person__social mb-3"></div>
+
+      <div id="modalBio" class="most-person__bio text-left"></div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+document.querySelectorAll('.hexLink').forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    document.getElementById('modalImage').src = this.dataset.image;
+    document.getElementById('modalImage').alt = this.dataset.name;
+    document.getElementById('modalName').textContent = this.dataset.name;
+    document.getElementById('modalPosition').textContent = this.dataset.position;
+    document.getElementById('modalBio').innerHTML = this.dataset.bio;
+
+    // Build social links with icon + text
+    const socialContainer = document.getElementById('modalSocial');
+    socialContainer.innerHTML = ''; // clear previous
+
+    const platforms = [
+      { key: 'website', icon: 'fas fa-globe', label: 'Website' },
+      { key: 'github', icon: 'fab fa-github', label: 'GitHub' },
+      { key: 'twitter', icon: 'fab fa-twitter', label: 'X' },
+      { key: 'linkedin', icon: 'fab fa-linkedin', label: 'LinkedIn' },
+      { key: 'scholar', icon: 'fas fa-graduation-cap', label: 'Google Scholar' },
+      { key: 'research_gate', icon: 'fab fa-researchgate', label: 'ResearchGate' }
+    ];
+
+    platforms.forEach(p => {
+      const url = this.dataset[p.key];
+      if (url) {
+        let href;
+        switch (p.key) {
+          case 'website': href = url; break;
+          case 'github': href = 'https://github.com/' + url; break;
+          case 'twitter': href = 'https://x.com/' + url; break;
+          case 'linkedin': href = 'https://www.linkedin.com/in/' + url; break;
+          case 'scholar': href = 'https://scholar.google.com/citations?user=' + url; break;
+          case 'research_gate': href = 'https://www.researchgate.net/profile/' + url; break;
+        }
+
+        const a = document.createElement('a');
+        a.href = href;
+        a.target = '_blank';
+        a.className = 'btn btn-light btn-sm m-1';
+        a.innerHTML = `<i class="${p.icon}"></i> ${p.label}`;
+        socialContainer.appendChild(a);
+      }
+    });
+
+    document.getElementById('hexModal').style.display = 'flex';
+  });
+});
+
+// Close modal
+document.querySelector('.hexModal-close').onclick = function() {
+  document.getElementById('hexModal').style.display = 'none';
+};
+
+window.onclick = function(e) {
+  if (e.target.id === 'hexModal') {
+    document.getElementById('hexModal').style.display = 'none';
+  }
+};
+</script>
+
+
