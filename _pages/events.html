@@ -17,40 +17,54 @@ permalink: /events/
     {% assign all_news_slideshow = site.data.news | where_exp: "n", "n.Priority != -1"%} 
     {% assign today = 'now' | date: "%Y-%m-%d" %}
 
-    {% assign future_news = all_news_slideshow | where_exp: "n", "n.DATE > today" %}
-   
-    {% if future_news.size > 10 %}
-      <!-- Limit to 10 using Date and Priority -->
-      {% assign future_news = all_news_slideshow | where_exp: "n", "n.DATE > today" %}
-      {% assign future_news = future_news | sort: "DATE" | reverse %}
-      {% assign sorted_by_priority = future_news | sort: "Priority" | reverse %}
+    {% assign future_news = all_news_slideshow | where_exp: "n", "n.DATE >= today" %}
+    {% assign future_seminars = site.data.seminars | where_exp: "s", "s.Date >= today" %}
 
+    {% assign combined_future = future_news | concat: future_seminars %}
+
+    {% if combined_future.size > 10 %}
+      {% assign sorted_by_date = combined_future | sort: "DATE" | reverse %}
+      {% assign sorted_by_priority = sorted_by_date | sort: "Priority" | reverse %}
       {% assign highlights = sorted_by_priority | slice: 0,10 %}
     {% else %}
-      {% assign highlights = future_news %}
-      <!-- Fill missing with older news with Priority = 10 -->
-      {% assign older_news = all_news_slideshow | where_exp: "n", "n.DATE <= today and n.Priority == 10" %}
+      {% assign highlights = combined_future %}
+      
+      {% assign older_news = all_news_slideshow | where_exp: "n", "n.DATE < today and n.Priority == 10" %}
       {% assign older_news = older_news | sort: "DATE" | reverse %}
+      
       {% assign needed = 10 | minus: highlights.size %}
       {% assign fill_news = older_news | slice: 0, needed %}
       {% assign highlights = highlights | concat: fill_news %}
     {% endif %}
 
-    <!-- Sort final highlights by DATE ascending for slideshow -->
     {% assign highlights = highlights | sort: "DATE" | reverse %}
 
     <div class="slideshow-container reveal">
       {% for post in highlights %}
-        {% assign image_url = post.Image %}
+        {% if post.Image and post.Image != "" %}
+          {% assign image_url = post.Image %}
+        {% elsif post.Topic == "C3" %}
+          {% assign image_url = "/assets/images/news/Board-Franceschini_2021_cropped.webp" %}
+        {% elsif post.Topic == "Programming skills" %}
+          {% assign image_url = "/assets/images/news/Keyboard_Franceschini_cropped.webp" %}
+        {% elsif post.Topic == "Research-related" %}
+          {% assign image_url = "/assets/images/news/Books_Franceschini_3-2021_cropped.webp" %}
+        {% else %}
+          {% assign image_url = "/assets/images/news/FBK_Povo_Building_Baroni_6_cropped.webp" %}
+        {% endif %}
+
+        {% assign item_title = post.TITLE | default: "Seminar" %}
+        {% assign item_date = post.DATE | default: post.Date %}
+        {% assign item_desc = post.DESCRIPTION | default: post.Title %}
 
         <div class="mySlides">
           <div class="slide-blur-bg" style="background-image: url('{{ image_url | relative_url }}');"></div>
           
-          <img class="slide-main-img" src="{{ image_url | relative_url }}" alt="{{ post.TITLE }}">
+          <img class="slide-main-img" src="{{ image_url | relative_url }}" alt="{{ item_title }}">
           
           <div class="slide-caption">
-            <h3>{{ post.DATE }} - {{ post.TITLE }}</h3>
-            <p>{{ post.DESCRIPTION }}</p>
+            <h3>{{ item_date | date: "%d-%m-%Y" }} - {{ item_title }}</h3>
+            <p>{{ item_desc }}</p>
           </div>
         </div>
       {% endfor %}
@@ -99,7 +113,7 @@ permalink: /events/
     {% for post in recent_news %}
         <div class="most-section__block">
           {% assign display_date = post.DATE %}
-            <h3>{{ post.DATE }} - {{ post.TITLE }}</h3>
+            <h3>{{ post.DATE | date: "%d-%m-%Y"  }} - {{ post.TITLE }}</h3>
             <p>{{ post.DESCRIPTION }}</p>
             {% if post["Longer description"] %}
               <p>{{ post["Longer description"] }}</p>
@@ -114,7 +128,7 @@ permalink: /events/
     <div class="past-news-list" style="display:none; margin-top:1rem;">
       {% for post in older_news %}
         <div class="most-section__block">
-          <h3>{{ post.DATE }} - {{ post.TITLE }}</h3>
+          <h3>{{ post.DATE | date: "%d-%m-%Y"  }} - {{ post.TITLE }}</h3>
         </div>
       {% endfor %}
     </div>
@@ -142,7 +156,7 @@ permalink: /events/
       {% assign seminars = site.data.seminars | sort: "Date" | reverse %}
       {% for seminar in seminars %}
         <tr>
-          <td>{{ seminar.Date }}</td>
+          <td>{{ seminar.Date | date: "%d-%m-%Y"  }}</td>
           <td>{{ seminar.Title }}</td>
           <td>{{ seminar.Speaker }}</td>
         </tr>

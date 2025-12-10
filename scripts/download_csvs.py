@@ -52,10 +52,6 @@ def parses_news_csv(response):
       if not row["TITLE"]:
           continue
 
-      # Default image if missing
-      if not row.get("Image"):
-          row["Image"] = "/assets/images/digital-twin-fbk.jpg"
-
       # Priority to 0 if missing or invalid
       if not row.get("Priority") or not row["Priority"].isdigit():
           row["Priority"] = 0
@@ -89,7 +85,7 @@ def parse_seminars_csv(response):
       else:
           row["Public"] = int(pub)
       if row["Public"] == 1:
-        seminar_list.append({"Date": row["Date"], "Title": row["Title"], "Speaker": row["Speaker"]})
+        seminar_list.append({"Date": row["Date"], "Title": row["Title"], "Speaker": row["Speaker"], "Topic": row["Topic"]})
 
   return seminar_list
 
