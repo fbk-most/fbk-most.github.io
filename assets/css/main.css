@@ -19,7 +19,7 @@ html {
 }
 
 html, body {
-  font-family: 'Verdana', sans-serif;
+  font-family: 'Roboto', sans-serif;
   color: var(--text-dark);
 }
 
@@ -46,12 +46,13 @@ a {
   right: 0;
   height: var(--most-header-height);
   z-index: 1040;
-  background-color: var(--fbk-dark-blue);
-  color: white;
+  background-color: white;
+  color: var(--fbk-blue);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 1rem;
+  border-bottom: var(--fbk-blue) 2px solid;
 }
 
 .most-header__logo {
@@ -68,9 +69,13 @@ a {
 }
 
 .navbar-nav .nav-link {
-  color: white !important;
   padding: 0.5rem 0.75rem;
   font-weight: 500;
+}
+
+.navbar-nav .nav-link,
+.navbar-nav .dropdown-item {
+  color: var(--fbk-blue) !important;
 }
 
 .navbar-nav .dropdown-toggle-split {
@@ -89,7 +94,7 @@ a {
 .dropdown-toggle-split::after {
   margin-left: 0.25rem;
   vertical-align: middle;
-  border-top: 0.3em solid white;
+  border-top: 0.3em solid var(--fbk-blue);
   border-right: 0.3em solid transparent;
   border-left: 0.3em solid transparent;
 }
@@ -101,20 +106,21 @@ a {
     top: calc(100% + 6px);
     left: 0;
     min-width: 320px;
-    background-color: var(--fbk-dark-blue) !important;
-    border: none;
+    background-color: white !important;
+    border: 1px solid var(--fbk-blue);
     border-radius: 6px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     z-index: 2000;
   }
 
   .navbar .dropdown-item {
-    color: white !important;
+    color: var(--fbk-blue) !important;
     padding: 0.6rem 1.1rem;
   }
 
   .navbar .dropdown-item:hover {
     background-color: var(--fbk-blue) !important;
+    color: white !important;
   }
 }
 
@@ -128,7 +134,7 @@ a {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: var(--fbk-dark-blue);
+    background-color: white;
     padding: 1rem 1.25rem;
     overflow-y: auto;
     z-index: 1060;
@@ -202,9 +208,10 @@ a {
 
 /* --- FOOTER --- */
 .minimal-footer {
-  background: var(--fbk-dark-blue);
-  color: white;
+  background: white;
+  color: var(--fbk-blue);
   padding: 2rem 1rem 1.5rem;
+  border-top: var(--fbk-blue) 2px solid;
 }
 
 .minimal-footer__wrap {
@@ -231,7 +238,7 @@ a {
 }
 
 .minimal-footer a {
-  color: white;
+  color: var(--fbk-blue);
   text-decoration: none;
   display: block;
   margin: 0.2rem 0;
@@ -239,7 +246,7 @@ a {
 }
 
 .minimal-footer a:hover {
-  color: white;
+  color:var(--fbk-blue);
 }
 
 /* LinkedIn */
@@ -262,14 +269,14 @@ a {
   align-items: center;
   gap: 0.4rem;
   font-size: 0.85rem;
-  color: white;
+  color: var(--fbk-blue);
 }
 
 .minimal-footer__license a {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  color: white;
+  color: var(--fbk-blue);
   text-decoration: underline;
 }
 
