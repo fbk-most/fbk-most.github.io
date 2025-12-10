@@ -270,30 +270,44 @@
 
 /* Table */
 
-  table {
-    max-width: 1400px;
-    border-collapse: collapse;
-    font-family: sans-serif;
-    margin-top: 2rem;
-  }
+table {
+  max-width: 1400px;
+  border-collapse: collapse;
+  font-family: sans-serif;
+  margin-top: 2rem;
+}
 
-  /* Cell padding: vertical + horizontal */
-  th, td {
-    padding: 12px 16px; /* 12px top/bottom, 16px left/right */
-    text-align: left;
-  }
+/* Cell padding: vertical + horizontal */
+th, td {
+  padding: 12px 16px; /* 12px top/bottom, 16px left/right */
+  text-align: left;
+}
 
-  /* Header background with 30% opacity */
-  thead th {
-    background-color: rgba(255, 255, 255, 0.3);
-  }
+/* Header background with 30% opacity */
+thead th {
+  background-color: rgba(255, 255, 255, 0.3);
+}
 
-  /* Even rows background with 15% opacity */
-  tbody tr:nth-child(even) {
-    background-color: rgba(255, 255, 255, 0.15);
-  }
+/* Even rows background with 15% opacity */
+tbody tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.15);
+}
 
-  /* Optional: add subtle borders for readability */
-  th, td {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  }
+/* Optional: add subtle borders for readability */
+th, td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ===== override for odd sections ===== */
+.most-section:nth-of-type(even) table th,
+.most-section:nth-of-type(even) table td {
+  border-bottom: 1px solid rgba(17, 102, 179, 0.3); /* white with opacity */
+}
+
+.most-section:nth-of-type(even) table thead th {
+  background-color: rgba(17, 102, 179, 0.15); /* softer white for header */
+}
+
+.most-section:nth-of-type(even) table tbody tr:nth-child(even) {
+  background-color: rgba(17, 102, 179, 0.1); /* subtle even-row highlight */
+}

@@ -5,10 +5,9 @@
 
 /* --- GLOBAL VARIABLES --- */
 :root {
-  --fbk-blue: #0057b7; /*#0071ce;*/
-  --fbk-light-blue: #0071ce;
+  --fbk-blue:#0068b4;
   --fbk-dark-blue: #004b8d;
-  --fbk-gray: #97999B;
+  --fbk-gray: #a5a5a5;
   --text-dark: #2b2b2b;
 
   --most-header-height: 80px;
@@ -20,12 +19,18 @@ html {
 }
 
 html, body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Verdana', sans-serif;
   color: var(--text-dark);
 }
 
 main {
   padding-top: var(--most-header-height);
+}
+
+a {
+  color: var(--fbk-blue);
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .spaced__tabs {
@@ -234,7 +239,7 @@ main {
 }
 
 .minimal-footer a:hover {
-  color: var(--fbk-blue);
+  color: white;
 }
 
 /* LinkedIn */
@@ -361,6 +366,21 @@ main {
 .most-section.in-view .most-section__content {
   opacity: 1;
   transform: translateY(0);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition:
+    opacity 1.6s ease,
+    transform 1.6s ease;
+}
+
+/* When the container gets .in-view, reveal elements that have .reveal */
+.most-section.in-view .reveal {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s;
 }
 
 /* Stagger effect for blocks */
