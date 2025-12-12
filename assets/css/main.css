@@ -309,6 +309,8 @@ a {
   font-weight: 700;
   position: relative; 
   z-index: 10;
+
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 /* Section content: dynamic grid of blocks */
@@ -357,6 +359,7 @@ a {
   position: relative;
   z-index: 2;
   color: white;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
 }
 
 /* Initial hidden state */
