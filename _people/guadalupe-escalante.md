@@ -10,8 +10,8 @@ order: 4
 Guadalupe Escalante is a Geospatial Engineer from the National University
 of Córdoba, Argentina.
 
-She completed an internship at the 
-[MoST research unit](/), where she explored the contribution
+From March to July 2025, she did an internship at the [MoST research unit](/), 
+where she explored the contribution
 of remote sensing to digital twins projects.
 
 Guadalupe is pursuing a Master's degree in Spatial Information
