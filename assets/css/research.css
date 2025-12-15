@@ -1,0 +1,34 @@
+/* --- H3 with image layout --- */
+.project-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.project-title img {
+  width: 30%;
+  max-width: 120px;      /* prevents oversized logos */
+  height: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.project-title span {
+  width: 80%;
+}
+
+@media (max-width: 576px) {
+  .project-title {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .project-title img {
+    width: 60%;
+    max-width: 120px;
+  }
+
+  .project-title span {
+    width: 100%;
+  }
+}

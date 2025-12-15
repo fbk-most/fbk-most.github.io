@@ -415,8 +415,13 @@ a {
 /* Ensure headings and paragraphs are readable on blue background */
 .most-section:not(.most-section--banner):nth-of-type(odd) h1,
 .most-section:not(.most-section--banner):nth-of-type(odd) h2,
-.most-section:not(.most-section--banner):nth-of-type(odd) p {
+.most-section:not(.most-section--banner):nth-of-type(odd) p,
+.most-section:not(.most-section--banner):nth-of-type(odd) a {
   color: white;
+}
+
+.most-section:not(.most-section--banner):nth-of-type(odd) a {
+  text-decoration: underline;
 }
 
 /* --- TYPOGRAPHY --- */

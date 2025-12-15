@@ -54,12 +54,6 @@
     "Topic": "Programming skills"
   },
   {
-    "Date": "2025-05-21",
-    "Title": "MoST identity: discussion on the logo",
-    "Speaker": "All the team",
-    "Topic": "MoST core"
-  },
-  {
     "Date": "2025-05-28",
     "Title": "Clustering and community detection in Bologna",
     "Speaker": "Maja Dall'Acqua",
@@ -115,7 +109,7 @@
   },
   {
     "Date": "2025-10-01",
-    "Title": "NLP",
+    "Title": "Evaluating Linguistic Speaker Profiles on Response Selection in Multiparty Dialogue",
     "Speaker": "Maryam Sajedinia",
     "Topic": "Research-related"
   },

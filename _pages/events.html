@@ -118,6 +118,10 @@ permalink: /events/
             {% if post["Longer description"] %}
               <p>{{ post["Longer description"] }}</p>
             {% endif %}
+            {% assign link = post.Link | default: "" | strip %}
+            {% if link != "" %}
+                <p><a href="{{ link }}" target="_blank">Event link</a></p>
+            {% endif %}
         </div>
     {% endfor %}
   </div>

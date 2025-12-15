@@ -1,5 +1,9 @@
+import os
 import requests
 import csv, json
+
+LINK_NEWS = os.environ.get("LINK_NEWS")
+LINK_SEMINARS = os.environ.get("LINK_SEMINARS")
 
 def likely_mojibake(s: str) -> bool:
     # heuristics: common mojibake fragments (Ã, â, sequences like â, and replacement char)
@@ -89,11 +93,11 @@ def parse_seminars_csv(response):
 
   return seminar_list
 
-response = download_csv("1f2TdtDaVzKAB1CGaxNQG91AS4CdyEZ97cxJ8YEVx6Dg")
+response = download_csv(LINK_NEWS)
 news_list = parses_news_csv(response)
 save_json("_data/news.json", news_list)
 
-response = download_csv("1CoUFflEp3-yq4_REJ2q9rIRE0z9OMkoynB4WgcxAqI4")
+response = download_csv(LINK_SEMINARS)
 seminars_list = parse_seminars_csv(response)
 save_json("_data/seminars.json", seminars_list)
 
@@ -125,6 +129,9 @@ jobs:
         run: pip install requests
 
       - name: Download Google Sheet CSV
+        env:
+          LINK_NEWS: ${{ secrets.LINK_NEWS }}
+          LINK_SEMINARS: ${{ secrets.LINK_SEMINARS }}
         run: python scripts/download_news.py
 
       - name: Commit and push CSV
