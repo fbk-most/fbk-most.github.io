@@ -10,8 +10,7 @@ scholar: "f_TerfgAAAAJ"
 order: 1
 ---
 
-Simone Basso is a Senior Technologist at the [MoST research
-unit](/) where he manages the development of the
+Simone Basso was a Senior Technologist at the [MoST unit](/) from January to August 2025. He managed the development of the
 [DT Model](https://github.com/fbk-most/dt-model) evaluation engine.
 
 Before joining [FBK](https://www.fbk.eu/), Simone was measuring
