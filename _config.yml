@@ -23,9 +23,3 @@ collections:
     permalink: /people/:name/
   events:
     output: true
-    # people:
-  #   output: true
-  #   permalink: /people/:path/
-  # posts:
-  #   output: true
-  #   permalink: /news/:year/:month/:day/:title/
