@@ -301,13 +301,13 @@ th, td {
 /* ===== override for odd sections ===== */
 .most-section:nth-of-type(even) table th,
 .most-section:nth-of-type(even) table td {
-  border-bottom: 1px solid rgba(17, 102, 179, 0.3); /* white with opacity */
+  border-bottom: 1px solid rgba(0, 85, 184, 0.3); /* white with opacity */
 }
 
 .most-section:nth-of-type(even) table thead th {
-  background-color: rgba(17, 102, 179, 0.15); /* softer white for header */
+  background-color: rgba(0, 85, 184, 0.15); /* softer white for header */
 }
 
 .most-section:nth-of-type(even) table tbody tr:nth-child(even) {
-  background-color: rgba(17, 102, 179, 0.1); /* subtle even-row highlight */
+  background-color: rgba(0, 85, 184, 0.1); /* subtle even-row highlight */
 }
