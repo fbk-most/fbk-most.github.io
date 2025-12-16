@@ -6,7 +6,7 @@
 /* --- GLOBAL VARIABLES --- */
 :root {
   --fbk-blue:#0057B7;
-  --fbk-dark-blue: #004b8d;
+  --fbk-dark-blue: rgb(46 64 131);
   --fbk-gray: #97999b;
   --text-dark: #2b2b2b;
 
@@ -59,6 +59,16 @@ a {
 .most-header__logo {
   height: 48px;
 }
+
+/* --- MoST logo + label --- */
+.most-header__most-label {
+  margin-top: 0.15rem;
+  font-family: "Frutiger Condensed", "Frutiger", Arial, sans-serif;
+  font-weight: 700; /* Bold */
+  font-size: 0.85rem;
+  color: var(--fbk-gray);
+}
+
 
 /* --- NAVBAR --- */
 
@@ -342,6 +352,10 @@ a {
   color: var(--text-dark);
   text-align: center;
   padding: 5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
 }
 
 .most-section:not(.most-section--banner) {
@@ -360,6 +374,30 @@ a {
   z-index: 2;
   color: white;
   text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+}
+
+.most-section--banner__image {
+  max-width: 160px;
+  height: auto;
+}
+
+/* Large screens: logo left, title right */
+@media (min-width: 992px) {
+  .most-section--banner {
+    flex-direction: row;
+    justify-content: center;
+    text-align: left;
+    gap: 3rem;
+  }
+
+  .most-section--banner__image {
+    max-width: 160px;
+    flex-shrink: 0;
+  }
+
+  .most-section--banner h1 {
+    margin: 0;
+  }
 }
 
 /* Initial hidden state */
