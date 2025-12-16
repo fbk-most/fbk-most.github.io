@@ -5,7 +5,7 @@ position: "Research assistant"
 mail: "mpyeshchyk@fbk.eu"
 status: "current"
 image: "/assets/images/people/marko-pyeshchyk.jpg"
-order: 5
+order: 4
 ---
 
 Marko P'yeshchyk is a research assistant at the [MoST research unit](/) where he works on the uncertainty theme of the Digital Twin project of Bologna.

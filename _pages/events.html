@@ -11,24 +11,14 @@ permalink: /events/
 
 <!-- ===== NEWS ===== -->
 <section id="news" class="most-section">
+  <!-- ===== SLIDESHOW ===== -->
 
   <div class="highlights-slideshow">
-    {% assign all_news_slideshow = site.data.news %}
+    {% assign all_news_slideshow = site.data.news | where_exp: "n", "n.Priority != -1"%} 
     {% assign today = 'now' | date: "%Y-%m-%d" %}
 
-    {% assign future_news = "" | split: "" %}
-    {% for n in all_news_slideshow %}
-      {% if n.Priority != -1 and n.DATE >= today %}
-        {% assign future_news = future_news | push: n %}
-      {% endif %}
-    {% endfor %}
-
-    {% assign future_seminars = "" | split: "" %}
-    {% for s in site.data.seminars %}
-      {% if s.Date >= today %}
-        {% assign future_seminars = future_seminars | push: s %}
-      {% endif %}
-    {% endfor %}
+    {% assign future_news = all_news_slideshow | where_exp: "n", "n.DATE >= today" %}
+    {% assign future_seminars = site.data.seminars | where_exp: "s", "s.Date >= today" %}
 
     {% assign combined_future = future_news | concat: future_seminars %}
 
@@ -38,15 +28,10 @@ permalink: /events/
       {% assign highlights = sorted_by_priority | slice: 0,10 %}
     {% else %}
       {% assign highlights = combined_future %}
-
-      {% assign older_news = "" | split: "" %}
-      {% for n in all_news_slideshow %}
-        {% if n.DATE < today and n.Priority == 10 %}
-          {% assign older_news = older_news | push: n %}
-        {% endif %}
-      {% endfor %}
+      
+      {% assign older_news = all_news_slideshow | where_exp: "n", "n.DATE < today and n.Priority == 10" %}
       {% assign older_news = older_news | sort: "DATE" | reverse %}
-
+      
       {% assign needed = 10 | minus: highlights.size %}
       {% assign fill_news = older_news | slice: 0, needed %}
       {% assign highlights = highlights | concat: fill_news %}
@@ -74,7 +59,9 @@ permalink: /events/
 
         <div class="mySlides">
           <div class="slide-blur-bg" style="background-image: url('{{ image_url | relative_url }}');"></div>
+          
           <img class="slide-main-img" src="{{ image_url | relative_url }}" alt="{{ item_title }}">
+          
           <div class="slide-caption">
             <h3>{{ item_date | date: "%d-%m-%Y" }} - {{ item_title }}</h3>
             <p>{{ item_desc }}</p>
@@ -94,21 +81,25 @@ permalink: /events/
   </div>
 
   <h2 class="most-section__title">News</h2>
+  <!-- ===== CALENDAR ===== -->
   <div class="calendar-container reveal">
     <iframe src="https://calendar.google.com/calendar/embed?src=c_d601bfc4336cbbdef82bd1f757c1a53dfb735d6017da5d29e97cf40943e68146%40group.calendar.google.com&ctz=Europe%2FRome"></iframe>
   </div>
-
+  </div>
+  
   <!-- === Recent news (last 3 months) === -->
+
   <div class="most-section__content">
-    {% assign all_news = site.data.news %}
-    {% assign today = 'now' | date: "%s" | plus: 0 %}
-    {% assign three_months_ago = today | minus: 7776000 %}
+
+    {% assign all_news = site.data.news %} 
+    {% assign today = 'now' | date: "%Y-%m-%d" %}
+    {% assign three_months_ago = 'now' | date: "%s" | minus: 7776000 %} <!-- 7776000 seconds -->
 
     {% assign recent_news = "" | split: "" %}
     {% assign older_news = "" | split: "" %}
 
     {% for n in all_news %}
-      {% assign news_date = n.DATE | date: "%s" | plus: 0 %}
+      {% assign news_date = n.DATE | date: "%s" | plus: 0 %} <!-- convert to number -->
       {% if news_date >= three_months_ago %}
         {% assign recent_news = recent_news | push: n %}
       {% else %}
@@ -118,34 +109,36 @@ permalink: /events/
 
     {% assign recent_news = recent_news | sort: "DATE" | reverse %}
     {% assign older_news = older_news | sort: "DATE" | reverse %}
-
+    
     {% for post in recent_news %}
-      <div class="most-section__block">
-        <h3>{{ post.DATE | date: "%d-%m-%Y" }} - {{ post.TITLE }}</h3>
-        <p>{{ post.DESCRIPTION }}</p>
-        {% if post["Longer description"] %}
-          <p>{{ post["Longer description"] }}</p>
-        {% endif %}
-        {% assign link = post.Link | default: "" | strip %}
-        {% if link != "" %}
-          <p><a href="{{ link }}" target="_blank">Event link</a></p>
-        {% endif %}
-      </div>
+        <div class="most-section__block">
+          {% assign display_date = post.DATE %}
+            <h3>{{ post.DATE | date: "%d-%m-%Y"  }} - {{ post.TITLE }}</h3>
+            <p>{{ post.DESCRIPTION }}</p>
+            {% if post["Longer description"] %}
+              <p>{{ post["Longer description"] }}</p>
+            {% endif %}
+            {% assign link = post.Link | default: "" | strip %}
+            {% if link != "" %}
+                <p><a href="{{ link }}" target="_blank">Event link</a></p>
+            {% endif %}
+        </div>
     {% endfor %}
   </div>
 
-  <!-- === Past news (older than 3 months) === -->
+    <!-- === Past news (older than 3 months) === -->
   <button class="past-news-toggle">Past events ▼</button>
   <div class="most-section__content">
     <div class="past-news-list" style="display:none; margin-top:1rem;">
       {% for post in older_news %}
         <div class="most-section__block">
-          <h3>{{ post.DATE | date: "%d-%m-%Y" }} - {{ post.TITLE }}</h3>
+          <h3>{{ post.DATE | date: "%d-%m-%Y"  }} - {{ post.TITLE }}</h3>
         </div>
       {% endfor %}
     </div>
   </div>
 </section>
+
 
 <!-- ===== SEMINARS ===== -->
 <section id="seminars" class="most-section">
@@ -167,11 +160,12 @@ permalink: /events/
       {% assign seminars = site.data.seminars | sort: "Date" | reverse %}
       {% for seminar in seminars %}
         <tr>
-          <td>{{ seminar.Date | date: "%d-%m-%Y" }}</td>
+          <td>{{ seminar.Date | date: "%d-%m-%Y"  }}</td>
           <td>{{ seminar.Title }}</td>
           <td>{{ seminar.Speaker }}</td>
         </tr>
       {% endfor %}
     </tbody>
   </table>
+
 </section>

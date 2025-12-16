@@ -7,7 +7,7 @@ image: "/assets/images/people/simone-basso.jpg"
 twitter: "bassosimone"
 github: "bassosimone"
 scholar: "f_TerfgAAAAJ"
-order: 1
+order: 2
 ---
 
 Simone Basso was a Senior Technologist at the [MoST unit](/) from January to August 2025. He managed the development of the [DT Model](https://github.com/fbk-most/dt-model) evaluation engine.
