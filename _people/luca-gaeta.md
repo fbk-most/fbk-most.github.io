@@ -13,6 +13,4 @@ order: 0
 
 As a visiting research fellow at the [MoST research unit](/), Luca Gaeta analyzed urban hybrid spaces and related planning issues between March and June 2025.
 
-Beyond visiting [FBK](https://www.fbk.eu/), Luca is a full professor of urban planning
-at Politecnico di Milano, [Department of Architecture and Urban Studies](https://www.dastu.polimi.it/), and was chair of the PhD programme
-in Urban planning, design and policy until December 2024.
+Beyond visiting [FBK](https://www.fbk.eu/), Luca is a full professor of urban planning at Politecnico di Milano, [Department of Architecture and Urban Studies](https://www.dastu.polimi.it/), and was chair of the PhD programme in Urban planning, design and policy until December 2024.

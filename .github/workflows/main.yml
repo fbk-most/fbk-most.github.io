@@ -26,7 +26,7 @@ jobs:
         env:
           LINK_NEWS: ${{ secrets.LINK_NEWS }}
           LINK_SEMINARS: ${{ secrets.LINK_SEMINARS }}
-        run: python scripts/download_news.py
+        run: python scripts/download_csvs.py
 
       - name: Commit and push CSV
         run: |
