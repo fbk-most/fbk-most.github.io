@@ -3,7 +3,7 @@ layout: default
 name: "Maryam Sajedinia"
 position: "PhD Student"
 status: "current"
-image: "/assets/images/people/maryam-sajedinia.jpeg"
+image: "/assets/images/people/maryam-sajedinia.jpg"
 twitter: "maryamsajedinia"
 github: "maryamsajedi"
 scholar: "qsY6O_UAAAAJ"
