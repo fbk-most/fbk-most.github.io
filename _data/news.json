@@ -1,0 +1,38 @@
+[
+  {
+    "TITLE": "Sketching Out Our Website!",
+    "DATE": "2025-03-25",
+    "DESCRIPTION": "This is the beginning of our online presence. We're building a new website describing our research unit and its activities!",
+    "Longer description": "We will use this first blog post to understand how to use the [Jekyll](https://jekyllrb.com/) static site generator and customize it to our publishing needs. We will therefore frequently change the content of this blog post to reflect our progress in setting up the website and to experiment with different features.",
+    "Link": "",
+    "Image": "",
+    "Priority": 8
+  },
+  {
+    "TITLE": "Congratulations on Jesus PhD Defense!",
+    "DATE": "2025-12-11",
+    "DESCRIPTION": "Celebrating a major milestone: Jesus has successfully defended their doctoral thesis.",
+    "Longer description": "We are thrilled to congratulate our colleague Jesus, who was awarded Cum Laude after successfully defending his PhD thesis! We are sure that this is just the start of a brilliant research career.The thesis titled \"An Agent Based Journey in Social Systems Research\" was developed under the supervision of Jose J. Ramasco and Sandro Meloni from IFISC at the University of the Balearic Islands.",
+    "Link": "",
+    "Image": "/assets/images/news/Jesus-defense.webp",
+    "Priority": 10
+  },
+  {
+    "TITLE": "Unveiling Our New Research Group Logo",
+    "DATE": "2025-12-16",
+    "DESCRIPTION": "We are proud to share the result of a collaborative journey that blends structure and complexity into a logo the fully represents us.",
+    "Longer description": "Creating our new logo was an iterative, collaborative process, reflecting the spirit of our research group. We ultimately chose a hexagon to represent connections, structure, and the modeling at the heart of our work. Inside, the “stretch and fold” pattern—drawn from ideas in chaos theory and fractals—symbolizes how simple rules can generate complex, intricate behavior. Just as in chaotic systems, this motif combines expansion and folding to create dynamic patterns within an orderly framework, mirroring the interplay of order and complexity in our research.",
+    "Link": "",
+    "Image": "",
+    "Priority": 10
+  },
+  {
+    "TITLE": "HARMONIE project kick-off!",
+    "DATE": "2025-11-17",
+    "DESCRIPTION": "Today in Barcelona we are kicking-off the HARMONIE project!",
+    "Longer description": "Coordinated by the Barcelona Supercomputing Center (BSC), the HARMONIE project aims to develop advanced tools that support informed policymaking cncerning urban air and noise pollution - a challenge for many European cities. The kick-off of the project took place today in Barcelona.",
+    "Link": "",
+    "Image": "",
+    "Priority": 10
+  }
+]

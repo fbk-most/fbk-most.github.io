@@ -1,5 +1,5 @@
 ---
-layout: person
+layout: default
 name: "Guadalupe Sol Escalante"
 position: "Visiting Student"
 status: "alumni"
@@ -8,8 +8,10 @@ order: 4
 ---
 
 Guadalupe Escalante is a Geospatial Engineer from the National University
-of Córdoba, Argentina; currently doing an internship at the
-[MoST research unit](/), where she explores the contribution
+of Córdoba, Argentina.
+
+From March to July 2025, she did an internship at the [MoST research unit](/), 
+where she explored the contribution
 of remote sensing to digital twins projects.
 
 Guadalupe is pursuing a Master's degree in Spatial Information

@@ -3,90 +3,204 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
 
-  <link rel="stylesheet" href="{{ "/assets/vendor/bootstrap/css/bootstrap.min.css" | relative_url }}">
-  <link rel="stylesheet" href="{{ "/assets/vendor/fontawesome-free/css/all.min.css" | relative_url }}">
-  <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/vendor/bootstrap/css/bootstrap.min.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/vendor/fontawesome-free/css/all.min.css' | relative_url }}">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/people.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/news.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/research.css' | relative_url }}">
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
 
-  <header class="most-header">
-    <div class="container">
-      <nav class="navbar navbar-expand-lg">
+  <!-- ===== HEADER ===== -->
+<header class="most-header d-flex align-items-center justify-content-between px-3">
+  <!-- Left: FBK Logo + MoST title -->
+  <div class="d-flex align-items-center spaced__tabs">
 
-        <!-- Left: FBK Logo -->
-        <a class="navbar-brand" href="https://www.fbk.eu">
-          <img src="{{ '/assets/images/fbk-logo.png' | relative_url }}"
-              alt="FBK Logo" class="most-header__logo">
-        </a>
+    <a href="https://www.fbk.eu" target="_blank">
+      <img src="{{ '/assets/images/logos/FBK_Logo_Vertical_colour.png' | relative_url }}" 
+           alt="FBK Logo" class="most-header__logo">
+    </a>
 
-        <!-- Center: Title -->
-        <h1 class="most-header__title d-none d-lg-block position-absolute start-50 translate-middle-x mb-0">
-          {{ site.title }}
-        </h1>
+    <div class="most-header__most">
+      <a href="https://most.fbk.eu/" target="_blank">
+        <img src="{{ '/assets/images/logos/most-logo.png' | relative_url }}" 
+             alt="MoST Logo" class="most-header__logo">
+      </a>
+      <span class="most-header__most-label">MoST</span>
+    </div>
 
-        <!-- Right: Hamburger menu for mobile -->
-        <button class="navbar-toggler" type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#mostNavbarNav"
-          aria-controls="mostNavbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+  </div>
 
-        <!-- Right: Navigation items -->
-        <div class="collapse navbar-collapse justify-content-end" id="mostNavbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="{{ '/' | relative_url }}">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ '/people' | relative_url }}">People</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ '/news' | relative_url }}">News</a>
-            </li>
+  <!-- Right: Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-transparent most-navbar">
+  <div class="container">
+
+    <!-- Hamburger toggle -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+      aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="mainNavbar">
+      <ul class="navbar-nav ms-auto">
+
+        <!-- Home -->
+        <li class="nav-item dropdown">
+          <a id="navHomeLink" class="nav-link" href="{{ '/' | relative_url }}">Home</a>
+          <a id="navHomeToggle" class="nav-link dropdown-toggle dropdown-toggle-split" href="#" role="button"
+             data-bs-toggle="dropdown" aria-expanded="false" aria-label="Toggle Home submenu">
+            <span class="visually-hidden">Toggle Dropdown</span>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navHomeToggle">
+            <li><a class="dropdown-item" href="{{ '/' | relative_url }}#about">About</a></li>
+            <li><a class="dropdown-item" href="{{ '/' | relative_url }}#vision">Vision</a></li>
+            <li><a class="dropdown-item" href="{{ '/' | relative_url }}#approach">Approach</a></li>
           </ul>
-        </div>
+        </li>
 
-      </nav>
-    </div>
-  </header>
+        <!-- Research & Projects -->
+        <li class="nav-item dropdown">
+          <a id="navResearchLink" class="nav-link" href="{{ '/research/' | relative_url }}">Research & Projects</a>
+          <a id="navResearchToggle" class="nav-link dropdown-toggle dropdown-toggle-split" href="#" role="button"
+             data-bs-toggle="dropdown" aria-expanded="false" aria-label="Toggle Research submenu">
+            <span class="visually-hidden">Toggle Dropdown</span>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navResearchToggle">
+            <li><a class="dropdown-item" href="{{ '/research/#projects' | relative_url }}">Ongoing Projects</a></li>
+            <!-- <li><a class="dropdown-item" href="{{ '/research/#publications' | relative_url }}">Publications</a></li> -->
+            <li><a class="dropdown-item" href="{{ '/research/#resources' | relative_url }}">Resources</a></li>
+          </ul>
+        </li>
 
-  <main class="most-content">
-    <div class="container">
-      {{ content }}
+        <!-- People -->
+        <li class="nav-item dropdown">
+          <a id="navPeopleLink" class="nav-link" href="{{ '/people/' | relative_url }}">People</a>
+          <a id="navPeopleToggle" class="nav-link dropdown-toggle dropdown-toggle-split" href="#" role="button"
+             data-bs-toggle="dropdown" aria-expanded="false" aria-label="Toggle People submenu">
+            <span class="visually-hidden">Toggle Dropdown</span>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navPeopleToggle">
+            <li><a class="dropdown-item" href="{{ '/people/#team' | relative_url }}">Team</a></li>
+            <li><a class="dropdown-item" href="{{ '/people/#alumni' | relative_url }}">Alumni</a></li>
+            <li><a class="dropdown-item" href="{{ '/people/#positions' | relative_url }}">Open Positions</a></li>
+          </ul>
+        </li>
+
+        <!-- News & Events -->
+        <li class="nav-item dropdown">
+          <a id="navEventsLink" class="nav-link" href="{{ '/events/' | relative_url }}">News&Events</a>
+          <a id="navEventsToggle" class="nav-link dropdown-toggle dropdown-toggle-split" href="#" role="button"
+             data-bs-toggle="dropdown" aria-expanded="false" aria-label="Toggle Events submenu">
+            <span class="visually-hidden">Toggle Dropdown</span>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navEventsToggle">
+            <li><a class="dropdown-item" href="{{ '/events/#news' | relative_url }}">News</a></li>
+            <li><a class="dropdown-item" href="{{ '/events/#events' | relative_url }}">Events</a></li>
+            <li><a class="dropdown-item" href="{{ '/events/#seminars' | relative_url }}">Seminars</a></li>
+          </ul>
+        </li>
+
+        <!-- Contacts -->
+        <li class="nav-item">
+          <a class="nav-link" href="{{ '/contacts/' | relative_url }}">Contacts</a>
+        </li>
+
+      </ul>
     </div>
+  </div>
+</nav>
+
+</header>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="flex-grow-1">
+    {{ content }}
   </main>
 
-  <footer class="most-footer">
-    <div class="container">
-      {% include shared/footer.html %}
+  <!-- ===== FOOTER ===== -->
+  <footer class="most-footer minimal-footer">
+    <div class="minimal-footer__wrap">
+
+      <div class="minimal-footer__cols">
+
+        <!-- LEFT -->
+        <div class="minimal-footer__col">
+          <strong>Quick links</strong>
+          <div class="spaced__tabs">
+            <a href="https://www.fbk.eu/en/" target="_blank">FBK</a> |
+            <a href="https://digis.fbk.eu/" target="_blank">Digital Society</a> |
+            <a href="https://most.fbk.eu/" target="_blank">MoST</a>
+          </div>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="minimal-footer__col">
+          <strong>Contacts</strong>
+          <div class="spaced__tabs">
+            <span>Via Sommarive, 18</span> |
+            <span>38123</span> |
+            <span>Povo (Trento)</span> |
+            <span>Italy</span>
+          </div>
+
+          <!-- <div class="minimal-footer__socials" style="margin-top: 0.5rem; display: inline-flex; gap: 0.5rem;"> -->
+            <!-- Email -->
+<!--             <a href="mailto:info@most.fbk.eu" 
+              target="_blank" 
+              class="minimal-footer__social"
+              aria-label="MoST Email">
+              <i class="fas fa-envelope"></i>
+            </a> -->
+
+            <!-- LinkedIn -->
+<!--             <a href="https://www.linkedin.com/" 
+              target="_blank" 
+              class="minimal-footer__social"
+              aria-label="MoST LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div> -->
+        </div>
+      </div>
+
+
+      <!-- Bottom row -->
+      <div class="minimal-footer__meta">
+        <span class="minimal-footer__license">
+          Developed by MoST | 
+          <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <text x="12" y="16" text-anchor="middle" font-size="10" fill="currentColor" font-family="Arial">CC</text>
+            </svg>
+            BY-SA 4.0 License
+          </a>
+        </span>
+      </div>
+
+
     </div>
   </footer>
 
-  <!-- Cookie Alert -->
-  <div class="most-cookie alert alert-dark text-center fixed-bottom mb-0" style="display: none;" role="alert">
-    <div class="container">
-      <strong>FBK websites use cookies</strong> -
-      <a href="https://www.fbk.eu/en/privacy-cookies-policy/"
-         target="_blank"
-         class="most-cookie__link">More info about Privacy and cookies policy</a>
-      <button type="button" class="btn btn-primary btn-sm ms-3 most-cookie__accept">
-        I agree
-      </button>
-    </div>
+
+
+  <!-- Cookie consent banner -->
+  <div class="most-cookie">
+    <p>FBK websites use cookies. 
+      <a href="https://www.fbk.eu/en/privacy-cookies-policy/" target="_blank">More info about Privacy and cookies policy</a>
+    </p>
+    <button class="most-cookie__accept">I agree</button>
   </div>
 
-  <!--
-  At the end of the body for performance reasons. This way,
-  users see the content of the page sooner.
-  -->
-  <script src="{{ "/assets/vendor/bootstrap/js/bootstrap.bundle.min.js" | relative_url }}"></script>
-  <script src="{{ "/assets/js/main.js" | relative_url }}"></script>
-
+  <script src="{{ '/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' | relative_url }}"></script>
+  <script type="module" src="{{ '/assets/js/main.js' | relative_url }}"></script>
 </body>
 </html>

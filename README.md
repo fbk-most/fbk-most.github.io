@@ -10,7 +10,7 @@ In its current form, the website is deployed at the following URL:
 
 https://fbk-most.github.io/
 
-When it will be ready for production, it will also be available at:
+The website is available at:
 
 https://most.fbk.eu/
 
@@ -58,7 +58,7 @@ Create a new markdown file in the `_people` directory with the following front m
 
 ```yml
 ---
-layout: page
+layout: default
 name: "Full Name"
 position: "Job Title"
 status: "current" # or "alumni" or "visitor"
@@ -67,6 +67,7 @@ website: "https://example.com" # optional
 twitter: "username" # optional
 github: "username" # optional
 scholar: "id" # optional Google Scholar ID
+order: "N"
 ---
 
 Brief bio goes here.
@@ -88,28 +89,16 @@ identifies the new team member.
 The `<!--more-->` tag is used to separate the excerpt shown as a preview
 from the full post content shown when the post is opened.
 
-### Adding a News Post
+For the **order** please follow this rule:
+- 1: head of unit
+- 2: senior members (after PhD)
+- 3: PhD students
+- 4: junior researchers (before PhD)
 
-Create a new markdown file in the `_posts` directory with the filename format `YYYY-MM-DD-title.md` and the following front matter:
+### Adding News and Events
 
-```yml
----
-layout: page
-title: "Post Title"
-date: YYYY-MM-DD
-categories: category-name
-excerpt_separator: <!--more-->
----
-
-Brief excerpt goes here.
-
-<!--more-->
-
-Full post content goes here.
-```
-
-The `<!--more-->` tag is used to separate the excerpt shown as a preview
-from the full post content shown when the post is opened.
+News, events are seminars are handled via Google Sheets, which are in visualization-only mode inside MoST Drive Folder.
+Events might also be present in MoST Google Calendar.
 
 ## Getting Help
 
@@ -138,24 +127,16 @@ whenever a pull request is merged into the `main` branch.
 
 The following directories are of interest:
 
-- [_includes/home](_includes/home): content included into the home page.
+- [_data/](_data): folder containing material download from news and seminars Google Sheets.
 
-- [_includes/shared](includes/shared): content shared across multiple pages.
-
-- [_layouts/base.html](_layouts/base.html): the base layout for all pages.
-
-- [_layouts/home.html](_layouts/home.html): the layout for the home page.
-
-- [_layouts/page.html](_layouts/page.html): the layout for all other pages.
+- [_pages](_pages): contains a file for each page composing the website.
 
 - [_people](_people): information about the people in the research unit,
 including current members, alumni, and visitors.
 
-- [_posts](_posts): blog posts.
-
 - [assets/css](assets/css): CSS files.
 
-- [assets/img](assets/img): images.
+- [assets/images](assets/images): images.
 
 - [assets/js](assets/js): JavaScript files.
 
@@ -164,14 +145,8 @@ including current members, alumni, and visitors.
 - [_config.yml](config.yml): configuration file for
 [Jekyll](https://jekyllrb.com/).
 
-- [index.md](index.md): the home page.
-
-- [news.md](news.md): the news page containing blog posts.
-
-- [people.md](people.md): the people page.
-
 When building the website, [Jekyll](https://jekyllrb.com/) will generate the
-content of the news and people pages automatically.
+content of the people pages automatically.
 
 ## License
 

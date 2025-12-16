@@ -1,0 +1,152 @@
+[
+  {
+    "Date": "2025-01-20",
+    "Title": "AI for supporting coding and learning",
+    "Speaker": "Simone Basso",
+    "Topic": "Programming skills"
+  },
+  {
+    "Date": "2025-02-06",
+    "Title": "Python modules for plotting",
+    "Speaker": "Maryam Sajedinia",
+    "Topic": "Programming skills"
+  },
+  {
+    "Date": "2025-02-12",
+    "Title": "Literature review",
+    "Speaker": "Arianna Burzacchi",
+    "Topic": "Research-related"
+  },
+  {
+    "Date": "2025-03-05",
+    "Title": "Modeling university students’ affluence (part 1)",
+    "Speaker": "Piergiorgio Vivenzio",
+    "Topic": "Research-related"
+  },
+  {
+    "Date": "2025-03-10",
+    "Title": "PhD dissertation: presenting how to present",
+    "Speaker": "Arianna Burzacchi",
+    "Topic": "Research-related"
+  },
+  {
+    "Date": "2025-03-17",
+    "Title": "Modeling university students’ affluence (part 2)",
+    "Speaker": "Piergiorgio Vivenzio",
+    "Topic": "Research-related"
+  },
+  {
+    "Date": "2025-04-02",
+    "Title": "Overview on satellite and LIDAR data",
+    "Speaker": "Guadalupe Sol Escalante",
+    "Topic": "Research-related"
+  },
+  {
+    "Date": "2025-04-10",
+    "Title": "Physical and digital spaces",
+    "Speaker": "Luca Gaeta",
+    "Topic": "Research-related"
+  },
+  {
+    "Date": "2025-05-14",
+    "Title": "Monads",
+    "Speaker": "Simone Basso",
+    "Topic": "Programming skills"
+  },
+  {
+    "Date": "2025-05-28",
+    "Title": "Clustering and community detection in Bologna",
+    "Speaker": "Maja Dall'Acqua",
+    "Topic": "Research-related"
+  },
+  {
+    "Date": "2025-06-04",
+    "Title": "Darts module for time series analysis",
+    "Speaker": "Marko Pyeshchyk",
+    "Topic": "Programming skills"
+  },
+  {
+    "Date": "2025-06-11",
+    "Title": "AI ethics",
+    "Speaker": "Sammer Sheereen",
+    "Topic": "Research-related"
+  },
+  {
+    "Date": "2025-06-17",
+    "Title": "Fractals and chaos - pt 0",
+    "Speaker": "Marco Pistore",
+    "Topic": "C3"
+  },
+  {
+    "Date": "2025-06-25",
+    "Title": "Introduction to GRASS",
+    "Speaker": "Maja Dall'Acqua",
+    "Topic": "Programming skills"
+  },
+  {
+    "Date": "2025-07-03",
+    "Title": "Heat waves in Bologna",
+    "Speaker": "Guadalupe Sol Escalante and Maryam Sajedinia",
+    "Topic": "Research-related"
+  },
+  {
+    "Date": "2025-07-09",
+    "Title": "Github - level 0",
+    "Speaker": "All the team",
+    "Topic": "Programming skills"
+  },
+  {
+    "Date": "2025-07-29",
+    "Title": "Github - level 1",
+    "Speaker": "All the team",
+    "Topic": "Programming skills"
+  },
+  {
+    "Date": "2025-09-25",
+    "Title": "An agent-based journey in Social Systems Research",
+    "Speaker": "Jesus Arturo Moreno Lopez",
+    "Topic": "Research-related"
+  },
+  {
+    "Date": "2025-10-01",
+    "Title": "Evaluating Linguistic Speaker Profiles on Response Selection in Multiparty Dialogue",
+    "Speaker": "Maryam Sajedinia",
+    "Topic": "Research-related"
+  },
+  {
+    "Date": "2025-10-09",
+    "Title": "Takeaways from the workshop “Etica, intelligenza e complessità nei futuri urbani digitali: Un dialogo interdisciplinare”",
+    "Speaker": "Marco Pistore, Luca Gaeta, and Otello Palmini",
+    "Topic": "Research-related"
+  },
+  {
+    "Date": "2025-10-16",
+    "Title": "Real-data traffic analysis using Darts - Part 1",
+    "Speaker": "Marko Pyeshchyk",
+    "Topic": "Programming skills"
+  },
+  {
+    "Date": "2025-10-23",
+    "Title": "Traffic simulation models",
+    "Speaker": "Arianna Burzacchi Marco Pistore",
+    "Topic": "Research-related"
+  },
+  {
+    "Date": "2025-10-30",
+    "Title": "Real-data traffic analysis using Darts - Part 2",
+    "Speaker": "Marko Pyeshchyk",
+    "Topic": "Programming skills"
+  },
+  {
+    "Date": "2025-11-05",
+    "Title": "Fractal and chaos - pt 1",
+    "Speaker": "Marco Pistore",
+    "Topic": "C3"
+  },
+  {
+    "Date": "2025-11-26",
+    "Title": "Fractal and chaos - pt 2",
+    "Speaker": "Marco Pistore",
+    "Topic": "C3"
+  }
+]

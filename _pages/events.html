@@ -1,0 +1,177 @@
+---
+layout: base
+title: News and Events
+permalink: /events/
+---
+
+<!-- ===== BANNER SECTION ===== -->
+<section class="most-section most-section--banner">
+  <h1>News and Events</h1>
+</section>
+
+<!-- ===== NEWS ===== -->
+<section id="news" class="most-section">
+
+  <div class="highlights-slideshow">
+    {% assign all_news_slideshow = site.data.news %}
+    {% assign today = 'now' | date: "%Y-%m-%d" %}
+
+    {% assign future_news = "" | split: "" %}
+    {% for n in all_news_slideshow %}
+      {% if n.Priority != -1 and n.DATE >= today %}
+        {% assign future_news = future_news | push: n %}
+      {% endif %}
+    {% endfor %}
+
+    {% assign future_seminars = "" | split: "" %}
+    {% for s in site.data.seminars %}
+      {% if s.Date >= today %}
+        {% assign future_seminars = future_seminars | push: s %}
+      {% endif %}
+    {% endfor %}
+
+    {% assign combined_future = future_news | concat: future_seminars %}
+
+    {% if combined_future.size > 10 %}
+      {% assign sorted_by_date = combined_future | sort: "DATE" | reverse %}
+      {% assign sorted_by_priority = sorted_by_date | sort: "Priority" | reverse %}
+      {% assign highlights = sorted_by_priority | slice: 0,10 %}
+    {% else %}
+      {% assign highlights = combined_future %}
+
+      {% assign older_news = "" | split: "" %}
+      {% for n in all_news_slideshow %}
+        {% if n.DATE < today and n.Priority == 10 %}
+          {% assign older_news = older_news | push: n %}
+        {% endif %}
+      {% endfor %}
+      {% assign older_news = older_news | sort: "DATE" | reverse %}
+
+      {% assign needed = 10 | minus: highlights.size %}
+      {% assign fill_news = older_news | slice: 0, needed %}
+      {% assign highlights = highlights | concat: fill_news %}
+    {% endif %}
+
+    {% assign highlights = highlights | sort: "DATE" | reverse %}
+
+    <div class="slideshow-container reveal">
+      {% for post in highlights %}
+        {% if post.Image and post.Image != "" %}
+          {% assign image_url = post.Image %}
+        {% elsif post.Topic == "C3" %}
+          {% assign image_url = "/assets/images/news/Board-Franceschini_2021_cropped.webp" %}
+        {% elsif post.Topic == "Programming skills" %}
+          {% assign image_url = "/assets/images/news/Keyboard_Franceschini_cropped.webp" %}
+        {% elsif post.Topic == "Research-related" %}
+          {% assign image_url = "/assets/images/news/Books_Franceschini_3-2021_cropped.webp" %}
+        {% else %}
+          {% assign image_url = "/assets/images/news/FBK_Povo_Building_Baroni_6_cropped.webp" %}
+        {% endif %}
+
+        {% assign item_title = post.TITLE | default: "Seminar" %}
+        {% assign item_date = post.DATE | default: post.Date %}
+        {% assign item_desc = post.DESCRIPTION | default: post.Title %}
+
+        <div class="mySlides">
+          <div class="slide-blur-bg" style="background-image: url('{{ image_url | relative_url }}');"></div>
+          <img class="slide-main-img" src="{{ image_url | relative_url }}" alt="{{ item_title }}">
+          <div class="slide-caption">
+            <h3>{{ item_date | date: "%d-%m-%Y" }} - {{ item_title }}</h3>
+            <p>{{ item_desc }}</p>
+          </div>
+        </div>
+      {% endfor %}
+
+      <button class="prev-slide"></button>
+      <button class="next-slide"></button>
+    </div>
+
+    <div class="dots-container">
+      {% for post in highlights %}
+        <span class="dot"></span>
+      {% endfor %}
+    </div>
+  </div>
+
+  <h2 class="most-section__title">News</h2>
+  <div class="calendar-container reveal">
+    <iframe src="https://calendar.google.com/calendar/embed?src=c_d601bfc4336cbbdef82bd1f757c1a53dfb735d6017da5d29e97cf40943e68146%40group.calendar.google.com&ctz=Europe%2FRome"></iframe>
+  </div>
+
+  <!-- === Recent news (last 3 months) === -->
+  <div class="most-section__content">
+    {% assign all_news = site.data.news %}
+    {% assign today = 'now' | date: "%s" | plus: 0 %}
+    {% assign three_months_ago = today | minus: 7776000 %}
+
+    {% assign recent_news = "" | split: "" %}
+    {% assign older_news = "" | split: "" %}
+
+    {% for n in all_news %}
+      {% assign news_date = n.DATE | date: "%s" | plus: 0 %}
+      {% if news_date >= three_months_ago %}
+        {% assign recent_news = recent_news | push: n %}
+      {% else %}
+        {% assign older_news = older_news | push: n %}
+      {% endif %}
+    {% endfor %}
+
+    {% assign recent_news = recent_news | sort: "DATE" | reverse %}
+    {% assign older_news = older_news | sort: "DATE" | reverse %}
+
+    {% for post in recent_news %}
+      <div class="most-section__block">
+        <h3>{{ post.DATE | date: "%d-%m-%Y" }} - {{ post.TITLE }}</h3>
+        <p>{{ post.DESCRIPTION }}</p>
+        {% if post["Longer description"] %}
+          <p>{{ post["Longer description"] }}</p>
+        {% endif %}
+        {% assign link = post.Link | default: "" | strip %}
+        {% if link != "" %}
+          <p><a href="{{ link }}" target="_blank">Event link</a></p>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+
+  <!-- === Past news (older than 3 months) === -->
+  <button class="past-news-toggle">Past events ▼</button>
+  <div class="most-section__content">
+    <div class="past-news-list" style="display:none; margin-top:1rem;">
+      {% for post in older_news %}
+        <div class="most-section__block">
+          <h3>{{ post.DATE | date: "%d-%m-%Y" }} - {{ post.TITLE }}</h3>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ===== SEMINARS ===== -->
+<section id="seminars" class="most-section">
+  <h2 class="most-section__title">Seminars</h2>
+
+  <p class="news-p reveal">Our group believes that knowledge is best shared. That's why we organize weekly seminars.<br>
+    Below is a list of public seminars, and in the <b>calendar</b> above, you can find links to attend upcoming events.
+  </p>
+  
+  <table class="reveal">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Title</th>
+        <th>Speaker</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% assign seminars = site.data.seminars | sort: "Date" | reverse %}
+      {% for seminar in seminars %}
+        <tr>
+          <td>{{ seminar.Date | date: "%d-%m-%Y" }}</td>
+          <td>{{ seminar.Title }}</td>
+          <td>{{ seminar.Speaker }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>

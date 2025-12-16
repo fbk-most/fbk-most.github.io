@@ -1,5 +1,5 @@
 ---
-layout: person
+layout: default
 name: "Jesús A. Moreno López"
 position: "PostDoc Researcher"
 status: "current"
