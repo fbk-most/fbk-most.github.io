@@ -6,7 +6,7 @@ status: "current"
 image: "/assets/images/people/maryam-sajedinia.jpg"
 twitter: "maryamsajedinia"
 github: "maryamsajedi"
-scholar: "qsY6O_UAAAAJ"
+scholar: "T4_lXfkAAAAJ&hl"
 order: 4
 ---
 
