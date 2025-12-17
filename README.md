@@ -102,8 +102,9 @@ Events might also be present in MoST Google Calendar.
 
 ## Getting Help
 
-If you run into trouble, [@bassosimone](https://github.com/bassosimone) is
-here to help! (Insert here obligatory Doctor Who quote.)
+In case of need, please contact the owner or the maintainer of the website.
+- Owner: [@marcopistore][https://github.com/pistore]
+- Maintainer: [@federicalago](https://github.com/Flake22)
 
 ## Testing Changes Locally
 

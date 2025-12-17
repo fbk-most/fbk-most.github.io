@@ -56,17 +56,32 @@ a {
   box-shadow: inset 0 -4px 6px -2px rgba(0, 0, 0, 0.25);
 }
 
-.most-header__logo {
+.most-header__logo_fbk {
   height: 48px;
 }
+
+.most-header__most {
+  display: flex;
+  flex-direction: column;       /* stack vertically */
+  justify-content: center;      /* center them vertically relative to FBK logo */
+  align-items: center;          /* center horizontally */
+  height: 48px;                 /* same height as FBK logo */
+  gap: 0.1rem;                  /* small spacing between logo and label */
+}
+
+.most-header__logo {
+  height: 35px;
+}
+
 
 /* --- MoST logo + label --- */
 .most-header__most-label {
   margin-top: 0.15rem;
   font-family: "Frutiger Condensed", "Frutiger", Arial, sans-serif;
   font-weight: 700; /* Bold */
-  font-size: 0.85rem;
+  font-size: 0.63rem;
   color: var(--fbk-gray);
+  letter-spacing: -0.5px;
 }
 
 
@@ -90,7 +105,7 @@ a {
 }
 
 .navbar-nav .dropdown-toggle-split {
-  color: white !important;
+  color: var(--fbk-blue) !important;
   padding-left: 0.25rem;
   padding-right: 0.75rem;
 }
@@ -130,8 +145,8 @@ a {
   }
 
   .navbar .dropdown-item:hover {
-    background-color: var(--fbk-blue) !important;
-    color: white !important;
+    color: var(--fbk-blue)ortant;
+    font-weight: 700;
   }
 }
 
@@ -149,10 +164,16 @@ a {
     padding: 1rem 1.25rem;
     overflow-y: auto;
     z-index: 1060;
+    color: var(--fbk-blue);
   }
 
   .navbar-nav .dropdown-toggle::after {
     display: none;
+  }
+
+  .navbar .dropdown-item:hover {
+    color: var(--fbk-blue)ortant;
+    font-weight: 700;
   }
 
   /* Hamburger button */
@@ -166,8 +187,9 @@ a {
   }
 
   .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%230057B7' stroke-width='2.5' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
   }
+
 
   /* Stack nav items vertically */
   .navbar-nav {
@@ -184,7 +206,7 @@ a {
   .navbar-nav .nav-link {
     padding: 0.75rem 0;
     width: 100%;
-    color: white !important;
+    color: var(--fbk-blue) !important;
   }
 
   /* Dropdown menu mobile: always below main link */
@@ -200,7 +222,7 @@ a {
 
   .navbar-nav .nav-item.dropdown > .dropdown-menu .dropdown-item {
     padding: 0.5rem 0;
-    color: white !important;
+    color: var(--fbk-blue) !important;
     width: 100% !important;
   }
 
@@ -212,7 +234,7 @@ a {
 
   .navbar-nav .nav-link:hover,
 .navbar-nav .dropdown-item:hover {
-  color: var(--fbk-blue) !important; /* FBK blue instead of white */
+  color: var(--fbk-dark-blue) !important; /* FBK blue instead of white */
   background-color: transparent !important; /* remove default background highlight */
 }
 }
@@ -303,7 +325,7 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  scroll-margin-top: calc(var(--most-header-height) + 1rem);
+  scroll-margin-top: calc(var(--most-header-height));
   transition: background-color 0.4s ease;
   font-size: var(--section-font-size);
   position: relative; /* Anchors the absolute hexagons */
@@ -338,6 +360,23 @@ a {
   z-index: 10;
 }
 
+@media (min-width: 992px) {
+  .most-section:not(.most-section--banner) {
+    min-height: calc(100vh - var(--most-header-height));
+    justify-content: center;
+  }
+}
+
+/* Mobile: natural height */
+@media (max-width: 991.98px) {
+  .most-section:not(.most-section--banner) {
+    min-height: auto;          /* remove full screen */
+    justify-content: flex-start;
+    padding: 10rem 1.5rem;      /* comfortable scroll padding */
+
+  }
+}
+
 /* Individual content blocks */
 .most-section__block {
   break-inside: avoid;
@@ -355,7 +394,7 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .most-section:not(.most-section--banner) {
@@ -374,6 +413,8 @@ a {
   z-index: 2;
   color: white;
   text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+  font-family: "Frutiger Condensed", "Frutiger", Arial, sans-serif;
+  text-align: center;
 }
 
 .most-section--banner__image {
@@ -387,7 +428,7 @@ a {
     flex-direction: row;
     justify-content: center;
     text-align: left;
-    gap: 3rem;
+    gap: 1rem;
   }
 
   .most-section--banner__image {
