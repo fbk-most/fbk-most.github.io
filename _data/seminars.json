@@ -128,7 +128,7 @@
   {
     "Date": "2025-10-23",
     "Title": "Traffic simulation models",
-    "Speaker": "Arianna Burzacchi Marco Pistore",
+    "Speaker": "Arianna Burzacchi and Marco Pistore",
     "Topic": "Research-related"
   },
   {
@@ -148,5 +148,11 @@
     "Title": "Fractal and chaos - pt 2",
     "Speaker": "Marco Pistore",
     "Topic": "C3"
+  },
+  {
+    "Date": "2025-12-16",
+    "Title": "Parallelizing Python",
+    "Speaker": "Federica Lago",
+    "Topic": "Programming skills"
   }
 ]

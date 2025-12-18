@@ -329,7 +329,7 @@ a {
   transition: background-color 0.4s ease;
   font-size: var(--section-font-size);
   position: relative; /* Anchors the absolute hexagons */
-  overflow: hidden;   /* Cuts off hexagons that fly outside */
+  overflow: hidden;
   box-shadow: inset 0 -4px 6px 0px rgba(0, 0, 0, 0.25);
 }
 
@@ -372,7 +372,7 @@ a {
   .most-section:not(.most-section--banner) {
     min-height: auto;          /* remove full screen */
     justify-content: flex-start;
-    padding: 10rem 1.5rem;      /* comfortable scroll padding */
+    padding: 3rem 1.5rem;      /* comfortable scroll padding */
 
   }
 }
@@ -576,6 +576,7 @@ a {
     height: 250px;
     z-index: 1;
     pointer-events: none;
+    overflow: visible;
 }
 
 .hex-cluster.top-left {

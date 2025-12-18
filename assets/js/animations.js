@@ -1,140 +1,200 @@
 import { fbkBlue } from './utils.js';
 
+/* =========================================================
+   TEXT REVEAL ANIMATIONS
+   ========================================================= */
+
 export function initTextAnimations() {
-  const sections = document.querySelectorAll(".most-section");
+  const sections = document.querySelectorAll('.most-section');
 
-  const sectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("in-view");
-        sectionObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.25 });
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.25 }
+  );
 
-  sections.forEach(section => sectionObserver.observe(section));
+  sections.forEach(section => observer.observe(section));
 }
+
+/* =========================================================
+   HEXAGON DECORATIONS
+   ========================================================= */
 
 export function initHexagons() {
   const sections = document.querySelectorAll('.most-section');
-    const hexPath = "M25 0 L50 14.4 L50 43.3 L25 57.7 L0 43.3 L0 14.4 Z";
+  const hexPath = 'M25 0 L50 14.4 L50 43.3 L25 57.7 L0 43.3 L0 14.4 Z';
 
-    sections.forEach(section => {
-        const style = window.getComputedStyle(section);
-        const bgColor = style.backgroundColor;
+  sections.forEach(section => {
+    const style = window.getComputedStyle(section);
+    const bgColor = style.backgroundColor;
 
-        let hexFillColor = "white"; // default blue
-        if(bgColor.includes("255, 255, 255")) {
-            hexFillColor = fbkBlue; // white hex on blue background
-        }
-
-        if (section.classList.contains('most-section--banner')) {
-            createBannerHexes(section, hexFillColor);
-        } else {
-            createCluster(section, 'top-left', hexFillColor);
-            createCluster(section, 'bottom-right', hexFillColor);
-        }
-    });
-
-    // ------------------ Normal section clusters ------------------
-    function createCluster(container, positionClass, color) {
-        const wrapper = document.createElement('div');
-        wrapper.classList.add('hex-cluster', positionClass);
-
-        const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-        svg.setAttribute("width", "100%");
-        svg.setAttribute("height", "100%");
-
-        const placedHexes = []; // track positions to reduce overlap
-        for (let i = 0; i < 12; i++) {
-            createHex(svg, color, 200, 200, 0.3, 1.5, placedHexes, 60);
-        }
-
-        wrapper.appendChild(svg);
-        container.appendChild(wrapper);
+    let hexColor = 'white';
+    if (bgColor.includes('255, 255, 255')) {
+      hexColor = fbkBlue;
     }
 
-    // ------------------ Banner full coverage ------------------
-    function createBannerHexes(container, color) {
-        const wrapper = document.createElement('div');
-        wrapper.classList.add('hex-cluster', 'banner');
-        wrapper.style.position = 'absolute';
-        wrapper.style.top = '0';
-        wrapper.style.left = '0';
-        wrapper.style.width = '100%';
-        wrapper.style.height = '100%';
-        wrapper.style.pointerEvents = 'none';
-        wrapper.style.zIndex = '1';
+    if (section.classList.contains('most-section--banner')) {
+      createBannerHexes(section, hexColor);
+    } else {
+      createCornerCluster(section, 'top-left', hexColor);
+      createCornerCluster(section, 'bottom-right', hexColor);
+    }
+  });
 
-        const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-        svg.setAttribute("width", "100%");
-        svg.setAttribute("height", "100%");
+  /* ---------------------------------------------------------
+     NORMAL SECTIONS — CORNER CLUSTERS
+     --------------------------------------------------------- */
 
-        const placedHexes = [];
-        const hexCount = 60;
-        for (let i = 0; i < hexCount; i++) {
-            createHex(svg, color, container.offsetWidth, container.offsetHeight, 0.5, 4.0, placedHexes, 300);
-        }
+  function createCornerCluster(container, positionClass, color) {
+    const wrapper = document.createElement('div');
+    wrapper.classList.add('hex-cluster', positionClass);
 
-        wrapper.appendChild(svg);
-        container.appendChild(wrapper);
+    const svg = createSVG();
+    const placed = [];
+
+    for (let i = 0; i < 12; i++) {
+      createHex(svg, color, 200, 200, 0.3, 1.5, placed, 60);
     }
 
-    // ------------------ Hexagon creation ------------------
-    function createHex(svg, color, maxWidth, maxHeight, minScale, maxScale, placedHexes, minDistance) {
-      const polygon = document.createElementNS("http://www.w3.org/2000/svg", "path");
-      polygon.setAttribute("d", hexPath);
-      polygon.classList.add('hex');
-
-      // Random scale
-      const scale = minScale + Math.random() * (maxScale - minScale);
-
-      // Random rotation 0–90°
-      const rotation = Math.random() * 90;
-
-      // Random position
-      const { x, y } = getRandomPosition(maxWidth, maxHeight, scale, placedHexes, minDistance);
-
-      polygon.style.transform = `translate(${x}px, ${y}px) rotate(${rotation}deg) scale(0)`;
-      polygon.style.fill = color;
-
-      // Opacity logic
-      const finalOpacity = (Math.random() * 0.20 + 0.05);
-      polygon.style.opacity = finalOpacity;
-
-      // Random delay & duration
-      const delay = Math.random() * 0.5;
-      const duration = 2 + Math.random() * 1.5;
-
-      polygon.animate(
-          [
-              { transform: `translate(${x}px, ${y}px) rotate(${rotation}deg) scale(0)` },
-              { transform: `translate(${x}px, ${y}px) rotate(${rotation}deg) scale(${scale})` }
-          ],
-          {
-              duration: duration * 1000,
-              delay: delay * 1000,
-              fill: "forwards",
-              easing: "ease-out"
-          }
-      );
-
-      svg.appendChild(polygon);
+    wrapper.appendChild(svg);
+    container.appendChild(wrapper);
   }
 
+  /* ---------------------------------------------------------
+     BANNER — EDGE-ONLY HEXAGONS
+     --------------------------------------------------------- */
 
-    // ------------------ Helper: minimal overlap ------------------
-    function getRandomPosition(maxWidth, maxHeight, scale, placedHexes, minDistance) {
-        let x, y, tries = 0;
+  function createBannerHexes(container, color) {
+    const wrapper = document.createElement('div');
+    wrapper.classList.add('hex-cluster', 'banner');
 
-        do {
-            x = Math.random() * maxWidth;
-            y = Math.random() * maxHeight;
-            tries++;
-            if (tries > 10) break; // avoid infinite loops
-        } while (placedHexes.some(pos => Math.hypot(pos.x - x, pos.y - y) < minDistance));
+    Object.assign(wrapper.style, {
+      position: 'absolute',
+      inset: '0',
+      pointerEvents: 'none',
+      zIndex: '1'
+    });
 
-        placedHexes.push({ x, y });
-        return { x, y };
+    const svg = createSVG();
+
+    const width = container.offsetWidth;
+    const height = container.offsetHeight;
+    const edge = Math.min(width, height) * 0.22;
+
+    const placed = [];
+    const hexCount = 40;
+
+    for (let i = 0; i < hexCount; i++) {
+      const zone = pickEdgeZone(width, height, edge);
+      createHexInZone(svg, color, zone, 0.5, 3.5, placed, 220);
     }
+
+    wrapper.appendChild(svg);
+    container.appendChild(wrapper);
+  }
+
+  /* ---------------------------------------------------------
+     HEXAGON CREATION (GENERIC)
+     --------------------------------------------------------- */
+
+  function createHex(svg, color, maxW, maxH, minScale, maxScale, placed, minDist) {
+    const polygon = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    polygon.setAttribute('d', hexPath);
+    polygon.classList.add('hex');
+
+    const scale = rand(minScale, maxScale);
+    const rotation = rand(0, 90);
+    const { x, y } = getRandomPosition(maxW, maxH, placed, minDist);
+
+    animateHex(polygon, x, y, scale, rotation, color);
+    svg.appendChild(polygon);
+  }
+
+  function createHexInZone(svg, color, zone, minScale, maxScale, placed, minDist) {
+    const polygon = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    polygon.setAttribute('d', hexPath);
+    polygon.classList.add('hex');
+
+    const scale = rand(minScale, maxScale);
+    const rotation = rand(0, 90);
+
+    let x, y, tries = 0;
+    do {
+      x = zone.x + Math.random() * zone.w;
+      y = zone.y + Math.random() * zone.h;
+      tries++;
+      if (tries > 10) break;
+    } while (placed.some(p => dist(p.x, p.y, x, y) < minDist));
+
+    placed.push({ x, y });
+    animateHex(polygon, x, y, scale, rotation, color);
+    svg.appendChild(polygon);
+  }
+
+  /* ---------------------------------------------------------
+     HELPERS
+     --------------------------------------------------------- */
+
+  function animateHex(el, x, y, scale, rotation, color) {
+    el.style.fill = color;
+    el.style.opacity = rand(0.05, 0.25);
+    el.style.transform = `translate(${x}px, ${y}px) rotate(${rotation}deg) scale(0)`;
+
+    el.animate(
+      [
+        { transform: `translate(${x}px, ${y}px) rotate(${rotation}deg) scale(0)` },
+        { transform: `translate(${x}px, ${y}px) rotate(${rotation}deg) scale(${scale})` }
+      ],
+      {
+        duration: rand(2000, 3500),
+        delay: rand(0, 500),
+        fill: 'forwards',
+        easing: 'ease-out'
+      }
+    );
+  }
+
+  function createSVG() {
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('width', '100%');
+    svg.setAttribute('height', '100%');
+    return svg;
+  }
+
+  function pickEdgeZone(w, h, t) {
+    const zones = [
+      { x: 0, y: 0, w, h: t },                 // top
+      { x: 0, y: h - t, w, h: t },             // bottom
+      { x: 0, y: t, w: t, h: h - 2 * t },      // left
+      { x: w - t, y: t, w: t, h: h - 2 * t }   // right
+    ];
+    return zones[Math.floor(Math.random() * zones.length)];
+  }
+
+  function getRandomPosition(maxW, maxH, placed, minDist) {
+    let x, y, tries = 0;
+    do {
+      x = Math.random() * maxW;
+      y = Math.random() * maxH;
+      tries++;
+      if (tries > 10) break;
+    } while (placed.some(p => dist(p.x, p.y, x, y) < minDist));
+
+    placed.push({ x, y });
+    return { x, y };
+  }
+
+  function dist(x1, y1, x2, y2) {
+    return Math.hypot(x2 - x1, y2 - y1);
+  }
+
+  function rand(min, max) {
+    return min + Math.random() * (max - min);
+  }
 }
