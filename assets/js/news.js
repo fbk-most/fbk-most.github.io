@@ -24,6 +24,7 @@ export function initSlider() {
 
   let slideIndex = 0;
   let autoTimer = null;
+  const AUTO_DELAY = 10000;
 
   function showSlide(n) {
     if (n >= slides.length) slideIndex = 0;
@@ -36,19 +37,38 @@ export function initSlider() {
     dots[slideIndex].classList.add('active');
   }
 
-  function nextSlide() { showSlide(++slideIndex); }
-  function prevSlide() { showSlide(--slideIndex); }
+  function startAuto() {
+    clearInterval(autoTimer);
+    autoTimer = setInterval(nextSlide, AUTO_DELAY);
+  }
+
+  function nextSlide() {
+    slideIndex++;
+    showSlide(slideIndex);
+    startAuto(); // ⬅ reset timer
+  }
+
+  function prevSlide() {
+    slideIndex--;
+    showSlide(slideIndex);
+    startAuto(); // ⬅ reset timer
+  }
 
   const nextBtn = document.querySelector('.next-slide');
   const prevBtn = document.querySelector('.prev-slide');
+
   if (nextBtn) nextBtn.addEventListener('click', nextSlide);
   if (prevBtn) prevBtn.addEventListener('click', prevSlide);
 
-  dots.forEach((dot, i) => dot.addEventListener('click', () => { slideIndex = i; showSlide(slideIndex); }));
+  dots.forEach((dot, i) =>
+    dot.addEventListener('click', () => {
+      slideIndex = i;
+      showSlide(slideIndex);
+      startAuto(); // ⬅ reset timer
+    })
+  );
 
-  // Auto rotate (pause if user focuses slider area)
-  autoTimer = setInterval(nextSlide, 5000);
-
-  // Start
+  // Start slider
   showSlide(slideIndex);
+  startAuto();
 }
