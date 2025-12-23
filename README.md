@@ -152,3 +152,10 @@ content of the people pages automatically.
 ## License
 
 This website is licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/).
+
+## TODO
+
+- Improve responsiveness website
+- Rotate people hexagons
+- Define people ordering
+- Style new page and add links
