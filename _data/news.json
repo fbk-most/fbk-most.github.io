@@ -21,7 +21,7 @@
     "TITLE": "Unveiling Our New Research Group Logo",
     "DATE": "2025-12-16",
     "DESCRIPTION": "We are proud to share the result of a collaborative journey that blends structure and complexity into a logo the fully represents us.",
-    "Longer description": "Creating our new logo was an iterative, collaborative process, reflecting the spirit of our research group. We ultimately chose a <b>hexagon</b> to represent connections, structure, and the modeling at the heart of our work. Inside, the <b>stretch and fold” pattern</b>—drawn from ideas in chaos theory and fractals—symbolizes how simple rules can generate complex, intricate behavior. Just as in chaotic systems, this motif combines expansion and folding to create dynamic patterns within an orderly framework, mirroring the interplay of order and complexity in our research.",
+    "Longer description": "Creating our new logo was an iterative, collaborative process, reflecting the spirit of our research group. We ultimately chose a <b>hexagon</b> to represent connections, structure, and the modeling at the heart of our work. Inside, the <b>stretch and foldâ pattern</b>âdrawn from ideas in chaos theory and fractalsâsymbolizes how simple rules can generate complex, intricate behavior. Just as in chaotic systems, this motif combines expansion and folding to create dynamic patterns within an orderly framework, mirroring the interplay of order and complexity in our research.",
     "Link": "",
     "Image": "/assets/images/news/logo-news.png",
     "Priority": 10
@@ -33,6 +33,15 @@
     "Longer description": "Coordinated by the Barcelona Supercomputing Center (BSC), the HARMONIE project aims to develop advanced tools that support informed policymaking cncerning urban air and noise pollution - a challenge for many European cities. The kick-off of the project took place today in Barcelona.",
     "Link": "",
     "Image": "https://magazine.fbk.eu/wp-content/uploads/2025/11/Bronquios__Progetto-Harmonie-1600x880.png",
+    "Priority": 10
+  },
+  {
+    "TITLE": "Welcome Ambra to the team!",
+    "DATE": "2026-01-12",
+    "DESCRIPTION": "We are delighted to welcome Ambra, who joins our team today. ",
+    "Longer description": "Ambra Vanella joins the MoST research unit as an intern, where she will contribute to research on stakeholder engagement in the design of Civic Digital Twins. Her work will focus on co-design processes, gamification strategies, and qualitative and quantitative data analysis to support participatory approaches and territorial decision-making.",
+    "Link": "",
+    "Image": "",
     "Priority": 10
   }
 ]
