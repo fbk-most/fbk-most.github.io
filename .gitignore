@@ -2,3 +2,5 @@
 /_site
 /vendor
 .DS_Store
+.venv/
+secrets.txt

@@ -1,10 +1,52 @@
 import os
 import requests
 import csv, json
+import unicodedata
 
 LINK_NEWS = os.environ.get("LINK_NEWS")
 LINK_SEMINARS = os.environ.get("LINK_SEMINARS")
 
+UNICODE_PUNCT_MAP = {
+    # Quotes
+    "“": '"',
+    "”": '"',
+    "„": '"',
+    "‟": '"',
+    "’": "'",
+    "‘": "'",
+    "‚": "'",
+    "‛": "'",
+
+    # Dashes
+    "–": "-",
+    "—": "-",
+    "−": "-",
+
+    # Ellipsis
+    "…": "...",
+
+    # Misc
+    " ": " ",   # non-breaking space
+}
+
+
+def to_ascii_safe(s: str) -> str:
+    #Fix mojibake if present
+    if likely_mojibake(s):
+        s = repair_mojibake(s)
+
+    # Replace known Unicode punctuation
+    for u, a in UNICODE_PUNCT_MAP.items():
+        s = s.replace(u, a)
+
+    #Possible further normalization steps commented out for now
+    # Normalize accents (é → e, ñ → n)
+    # s = unicodedata.normalize("NFKD", s)
+
+    # Remove remaining non-ASCII characters
+    # s = s.encode("ascii", "ignore").decode("ascii")
+
+    return s
 
 def likely_mojibake(s: str) -> bool:
     # heuristics: common mojibake fragments (Ã, â, sequences like â, and replacement char)
@@ -17,30 +59,6 @@ def repair_mojibake(s: str) -> str:
         return s.encode("latin1").decode("utf-8")
     except Exception:
         return s  # if repair fails, return original
-
-
-def maybe_repair_text(text_bytes: bytes) -> str:
-    """Decode bytes to text, repairing mojibake if necessary."""
-    # Try straightforward UTF-8 decode
-    try:
-        text = text_bytes.decode("utf-8")
-    except UnicodeDecodeError:
-        # Fallback: try latin1 then decode to utf-8 if needed
-        try:
-            text = text_bytes.decode("latin1")
-        except Exception:
-            # Last resort: use 'utf-8' with replacement
-            text = text_bytes.decode("utf-8", errors="replace")
-
-    # If heuristics detect mojibake, attempt the latin1->utf-8 repair
-    if likely_mojibake(text):
-        repaired = repair_mojibake(text)
-        # If repair produced fewer suspicious sequences, keep it
-        if not likely_mojibake(repaired):
-            return repaired
-        # Otherwise keep the original decoded text (maybe it's fine)
-    return text
-
 
 def download_csv(sheet_id):
     URL = f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv"
@@ -60,6 +78,10 @@ def parses_news_csv(response):
     for row in reader:
         if not row["TITLE"]:
             continue
+
+        for k, v in list(row.items()):
+            if isinstance(v, str):
+                row[k] = to_ascii_safe(v)
 
         # Priority to 0 if missing or invalid
         if not row.get("Priority") or not row["Priority"].isdigit():
@@ -86,8 +108,8 @@ def parse_seminars_csv(response):
     for row in reader:
         # repair each field individually if needed
         for k, v in list(row.items()):
-            if isinstance(v, str) and likely_mojibake(v):
-                row[k] = repair_mojibake(v)
+            if isinstance(v, str):
+                row[k] = to_ascii_safe(v)
         # normalise Public to int (example)
         pub = row.get("Public")
         if not pub or not str(pub).strip().isdigit():

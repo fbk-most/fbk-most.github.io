@@ -155,7 +155,13 @@ This website is licensed under the [Creative Commons Attribution-ShareAlike 4.0 
 
 ## TODO
 
-- Improve responsiveness website
+- Fix on mobile
+    - Reserch&Projects -> not visible
+    - News banner not nice
+    - Seminars -> not visible
+- Disable hexagons on mobile or use something else in general
+- Revise download of non-ascii characters from news/seminars
 - Rotate people hexagons
 - Define people ordering
-- Style new page and add links
+- Cookie policy as popup
+- Impove aligment in header for the two logos
