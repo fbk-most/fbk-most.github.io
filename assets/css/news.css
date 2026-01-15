@@ -283,6 +283,12 @@ th, td {
   text-align: left;
 }
 
+table th:first-child,
+table td:first-child {
+  white-space: nowrap;
+  width: 120px;  /* adjust as needed */
+}
+
 /* Header background with 30% opacity */
 thead th {
   background-color: rgba(255, 255, 255, 0.3);
