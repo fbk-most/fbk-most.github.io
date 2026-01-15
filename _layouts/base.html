@@ -12,6 +12,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/cookies.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/navbar.css' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/people.css' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/news.css' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/research.css' | relative_url }}">
@@ -25,16 +27,14 @@
 
     <a href="https://www.fbk.eu" target="_blank">
       <img src="{{ '/assets/images/logos/FBK_Logo_Vertical_colour.png' | relative_url }}" 
-           alt="FBK Logo" class="most-header__logo_fbk">
+           alt="FBK Logo" class="most-header__logo">
     </a>
 
-    <div class="most-header__most">
-      <a href="https://most.fbk.eu/" target="_blank">
-        <img src="{{ '/assets/images/logos/most-logo.png' | relative_url }}" 
-             alt="MoST Logo" class="most-header__logo">
-      </a>
-      <span class="most-header__most-label">MoST</span>
-    </div>
+    <a href="https://most.fbk.eu/" target="_blank">
+      <img src="{{ '/assets/images/logos/most-logo.png' | relative_url }}" 
+      alt="MoST Logo" class="most-header__logo">
+    </a>
+    <span class="most-header__most-label">MoST</span>
 
   </div>
 
@@ -150,24 +150,6 @@
             <span>Povo (Trento)</span> |
             <span>Italy</span>
           </div>
-
-          <!-- <div class="minimal-footer__socials" style="margin-top: 0.5rem; display: inline-flex; gap: 0.5rem;"> -->
-            <!-- Email -->
-<!--             <a href="mailto:info@most.fbk.eu" 
-              target="_blank" 
-              class="minimal-footer__social"
-              aria-label="MoST Email">
-              <i class="fas fa-envelope"></i>
-            </a> -->
-
-            <!-- LinkedIn -->
-<!--             <a href="https://www.linkedin.com/" 
-              target="_blank" 
-              class="minimal-footer__social"
-              aria-label="MoST LinkedIn">
-              <i class="fab fa-linkedin"></i>
-            </a>
-          </div> -->
         </div>
       </div>
 
@@ -190,15 +172,33 @@
     </div>
   </footer>
 
+<!-- Cookie overlay -->
+<div class="most-cookie-overlay"></div>
 
+<!-- Cookie consent panel -->
+<div class="most-cookie">
+  <div class="most-cookie__content">
+    <h3>Cookies and privacy</h3>
 
-  <!-- Cookie consent banner -->
-  <div class="most-cookie">
-    <p>FBK websites use cookies. 
-      <a href="https://www.fbk.eu/en/privacy-cookies-policy/" target="_blank">More info about Privacy and cookies policy</a>
+    <p>
+      FBK does not use any user profiling technique, but only technical cookies
+      necessary for the normal functioning of the website and anonymous
+      statistical tools.
     </p>
-    <button class="most-cookie__accept">I agree</button>
+
+    <p>
+      For more information, please see our
+      <a href="https://www.fbk.eu/en/privacy-cookies-policy/" target="_blank">
+        Privacy and cookies policy
+      </a>.
+    </p>
+
+    <div class="most-cookie__actions">
+      <button class="most-cookie__deny">Deny</button>
+      <button class="most-cookie__accept">Accept</button>
+    </div>
   </div>
+</div>
 
   <script src="{{ '/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' | relative_url }}"></script>
   <script type="module" src="{{ '/assets/js/main.js' | relative_url }}"></script>

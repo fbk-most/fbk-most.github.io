@@ -10,7 +10,7 @@
   --fbk-gray: #97999b;
   --text-dark: #2b2b2b;
 
-  --most-header-height: 80px;
+  --most-header-height: 120px;
   --section-font-size: 1.1rem;
 }
 
@@ -56,187 +56,21 @@ a {
   box-shadow: inset 0 -4px 6px -2px rgba(0, 0, 0, 0.25);
 }
 
-.most-header__logo_fbk {
-  height: 48px;
-}
-
-.most-header__most {
-  display: flex;
-  flex-direction: column;       /* stack vertically */
-  justify-content: center;      /* center them vertically relative to FBK logo */
-  align-items: center;          /* center horizontally */
-  height: 48px;                 /* same height as FBK logo */
-  gap: 0.1rem;                  /* small spacing between logo and label */
-}
-
 .most-header__logo {
-  height: 35px;
+  height: 65px;
 }
-
 
 /* --- MoST logo + label --- */
 .most-header__most-label {
-  margin-top: 0.15rem;
   font-family: "Frutiger Condensed", "Frutiger", Arial, sans-serif;
-  font-weight: 700; /* Bold */
-  font-size: 0.63rem;
+  font-weight: 900; /* Bold */
+  font-size: 0.8rem;
+  font-feature-settings: "kern" 0;
+  font-stretch: condensed;
   color: var(--fbk-gray);
-  letter-spacing: -0.5px;
-}
-
-
-/* --- NAVBAR --- */
-
-/* ---------- Navbar: desktop ---------- */
-.navbar-nav .nav-item.dropdown {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.navbar-nav .nav-link {
-  padding: 0.5rem 0.75rem;
-  font-weight: 500;
-}
-
-.navbar-nav .nav-link,
-.navbar-nav .dropdown-item {
-  color: var(--fbk-blue) !important;
-}
-
-.navbar-nav .dropdown-toggle-split {
-  color: var(--fbk-blue) !important;
-  padding-left: 0.25rem;
-  padding-right: 0.75rem;
-}
-
-.navbar-nav .dropdown-toggle-split:focus,
-.navbar-nav .nav-link:focus {
-  outline: none;
-  box-shadow: none;
-}
-
-/* Split arrow */
-.dropdown-toggle-split::after {
-  margin-left: 0.25rem;
-  vertical-align: middle;
-  border-top: 0.3em solid var(--fbk-blue);
-  border-right: 0.3em solid transparent;
-  border-left: 0.3em solid transparent;
-}
-
-/* Dropdown menu: desktop */
-@media (min-width: 992px) {
-  .navbar .dropdown-menu {
-    position: absolute;
-    top: calc(100% + 6px);
-    left: 0;
-    min-width: 320px;
-    background-color: white !important;
-    border: 1px solid var(--fbk-blue);
-    border-radius: 6px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    z-index: 2000;
-  }
-
-  .navbar .dropdown-item {
-    color: var(--fbk-blue) !important;
-    padding: 0.6rem 1.1rem;
-  }
-
-  .navbar .dropdown-item:hover {
-    color: var(--fbk-blue)ortant;
-    font-weight: 700;
-  }
-}
-
-/* ---------- Mobile ---------- */
-@media (max-width: 991.98px) {
-
-  /* Collapse menu full-height */
-  .navbar-collapse {
-    position: fixed;
-    top: var(--most-header-height);
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: white;
-    padding: 1rem 1.25rem;
-    overflow-y: auto;
-    z-index: 1060;
-    color: var(--fbk-blue);
-  }
-
-  .navbar-nav .dropdown-toggle::after {
-    display: none;
-  }
-
-  .navbar .dropdown-item:hover {
-    color: var(--fbk-blue)ortant;
-    font-weight: 700;
-  }
-
-  /* Hamburger button */
-  .navbar-toggler {
-    position: fixed;
-    top: 0.5rem;
-    right: 1rem;
-    z-index: 1100;
-    border: none;
-    background: transparent;
-  }
-
-  .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%230057B7' stroke-width='2.5' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-  }
-
-
-  /* Stack nav items vertically */
-  .navbar-nav {
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    width: 100% !important;
-  }
-
-  .navbar-nav .nav-item {
-    width: 100% !important;
-    display: block !important;
-  }
-
-  .navbar-nav .nav-link {
-    padding: 0.75rem 0;
-    width: 100%;
-    color: var(--fbk-blue) !important;
-  }
-
-  /* Dropdown menu mobile: always below main link */
-  .navbar-nav .nav-item.dropdown > .dropdown-menu {
-    position: static !important;  /* stack below parent */
-    display: block !important;    /* always visible */
-    width: 100% !important;       /* full width */
-    background: transparent;
-    margin: 0;
-    padding-left: 1.5rem;         /* indent for clarity */
-    box-shadow: none;
-  }
-
-  .navbar-nav .nav-item.dropdown > .dropdown-menu .dropdown-item {
-    padding: 0.5rem 0;
-    color: var(--fbk-blue) !important;
-    width: 100% !important;
-  }
-
-  /* Ensure parent dropdown items are not flexed horizontally */
-  .navbar-nav .nav-item.dropdown {
-    display: block !important;
-    flex-direction: column !important;
-  }
-
-  .navbar-nav .nav-link:hover,
-.navbar-nav .dropdown-item:hover {
-  color: var(--fbk-dark-blue) !important; /* FBK blue instead of white */
-  background-color: transparent !important; /* remove default background highlight */
-}
+  margin-top: 32%;
+  margin-left: -22px;
+  transform: scaleX(0.85);
 }
 
 /* --- FOOTER --- */
@@ -377,6 +211,14 @@ a {
   }
 }
 
+@media (max-width: 576px) {
+  .most-section__content {
+    grid-template-columns: 1fr;
+    column-gap: 1rem;
+    row-gap: 2rem;
+  }
+}
+
 /* Individual content blocks */
 .most-section__block {
   break-inside: avoid;
@@ -512,57 +354,6 @@ a {
 /* Optional: responsive text inside blocks */
 .most-section__block {
   word-break: break-word;
-}
-
-/*COOKIES*/
-/* ---------- Cookie Banner ---------- */
-.most-cookie {
-  position: fixed;
-  bottom: -100px; /* hidden by default */
-  left: 0;
-  right: 0;
-  background-color: var(--fbk-dark-blue);
-  color: white;
-  padding: 1rem 2rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 1100;
-  transition: bottom 0.5s ease;
-  font-size: 0.9rem;
-}
-
-.most-cookie.show {
-  bottom: 0; /* slide up into view */
-}
-
-.most-cookie p {
-  margin: 0;
-  flex: 1 1 auto;
-}
-
-.most-cookie a {
-  color: white;
-  text-decoration: underline;
-}
-
-.most-cookie__accept {
-  background-color: var(--fbk-blue);
-  border: none;
-  color: white;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  font-weight: 600;
-  border-radius: 4px;
-  margin-left: 1rem;
-  flex-shrink: 0;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.most-cookie__accept:hover {
-  background-color: white;
-  color: var(--fbk-dark-blue);
 }
 
 /* =========================================

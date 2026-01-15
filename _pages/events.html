@@ -68,7 +68,11 @@ permalink: /events/
           {% assign image_url = "/assets/images/news/FBK_Povo_Building_Baroni_6_cropped.webp" %}
         {% endif %}
 
-        {% assign item_title = post.TITLE | default: "Seminar" %}
+        {% if post.Title %}
+          {% assign item_title = "Seminar: " | append: post.Title %}
+        {% else %}
+          {% assign item_title = post.TITLE %}
+        {% endif %}        
         {% assign item_date = post.DATE | default: post.Date %}
         {% assign item_desc = post.DESCRIPTION | default: post.Title %}
 
@@ -76,8 +80,7 @@ permalink: /events/
           <div class="slide-blur-bg" style="background-image: url('{{ image_url | relative_url }}');"></div>
           <img class="slide-main-img" src="{{ image_url | relative_url }}" alt="{{ item_title }}">
           <div class="slide-caption">
-            <h3>{{ item_date | date: "%d-%m-%Y" }} - {{ item_title }}</h3>
-            <p>{{ item_desc }}</p>
+            <h3 class="slider-title">{{ item_date | date: "%d-%m-%Y" }} - {{ item_title }}</h3>
           </div>
         </div>
       {% endfor %}
@@ -123,9 +126,6 @@ permalink: /events/
       <div class="most-section__block">
         <h3>{{ post.DATE | date: "%d-%m-%Y" }} - {{ post.TITLE }}</h3>
         <p>{{ post.DESCRIPTION }}</p>
-        {% if post["Longer description"] %}
-          <p>{{ post["Longer description"] }}</p>
-        {% endif %}
         {% assign link = post.Link | default: "" | strip %}
         {% if link != "" %}
           <p><a href="{{ link }}" target="_blank">Event link</a></p>
