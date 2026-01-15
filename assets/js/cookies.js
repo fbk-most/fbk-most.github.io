@@ -1,32 +1,29 @@
 export function initCookies() {
-  const cookieAlert = document.querySelector(".most-cookie");
-  const acceptButton = document.querySelector(".most-cookie__accept");
-  if (!cookieAlert || !acceptButton) return;
+  const banner = document.querySelector(".most-cookie");
+  const overlay = document.querySelector(".most-cookie-overlay");
+  const acceptBtn = document.querySelector(".most-cookie__accept");
+  const denyBtn = document.querySelector(".most-cookie__deny");
 
-  const cookieName = "mostCookiesAccepted";
-
-  function setCookie(name, value, days) {
-    const date = new Date();
-    date.setTime(date.getTime() + days * 24*60*60*1000);
-    const cookie = `${encodeURIComponent(name)}=${encodeURIComponent(value)}; expires=${date.toUTCString()}; path=/; SameSite=Lax`;
-    document.cookie = cookie;
+  if (!banner || !overlay || !acceptBtn || !denyBtn) {
+    console.warn("Cookie elements not found");
+    return;
   }
 
-  function getCookie(name) {
-    const encodedName = encodeURIComponent(name) + "=";
-    const cookies = document.cookie.split('; ');
-    for (const c of cookies) {
-      if (c.indexOf(encodedName) === 0) return decodeURIComponent(c.substring(encodedName.length));
-    }
-    return null;
+  const consent = localStorage.getItem("cookieConsent");
+
+  if (!consent) {
+    banner.style.display = "block";
+    overlay.style.display = "block";
+    document.body.classList.add("cookies-locked");
   }
 
-  if (!getCookie(cookieName)) {
-    cookieAlert.classList.add('show');
+  function closeCookies(value) {
+    localStorage.setItem("cookieConsent", value);
+    banner.style.display = "none";
+    overlay.style.display = "none";
+    document.body.classList.remove("cookies-locked");
   }
 
-  acceptButton.addEventListener('click', () => {
-    setCookie(cookieName, 'true', 365);
-    cookieAlert.classList.remove('show');
-  });
+  acceptBtn.addEventListener("click", () => closeCookies("accepted"));
+  denyBtn.addEventListener("click", () => closeCookies("denied"));
 }

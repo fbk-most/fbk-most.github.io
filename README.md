@@ -156,12 +156,10 @@ This website is licensed under the [Creative Commons Attribution-ShareAlike 4.0 
 ## TODO
 
 - Fix on mobile
-    - Reserch&Projects -> not visible
     - News banner not nice
     - Seminars -> not visible
 - Disable hexagons on mobile or use something else in general
-- Revise download of non-ascii characters from news/seminars
+- Seminars table -> increase size of Date column to fit date width
 - Rotate people hexagons
 - Define people ordering
-- Cookie policy as popup
 - Impove aligment in header for the two logos

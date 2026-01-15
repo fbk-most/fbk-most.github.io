@@ -8,5 +8,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initTextAnimations();
   initNews();
   initSlider();
-  initHexagons();
+  // initHexagons();
 });
