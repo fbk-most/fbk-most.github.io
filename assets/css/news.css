@@ -5,6 +5,11 @@
 
 /*NEWS*/
 
+.slider-title {
+  font-size: 1.25rem;
+  margin: 0;
+}
+
 #news .most-section__block {
   margin-bottom: 2rem;
   padding: 1rem;
@@ -88,7 +93,7 @@
 /* SLIDESHOW */
 .slideshow-container {
   position: relative;
-  width: 1000px;
+  max-width: 1400px;
   /* This enforces the container size/ratio. 
      You can change 10/4 to 16/9 if you prefer a standard video look */
   aspect-ratio: 10 / 4; 
@@ -100,7 +105,7 @@
   display: none;
   width: 100%;
   height: 100%; /* Force slide to fill container */
-  position: relative;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -148,7 +153,7 @@
 /* Keep your existing Responsive rules for height */
 @media (max-width: 768px) {
   .slideshow-container {
-    width: 100;
+    width: 100%;
     aspect-ratio: 10 / 4; /* Optional: reset aspect ratio on mobile if desired */
   }
 }
@@ -265,6 +270,11 @@
     height: 10px;
     width: 10px;
     margin: 2px;
+  }
+
+  .prev-slide,
+  .next-slide {
+    display: none;
   }
 }
 

@@ -155,11 +155,6 @@ This website is licensed under the [Creative Commons Attribution-ShareAlike 4.0 
 
 ## TODO
 
-- Fix on mobile
-    - News banner not nice
-    - Seminars -> not visible
 - Disable hexagons on mobile or use something else in general
-- Seminars table -> increase size of Date column to fit date width
 - Rotate people hexagons
 - Define people ordering
-- Impove aligment in header for the two logos
