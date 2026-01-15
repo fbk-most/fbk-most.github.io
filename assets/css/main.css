@@ -10,7 +10,7 @@
   --fbk-gray: #97999b;
   --text-dark: #2b2b2b;
 
-  --most-header-height: 80px;
+  --most-header-height: 120px;
   --section-font-size: 1.1rem;
 }
 
@@ -57,20 +57,19 @@ a {
 }
 
 .most-header__logo {
-  height: 48px;
+  height: 65px;
 }
 
 /* --- MoST logo + label --- */
 .most-header__most-label {
   font-family: "Frutiger Condensed", "Frutiger", Arial, sans-serif;
   font-weight: 900; /* Bold */
-  font-size: 0.63rem;
+  font-size: 0.8rem;
   font-feature-settings: "kern" 0;
   font-stretch: condensed;
   color: var(--fbk-gray);
-  letter-spacing: -0.15px;
-  margin-top: 31%;
-  margin-left: -18px;
+  margin-top: 32%;
+  margin-left: -22px;
   transform: scaleX(0.85);
 }
 
