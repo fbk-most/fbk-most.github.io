@@ -7,6 +7,11 @@ import { fbkBlue } from './utils.js';
 export function initTextAnimations() {
   const sections = document.querySelectorAll('.most-section');
 
+  // Force the first content section after banner to appear immediately
+  if (sections.length > 1) {
+    sections[1].classList.add('in-view');
+  }
+
   const observer = new IntersectionObserver(
     entries => {
       entries.forEach(entry => {
@@ -16,11 +21,12 @@ export function initTextAnimations() {
         }
       });
     },
-    { threshold: 0.25 }
+    { threshold: 0.15 }
   );
 
   sections.forEach(section => observer.observe(section));
 }
+
 
 /* =========================================================
    HEXAGON DECORATIONS
