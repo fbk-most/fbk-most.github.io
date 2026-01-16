@@ -4,110 +4,98 @@
    ============================== */
 
 /* --- PEOPLE GRID --- */
-
-
-#hexGrid {
+.honeycomb {
   display: flex;
-  flex-wrap: wrap;
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-  overflow: hidden;
-  list-style-type: none;
+  justify-content: center; /* center horizontally */
+  --s: 300px;
+  --r: 0.85;
+  --h: 0.25;  
+  --v: 0.5; 
+  --hc:calc(clamp(0,var(--h),0.5) * var(--s)) ;
+  --vc:calc(clamp(0,var(--v),0.5) * var(--s) * var(--r)); 
+  --mv: 8px;
+  --mh: calc(var(--mv) + (var(--s) - 2*var(--hc))/2);
+  --f: calc(2*var(--s)*var(--r) + 4*var(--mv)  - 2*var(--vc) - 2px);
+  padding-bottom: calc(var(--s) * 1.5); /* adjust for extra rows */
 }
 
-.hex {
-  position: relative;
-  outline: 1px solid transparent;
+
+.honeycomb-container {
+  font-size: 0; /*disable white space between inline block element */
+  display: inline-block; /* already inline-block children */
+  max-width: 1400px;
+  margin: 0 auto;        /* center horizontally */
 }
 
-.hex::after {
-  content: '';
+.honeycomb-container > div {
+  position: relative; /* This is the key change */
+  width: var(--s);
+  margin: var(--mv) var(--mh);
+  height: calc(var(--s)*var(--r)); 
+  display: inline-block;
+  font-size:initial;
+  clip-path: polygon(var(--hc) 0, calc(100% - var(--hc)) 0,100% var(--vc),100% calc(100% - var(--vc)), calc(100% - var(--hc)) 100%,var(--hc) 100%,0 calc(100% - var(--vc)),0 var(--vc));
+  margin-bottom: calc(var(--mv) - var(--vc)); 
+}
+
+.honeycomb-container::before {
+  content: "";
+  width: calc(var(--s)/2 + var(--mh));
+  float: left;
+  height: 135%;
+  shape-outside: repeating-linear-gradient(     
+    #0000 0 calc(var(--f) - 2px),      
+    #000  0 var(--f));
+}
+
+.honeycomb-container::after {
+  content: "";
   display: block;
-  padding-bottom: 86.602%; /* = 100 / tan(60) * 1.5 */
+  clear: both;
 }
 
-.hexIn {
-  position: absolute;
-  width: 96%;
-  padding-bottom: 110.851%; /* = width / sin(60) */
-  margin: 0 2%;
-  overflow: hidden;
-  visibility: hidden;
-  outline: 1px solid transparent;
-  transform: rotate3d(0,0,1,-60deg) skewY(30deg);
+.small {
+  max-width: 1000px;
 }
 
-.hexIn * {
-  position: absolute;
-  visibility: visible;
-  outline: 1px solid transparent;
-}
-
-.hexLink {
-  display: block;
+.hex-img {
   width: 100%;
   height: 100%;
-  text-align: center;
-  color: #fff;
-  overflow: hidden;
-  transform: skewY(-30deg) rotate3d(0,0,1,60deg);
+  object-fit: cover;
 }
 
-.hexContent {
+.hex-text {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 85, 184, 0.7);
-
+  
+  /* Centering Logic */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-
-  padding: 10px;
+  
+  /* Visuals */
+  background: rgba(0, 85, 184, 0.7); /* Dark tint on hover */
+  color: white;
+  padding: 20px;
   box-sizing: border-box;
-  color: #fff;
-  font-weight: 300;
-
-  transform: translateY(-100%);
-  transition: transform 0.4s ease-out;
+  
+  /* Hidden by default */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none; /* Allows mouse to still "hit" the parent div */
 }
 
-/* on hover, slide down to fill hex */
-.hexLink:hover .hexContent,
-.hexLink:focus .hexContent {
-  transform: translateY(0);
-}
+/* Text spacing */
+.hex-text h3 { margin: 0 0 5px 0; font-size: 1.5rem}
+.hex-text p { margin: 0; font-size: 1rem; }
 
-.hexContent * {
-  position: relative; /* Overrides the absolute positioning from .hexIn * */
-}
-
-/* ================= HEX CONTENT ================= */
-.hex img {
-  left: -100%;
-  right: -100%;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  margin: 0 auto;
-  transform: rotate3d(0,0,0,0deg);
-}
-
-.hexContent h3,
-.hexContent p {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-/* 2. Create the line using the ::after pseudo-element */
-.hexContent h3::after {
+/*White line*/
+.hex-text h3::after {
   content: '';
   display: block;
   width: 25%;
@@ -116,33 +104,26 @@
   margin: 10px auto;
 }
 
-/* ================= HEXAGON SIZING / RESPONSIVE ================= */
-@media (min-width:1201px) {
-  #hexGrid { padding-bottom: 4.4%; }
-  .hex { width: 20%; } /* 5 hex per row */
-  .hex:nth-child(9n+6) { margin-left: 10%; }
+/* Show on Hover */
+.honeycomb-container div:hover .hex-text {
+  opacity: 1;
 }
 
-@media (max-width:1200px) and (min-width:901px) {
-  #hexGrid { padding-bottom: 5.5%; }
-  .hex { width: 25%; } /* 4 hex per row */
-  .hex:nth-child(7n+5) { margin-left: 12.5%; }
-}
 
-@media (max-width:900px) and (min-width:601px) {
-  #hexGrid { padding-bottom: 7.4%; }
-  .hex { width: 33.333%; } /* 3 hex per row */
-  .hex:nth-child(5n+4) { margin-left: 16.666%; }
-}
+@media (max-width: 575px) {
+  .honeycomb {
+    --s: 120px;
+    --mv: 3px;
+    --mh: calc(var(--mv) + (var(--s) - 2*var(--hc))/2);
+    --f: calc(2*var(--s)*var(--r) + 4*var(--mv)  - 2*var(--vc) - 2px);
+  }
+  
+  .honeycomb-container {
+    max-width: 90%;
+  }
 
-@media (max-width:600px) {
-  #hexGrid { padding-bottom: 11.2%; }
-  .hex { width: 50%; } /* 2 hex per row */
-  .hex:nth-child(3n+3) { margin-left: 25%; }
-}
-
-@media (max-width:400px) {
-  #hexGrid { font-size: 13px; }
+.hex-text h3 { margin: 0 0 2px 0; font-size: 0.9rem}
+.hex-text p { margin: 0; font-size: 0.7rem; }
 }
 
 /* MODAL BACKDROP */

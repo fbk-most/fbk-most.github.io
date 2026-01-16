@@ -9,86 +9,87 @@ permalink: /people/
   <h1>People</h1>
 </section>
 
-<!-- ===== TEAM SECTION ===== -->
-
-{% assign current_people = site.people | where: "status", "current" %}
-{% assign visitor_people = site.people | where: "status", "visitor" %}
-{% assign combined_people = current_people | concat: visitor_people %}
-{% assign sorted_groups = combined_people | group_by: "order" | sort: "name" %}
-
-<section id="team" class="most-section most-section--team">
+<section class="most-section">
   <h2 class="most-section__title">Team</h2>
-      <ul id="hexGrid">
-        {% for group in sorted_groups %}
-          {% assign people_in_group = group.items | sort: "name" %}
-          {% for person in people_in_group %}
-            <li class="hex">
-              <div class="hexIn">
-                <a class="hexLink"
-                  href="#"
-                  data-name="{{ person.name }}"
-                  data-position="{{ person.position }}"
-                  data-image="{{ person.image | relative_url }}"
-                  data-bio="{{ person.content | markdownify | strip_newlines | escape }}"
-                  data-website="{{ person.website }}"
-                  data-github="{{ person.github }}"
-                  data-twitter="{{ person.twitter }}"
-                  data-linkedin="{{ person.linkedin }}"
-                  data-scholar="{{ person.scholar }}"
-                  data-research_gate="{{ person.research_gate }}">
-                  <img src="{{ person.image | relative_url }}" alt="{{ person.name }}" />
-                  <div class="hexContent">
-                    <h3>{{ person.name }}</h3>
-                    <p>{{ person.position }}</p>
-                  </div>
-                </a>
+
+  {% assign current_people = site.people | where: "status", "current" %}
+  {% assign visitor_people = site.people | where: "status", "visitor" %}
+  {% assign combined_people = current_people | concat: visitor_people %}
+  {% assign sorted_people = combined_people | sort: "order"%}
+  {% assign people_count = sorted_people | size %}
+  <div class="honeycomb reveal">
+    {% if people_count < 5 %}
+      <div class="honeycomb-container small">
+    {% else %}
+      <div class="honeycomb-container">
+    {% endif %}
+      {% for person in sorted_people %}
+        <div class="hexLink-new">
+            <a
+                href="#"
+                data-name="{{ person.name }}"
+                data-position="{{ person.position }}"
+                data-image="{{ person.image | relative_url }}"
+                data-bio="{{ person.content | markdownify | strip_newlines | escape }}"
+                data-website="{{ person.website }}"
+                data-github="{{ person.github }}"
+                data-twitter="{{ person.twitter }}"
+                data-linkedin="{{ person.linkedin }}"
+                data-scholar="{{ person.scholar }}"
+                data-research_gate="{{ person.research_gate }}">
+              <img class="hex-img" src="{{ person.image | relative_url }}" alt="{{ person.name }}">
+              <div class="hex-text">
+                <h3>{{ person.name }}</h3>
+                <p>{{ person.position }}</p>
               </div>
-            </li>
-          {% endfor %}
-        {% endfor %}
-    </ul>
+            </a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
 </section>
+
 
 <!-- ===== ALUMNI SECTION ===== -->
-{% comment %}
-    1. Filter people with status "alumni".
-    2. Group them by the primary sort key ('order').
-{% endcomment %}
-{% assign alumni_people = site.people | where: "status", "alumni" %}
-{% assign sorted_alumni_groups = alumni_people | group_by: "order" | sort: "name" %}
 
-<section id="alumni" class="most-section most-section--alumni">
+<section id="alumni" class="most-section">
   <h2 class="most-section__title">Alumni</h2>
-      <ul id="hexGrid">
-        {% for group in sorted_alumni_groups %}
-          {% assign people_in_group = group.items | sort: "name" %}
-          {% for person in people_in_group %}
-            <li class="hex">
-              <div class="hexIn">
-                <a class="hexLink"
-                  href="#"
-                  data-name="{{ person.name }}"
-                  data-position="{{ person.position }}"
-                  data-image="{{ person.image | relative_url }}"
-                  data-bio="{{ person.content | markdownify | strip_newlines | escape }}"
-                  data-website="{{ person.website }}"
-                  data-github="{{ person.github }}"
-                  data-twitter="{{ person.twitter }}"
-                  data-linkedin="{{ person.linkedin }}"
-                  data-scholar="{{ person.scholar }}"
-                  data-research_gate="{{ person.research_gate }}">
-                  <img src="{{ person.image | relative_url }}" alt="{{ person.name }}" />
-                  <div class="hexContent">
-                    <h3>{{ person.name }}</h3>
-                    <p>{{ person.position }}</p>
-                  </div>
-                </a>
-              </div>
-            </li>
-          {% endfor %}
-        {% endfor %}
-    </ul>
+  
+  {% assign alumni_people = site.people | where: "status", "alumni" %}
+  {% assign sorted_alumni = alumni_people | sort: "order" | sort: "name" %}
+  {% assign alumni_count = sorted_alumni | size %}
+  <div class="honeycomb reveal">
+    {% if alumni_count < 5 %}
+      <div class="honeycomb-container small">
+    {% else %}
+      <div class="honeycomb-container">
+    {% endif %}
+      {% for person in sorted_alumni %}
+        <div class="hexLink-new">
+          <a
+            href="#"
+            data-name="{{ person.name }}"
+            data-position="{{ person.position }}"
+            data-image="{{ person.image | relative_url }}"
+            data-bio="{{ person.content | markdownify | strip_newlines | escape }}"
+            data-website="{{ person.website }}"
+            data-github="{{ person.github }}"
+            data-twitter="{{ person.twitter }}"
+            data-linkedin="{{ person.linkedin }}"
+            data-scholar="{{ person.scholar }}"
+            data-research_gate="{{ person.research_gate }}">
+            <img class="hex-img" src="{{ person.image | relative_url }}" alt="{{ person.name }}">
+            <div class="hex-text">
+              <h3>{{ person.name }}</h3>
+              <p>{{ person.position }}</p>
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
 </section>
+
 
 <!-- ===== OPEN POSITIONS ===== -->
 <section id="positions" class="most-section">
@@ -120,7 +121,7 @@ permalink: /people/
 
 
 <script>
-document.querySelectorAll('.hexLink').forEach(link => {
+document.querySelectorAll('.hexLink-new a').forEach(link => {
   link.addEventListener('click', function(e) {
     e.preventDefault();
 
@@ -180,5 +181,3 @@ window.onclick = function(e) {
   }
 };
 </script>
-
-
