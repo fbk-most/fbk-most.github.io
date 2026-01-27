@@ -7,6 +7,7 @@ image: "/assets/images/people/jesus-moreno.png"
 github: "jmorenolopez"
 scholar: "0aDu28kAAAAJ"
 order: 2
+apperence-order: 3
 ---
 
 Jesús Moreno is a PostDoc researcher at the [MoST research unit](/). He currently works on modelling of the Civic Digital Twin.

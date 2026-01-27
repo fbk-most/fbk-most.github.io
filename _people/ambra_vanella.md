@@ -8,6 +8,7 @@ image: "/assets/images/people/ambra-vanella.jpeg" # optional
 # github:  # optional
 # linkedin: 
 order: 5
+apperence-order: 9
 ---
 Ambra Vanella is a graduate in Sociology from the [University of Bologna](https://www.unibo.it/it), with a background in research methodologies and a strong interest in territorial analysis, spatial planning, and sustainability. From January 2026, she is carrying out a traineeship at the [Most research unit](/), where she is working on the study and validation of techniques, methodologies, and best practices to enhance stakeholder engagement in the design of Civic Digital Twins. 
 

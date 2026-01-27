@@ -7,6 +7,7 @@ image: "/assets/images/people/federica-lago.jpg" # optional
 github: "Flake22" # optional
 scholar: "JKV8RK8AAAAJ" # optional Google Scholar ID
 order: 2
+apperence-order: 2
 ---
 
 Federica Lago is a Researcher at the [MoST research unit](/).

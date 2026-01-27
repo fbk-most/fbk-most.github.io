@@ -8,6 +8,7 @@ github: "araiari"
 scholar: "pjltXLAAAAAJ"
 research_gate: "Arianna-Burzacchi"
 order: 2
+apperence-order: 1
 ---
 
 Arianna Burzacchi is a PostDoc researcher at the [MoST research unit](/). She currently works on the modeling and analysis of mobility data within the [Bologna Digital Twin](https://pmg.fbk.eu/gdb/) project.

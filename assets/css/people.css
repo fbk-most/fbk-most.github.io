@@ -13,7 +13,7 @@
   --v: 0.5; 
   --hc:calc(clamp(0,var(--h),0.5) * var(--s)) ;
   --vc:calc(clamp(0,var(--v),0.5) * var(--s) * var(--r)); 
-  --mv: 8px;
+  --mv: 4px;
   --mh: calc(var(--mv) + (var(--s) - 2*var(--hc))/2);
   --f: calc(2*var(--s)*var(--r) + 4*var(--mv)  - 2*var(--vc) - 2px);
   padding-bottom: calc(var(--s) * 1.5); /* adjust for extra rows */

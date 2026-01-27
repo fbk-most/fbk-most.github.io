@@ -15,7 +15,7 @@ permalink: /people/
   {% assign current_people = site.people | where: "status", "current" %}
   {% assign visitor_people = site.people | where: "status", "visitor" %}
   {% assign combined_people = current_people | concat: visitor_people %}
-  {% assign sorted_people = combined_people | sort: "order"%}
+  {% assign sorted_people = combined_people | sort: "apperence-order"%}
   {% assign people_count = sorted_people | size %}
   <div class="honeycomb reveal">
     {% if people_count < 5 %}
@@ -56,7 +56,7 @@ permalink: /people/
   <h2 class="most-section__title">Alumni</h2>
   
   {% assign alumni_people = site.people | where: "status", "alumni" %}
-  {% assign sorted_alumni = alumni_people | sort: "order" | sort: "name" %}
+  {% assign sorted_alumni = alumni_people | sort: "order" %}
   {% assign alumni_count = sorted_alumni | size %}
   <div class="honeycomb reveal">
     {% if alumni_count < 5 %}
