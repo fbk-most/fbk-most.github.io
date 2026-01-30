@@ -12,32 +12,29 @@ permalink: /people/
 <section class="most-section">
   <h2 class="most-section__title">Team</h2>
 
-  {% assign current_people = site.people | where: "status", "current" %}
-  {% assign visitor_people = site.people | where: "status", "visitor" %}
-  {% assign combined_people = current_people | concat: visitor_people %}
-  {% assign sorted_people = combined_people | sort: "apperence-order"%}
-  {% assign people_count = sorted_people | size %}
+  {% assign team = site.data.team %}
+  {% assign people_count = team | size %}
   <div class="honeycomb reveal">
     {% if people_count < 5 %}
       <div class="honeycomb-container small">
     {% else %}
       <div class="honeycomb-container">
     {% endif %}
-      {% for person in sorted_people %}
+      {% for person in team %}
         <div class="hexLink-new">
             <a
                 href="#"
                 data-name="{{ person.name }}"
                 data-position="{{ person.position }}"
-                data-image="{{ person.image | relative_url }}"
-                data-bio="{{ person.content | markdownify | strip_newlines | escape }}"
+                data-image="/assets/images/people/{{ person.picutre | relative_url }}"
+                data-bio="{{ person.bio | markdownify | strip_newlines | escape }}"
                 data-website="{{ person.website }}"
                 data-github="{{ person.github }}"
                 data-twitter="{{ person.twitter }}"
                 data-linkedin="{{ person.linkedin }}"
                 data-scholar="{{ person.scholar }}"
-                data-research_gate="{{ person.research_gate }}">
-              <img class="hex-img" src="{{ person.image | relative_url }}" alt="{{ person.name }}">
+                data-research_gate="{{ person.researchgate }}">
+              <img class="hex-img" src="/assets/images/people/{{ person.picutre | relative_url }}" alt="{{ person.name }}">
               <div class="hex-text">
                 <h3>{{ person.name }}</h3>
                 <p>{{ person.position }}</p>
@@ -55,35 +52,34 @@ permalink: /people/
 <section id="alumni" class="most-section">
   <h2 class="most-section__title">Alumni</h2>
   
-  {% assign alumni_people = site.people | where: "status", "alumni" %}
-  {% assign sorted_alumni = alumni_people | sort: "order" %}
-  {% assign alumni_count = sorted_alumni | size %}
+  {% assign alumni = site.data.alumni %}
+  {% assign alumni_count = alumni | size %}
   <div class="honeycomb reveal">
     {% if alumni_count < 5 %}
       <div class="honeycomb-container small">
     {% else %}
       <div class="honeycomb-container">
     {% endif %}
-      {% for person in sorted_alumni %}
+      {% for person in alumni %}
         <div class="hexLink-new">
-          <a
-            href="#"
-            data-name="{{ person.name }}"
-            data-position="{{ person.position }}"
-            data-image="{{ person.image | relative_url }}"
-            data-bio="{{ person.content | markdownify | strip_newlines | escape }}"
-            data-website="{{ person.website }}"
-            data-github="{{ person.github }}"
-            data-twitter="{{ person.twitter }}"
-            data-linkedin="{{ person.linkedin }}"
-            data-scholar="{{ person.scholar }}"
-            data-research_gate="{{ person.research_gate }}">
-            <img class="hex-img" src="{{ person.image | relative_url }}" alt="{{ person.name }}">
-            <div class="hex-text">
-              <h3>{{ person.name }}</h3>
-              <p>{{ person.position }}</p>
-            </div>
-          </a>
+            <a
+                href="#"
+                data-name="{{ person.name }}"
+                data-position="{{ person.position }}"
+                data-image="/assets/images/people/{{ person.picutre | relative_url }}"
+                data-bio='{{ person.name }} worked at at the <a href=\"/\">MoST research unit</a>  as {{ person.position }} from {{ person.startdate }} to {{ person.enddate}}.'
+                data-website="{{ person.website }}"
+                data-github="{{ person.github }}"
+                data-twitter="{{ person.twitter }}"
+                data-linkedin="{{ person.linkedin }}"
+                data-scholar="{{ person.scholar }}"
+                data-research_gate="{{ person.researchgate }}">
+              <img class="hex-img" src="/assets/images/people/{{ person.picutre | relative_url }}" alt="{{ person.name }}">
+              <div class="hex-text">
+                <h3>{{ person.name }}</h3>
+                <p>{{ person.position }}</p>
+              </div>
+            </a>
         </div>
       {% endfor %}
     </div>

@@ -1,0 +1,98 @@
+[
+  {
+    "name": "Marco Pistore",
+    "position": "Head of Unit",
+    "role": "1",
+    "linkedin": "marco-pistore",
+    "bio": "<p>Marco Pistore is the lead researcher of the <a href=\"/\">MoST</a> research unit at <a href=\"https://www.fbk.eu/\">Fondazione Bruno Kessler</a>. His current research interests focus on novel modeling and simulation techniques for complex socio-technical systems (eg. cities, rural areas, complex organizations), by exploiting, developing and integrating data science, artificial intelligence and complex systems approaches.</p><p>Marco received his PhD in Computer Science from the University of Pisa in 1998 with a thesis on a theoretical model to describe distributed systems with history-dependent behavior.</p><p>He subsequently gained over 25 years of research experience in various fields, including artificial intelligence, software engineering, software architectures and distributed systems, ranging from basic to \"mission oriented\" and industrial research.</p><p>During 2021-2024, he served as director of the <a href=\"https://digis.fbk.eu/\">Digital Society</a> research center of Fondazione Bruno Kessler, a multidisciplinary team of more than 100 PhD students, researchers, technologists and managers with the mission to perform advanced research and develop innovative digital technology to address key challenges of the future digital society.</p><p>Marco has strong leadership and management experience, gained primarily in science and academia, but with significant experience in business. An eclectic approach to research and leadership that has led him to learn about and adopt a variety of scientific and management methods and approaches and helped develop his critical thinking skills.</p>",
+    "picutre": "marco-pistore.png",
+    "startdate": "01/01/2018"
+  },
+  {
+    "name": "Arianna Burzacchi",
+    "position": "PostDoc Researcher",
+    "role": "2",
+    "researchgate": "Arianna-Burzacchi",
+    "github": "araiari",
+    "scholar": "pjltXLAAAAAJ",
+    "bio": "<p>Arianna Burzacchi is a PostDoc researcher at the <a href=\"/\">MoST research unit</a>. She currently works on the modeling and analysis of mobility data within the <a href=\"https://pmg.fbk.eu/gdb/\">Bologna Digital Twin</a> project.</p><p>Before joining <a href=\"https://www.fbk.eu/\">FBK</a>, Arianna was a PhD student at the <a href=\"https://mox.polimi.it/\">MOX Laboratory</a> of Politecnico di Milano, focusing her research on privacy-preserving data analysis of mobility data.</p><p>Her research interests span between different statistical learning applications, especially non-parametric statistics and networkanalysis for mobility data.</p>",
+    "picutre": "arianna-burzacchi.jpg",
+    "startdate": "01/01/2024"
+  },
+  {
+    "name": "Federica Lago",
+    "position": "Researcher",
+    "role": "2",
+    "github": "Flake22",
+    "scholar": "JKV8RK8AAAAJ",
+    "bio": "<p>Federica Lago is a Researcher at the <a href=\"/\">MoST research unit</a>.</p><p>Before joining FBK, Federica earned a Ph.D. in Information and Communication Technology (ICT) from the University of Trento, with a thesis titled \"On the Preservation of Media Trustworthiness in the Social Media Era.\" During her doctoral studies, she collaborated with various academic and industrial partners. Following her Ph.D., she spent three years in industry, working on projects related to Artificial Intelligence and Computer Vision.</p>",
+    "picutre": "federica-lago.jpg",
+    "startdate": "02/11/2025"
+  },
+  {
+    "name": "Jesús A. Moreno López",
+    "position": "PostDoc Researcher",
+    "role": "2",
+    "github": "jmorenolopez",
+    "scholar": "0aDu28kAAAAJ",
+    "bio": "<p>Jesús Moreno is a PostDoc researcher at the <a href=\"/\">MoST research unit</a>. He currently works on modelling of the Civic Digital Twin.</p><p>Before joining <a href=\"https://www.fbk.eu/\">FBK</a>, Jesús was a PhD student at the <a href=\"https://ifisc.uib-csic.es/en/\">Institute for Interdisciplinary Physics and Complex Systems (IFISC)</a> in Mallorca, focusing his research on agent-based models for the analysis of complexity in social systems. His research interests span from the foundations of complexity to the applications of complexity-centered tools in real-world challenges.</p>",
+    "picutre": "jesus-a-moreno-lopez.png"
+  },
+  {
+    "name": "Sammer Sheereen",
+    "position": "PhD Student",
+    "role": "3",
+    "github": "ssheereen",
+    "bio": "<p>Sammer Sheereen is a PhD student at the <a href=\"/\">MoST research unit</a>. She currently works on the modeling and simulation of Urban Digital Twins.</p><p>Sammer earned a <strong>Master's degree in Applied Mathematics</strong> from Riphah International University, focusing her research on Computational Fluid Dynamics (CFD).</p>",
+    "picutre": "sammer-sheereen.jpeg"
+  },
+  {
+    "name": "Maryam Sajedinia",
+    "position": "PhD Student",
+    "role": "3",
+    "github": "maryamsajedinia",
+    "scholar": "T4_lXfkAAAAJ&hl",
+    "bio": "<p>Maryam Sajedinia is a PhD student at the <a href=\"/\">MoST research unit</a>. Her research focuses on urban heat islands in Bologna, analysing both urban characteristics and sociodemographic aspect of the city.</p><p>Maryam earned a <strong>Master's degree in Stochastic and Data Science</strong> from the <a href=\"https://www.unito.it/\">University of Torino</a>.</p>",
+    "picutre": "maryam-sajedinia.jpg"
+  },
+  {
+    "name": "Arianna Ricci",
+    "position": "Research assistant",
+    "role": "4",
+    "linkedin": "arianna-ricci-80a5a0231",
+    "github": "riesz98",
+    "bio": "<p>Arianna Ricci is a research assistant at the <a href=\"/\">MoST research unit</a>. She achieved her <strong>Master's degree in Mathematics</strong> at the <a href=\"https://www.unitn.it/\">University of Trento</a>. Before her current position, Arianna wrote her thesis at FBK on topics involving deep learning and signal processing, and then worked two years at Fondazione Bruno Kessler on projects about model-based designing and testing within the railway sector.</p>",
+    "picutre": "arianna-ricci.jpeg"
+  },
+  {
+    "name": "Marko P'yeshchyk",
+    "position": "Research assistant",
+    "role": "4",
+    "bio": "<p>Marko P'yeshchyk is a research assistant at the <a href=\"/\">MoST research unit</a> where he works on the uncertainty theme of the Digital Twin project of Bologna.</p><p>Marko has graduated in Computer Engineering at the <a href=\"https://corsi.unibo.it/magistrale/ingegneriainformatica\">ALMA MATER STUDIORUM - Università di Bologna</a> with a thesis focused on Time Series analysis to predict  the car traffic data.</p>",
+    "picutre": "marko-pyeshchyk.jpg"
+  },
+  {
+    "name": "Maja Dall'Acqua",
+    "position": "Research assistant",
+    "role": "4",
+    "github": "majada14",
+    "bio": "<p>Maja Dall'Acqua is a Research Assistant student at the <a href=\"/\">Most research unit</a>. She currently works on modelling of the Civic Digital Twin.</p><p>Maja is pursuing a Master's degree in Data Science at the <a href=\"https://www.unitn.it/it\">University of Trento</a>, focusing her studies on the application of geospatial tools to understand neighbourhood dynamics within cities.</p>",
+    "picutre": "maja-dallacqua.jpeg"
+  },
+  {
+    "name": "Ambra Vanella",
+    "position": "Intern",
+    "role": "4",
+    "bio": "<p>Ambra Vanella is a graduate in Sociology from the <a href=\"https://www.unibo.it/it\">University of Bologna</a>, with a background in research methodologies and a strong interest in territorial analysis, spatial planning, and sustainability. From January 2026, she is carrying out a traineeship at the <a href=\"/\">Most research unit</a>, where she is working on the study and validation of techniques, methodologies, and best practices to enhance stakeholder engagement in the design of Civic Digital Twins.</p><!--more--><p>Her work focuses in particular on co-design processes, gamification strategies, and qualitative and quantitative data analysis, exploring how participatory approaches and spatial analysis can support the understanding of territorial dynamics and decision-making processes. Ambra is currently doing her master's in Organization, Society, and Technology at the <a href=\"https://www.unitn.it/\">University of Trento</a>, where this traineeship is part of her educational pathway.</p>",
+    "picutre": "ambra-vanella.jpeg"
+  },
+  {
+    "name": "Fefs Lago",
+    "position": "Senior Technologist",
+    "role": "2",
+    "bio": "<p>fasdf dfadsf</p>",
+    "picutre": "fefs-lago.jpg",
+    "driveid": "1RoRGs7OqIOri8GJpkBR-n-R3Ipbk6hnO",
+    "startdate": "29/01/2026"
+  }
+]

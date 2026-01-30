@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Luca Gaeta",
+    "position": "Visiting Research Fellow",
+    "role": "1",
+    "website": "https://onlineservices.polimi.it/manifesti/manifesti/controller/ricerche/RicercaPerDocentiPublic.do?EVN_ELENCO_DIDATTICA=evento&lang=IT&k_doc=72234&aa=2023&n_docente=gaeta&tab_ricerca=2&jaf_currentWFID=main",
+    "linkedin": "luca-gaeta-672b31337",
+    "researchgate": "Luca-Gaeta",
+    "github": "lgaeta68",
+    "bio": "<p>As a visiting research fellow at the <a href=\"/\">MoST research unit</a>, Luca Gaeta analyzed urban hybrid spaces and related planning issues between March and June 2025.</p><p>Beyond visiting <a href=\"https://www.fbk.eu/\">FBK</a>, Luca is a full professor of urban planning at Politecnico di Milano, <a href=\"https://www.dastu.polimi.it/\">Department of Architecture and Urban Studies</a>, and was chair of the PhD programme in Urban planning, design and policy until December 2024.</p>",
+    "picutre": "luca-gaeta.jpg",
+    "startdate": "01/03/2025",
+    "enddate": "01/06/2025"
+  },
+  {
+    "name": "Simone Basso",
+    "position": "Senior Technologist",
+    "role": "2",
+    "twitter": "bassosimone",
+    "github": "bassosimone",
+    "scholar": "f_TerfgAAAAJ",
+    "bio": "<p>Simone Basso was a Senior Technologist at the <a href=\"/\">MoST unit</a> from January to August 2025. He managed the development of the <a href=\"https://github.com/fbk-most/dt-model\">DT Model</a> evaluation engine.</p><p>Before joining <a href=\"https://www.fbk.eu/\">FBK</a>, Simone was measuring internet censorship at the <a href=\"https://ooni.org/\">Open Observatory of Network Interference</a>, internet performance at <a href=\"https://www.measurementlab.net/\">Measurement Lab</a>, and network neutrality at the <a href=\"https://nexa.polito.it/\">Nexa Center for Internet &amp; Society</a>.</p>",
+    "picutre": "simone-basso.jpg",
+    "startdate": "01/01/2025",
+    "enddate": "01/08/2025"
+  },
+  {
+    "name": "Piergiorgio Vivenzio",
+    "position": "Visiting PhD Student",
+    "role": "3",
+    "linkedin": "piergiorgio-vivenzio-a44720242",
+    "bio": "<p>Piergiorgio Vivenzio is a PhD student in Urban and Regional Development at the Politecnico di Torino.</p><p>He was a visiting researcher at FBK's <a href=\"/\">MoST unit</a> from December 2024 to May 2025. He studied and developed a dynamic simulation model of student housing distribution.</p><p>He holds a degree in Statistical and Economic Methods for Decision Making and has worked as a research fellow at the University of Turin. He has also collaborated with the startup MetroPolis SRL.</p>",
+    "picutre": "piergiorgio-vivenzio.jpg"
+  },
+  {
+    "name": "Guadalupe Sol Escalante",
+    "position": "Visiting Student",
+    "role": "4",
+    "bio": "<p>Guadalupe Escalante is a Geospatial Engineer from the National University of Córdoba, Argentina.</p><p>From March to July 2025, she did an internship at the <a href=\"/\">MoST research unit</a>, where she explored the contribution of remote sensing to digital twins projects.</p><p>Guadalupe is pursuing a Master's degree in Spatial Information Applications at the <a href=\"https://ig.conae.unc.edu.ar/\">Gulich Institute</a> (CONAE/UNC), where she is conducting this internship. She focuses on the study of territorial dynamics, has participated in projects at the <a href=\"https://cetunc.org/\">Center for Territorial Studies</a> (FCEFYN), and headed the Environmental Territorial Planning area at the Ministry of Environment of the Province of Córdoba, Argentina.</p>",
+    "picutre": "guadalupe-sol-escalante.jpg"
+  },
+  {
+    "name": "Prova Prova",
+    "position": "Visiting Student",
+    "role": "4",
+    "bio": "<p>Guadalupe Escalante is a Geospatial Engineer from the National University of Córdoba, Argentina.</p><p>From March to July 2025, she did an internship at the <a href=\"/\">MoST research unit</a>, where she explored the contribution of remote sensing to digital twins projects.</p><p>Guadalupe is pursuing a Master's degree in Spatial Information Applications at the <a href=\"https://ig.conae.unc.edu.ar/\">Gulich Institute</a> (CONAE/UNC), where she is conducting this internship. She focuses on the study of territorial dynamics, has participated in projects at the <a href=\"https://cetunc.org/\">Center for Territorial Studies</a> (FCEFYN), and headed the Environmental Territorial Planning area at the Ministry of Environment of the Province of Córdoba, Argentina.</p>",
+    "picutre": "prova-prova.jpg",
+    "driveid": "1jajLqognkiIL125RE93WtXk_50koA8oa"
+  }
+]
