@@ -36,15 +36,15 @@
     "DATE": "2026-01-12",
     "DESCRIPTION": "Ambra Vanella joins the MoST research unit as an intern, where she will contribute to research on stakeholder engagement in the design of Civic Digital Twins. Her work will focus on co-design processes, gamification strategies, and qualitative and quantitative data analysis to support participatory approaches and territorial decision-making.",
     "Link": "",
-    "Image": "",
+    "Image": "/assets/images/news/new_member.webp",
     "Priority": 10
   },
   {
     "TITLE": "New preprint: simulating the impacts of traffic policies before implementation",
     "DATE": "2026-01-13",
-    "DESCRIPTION": "A new preprint is now available on <a href=\\\"https://arxiv.org/abs/2601.07735\\\">arXiv</a>, <b>\"Evaluating Impacts of Traffic Regulations in Complex Mobility Systems Using Scenario-Based Simulations\"</b>, addressing a key challenge faced by cities when introducing new mobility policies. <br>Measures such as low-emission zones or congestion pricing are often implemented with clear goals in mind, yet their real-world effects can be difficult to anticipate. The work presents a scenario-based simulation approach that combines transportation system dynamics with realistic models of human behavior and adaptation. This allows the analysis of both direct policy effects and wider systemic impacts on urban accessibility and mobility patterns. The aim is to provide city planners and policymakers with more robust tools to explore \"what-if\" scenarios and better understand the full range of consequences before policies are put into practice.",
+    "DESCRIPTION": "A new preprint is now available on <a href=\"https://arxiv.org/abs/2601.07735\">arXiv</a>, <b>\"Evaluating Impacts of Traffic Regulations in Complex Mobility Systems Using Scenario-Based Simulations\"</b>, addressing a key challenge faced by cities when introducing new mobility policies. <br>Measures such as low-emission zones or congestion pricing are often implemented with clear goals in mind, yet their real-world effects can be difficult to anticipate. The work presents a scenario-based simulation approach that combines transportation system dynamics with realistic models of human behavior and adaptation. This allows the analysis of both direct policy effects and wider systemic impacts on urban accessibility and mobility patterns. The aim is to provide city planners and policymakers with more robust tools to explore \"what-if\" scenarios and better understand the full range of consequences before policies are put into practice.",
     "Link": "https://arxiv.org/abs/2601.07735",
-    "Image": "",
+    "Image": "/assets/images/news/Books_Franceschini_3-2021_cropped.webp",
     "Priority": 10
   }
 ]
