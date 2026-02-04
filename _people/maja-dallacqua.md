@@ -1,5 +1,4 @@
 ---
-layout: default
 name: "Maja Dall'Acqua"
 position: "Research Assistant"
 status: "current"

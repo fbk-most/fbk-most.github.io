@@ -1,5 +1,4 @@
 ---
-layout: default
 name: "Piergiorgio Vivenzio"
 position: "Visiting PhD Student"
 status: "alumni"

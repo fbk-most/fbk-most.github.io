@@ -1,5 +1,4 @@
 ---
-layout: default
 name: "Simone Basso"
 position: "Senior Technologist"
 status: "alumni"

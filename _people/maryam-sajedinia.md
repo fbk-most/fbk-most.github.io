@@ -1,5 +1,4 @@
 ---
-layout: default
 name: "Maryam Sajedinia"
 position: "PhD Student"
 status: "current"

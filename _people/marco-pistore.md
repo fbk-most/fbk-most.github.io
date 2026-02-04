@@ -1,5 +1,4 @@
 ---
-layout: default
 name: "Marco Pistore"
 position: "Head of Unit"
 status: "current"

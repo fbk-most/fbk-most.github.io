@@ -1,0 +1,51 @@
+---
+layout: base
+title: AAA
+permalink: /people/:name/
+---
+
+<section class="most-section most-section--force-white">
+  <div class="most-person__page-content">
+    <img class="most-person__imagehex most-person__imagehex--lg" src="{{ page.image | relative_url }}" alt="{{ page.name }}" />
+
+    <h1 class="most-person__page-text ">{{ page.name }}</h1>
+    <div class="text-muted mb-3">{{ page.position }}</div>
+
+    <div class="most-person__social mb-3">
+      {% if page.website %}
+        <a href="{{ page.website }}" class="btn btn-light btn-sm m-1" target="_blank">
+          <i class="fas fa-globe"></i> Website
+        </a>
+      {% endif %}
+      {% if page.github %}
+        <a href="https://github.com/{{ page.github }}" class="btn btn-light btn-sm m-1" target="_blank">
+          <i class="fab fa-github"></i> GitHub
+        </a>
+      {% endif %}
+      {% if page.twitter %}
+        <a href="https://x.com/{{ page.twitter }}" class="btn btn-light btn-sm m-1" target="_blank">
+          <i class="fab fa-twitter"></i> X
+        </a>
+      {% endif %}
+      {% if page.linkedin %}
+        <a href="https://www.linkedin.com/in/{{ page.linkedin }}" class="btn btn-light btn-sm m-1" target="_blank">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+      {% endif %}
+      {% if page.scholar %}
+        <a href="https://scholar.google.com/citations?user={{ page.scholar }}" class="btn btn-light btn-sm m-1" target="_blank">
+          <i class="fas fa-graduation-cap"></i> Google Scholar
+        </a>
+      {% endif %}
+      {% if page.research_gate %}
+        <a href="https://www.researchgate.net/profile/{{ page.research_gate }}" class="btn btn-light btn-sm m-1" target="_blank">
+          <i class="fab fa-researchgate"></i> ResearchGate
+        </a>
+      {% endif %}
+    </div>
+
+    <div class="most-person__bio most-person__page-text">
+      {{ content }}
+    </div>
+  </div>
+</section>

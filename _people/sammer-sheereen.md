@@ -1,5 +1,4 @@
 ---
-layout: default
 name: "Sammer Sheereen"
 position: "PhD Student"
 status: "current"

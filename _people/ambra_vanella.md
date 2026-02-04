@@ -1,5 +1,4 @@
 ---
-layout: default
 name: "Ambra Vanella"
 position: "Intern"
 mail: "avanella@fbk.eu"

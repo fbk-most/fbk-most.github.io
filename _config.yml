@@ -23,3 +23,10 @@ collections:
     permalink: /people/:name/
   events:
     output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: people
+    values:
+      layout: person

@@ -1,5 +1,4 @@
 ---
-layout: default
 name: "Arianna Ricci"
 position: "Research assistant"
 mail: "aricci@fbk.eu"

@@ -356,6 +356,41 @@ a {
   word-break: break-word;
 }
 
+/* --- FORCED SECTION COLORS --- */
+.most-section--force-blue {
+  background-color: var(--fbk-blue) !important;
+  color: white;
+}
+
+.most-section--force-blue h1,
+.most-section--force-blue h2,
+.most-section--force-blue p,
+.most-section--force-blue a {
+  color: white;
+}
+
+.most-section--force-blue a {
+  text-decoration: underline;
+}
+
+.most-section--force-white {
+  background-color: white !important;
+  color: var(--text-dark);
+}
+
+.most-section--force-white h1,
+.most-section--force-white h2,
+.most-section--force-white p,
+.most-section--force-white a {
+  color: var(--text-dark);
+}
+
+.most-section--force-white a {
+  text-decoration: underline;
+}
+
+
+
 /* =========================================
    --- HEXAGON ANIMATION STYLES --- 
    ========================================= */
