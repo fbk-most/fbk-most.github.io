@@ -139,13 +139,13 @@
   },
   {
     "Date": "2025-11-05",
-    "Title": "Fractal and chaos - pt 1",
+    "Title": "Chaos ... and Fractals",
     "Speaker": "Marco Pistore",
     "Topic": "C3"
   },
   {
     "Date": "2025-11-26",
-    "Title": "Fractal and chaos - pt 2",
+    "Title": "Randomness ... and Fractals",
     "Speaker": "Marco Pistore",
     "Topic": "C3"
   },
@@ -166,5 +166,11 @@
     "Title": "What's hiding in your pixels",
     "Speaker": "Federica Lago",
     "Topic": "Research-related"
+  },
+  {
+    "Date": "2026-02-02",
+    "Title": "An unorthodox introduction to Random Walks",
+    "Speaker": "Marco Pistore",
+    "Topic": "C3"
   }
 ]
