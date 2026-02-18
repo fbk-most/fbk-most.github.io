@@ -5,6 +5,7 @@ status: "alumni"
 image: "/assets/images/people/guadalupe-escalante.jpg"
 order: 4
 vis-order: 4
+from-to: from March to July 2025
 ---
 
 Guadalupe Escalante is a Geospatial Engineer from the National University of Córdoba, Argentina.

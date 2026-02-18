@@ -6,6 +6,7 @@ image: "/assets/images/people/piergiorgio-vivenzio.jpg"
 linkedin: "piergiorgio-vivenzio-a44720242"
 order: 3
 vis-order: 3
+from-to: December 2024 to May 2025
 ---
 
 Piergiorgio Vivenzio is a PhD student in Urban and Regional Development at the Politecnico di Torino.

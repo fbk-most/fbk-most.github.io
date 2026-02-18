@@ -28,10 +28,11 @@ permalink: /people/
     {% endif %}
 
     {% for person in team %}
-      <div class="hexLink-new">
+      <div class="hexLink-div">
         <a
           href="#"
           data-slug="{{ person.slug }}"
+          data-status="{{ person.status }}"
           data-name="{{ person.name }}"
           data-position="{{ person.position }}"
           data-image="{{ person.image | relative_url }}"
@@ -70,14 +71,15 @@ permalink: /people/
     {% endif %}
       
       {% for person in alumni %}
-        <div class="hexLink-new">
+        <div class="hexLink-div">
           <a class="hexLink"
             href="#"
             data-slug="{{ person.slug }}"
+            data-status="{{ person.status }}"
             data-name="{{ person.name }}"
             data-position="{{ person.position }}"
             data-image="{{ person.image | relative_url }}"
-            data-bio="{{ person.content | markdownify | strip_newlines | escape }}"
+            data-bio="{{ person.name }} was a {{ person.position }} {{person.from-to}}."
             data-website="{{ person.website }}"
             data-github="{{ person.github }}"
             data-twitter="{{ person.twitter }}"
@@ -130,7 +132,7 @@ permalink: /people/
 
 
 <script>
-document.querySelectorAll('.hexLink-new a').forEach(link => {
+document.querySelectorAll('.hexLink-div a').forEach(link => {
   link.addEventListener('click', function(e) {
     e.preventDefault();
 
@@ -180,7 +182,12 @@ document.querySelectorAll('.hexLink-new a').forEach(link => {
 
     // Share arrow now opens /people/:name/ in a new tab
     const backBtn = document.getElementById('modalBackBtn');
-    backBtn.onclick = () => window.open(profileUrl, '_blank');
+    if (this.dataset.status === 'current' || this.dataset.status === 'visitor') {
+      backBtn.style.display = 'inline-block'; // show
+      backBtn.onclick = () => window.open(profileUrl, '_blank');
+    } else {
+      backBtn.style.display = 'none'; // hide for alumni
+    }
 
     document.getElementById('hexModal').style.display = 'flex';
   });
