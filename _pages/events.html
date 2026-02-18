@@ -155,7 +155,8 @@ permalink: /events/
     Below is a list of public seminars, and in the <b>calendar</b> above, you can find links to attend upcoming events.
   </p>
   
-  <table class="reveal">
+  <div class="table-container">
+  <table id="seminars-table" class="reveal">
     <thead>
       <tr>
         <th>Date</th>
@@ -166,12 +167,72 @@ permalink: /events/
     <tbody>
       {% assign seminars = site.data.seminars | sort: "Date" | reverse %}
       {% for seminar in seminars %}
-        <tr>
-          <td>{{ seminar.Date | date: "%d-%m-%Y" }}</td>
-          <td>{{ seminar.Title }}</td>
-          <td>{{ seminar.Speaker }}</td>
-        </tr>
+      <tr>
+        <td>{{ seminar.Date | date: "%d-%m-%Y" }}</td>
+        <td>{{ seminar.Title }}</td>
+        <td>{{ seminar.Speaker }}</td>
+      </tr>
       {% endfor %}
     </tbody>
   </table>
+  <div id="seminars-pagination" class="pagination"></div>
+</div>
 </section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const rowsPerPage = 10;
+  const table = document.getElementById("seminars-table");
+  const tbody = table.querySelector("tbody");
+  const rows = Array.from(tbody.querySelectorAll("tr"));
+  const pagination = document.getElementById("seminars-pagination");
+
+  let currentPage = 1;
+  const totalPages = Math.ceil(rows.length / rowsPerPage);
+
+  function showPage(page) {
+
+    currentPage = page;
+
+    rows.forEach((row, index) => {
+      const start = (page - 1) * rowsPerPage;
+      const end = start + rowsPerPage;
+
+      row.style.display = (index >= start && index < end)
+        ? ""
+        : "none";
+    });
+
+    renderPagination();
+  }
+
+  function renderPagination() {
+
+    pagination.innerHTML = "";
+
+    // Previous button
+    if (currentPage > 1) {
+      const prev = document.createElement("button");
+      prev.textContent = "← Previous";
+      prev.onclick = () => showPage(currentPage - 1);
+      pagination.appendChild(prev);
+    }
+
+    const info = document.createElement("span");
+    info.textContent = ` Page ${currentPage} / ${totalPages} `;
+    pagination.appendChild(info);
+
+    // Next button
+    if (currentPage < totalPages) {
+      const next = document.createElement("button");
+      next.textContent = "Next →";
+      next.onclick = () => showPage(currentPage + 1);
+      pagination.appendChild(next);
+    }
+  }
+
+  showPage(1);
+
+});
+</script>
