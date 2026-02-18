@@ -8,6 +8,7 @@ github: "lgaeta68"
 linkedin: "luca-gaeta-672b31337"
 research_gate: "Luca-Gaeta"
 order: 0
+vis-order: 1
 ---
 
 As a visiting research fellow at the [MoST research unit](/), Luca Gaeta analyzed urban hybrid spaces and related planning issues between March and June 2025.

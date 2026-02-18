@@ -5,6 +5,7 @@ status: "current"
 image: "/assets/images/people/marco-pistore.png"
 linkedin: "marco-pistore"
 order: 0
+vis-order: 1
 ---
 
 Marco Pistore is the lead researcher of the [MoST](/) research unit at [Fondazione Bruno Kessler](https://www.fbk.eu/). His current research interests focus on novel modeling and simulation techniques for complex socio-technical systems (eg. cities, rural areas, complex organizations), by exploiting, developing and integrating data science, artificial intelligence and complex systems approaches.
