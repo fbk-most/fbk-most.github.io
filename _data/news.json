@@ -46,5 +46,13 @@
     "Link": "https://arxiv.org/abs/2601.07735",
     "Image": "/assets/images/news/Books_Franceschini_3-2021_cropped.webp",
     "Priority": 10
+  },
+  {
+    "TITLE": "Civic-Digital-Twins version 0.6 is out!",
+    "DATE": "2026-02-03",
+    "DESCRIPTION": "<p>The new version of our framework is out. Here is the list of key changes:</p><ul>  <li>engine-redesign</li>  <li>added support for time series</li>  <li>standardizes models, ensembles and evaluations</li></ul><p>This new version is also a good starting point for future extensions that are already under development. Stay tuned!</p>",
+    "Link": "https://github.com/fbk-most/civic-digital-twins",
+    "Image": "/assets/images/news/Keyboard_Franceschini_cropped.webp",
+    "Priority": 10
   }
 ]
