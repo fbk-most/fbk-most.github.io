@@ -58,7 +58,7 @@
   {
     "TITLE": "Fast Traffic Simulator v0.1.0 is out!",
     "DATE": "2026-03-05",
-    "DESCRIPTION": "<p>We are pleased to announce the release of <strong>Fast Traffic Simulator</strong>, a new <strong>microscopic traffic simulator</strong> designed for directed road networks.</p><p>The library simulates individual vehicles travelling across a road network from origin to destination,allowing users to study traffic dynamics, congestion, and routing behavior. It supports dynamic routeupdates and realistic vehicle movement.</p>",
+    "DESCRIPTION": "<p>We are pleased to announce the release of <strong>Fast Traffic Simulator</strong>, a new <strong>microscopic traffic simulator</strong> designed for directed road networks.</p><p>The library simulates individual vehicles travelling across a road network from origin to destination,allowing users to study traffic dynamics, congestion, and routing behavior. It supports dynamic routeupdates and realistic vehicle movement.</p><p>The library is easy to use: all it takes to get it up and running is the time-varying traffic demand and the list of nodes and edges of the network.</p>",
     "Link": "https://pypi.org/project/fast-traffic-simulator/",
     "Image": "/assets/images/news/Keyboard_Franceschini_cropped.webp",
     "Priority": 10
