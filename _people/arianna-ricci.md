@@ -1,7 +1,6 @@
 ---
 name: "Arianna Ricci"
 position: "Research assistant"
-mail: "aricci@fbk.eu"
 status: "current" # or "alumni" or "visitor"
 image: "/assets/images/people/arianna-ricci.jpeg" # optional
 github: "riesz98" # optional

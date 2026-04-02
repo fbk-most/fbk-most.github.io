@@ -1,7 +1,6 @@
 ---
 name: "Ambra Vanella"
 position: "Intern"
-mail: "avanella@fbk.eu"
 status: "current" # or "alumni" or "visitor"
 image: "/assets/images/people/ambra-vanella.jpeg" # optional
 # github:  # optional

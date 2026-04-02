@@ -1,7 +1,6 @@
 ---
 name: "Marko P'yeshchyk"
 position: "Research assistant"
-mail: "mpyeshchyk@fbk.eu"
 status: "current"
 image: "/assets/images/people/marko-pyeshchyk.jpg"
 order: 4

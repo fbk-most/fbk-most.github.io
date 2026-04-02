@@ -58,16 +58,18 @@ Create a new markdown file in the `_people` directory with the following front m
 
 ```yml
 ---
-layout: default
 name: "Full Name"
 position: "Job Title"
 status: "current" # or "alumni" or "visitor"
 image: "/assets/images/people/filename.jpg" # optional
 website: "https://example.com" # optional
-twitter: "username" # optional
 github: "username" # optional
+linkedin: "username" # optional
+research_gate: "username" #optional
 scholar: "id" # optional Google Scholar ID
+twitter: "username" # optional
 order: "N"
+vis-order: "N"
 ---
 
 Brief bio goes here.
@@ -94,6 +96,8 @@ For the **order** please follow this rule:
 - 2: senior members (after PhD)
 - 3: PhD students
 - 4: junior researchers (before PhD)
+
+For vis-order ask the maintainers of the website.
 
 ### Adding News and Events
 
