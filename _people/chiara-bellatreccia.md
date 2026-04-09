@@ -9,7 +9,7 @@ linkedin: "username" # optional
 research_gate: "username" #optional
 scholar: "id" # optional Google Scholar ID
 twitter: "username" # optional
-order: "N"
+order: "3"
 vis-order: "N"
 ---
 
