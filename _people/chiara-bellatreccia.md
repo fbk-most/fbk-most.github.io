@@ -3,14 +3,14 @@ name: "Chiara Bellatreccia"
 position: "PhD Student"
 status: "current" # or "alumni" or "visitor"
 image: "/assets/images/people/chiara-bellatreccia.jpg" # optional
-website: "https://www.linkedin.com/in/chiara-bellatreccia-b41a1a155/" # optional
+# website: "https://www.linkedin.com/in/chiara-bellatreccia-b41a1a155/" # optional
 github: "ChiaraBellatreccia" # optional
-linkedin: "username" # optional
-research_gate: "username" #optional
-scholar: "id" # optional Google Scholar ID
-twitter: "username" # optional
+linkedin: "chiara-bellatreccia-b41a1a155" # optional
+# research_gate: "username" #optional
+# scholar: "id" # optional Google Scholar ID
+# twitter: "username" # optional
 order: "3"
-vis-order: "N"
+vis-order: 7
 ---
 
 PhD Student @ University of Pisa

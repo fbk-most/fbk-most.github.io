@@ -5,7 +5,7 @@ status: "current"
 image: "/assets/images/people/maja-dallacqua.jpeg" 
 github: "majada14" 
 order: 4
-vis-order: 9
+vis-order: 10
 ---
 
 Maja Dall'Acqua is a Research Assistant student at the [Most research unit](/). She currently works on modelling of the Civic Digital Twin.
