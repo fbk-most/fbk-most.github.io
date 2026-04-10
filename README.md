@@ -107,7 +107,7 @@ Events might also be present in MoST Google Calendar.
 ## Getting Help
 
 In case of need, please contact the owner or the maintainer of the website.
-- Owner: [@marcopistore][https://github.com/pistore]
+- Owner: [@marcopistore](https://github.com/pistore)
 - Maintainer: [@federicalago](https://github.com/Flake22)
 
 ## Testing Changes Locally
