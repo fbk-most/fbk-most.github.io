@@ -69,6 +69,6 @@
     "DESCRIPTION": "<p>We are pleased to announce that our team has been accepted to present our work at the <strong>SIS-FENStatS 2026 Conference</strong> at Sapienza University in <strong>Rome</strong> (June 22-25).</p><p>Our contribution, <strong>\"Differentiated Imputation of Sporadic and Clustered Missing Values in Traffic Time Series\"</strong>, introduces a novel methodology that distinguishes between isolated and clustered missing data in time series and implements novel imputation techniques tailored for these missing data type.Validated on real traffic data, our approach applies tailored imputation strategies, improving accuracy over standard techniques and offering a scalable solution for traffic data analysis.</p>",
     "Link": "https://sis2026.sis-statistica.it/",
     "Image": "/assets/images/news/SIS-FENStatS-2026.png",
-    "Priority": 0
+    "Priority": 10
   }
 ]
