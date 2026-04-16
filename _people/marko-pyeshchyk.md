@@ -4,7 +4,7 @@ position: "Research assistant"
 status: "current"
 image: "/assets/images/people/marko-pyeshchyk.jpg"
 order: 4
-vis-order: 9
+vis-order: 8
 ---
 
 Marko P'yeshchyk is a research assistant at the [MoST research unit](/) where he works on the uncertainty theme of the Digital Twin project of Bologna.

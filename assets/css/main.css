@@ -152,7 +152,7 @@ a {
 }
 
 /* --- BASE SECTION STYLE --- */
-.most-section {
+.most-section, .white-section {
   width: 100%;
   padding: 3rem 2rem;
   display: flex;
@@ -345,6 +345,7 @@ a {
   text-decoration: underline;
 }
 
+
 /* --- TYPOGRAPHY --- */
 .most-section__content p,
 .most-section__content li {
@@ -375,21 +376,28 @@ a {
 
 .most-section--force-white {
   background-color: white !important;
-  color: var(--text-dark);
 }
 
-.most-section--force-white h1,
-.most-section--force-white h2,
-.most-section--force-white p,
-.most-section--force-white a {
-  color: var(--text-dark);
+.most-section.most-section--force-white a:not(.my-button) {
+  color: var(--text-dark) !important;
 }
 
-.most-section--force-white a {
-  text-decoration: underline;
+.most-section.most-section--force-white a {
+    color: var(--fbk-blue) !important;
+    text-decoration: underline !important;
+}
+.most-section.most-section--force-white a {
+    color: white !important;
+    text-decoration: underline !important;
 }
 
-
+.most-section.most-section--force-white h1,
+.most-section.most-section--force-white h2,
+.most-section.most-section--force-white h3,
+.most-section.most-section--force-white li,
+.most-section.most-section--force-white p {
+color: var(--text-dark) !important;
+}
 
 /* =========================================
    --- HEXAGON ANIMATION STYLES --- 
@@ -430,3 +438,31 @@ a {
     pointer-events: none;
     z-index: 0; /* behind banner content */
 }
+
+/* =========================================
+   --- BUTTON LINK --- 
+   ========================================= */
+
+.button-container {
+    display: flex;
+    justify-content: center; /* Horizontal centering */
+    align-items: center;     /* Vertical centering (if the div has height) */
+    padding: 20px;
+  }
+
+  /* Your button styling */
+
+  .my-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: var(--fbk-blue);
+    color: white !important;
+    text-decoration: none;
+    border-radius: 5px;
+    font-family: sans-serif;
+    transition: background 0.3s ease;
+  }
+
+  .my-button:hover {
+    background-color: #0056b3;
+  }

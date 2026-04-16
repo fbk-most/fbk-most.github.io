@@ -10,7 +10,7 @@ linkedin: "chiara-bellatreccia-b41a1a155" # optional
 # scholar: "id" # optional Google Scholar ID
 # twitter: "username" # optional
 order: "3"
-vis-order: 7
+vis-order: 6
 ---
 
 PhD Student @ University of Pisa
