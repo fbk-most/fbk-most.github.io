@@ -379,16 +379,7 @@ a {
 }
 
 .most-section.most-section--force-white a:not(.my-button) {
-  color: var(--text-dark) !important;
-}
-
-.most-section.most-section--force-white a {
-    color: var(--fbk-blue) !important;
-    text-decoration: underline !important;
-}
-.most-section.most-section--force-white a {
-    color: white !important;
-    text-decoration: underline !important;
+  color: var(--text-blue) !important;
 }
 
 .most-section.most-section--force-white h1,
