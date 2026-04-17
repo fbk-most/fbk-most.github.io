@@ -80,7 +80,7 @@
   
   /* Visuals */
   background: rgba(0, 85, 184, 0.7); /* Dark tint on hover */
-  color: white;
+  color: white !important;
   padding: 20px;
   box-sizing: border-box;
   
@@ -91,8 +91,8 @@
 }
 
 /* Text spacing */
-.hex-text h3 { margin: 0 0 5px 0; font-size: 1.5rem}
-.hex-text p { margin: 0; font-size: 1rem; }
+.hex-text h3 { margin: 0 0 5px 0; font-size: 1.5rem; color: white !important;}
+.hex-text p { margin: 0; font-size: 1rem; color: white !important;}
 
 /*White line*/
 .hex-text h3::after {

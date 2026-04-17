@@ -8,6 +8,7 @@
 .slider-title {
   font-size: 1.25rem;
   margin: 0;
+  color: white !important;
 }
 
 #news .most-section__block {
