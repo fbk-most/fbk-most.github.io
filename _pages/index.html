@@ -13,7 +13,92 @@ permalink: /
 
 <!-- ===== ABOUT SECTION ===== -->
 <section id="about" class="most-section">
-  <h2 class="most-section__title">About MoST</h2>
+
+  <div class="highlights-slideshow">
+    {% assign all_news_slideshow = site.data.news %}
+    {% assign today = 'now' | date: "%Y-%m-%d" %}
+
+    {% assign future_news = "" | split: "" %}
+    {% for n in all_news_slideshow %}
+      {% if n.Priority != -1 and n.DATE >= today %}
+        {% assign future_news = future_news | push: n %}
+      {% endif %}
+    {% endfor %}
+
+    {% assign future_seminars = "" | split: "" %}
+    {% for s in site.data.seminars %}
+      {% if s.Date >= today %}
+        {% assign future_seminars = future_seminars | push: s %}
+      {% endif %}
+    {% endfor %}
+
+    {% assign combined_future = future_news | concat: future_seminars %}
+
+    {% if combined_future.size > 10 %}
+      {% assign sorted_by_date = combined_future | sort: "DATE" | reverse %}
+      {% assign sorted_by_priority = sorted_by_date | sort: "Priority" | reverse %}
+      {% assign highlights = sorted_by_priority | slice: 0,10 %}
+    {% else %}
+      {% assign highlights = combined_future %}
+
+      {% assign older_news = "" | split: "" %}
+      {% for n in all_news_slideshow %}
+        {% if n.DATE < today and n.Priority == 10 %}
+          {% assign older_news = older_news | push: n %}
+        {% endif %}
+      {% endfor %}
+      {% assign older_news = older_news | sort: "DATE" | reverse %}
+
+      {% assign needed = 10 | minus: highlights.size %}
+      {% assign fill_news = older_news | slice: 0, needed %}
+      {% assign highlights = highlights | concat: fill_news %}
+    {% endif %}
+
+    {% assign highlights = highlights | sort: "DATE" | reverse %}
+
+    <div class="slideshow-container reveal">
+      {% for post in highlights %}
+        {% if post.Image and post.Image != "" %}
+          {% assign image_url = post.Image %}
+        {% elsif post.Topic == "C3" %}
+          {% assign image_url = "/assets/images/news/Board-Franceschini_2021_cropped.webp" %}
+        {% elsif post.Topic == "Programming skills" %}
+          {% assign image_url = "/assets/images/news/Keyboard_Franceschini_cropped.webp" %}
+        {% elsif post.Topic == "Research-related" %}
+          {% assign image_url = "/assets/images/news/Books_Franceschini_3-2021_cropped.webp" %}
+        {% else %}
+          {% assign image_url = "/assets/images/news/FBK_Povo_Building_Baroni_6_cropped.webp" %}
+        {% endif %}
+
+        {% if post.Title %}
+          {% assign item_title = "Seminar: " | append: post.Title %}
+        {% else %}
+          {% assign item_title = post.TITLE %}
+        {% endif %}        
+        {% assign item_date = post.DATE | default: post.Date %}
+        {% assign item_desc = post.DESCRIPTION | default: post.Title %}
+
+        <div class="mySlides">
+          <div class="slide-blur-bg" style="background-image: url('{{ image_url | relative_url }}');"></div>
+          <img class="slide-main-img" src="{{ image_url | relative_url }}" alt="{{ item_title }}">
+          <div class="slide-caption">
+            <h3 class="slider-title">{{ item_date | date: "%d-%m-%Y" }} - {{ item_title }}</h3>
+          </div>
+        </div>
+      {% endfor %}
+
+      <button class="prev-slide"></button>
+      <button class="next-slide"></button>
+    </div>
+
+    <div class="dots-container">
+      {% for post in highlights %}
+        <span class="dot"></span>
+      {% endfor %}
+    </div>
+  </div>
+
+  <h2 class="most-section__title" style="margin-top: 5rem;">About MoST</h2>
   <div class="most-section__content">
     <div class="most-section__block">
       <p>The Modeling and Simulation of Socio-Technical Systems (MoST) unit at 
