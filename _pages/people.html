@@ -17,7 +17,7 @@ permalink: /people/
 {% assign team = combined_people | sort: "vis-order" %}
 {% assign people_count = team | size %}
 
-<section id="team" class="most-section most-section--team">
+<section id="team" class="most-section most-section--team most-section--white">
   <h2 class="most-section__title">Team</h2>
   
   <div class="honeycomb reveal">
@@ -60,7 +60,7 @@ permalink: /people/
 {% assign alumni = alumni_people | sort: "vis-order" %}
 {% assign alumni_count = alumni | size %}
 
-<section id="alumni" class="most-section most-section--alumni">
+<section id="alumni" class="most-section most-section--alumni most-section--blue">
   <h2 class="most-section__title">Alumni</h2>
   
   <div class="honeycomb reveal">
@@ -101,12 +101,14 @@ permalink: /people/
 
 <!-- ===== OPEN POSITIONS ===== -->
 <section id="positions" class="most-section">
-  <h2 class="most-section__title">Open positions</h2>
+  <h2 class="most-section__title">Open Positions</h2>
   <div class="most-section__content">
     <div class="most-section__block">
-      We have no open positions yet.
 
-      <!-- <div class="table-container">
+      <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Jobs Opportunities</h3>
+      <p>We have no open positions yet.</p>
+      
+        <!-- <div class="table-container">
           <table class="reveal">
             <thead>
               <tr>
@@ -129,7 +131,16 @@ permalink: /people/
               </tr>
             </tbody>
           </table>
-        </div> -->
+        </div>  -->
+
+      <h3 style="margin-top: 2rem; margin-bottom: 1rem;">PhD Opportunities</h3>
+      <p>We have an available PhD opportunity, for more details, please have a look to our deticated <a href="{{ '/phd/' | relative_url }}">page.</a>
+
+
+      <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Internship Opportunities</h3>
+
+      <p>We have some available intership positions, please have a look to our deticated <a href="{{ '/internships/' | relative_url }}">page.</a>
+      
 
     </div>
   </div>

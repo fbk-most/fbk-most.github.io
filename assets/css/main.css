@@ -152,7 +152,7 @@ a {
 }
 
 /* --- BASE SECTION STYLE --- */
-.most-section {
+.most-section, .white-section {
   width: 100%;
   padding: 3rem 2rem;
   display: flex;
@@ -322,27 +322,98 @@ a {
 .most-section.in-view .most-section__content:nth-child(4) { transition-delay: 0.4s; }
 
 
-/* --- ALTERNATING SECTIONS --- */
-.most-section:not(.most-section--banner):nth-of-type(odd) {
-  background-color: var(--fbk-blue);
-  color: white;
-}
+/* --- SECTION COLOR VARIANTS (MANUAL SPECIFICATION) --- */
 
-.most-section:not(.most-section--banner):nth-of-type(even) {
+/* Default: white background */
+.most-section:not(.most-section--banner) {
   background-color: white;
   color: var(--text-dark);
 }
 
-/* Ensure headings and paragraphs are readable on blue background */
-.most-section:not(.most-section--banner):nth-of-type(odd) h1,
-.most-section:not(.most-section--banner):nth-of-type(odd) h2,
-.most-section:not(.most-section--banner):nth-of-type(odd) p,
-.most-section:not(.most-section--banner):nth-of-type(odd) a {
+.most-section:not(.most-section--banner):not(.most-section--blue) h1,
+.most-section:not(.most-section--banner):not(.most-section--blue) h2,
+.most-section:not(.most-section--banner):not(.most-section--blue) h3,
+.most-section:not(.most-section--banner):not(.most-section--blue) p,
+.most-section:not(.most-section--banner):not(.most-section--blue) li {
+  color: var(--text-dark);
+}
+
+.most-section--blue .most-section__title {
+  color: white !important;
+}
+
+/* White background variant (explicit) */
+.most-section--white:not(.most-section--banner) {
+  background-color: white;
+  color: var(--text-dark);
+}
+
+.most-section--white h1,
+.most-section--white h2,
+.most-section--white h3,
+.most-section--white p,
+.most-section--white li {
+  color: var(--text-dark);
+}
+
+.most-section--white a {
+  color: var(--fbk-blue);
+}
+
+/* Blue background variant */
+.most-section--blue:not(.most-section--banner) {
+  background-color: var(--fbk-blue);
   color: white;
 }
 
-.most-section:not(.most-section--banner):nth-of-type(odd) a {
+.most-section--blue h1,
+.most-section--blue h2,
+.most-section--blue h3,
+.most-section--blue p,
+.most-section--blue li,
+.most-section--blue {
+  color: white;
+}
+
+.most-section--blue a {
+  color: white;
   text-decoration: underline;
+}
+
+/* Maintain backward compatibility with force classes */
+.most-section--force-blue {
+  background-color: var(--fbk-blue) !important;
+  color: white;
+}
+
+.most-section--force-blue h1,
+.most-section--force-blue h2,
+.most-section--force-blue h3,
+.most-section--force-blue p,
+.most-section--force-blue li {
+  color: white;
+}
+
+.most-section--force-blue a {
+  color: white;
+  text-decoration: underline;
+}
+
+.most-section--force-white {
+  background-color: white !important;
+  color: var(--text-dark);
+}
+
+.most-section--force-white h1,
+.most-section--force-white h2,
+.most-section--force-white h3,
+.most-section--force-white p,
+.most-section--force-white li {
+  color: var(--text-dark);
+}
+
+.most-section--force-white a {
+  color: var(--fbk-blue);
 }
 
 /* --- TYPOGRAPHY --- */
@@ -355,41 +426,6 @@ a {
 .most-section__block {
   word-break: break-word;
 }
-
-/* --- FORCED SECTION COLORS --- */
-.most-section--force-blue {
-  background-color: var(--fbk-blue) !important;
-  color: white;
-}
-
-.most-section--force-blue h1,
-.most-section--force-blue h2,
-.most-section--force-blue p,
-.most-section--force-blue a {
-  color: white;
-}
-
-.most-section--force-blue a {
-  text-decoration: underline;
-}
-
-.most-section--force-white {
-  background-color: white !important;
-  color: var(--text-dark);
-}
-
-.most-section--force-white h1,
-.most-section--force-white h2,
-.most-section--force-white p,
-.most-section--force-white a {
-  color: var(--text-dark);
-}
-
-.most-section--force-white a {
-  text-decoration: underline;
-}
-
-
 
 /* =========================================
    --- HEXAGON ANIMATION STYLES --- 
@@ -430,3 +466,31 @@ a {
     pointer-events: none;
     z-index: 0; /* behind banner content */
 }
+
+/* =========================================
+   --- BUTTON LINK --- 
+   ========================================= */
+
+.button-container {
+    display: flex;
+    justify-content: center; /* Horizontal centering */
+    align-items: center;     /* Vertical centering (if the div has height) */
+    padding: 20px;
+  }
+
+  /* Your button styling */
+
+  .my-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: var(--fbk-blue);
+    color: white !important;
+    text-decoration: none;
+    border-radius: 5px;
+    font-family: sans-serif;
+    transition: background 0.3s ease;
+  }
+
+  .my-button:hover {
+    background-color: #0056b3;
+  }
