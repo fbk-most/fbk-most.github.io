@@ -36,7 +36,7 @@ permalink: /events/
     {% assign older_news = older_news | sort: "DATE" | reverse %}
 
     {% for post in recent_news %}
-      <div class="most-section__block">
+      <div class="most-section__block" style="background-color: rgba(0, 85, 184, 0.15);">
         <h3>{{ post.DATE | date: "%d-%m-%Y" }} - {{ post.TITLE }}</h3>
         <p>{{ post.DESCRIPTION }}</p>
         {% assign link = post.Link | default: "" | strip %}
