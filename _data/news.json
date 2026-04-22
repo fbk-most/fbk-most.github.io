@@ -78,5 +78,13 @@
     "Link": "https://most.fbk.eu/phd",
     "Image": "/assets/images/news/phD.webp",
     "Priority": 10
+  },
+  {
+    "TITLE": "Internship Opportunities Now Open",
+    "DATE": "2026-04-21",
+    "DESCRIPTION": "<p>We are offering curricular internship opportunities for motivated students eager to work on cutting-edge urban research projects.</p><p>Example topics include:<ul><li><b>Urban mobility modeling and analysis:</b> explore traffic patterns using data-driven models</li><li><b>Urban environment characterization and analysis:</b> analyze cities through geospatial and network data</li>Additional topics can be discussed based on the candidate's interests and alignment with the group's research activities.</ul></p><p>These internships provide hands-on research experience, collaboration with interdisciplinary teams, and opportunities to contribute to scientific publications. For more details, please refer to the link below.</p>",
+    "Link": "https://most.fbk.eu/internships/",
+    "Image": "/assets/images/news/FBK_Povo_Building_Baroni_6_cropped.webp",
+    "Priority": 10
   }
 ]
