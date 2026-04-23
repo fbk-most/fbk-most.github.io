@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block title %}Events{% endblock %}
+
+{% block content %}
+
+<section class="content" id="news">
+  <h2>News</h2>
+</section>
+
+<section class="content" id="events">
+  <h2>Events</h2>
+  <div class="calendar-container">
+    <iframe src="https://calendar.google.com/calendar/embed?src=341a597c57a54f7bd0f11bb2da6fa9f5140a9cb1e75c4d24bd662b7968614789%40group.calendar.google.com&ctz=Europe%2FRome"></iframe>
+  </div>
+
+  <div class="most-section">
+    <div class="most-section__block_colored">
+      <h3>12-13 May 2026 - Digital urban futures</h3>
+      <p>
+        The workshop <b>"Futuri digitali urbani 2026: Spazio urbano e città cibernetica"</b> takes an
+        interdisciplinary approach to exploring the evolution of urban space
+        focusing on three main themes: its uses, perceptions, and values.
+      </p>
+      <p>
+        This investigation is set within a broader context in which urban space is undergoing
+        profound transformations, increasingly shaped by the convergence of physical and digital
+        dimensions and by the rise of new social actors and relationships.
+        Understanding this ongoing—though still incomplete—shift is essential to responsibly
+        govern the cybernetic city, in line with Hans Jonas's principle of responsibility,
+        which calls for safeguarding an authentically human way of life.
+      </p>
+      <p>For more details click <a href="">here</a> (Italian only).</p>
+      <p>
+        <b>Links.</b> <a href="https://github.com/fbk-most/civic-digital-twins">GitHub repository</a>
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="content" id="semninars">
+  <h2>Seminars</h2>
+
+    <p>Our group believes that knowledge is best shared. That's why we try to organize weekly seminars, the list is shown below. Some of this seminar are open to the public. For these 
+    Below there is the list of seminars held in our group., and in the <b>calendar</b> above, to attend upcoming events.
+  </p>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th class="col-center">Date</th>
+          <th class="col-center">Title</th>
+          <th class="col-center">Speaker</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for seminar in seminars %}
+        <tr>
+          <td class="col-center">{{ seminar.Date }}</td>
+          <td>{{ seminar.Title }}</td>
+          <td>{{ seminar.Speaker }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Pagination -->
+  {% if total_pages > 1 %}
+  <div class="pagination">
+    {% if has_prev %}
+    <a href="?page={{ page - 1 }}" class="page-link">Previous</a>
+    {% endif %}
+    
+    {% for page_num in range(1, total_pages + 1) %}
+    <a href="?page={{ page_num }}" class="page-link {% if page_num == page %}active{% endif %}">{{ page_num }}</a>
+    {% endfor %}
+    
+    {% if has_next %}
+    <a href="?page={{ page + 1 }}" class="page-link">Next</a>
+    {% endif %}
+  </div>
+  {% endif %}
+
+</section>
+{% endblock %}

@@ -4,3 +4,4 @@
 .DS_Store
 .venv/
 secrets.txt
+_old

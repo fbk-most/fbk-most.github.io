@@ -4,6 +4,14 @@ This repository contains the sources of MoST research unit website. We're a
 research unit of the [Digital Society center](https://digis.fbk.eu) at
 [Fondazione Bruno Kessler](https://www.fbk.eu) in Trento, Italy.
 
+# FastAPI Base Project
+
+## Run locally
+
+```bash
+uvicorn app.main:app --reload --port 4000
+```
+
 ## Deployment Location
 
 In its current form, the website is deployed at the following URL:

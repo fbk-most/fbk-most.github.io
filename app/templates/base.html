@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>{% block title %}Hex Project{% endblock %}</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/static/favicon.ico">
+  <link rel="stylesheet" href="static/fontawesome-free/css/all.min.css">
+
+  <link rel="stylesheet" href="/static/css/styles.css">
+  <link rel="stylesheet" href="/static/css/tmp.css">
+
+</head>
+
+<body>
+
+  <!-- Parallax background -->
+  <div class="parallax" id="parallax"></div>
+
+  <!-- HEADER (reusable component) -->
+  {% include "header.html" %}
+
+  <!-- PAGE CONTENT -->
+  <main class="main">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- FOOTER (reusable component) -->
+  {% include "footer.html" %}
+
+</body>
+</html>

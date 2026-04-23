@@ -1,0 +1,11 @@
+[project]
+name = "fbk-most-github-io"
+version = "1.0.0"
+description = "Website for FBK MoST unit"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.136.0",
+    "jinja2>=3.1.6",
+    "uvicorn>=0.46.0",
+]

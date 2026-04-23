@@ -1,0 +1,42 @@
+<header>
+
+  <!-- TOP ROW: logos -->
+  <div class="header-top">
+    <p>
+      <img src="/static/images/logos/MostLogoWhite.png" alt="Left Logo">
+      <span class="header-brand-text">
+        <span>MoST</span>
+        <span>Modeling and Simulation of Socio-Technical Systems</span>
+      </span>
+    </p>
+    <img src="/static/images/logos/FBK_Logo_Horizontal_white.png" alt="Right Logo">
+  </div>
+
+  <!-- BOTTOM ROW: navigation -->
+  <nav class="header-bottom">
+    <a href="/" {% if current_page == "home" %}class="active"{% endif %}>HOME</a>
+    <a href="/research" {% if current_page == "research" %}class="active"{% endif %}>RESEARCH & PROJECTS</a>
+    <a href="/people" {% if current_page == "people" %}class="active"{% endif %}>PEOPLE</a>
+    <a href="/events" {% if current_page == "events" %}class="active"{% endif %}>NEWS & EVENTS</a>
+    <a href="/contacts" {% if current_page == "contacts" %}class="active"{% endif %}>CONTACT</a>
+  </nav>
+
+  {% if current_page == "research" %}
+  <nav class="header-subnav">
+    <a href="#projects">Projects</a>
+    <a href="#resources">Resources</a>
+  </nav>
+  {% endif %}
+
+  {% if current_page == "people" or current_page == "phd" or current_page == "internships"%}
+  <nav class="header-subnav">
+    <a href="#team">Team</a>
+    <a href="#former">Former members</a>
+    <a href="#open">Open positions</a>
+    <a href="/phd">Available PhDs</a>
+    <a href="/internships">Available internships</a>
+
+  </nav>
+  {% endif %}
+
+</header>
