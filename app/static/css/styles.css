@@ -161,6 +161,13 @@ header {
   margin: auto;
 }
 
+.content h1 {
+  font-size: 3.6rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-decoration: underline;
+}
+
 .content h2 {
   font-size: 2.8rem;
   text-align: center;
@@ -171,6 +178,11 @@ header {
   font-size: 2rem;
   text-align: center;
   margin-bottom: 1rem;
+}
+
+.content h4 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
 }
 
 .content p,
