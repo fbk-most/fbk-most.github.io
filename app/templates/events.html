@@ -6,7 +6,28 @@
 
 <section class="content" id="news">
   <h2>News</h2>
+
+  <div class="most-section">
+    {% for news in recent_news %}
+      <div class="most-section__block_small block_colored smaller-p">
+        <h4>{{ news.label }}</h4>
+          {{ news.description | safe }}
+          {% if news.link %}
+            <a href="{{ news.link }}">Link</a>
+          {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+
+<!-- === Past news  === -->
+  <button class="past-news-toggle">Past news ▼</button>
+    <div class="past-news-list hidden">
+      {% for news in older_news %}
+        <p class="past-news-list-item">{{ news.label }}</p>
+      {% endfor %}
+    </div>
 </section>
+
 
 <section class="content" id="events">
   <h2>Events</h2>
@@ -15,7 +36,7 @@
   </div>
 
   <div class="most-section">
-    <div class="most-section__block_colored">
+    <div class="most-section__block block_colored">
       <h3>12-13 May 2026 - Digital urban futures</h3>
       <p>
         The workshop <b>"Futuri digitali urbani 2026: Spazio urbano e città cibernetica"</b> takes an
@@ -86,4 +107,18 @@
   {% endif %}
 
 </section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+  const toggleBtn = document.querySelector('.past-news-toggle');
+  const pastNews = document.querySelector('.past-news-list');
+
+  toggleBtn.addEventListener('click', () => {
+    pastNews.classList.toggle('hidden');
+
+    const isHidden = pastNews.classList.contains('hidden');
+    toggleBtn.textContent = isHidden ? 'Past news ▼' : 'Past news ▲';
+  });
+</script>
 {% endblock %}

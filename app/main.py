@@ -3,6 +3,8 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 import json
 from pathlib import Path
+from datetime import datetime, timedelta
+
 
 app = FastAPI()
 
@@ -52,7 +54,8 @@ async def internships(request: Request):
 
 @app.get("/events")
 async def events(request: Request, page: int = Query(1, ge=1)):
-    # Load seminars data
+
+    # --- SEMINARS ---
     seminars_file = Path("app/static/data/seminars.json")
     with open(seminars_file, "r") as f:
         seminars = json.load(f)
@@ -65,6 +68,37 @@ async def events(request: Request, page: int = Query(1, ge=1)):
     start_index = (page - 1) * items_per_page
     end_index = start_index + items_per_page
     paginated_seminars = seminars[start_index:end_index]
+
+    # --- NEWS ---
+    news_file = Path("app/static/data/news.json")
+
+    with open(news_file, "r") as f:
+        news = json.load(f)
+
+    # Sort by date (newest first)
+    for item in news:
+        item["parsed_date"] = datetime.strptime(item["DATE"], "%Y-%m-%d")
+    news.sort(key=lambda x: x["parsed_date"], reverse=True)
+
+    three_months_ago = datetime.now() - timedelta(days=90)
+    recent_news = [item for item in news if item["parsed_date"] >= three_months_ago]
+    older_news = [item for item in news if item["parsed_date"] < three_months_ago]
+
+    # Build display lists
+    def build_news_items(news_list):
+        return [
+            {
+                "label": f"{item['DATE']} - {item['TITLE']}",
+                "description": item["DESCRIPTION"],
+                "link": item["Link"]
+            }
+            for item in news_list
+        ]
+
+    recent_news_items = build_news_items(recent_news)
+    older_news_items = build_news_items(older_news)
+
+    # --- RETURN ---
     
     return templates.TemplateResponse(request, "events.html", {
         "current_page": "events",
@@ -72,7 +106,9 @@ async def events(request: Request, page: int = Query(1, ge=1)):
         "page": page,
         "total_pages": total_pages,
         "has_prev": page > 1,
-        "has_next": page < total_pages
+        "has_next": page < total_pages,
+        "recent_news": recent_news_items,
+        "older_news": older_news_items,
     })
 
 @app.get("/contacts")

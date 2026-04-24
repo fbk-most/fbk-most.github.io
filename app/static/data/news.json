@@ -2,7 +2,7 @@
   {
     "TITLE": "Sketching Out Our Website!",
     "DATE": "2025-03-25",
-    "DESCRIPTION": "This is the beginning of our online presence. We're building a new website describing our research unit and its activities! We will use this first blog post to understand how to use the <a href=\\\"https://jekyllrb.com/\\\">Jekyll</a> static site generator and customize it to our publishing needs. We will therefore frequently change the content of this blog post to reflect our progress in setting up the website and to experiment with different features.",
+    "DESCRIPTION": "<p>This is the beginning of our online presence. We're building a new website describing our research unit and its activities! We will use this first blog post to understand how to use the <a href=\\\"https://jekyllrb.com/\\\">Jekyll</a> static site generator and customize it to our publishing needs. We will therefore frequently change the content of this blog post to reflect our progress in setting up the website and to experiment with different features.</p>",
     "Link": "",
     "Image": "/static/images/news/Keyboard_Franceschini_cropped.webp",
     "Priority": 8
@@ -10,7 +10,7 @@
   {
     "TITLE": "Congratulations on Jesus PhD Defense!",
     "DATE": "2025-12-11",
-    "DESCRIPTION": "We are thrilled to congratulate our colleague Jesus, who was awarded Cum Laude after successfully defending his PhD thesis! We are sure that this is just the start of a brilliant research career.<br>The thesis titled \"An Agent Based Journey in Social Systems Research\" was developed under the supervision of Jose J. Ramasco and Sandro Meloni from IFISC at the University of the Balearic Islands.",
+    "DESCRIPTION": "<p>We are thrilled to congratulate our colleague Jesus, who was awarded Cum Laude after successfully defending his PhD thesis! We are sure that this is just the start of a brilliant research career.<br>The thesis titled \"An Agent Based Journey in Social Systems Research\" was developed under the supervision of Jose J. Ramasco and Sandro Meloni from IFISC at the University of the Balearic Islands.</p>",
     "Link": "",
     "Image": "/static/images/news/Jesus-defense.webp",
     "Priority": 8
@@ -18,7 +18,7 @@
   {
     "TITLE": "Unveiling Our New Research Group Logo",
     "DATE": "2025-12-16",
-    "DESCRIPTION": "We are proud to share the result of a collaborative journey that blends structure and complexity into a logo the fully represents us.<br>Creating our new logo was an iterative, collaborative process, reflecting the spirit of our research group. We ultimately chose a <b>hexagon</b> to represent connections, structure, and the modeling at the heart of our work. Inside, the <b>\"stretch and fold\" pattern</b> - drawn from ideas in chaos theory and fractals - symbolizes how simple rules can generate complex, intricate behavior. Just as in chaotic systems, this motif combines expansion and folding to create dynamic patterns within an orderly framework, mirroring the interplay of order and complexity in our research.",
+    "DESCRIPTION": "<p>We are proud to share the result of a collaborative journey that blends structure and complexity into a logo the fully represents us.<br>Creating our new logo was an iterative, collaborative process, reflecting the spirit of our research group. We ultimately chose a <b>hexagon</b> to represent connections, structure, and the modeling at the heart of our work. Inside, the <b>\"stretch and fold\" pattern</b> - drawn from ideas in chaos theory and fractals - symbolizes how simple rules can generate complex, intricate behavior. Just as in chaotic systems, this motif combines expansion and folding to create dynamic patterns within an orderly framework, mirroring the interplay of order and complexity in our research.</p>",
     "Link": "",
     "Image": "/static/images/news/logo-news.webp",
     "Priority": 10
@@ -26,7 +26,7 @@
   {
     "TITLE": "HARMONIE project kick-off!",
     "DATE": "2025-11-17",
-    "DESCRIPTION": "Today in Barcelona we are kicking-off the HARMONIE project!<br>Coordinated by the Barcelona Supercomputing Center (BSC), the HARMONIE project aims to develop advanced tools that support informed policymaking cncerning urban air and noise pollution - a challenge for many European cities. The kick-off of the project took place today in Barcelona.",
+    "DESCRIPTION": "<p>Today in Barcelona we are kicking-off the HARMONIE project!<br>Coordinated by the Barcelona Supercomputing Center (BSC), the HARMONIE project aims to develop advanced tools that support informed policymaking cncerning urban air and noise pollution - a challenge for many European cities. The kick-off of the project took place today in Barcelona.</p>",
     "Link": "",
     "Image": "https://magazine.fbk.eu/wp-content/uploads/2025/11/Bronquios__Progetto-Harmonie-1600x880.png",
     "Priority": 10
@@ -34,7 +34,7 @@
   {
     "TITLE": "Welcome Ambra to the team!",
     "DATE": "2026-01-12",
-    "DESCRIPTION": "Ambra Vanella joins the MoST research unit as an intern, where she will contribute to research on stakeholder engagement in the design of Civic Digital Twins. Her work will focus on co-design processes, gamification strategies, and qualitative and quantitative data analysis to support participatory approaches and territorial decision-making.",
+    "DESCRIPTION": "<p>Ambra Vanella joins the MoST research unit as an intern, where she will contribute to research on stakeholder engagement in the design of Civic Digital Twins. Her work will focus on co-design processes, gamification strategies, and qualitative and quantitative data analysis to support participatory approaches and territorial decision-making.</p>",
     "Link": "",
     "Image": "/static/images/news/new_member.webp",
     "Priority": 8
@@ -42,7 +42,7 @@
   {
     "TITLE": "New preprint: simulating the impacts of traffic policies before implementation",
     "DATE": "2026-01-13",
-    "DESCRIPTION": "A new preprint is now available on <a href=\"https://arxiv.org/abs/2601.07735\">arXiv</a>, <b>\"Evaluating Impacts of Traffic Regulations in Complex Mobility Systems Using Scenario-Based Simulations\"</b>, addressing a key challenge faced by cities when introducing new mobility policies. <br>Measures such as low-emission zones or congestion pricing are often implemented with clear goals in mind, yet their real-world effects can be difficult to anticipate. The work presents a scenario-based simulation approach that combines transportation system dynamics with realistic models of human behavior and adaptation. This allows the analysis of both direct policy effects and wider systemic impacts on urban accessibility and mobility patterns. The aim is to provide city planners and policymakers with more robust tools to explore \"what-if\" scenarios and better understand the full range of consequences before policies are put into practice.",
+    "DESCRIPTION": "<p>A new preprint is now available on <a href=\"https://arxiv.org/abs/2601.07735\">arXiv</a>, <b>\"Evaluating Impacts of Traffic Regulations in Complex Mobility Systems Using Scenario-Based Simulations\"</b>, addressing a key challenge faced by cities when introducing new mobility policies. <br>Measures such as low-emission zones or congestion pricing are often implemented with clear goals in mind, yet their real-world effects can be difficult to anticipate. The work presents a scenario-based simulation approach that combines transportation system dynamics with realistic models of human behavior and adaptation. This allows the analysis of both direct policy effects and wider systemic impacts on urban accessibility and mobility patterns. The aim is to provide city planners and policymakers with more robust tools to explore \"what-if\" scenarios and better understand the full range of consequences before policies are put into practice.</p>",
     "Link": "https://arxiv.org/abs/2601.07735",
     "Image": "/static/images/news/burzacchi2026evaluating.png",
     "Priority": 10
