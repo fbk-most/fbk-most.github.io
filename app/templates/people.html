@@ -4,26 +4,106 @@
 
 {% block content %}
 
+<!-- ===== TEAM ===== -->
+
 <section class="content" id="team">
   <h2>Team</h2>
+  <div class="honeycomb reveal">
+    {% if current_people|length < 5 %}
+      <div class="honeycomb-container small">
+    {% else %}
+      <div class="honeycomb-container">
+    {% endif %}
+  
+    {% for person in current_people %}f
+      <div class="hexLink-div">
+        <a
+          href="#"
+          data-slug="{{ person.slug }}"
+          data-status="{{ person.status }}"
+          data-name="{{ person.name }}"
+          data-position="{{ person.position }}"
+          data-image="{{ person.image }}"
+          data-bio="{{ person.content }}"
+          data-website="{{ person.website }}"
+          data-github="{{ person.github }}"
+          data-twitter="{{ person.twitter }}"
+          data-linkedin="{{ person.linkedin }}"
+          data-scholar="{{ person.scholar }}"
+          data-research_gate="{{ person.research_gate }}">
+  
+          <img class="hex-img" src="{{ person.image }}" alt="{{ person.name }}">
+          <div class="hex-text">
+            <h3>{{ person.name }}</h3>
+            <p>{{ person.position }}</p>
+          </div>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
 </section>
+
+<!-- ===== FORMER MEMBERS ===== -->
 
 <section class="content" id="former">
   <h2>Former members</h2>
-
-    <section id="tmp">
-    <div class="hive">
-      <div class="hex violet">News 1</div>
-      <div class="hex aqua">News 2</div>
-      <div class="hex fuchsia">News 3</div>
-      <div class="hex orange">News 4</div>
-      <div class="hex violet">News 5</div>
-      <div class="hex aqua">News 6</div>
-      <div class="hex fuchsia">News 7</div>
-      <div class="hex orange">News 8</div>
-    </div>
-  </section>
+  <div class="honeycomb reveal">
+    {% if former_people|length < 5 %}
+      <div class="honeycomb-container small">
+    {% else %}
+      <div class="honeycomb-container">
+    {% endif %}
+  
+    {% for person in former_people %}
+      <div class="hexLink-div">
+        <a
+          href="#"
+          data-slug="{{ person.slug }}"
+          data-status="{{ person.status }}"
+          data-name="{{ person.name }}"
+          data-position="{{ person.position }}"
+          data-image="{{ person.image }}"
+          data-bio="{{ person.content }}"
+          data-website="{{ person.website }}"
+          data-github="{{ person.github }}"
+          data-twitter="{{ person.twitter }}"
+          data-linkedin="{{ person.linkedin }}"
+          data-scholar="{{ person.scholar }}"
+          data-research_gate="{{ person.research_gate }}">
+  
+          <img class="hex-img" src="{{ person.image }}" alt="{{ person.name }}">
+          <div class="hex-text">
+            <h3>{{ person.name }}</h3>
+            <p>{{ person.position }}</p>
+          </div>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
 </section>
+
+<!-- ===== MODAL ===== -->
+
+<div id="hexModal" class="hexModal">
+  <div class="hexModal-content">
+    <button id="modalBackBtn" class="hexModal-close" style="margin-right: 1.5rem;">
+      &#8599;
+    </button>
+    <button id="modalCloseBtn" class="hexModal-close">&times;</button>
+
+    <div class="most-person text-center">
+      <img id="modalImage" class="most-person__imagehex most-person__imagehex--sm" src="" alt="" />
+      <h3 id="modalName" class="mb-1"></h3>
+      <div id="modalPosition" class="text-muted mb-3"></div>
+
+      <div id="modalSocial" class="most-person__social mb-3"></div>
+
+      <div id="modalBio" class="most-person__bio text-left"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== OPEN POSITIONS ===== -->
 
 <section class="content" id="open">
   <h2>Open positions</h2>
@@ -71,3 +151,82 @@
   </div>
 </section>
 {% endblock %}
+
+{% block extra_scripts %}
+
+<script>
+document.querySelectorAll('.hexLink-div a').forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    const profileSlug = this.dataset.slug;
+    const profileUrl = `/people/${profileSlug}/`;
+
+    document.getElementById('modalImage').src = this.dataset.image;
+    document.getElementById('modalImage').alt = this.dataset.name;
+    document.getElementById('modalName').textContent = this.dataset.name;
+    document.getElementById('modalPosition').textContent = this.dataset.position;
+    document.getElementById('modalBio').innerHTML = this.dataset.bio;
+
+    // Build social links with icon + text
+    const socialContainer = document.getElementById('modalSocial');
+    socialContainer.innerHTML = ''; // clear previous
+
+    const platforms = [
+      { key: 'website', icon: 'fas fa-globe', label: 'Website' },
+      { key: 'github', icon: 'fab fa-github', label: 'GitHub' },
+      { key: 'twitter', icon: 'fab fa-twitter', label: 'X' },
+      { key: 'linkedin', icon: 'fab fa-linkedin', label: 'LinkedIn' },
+      { key: 'scholar', icon: 'fas fa-graduation-cap', label: 'Google Scholar' },
+      { key: 'research_gate', icon: 'fab fa-researchgate', label: 'ResearchGate' }
+    ];
+
+    platforms.forEach(p => {
+      const url = this.dataset[p.key];
+      if (url) {
+        let href;
+        switch (p.key) {
+          case 'website': href = url; break;
+          case 'github': href = 'https://github.com/' + url; break;
+          case 'twitter': href = 'https://x.com/' + url; break;
+          case 'linkedin': href = 'https://www.linkedin.com/in/' + url; break;
+          case 'scholar': href = 'https://scholar.google.com/citations?user=' + url; break;
+          case 'research_gate': href = 'https://www.researchgate.net/profile/' + url; break;
+        }
+
+        const a = document.createElement('a');
+        a.href = href;
+        a.target = '_blank';
+        a.className = 'btn btn-light btn-sm m-1';
+        a.innerHTML = `<i class="${p.icon}"></i> ${p.label}`;
+        socialContainer.appendChild(a);
+      }
+    });
+
+    // Share arrow now opens /people/:name/ in a new tab
+    const backBtn = document.getElementById('modalBackBtn');
+    if (this.dataset.status === 'current' || this.dataset.status === 'visitor') {
+      backBtn.style.display = 'inline-block'; // show
+      backBtn.onclick = () => window.open(profileUrl, '_blank');
+    } else {
+      backBtn.style.display = 'none'; // hide for alumni
+    }
+
+    document.getElementById('hexModal').style.display = 'flex';
+  });
+});
+
+// Close modal
+document.getElementById('modalCloseBtn').onclick = function() {
+  document.getElementById('hexModal').style.display = 'none';
+};
+
+window.onclick = function(e) {
+  if (e.target.id === 'hexModal') {
+    document.getElementById('hexModal').style.display = 'none';
+  }
+};
+</script>
+{% endblock %}
+
+

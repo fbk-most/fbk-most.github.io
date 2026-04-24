@@ -69,7 +69,7 @@ Create a new markdown file in the `_people` directory with the following front m
 name: "Full Name"
 position: "Job Title"
 status: "current" # or "alumni" or "visitor"
-image: "/assets/images/people/filename.jpg" # optional
+image: "/static/images/people/filename.jpg" # optional
 website: "https://example.com" # optional
 github: "username" # optional
 linkedin: "username" # optional
