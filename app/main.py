@@ -4,15 +4,14 @@ from fastapi.templating import Jinja2Templates
 import json
 from pathlib import Path
 from datetime import datetime, timedelta
-import yaml
-import markdown
-import os
+
+from app.src.utils import parse_file, parse_directory
 
 app = FastAPI()
 
 app.mount("/static", StaticFiles(directory="app/static"), name="static")
 templates = Jinja2Templates(directory="app/templates")
-
+people_directory = "app/static/people/"  # change this
 
 @app.get("/")
 async def home(request: Request):
@@ -43,58 +42,29 @@ async def research(request: Request):
 
 @app.get("/people")
 async def people(request: Request):
-    directory = "app/static/people"  # change this
 
-    def parse_file(filepath):
-        with open(filepath, "r", encoding="utf-8") as f:
-            text = f.read()
-
-        # Split front matter and body
-        if text.startswith("---"):
-            _, front_matter, body = text.split("---", 2)
-        else:
-            raise ValueError(f"No front matter found in {filepath}")
-
-        # Parse YAML metadata
-        metadata = yaml.safe_load(front_matter.strip())
-
-        # Convert markdown to HTML
-        html_content = markdown.markdown(body.strip(), extensions=["extra"])
-
-        # Build final dictionary
-        result = dict(metadata)
-        result["content"] = html_content
-
-        return result
-
-
-    def parse_directory(directory_path):
-        current = []
-        former = []
-
-        for filename in os.listdir(directory_path):
-            if filename.endswith(".md") or filename.endswith(".txt"):
-                filepath = os.path.join(directory_path, filename)
-                try:
-                    person = parse_file(filepath)
-                    if 'vis-order' in person and person["status"] != "alumni":
-                        current.append(person)
-                    else:
-                        former.append(person)
-                except Exception as e:
-                    print(f"Error parsing {filename}: {e}")
-
-        # Sort by vis-order (fallback to large number if missing)
-        current.sort(key=lambda x: x.get("vis-order", float("inf")))
-        former.sort(key=lambda x: x.get("vis-order", float("inf")))
-
-        return current, former
-
-    current, former = parse_directory(directory)
+    current, former = parse_directory(people_directory)
     return templates.TemplateResponse(request, "people.html",{
         "current_page": "people",
         "current_people": current,
         "former_people": former
+    })
+
+@app.get("/people/{slug}")
+async def person_detail(request: Request, slug: str):
+    directory = "app/static/people"
+
+    person = parse_file(people_directory+slug+".md")
+
+    #TODO: 404 if alumni or redirect to people
+
+    if not person:
+        from fastapi import HTTPException
+        raise HTTPException(status_code=404, detail="Person not found")
+
+    return templates.TemplateResponse(request, "person.html", {
+        "current_page": "people",
+        "person": person
     })
 
 @app.get("/phd")

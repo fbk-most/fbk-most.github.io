@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}MoST - {{ person.name }}{% endblock %}
+
+{% block content %}
+
+<section class="content">
+  <div class="most-person text-center">
+    <img class="most-person__imagehex most-person__imagehex--lg" src="{{ person.image }}" alt="{{ person.name }}" />
+    <h2 class="mb-1">{{ person.name }}</h2>
+    <div class="text-muted mb-3">{{ person.position }}</div>
+
+    <div class="most-person__social mb-4">
+      {% if person.website %}
+        <a href="{{ person.website }}" target="_blank" class="btn btn-light btn-sm m-1">
+          <i class="fas fa-globe"></i> Website
+        </a>
+      {% endif %}
+      {% if person.github %}
+        <a href="https://github.com/{{ person.github }}" target="_blank" class="btn btn-light btn-sm m-1">
+          <i class="fab fa-github"></i> GitHub
+        </a>
+      {% endif %}
+      {% if person.twitter %}
+        <a href="https://x.com/{{ person.twitter }}" target="_blank" class="btn btn-light btn-sm m-1">
+          <i class="fab fa-twitter"></i> X
+        </a>
+      {% endif %}
+      {% if person.linkedin %}
+        <a href="https://www.linkedin.com/in/{{ person.linkedin }}" target="_blank" class="btn btn-light btn-sm m-1">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+      {% endif %}
+      {% if person.scholar %}
+        <a href="https://scholar.google.com/citations?user={{ person.scholar }}" target="_blank" class="btn btn-light btn-sm m-1">
+          <i class="fas fa-graduation-cap"></i> Google Scholar
+        </a>
+      {% endif %}
+      {% if person.research_gate %}
+        <a href="https://www.researchgate.net/profile/{{ person.research_gate }}" target="_blank" class="btn btn-light btn-sm m-1">
+          <i class="fab fa-researchgate"></i> ResearchGate
+        </a>
+      {% endif %}
+    </div>
+
+    <div class="most-person__bio text-left">
+      {{ person.content | safe }}
+    </div>
+  </div>
+</section>
+
+{% endblock %}
