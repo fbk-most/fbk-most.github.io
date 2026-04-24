@@ -12,7 +12,26 @@ templates = Jinja2Templates(directory="app/templates")
 
 @app.get("/")
 async def home(request: Request):
-    return templates.TemplateResponse(request, "index.html", {"current_page": "home"})
+    news_file = Path("app/static/data/news.json")
+    with open(news_file, "r") as f:
+        news = json.load(f)
+    
+    # Sort by Priority descending, then by DATE descending
+    news.sort(key=lambda x: (-x.get("Priority", 0), x["DATE"]), reverse=False)
+    
+    # Build display list with the combined string
+    news_items = [
+        {
+            "image": item["Image"],
+            "label": f"{item['DATE']} - {item['TITLE']}",
+        }
+        for item in news
+    ]
+    
+    return templates.TemplateResponse(request, "index.html", {
+        "current_page": "home",
+        "news_items": news_items,
+    })
 
 @app.get("/research")
 async def research(request: Request):

@@ -5,3 +5,5 @@
 .venv/
 secrets.txt
 _old
+*.pyc
+app/__pycache__/*
