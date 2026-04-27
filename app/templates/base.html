@@ -15,6 +15,8 @@
   <link rel="stylesheet" href="/static/css/styles.css">
   <link rel="stylesheet" href="/static/css/hex_carousel.css">
   <link rel="stylesheet" href="/static/css/people.css">
+  <link rel="stylesheet" href="/static/css/cookies.css">
+
 
 </head>
 
@@ -35,5 +37,68 @@
   {% include "footer.html" %}
 
   {% block extra_scripts %}{% endblock %}
+
+  <!-- Cookie overlay -->
+  <div class="most-cookie-overlay"></div>
+
+  <!-- Cookie consent panel -->
+  <div class="most-cookie">
+    <div class="most-cookie__content">
+      <h3>Cookies and privacy</h3>
+
+      <p>
+        FBK does not use any user profiling technique, but only technical cookies
+        necessary for the normal functioning of the website and anonymous
+        statistical tools.
+      </p>
+
+      <p>
+        For more information, please see our
+        <a href="https://www.fbk.eu/en/privacy-cookies-policy/" target="_blank">
+          Privacy and cookies policy
+        </a>.
+      </p>
+
+      <div class="most-cookie__actions">
+        <button class="most-cookie__deny">Deny</button>
+        <button class="most-cookie__accept">Accept</button>
+      </div>
+    </div>
+  </div>
+
+<script>
+  function initCookies() {
+    const banner = document.querySelector(".most-cookie");
+    const overlay = document.querySelector(".most-cookie-overlay");
+    const acceptBtn = document.querySelector(".most-cookie__accept");
+    const denyBtn = document.querySelector(".most-cookie__deny");
+
+    if (!banner || !overlay || !acceptBtn || !denyBtn) {
+      console.warn("Cookie elements not found");
+      return;
+    }
+
+    const consent = localStorage.getItem("cookieConsent");
+
+    if (!consent) {
+      banner.style.display = "block";
+      overlay.style.display = "block";
+      document.body.classList.add("cookies-locked");
+    }
+
+    function closeCookies(value) {
+      localStorage.setItem("cookieConsent", value);
+      banner.style.display = "none";
+      overlay.style.display = "none";
+      document.body.classList.remove("cookies-locked");
+    }
+
+    acceptBtn.addEventListener("click", () => closeCookies("accepted"));
+    denyBtn.addEventListener("click", () => closeCookies("denied"));
+  }
+
+  document.addEventListener("DOMContentLoaded", initCookies);
+</script>
+
 </body>
 </html>
