@@ -20,6 +20,7 @@
     <div class="hex-carousel" id="hexCarousel" aria-live="polite"></div>
     <button class="hex-nav right" id="hexNext" aria-label="Next news">&#8250;</button>
   </div>
+  <div class="hex-current-label" id="hexCurrentLabel" aria-live="polite"></div>
   <div class="hex-dots" id="hexDots"></div>
   {% endif %}
 
@@ -110,11 +111,9 @@
   function renderCarousel() {
     const carousel = document.getElementById("hexCarousel");
     const positions = [
-      { offset: -2, cls: "far"    },
       { offset: -1, cls: "side"   },
       { offset:  0, cls: "center" },
       { offset: +1, cls: "side"   },
-      { offset: +2, cls: "far"    },
     ];
 
     carousel.innerHTML = "";
@@ -146,20 +145,7 @@
                   clip-path="url(#${clipId})"
                   preserveAspectRatio="xMidYMid slice" />`
               : ''}
-
-            <!-- colour tint overlay so text is always readable -->
-            <polygon
-              points="${pts}"
-              fill="${color}"
-              opacity="${item.image ? (isCenter ? '0.55' : '0.65') : '1'}"
-              stroke="rgba(255,255,255,${isCenter ? '0.2' : '0.08'})"
-              stroke-width="${isCenter ? 2 : 1}"
-            />
           </svg>
-          <div class="hex-label">
-            <div class="hex-date">${item.label.split(' - ')[0]}</div>
-            <div class="hex-title">${item.label.split(' - ').slice(1).join(' - ')}</div>
-          </div>
         </div>`;
 
       if (!isCenter) {
@@ -174,6 +160,25 @@
     });
   }
 
+  function parseLabel(item) {
+    const [date, ...rest] = item.label.split(' - ');
+    return {
+      date: date || '',
+      title: rest.join(' - ') || item.label,
+    };
+  }
+
+  function renderCurrentLabel() {
+    const labelEl = document.getElementById("hexCurrentLabel");
+    const item = HEX_NEWS[current];
+    const { date, title } = parseLabel(item);
+
+    labelEl.innerHTML = `
+      <div class="hex-current-date">${date}</div>
+      <div class="hex-current-title">${title}</div>
+    `;
+  }
+
   function renderDots() {
     const dotsEl = document.getElementById("hexDots");
     dotsEl.innerHTML = "";
@@ -184,6 +189,7 @@
       d.addEventListener("click", () => { current = i; renderCarousel(); renderDots(); });
       dotsEl.appendChild(d);
     });
+    renderCurrentLabel();
   }
 
   document.getElementById("hexPrev").addEventListener("click", () => {

@@ -18,9 +18,17 @@ async def home(request: Request):
     news_file = Path("app/static/data/news.json")
     with open(news_file, "r") as f:
         news = json.load(f)
-    
-    # Sort by Priority descending, then by DATE descending
-    news.sort(key=lambda x: (-x.get("Priority", 0), x["DATE"]), reverse=False)
+
+    with open(news_file, "r") as f:
+        news = json.load(f)
+
+    # Sort by date (newest first)
+    for item in news:
+        item["parsed_date"] = datetime.strptime(item["DATE"], "%Y-%m-%d")
+    news.sort(key=lambda x: x["parsed_date"], reverse=True)
+
+    three_months_ago = datetime.now() - timedelta(days=90)
+    recent_or_important = [item for item in news if item["parsed_date"] >= three_months_ago or item["Priority"]==10]    
     
     # Build display list with the combined string
     news_items = [
@@ -28,7 +36,7 @@ async def home(request: Request):
             "image": item["Image"],
             "label": f"{item['DATE']} - {item['TITLE']}",
         }
-        for item in news
+        for item in recent_or_important
     ]
     
     return templates.TemplateResponse(request, "index.html", {

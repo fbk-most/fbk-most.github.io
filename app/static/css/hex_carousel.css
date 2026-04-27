@@ -37,18 +37,12 @@
 
 .hex-wrap.side {
   z-index: 5;
-  transform: scale(1);  /* was 0.6 — slightly tighter */
+  transform: scale(1.2);  /* was 0.6 — slightly tighter */
   opacity: 0.75;
 }
 
 .hex-wrap.side:hover {
   opacity: 0.85;
-}
-
-.hex-wrap.far {
-  z-index: 1;
-  transform: scale(0.5);  /* was 0.42 */
-  opacity: 0.1;
 }
 
 /* --- The hexagon element --- */
@@ -63,45 +57,27 @@
   height: 100%;
 }
 
-/* --- Text overlay inside hexagon --- */
-.hex-label {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 1.4rem 1.6rem;
+.hex-current-label {
   text-align: center;
-  pointer-events: none;
+  max-width: 720px;
+  margin: 0 auto 1rem;
+  padding: 0 1rem;
 }
 
-.hex-date {
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.8);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  margin-bottom: 0.4rem;
-}
-
-.hex-title {
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: #ffffff;
-  line-height: 1.4;
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.hex-wrap.center .hex-date {
-  font-size: 0.82rem;
-}
-
-.hex-wrap.center .hex-title {
+.hex-current-date {
   font-size: 1rem;
+  font-weight: 700;
+  color: rgba(24, 59, 89, 0.8);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.hex-current-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--color-main-header);
+  line-height: 1.5;
 }
 
 /* --- Nav buttons --- */
@@ -174,13 +150,5 @@
   .hex-wrap.side {
     transform: scale(0.55);
     opacity: 0.6;
-  }
-
-  .hex-wrap.far {
-    display: none;
-  }
-
-  .hex-wrap.center .hex-title {
-    font-size: 0.88rem;
   }
 }
