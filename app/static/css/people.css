@@ -174,25 +174,64 @@
    ===================================================== */
 
 /* Honeycomb small screens */
-@media (max-width: 575px) {
+@media (max-width: 768px) {
   .honeycomb {
-    --s: 120px;
-    --mv: 3px;
-    --mh: calc(var(--mv) + (var(--s) - 2 * var(--hc)) / 2);
-    --f: calc(2 * var(--s) * var(--r) + 4 * var(--mv) - 2 * var(--vc) - 2px);
+    width: 100%;
+    overflow-x: hidden;
   }
 
   .honeycomb-container {
-    max-width: 90%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 0.75rem;
+  }
+
+  .honeycomb-container::before {
+    display: none;
+  }
+
+  .honeycomb-container > div {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1.15;
+    margin: 0;
+  }
+
+  .hex-text {
+    padding: 14px;
   }
 
   .hex-text h3 {
-    font-size: 0.9rem;
+    font-size: 1rem;
+  }
+
+  .hex-text p {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .honeycomb-container {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 0 0.6rem;
+  }
+
+  .honeycomb-container > div {
+    aspect-ratio: 1.1;
+  }
+
+  .hex-text h3 {
+    font-size: 0.95rem;
     margin-bottom: 2px;
   }
 
   .hex-text p {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
   }
 }
 

@@ -139,7 +139,12 @@
 /* --- Responsive --- */
 @media (max-width: 768px) {
   .hex-carousel-section {
-    padding: 0 44px;
+    padding: 0 1rem;
+  }
+
+  .hex-carousel {
+    min-height: auto;
+    padding: 1rem 0;
   }
 
   .hexagon {
@@ -147,8 +152,40 @@
     height: 180px;
   }
 
+  .hex-wrap {
+    margin: 0 10px;
+  }
+
   .hex-wrap.side {
-    transform: scale(0.55);
-    opacity: 0.6;
+    display: none;
+  }
+
+  .hex-current-label {
+    max-width: 100%;
+    padding: 0 0.75rem;
+  }
+
+  .hex-current-date {
+    font-size: 0.9rem;
+  }
+
+  .hex-current-title {
+    font-size: 1.2rem;
+  }
+
+  .hex-nav {
+    width: 34px;
+    height: 34px;
+    font-size: 1rem;
+  }
+
+  .hex-nav.left { left: 0.5rem; }
+  .hex-nav.right { right: 0.5rem; }
+}
+
+@media (max-width: 576px) {
+  .hexagon {
+    width: 150px;
+    height: 150px;
   }
 }

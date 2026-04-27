@@ -98,6 +98,17 @@
   }
 
   document.addEventListener("DOMContentLoaded", initCookies);
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggle = document.querySelector(".mobile-menu-toggle");
+    const pageHeader = document.querySelector("header");
+
+    if (toggle && pageHeader) {
+      toggle.addEventListener("click", function () {
+        pageHeader.classList.toggle("mobile-menu-open");
+      });
+    }
+  });
 </script>
 
 </body>
