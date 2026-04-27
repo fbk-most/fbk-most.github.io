@@ -52,6 +52,10 @@ header {
   flex-shrink: 0;
 }
 
+.fbk-logo {
+  height: 40px !important;
+}
+
 /* Toggle button */
 .nav-toggle {
   display: flex;
@@ -198,6 +202,12 @@ header {
 
   .header-top > img {
     height: 36px;
+  }
+
+  .fbk-logo {
+    height: 30px !important;
+    margin-left: 6px;
+    margin-top: 6px;
   }
 
   .nav-toggle {
