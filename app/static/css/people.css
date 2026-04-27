@@ -1,51 +1,70 @@
-/* ==============================
-   FBK | MoST | Digital Society
-   Custom CSS for modern Jekyll theme
-   ============================== */
+/* =====================================================
+   PEOPLE GRID (HONEYCOMB LAYOUT)
+   ===================================================== */
 
-/* --- PEOPLE GRID --- */
 .honeycomb {
   display: flex;
-  justify-content: center; /* center horizontally */
+  justify-content: center;
+
+  /* Variables */
   --s: 300px;
   --r: 0.85;
-  --h: 0.25;  
-  --v: 0.5; 
-  --hc:calc(clamp(0,var(--h),0.5) * var(--s)) ;
-  --vc:calc(clamp(0,var(--v),0.5) * var(--s) * var(--r)); 
+  --h: 0.25;
+  --v: 0.5;
+
+  --hc: calc(clamp(0, var(--h), 0.5) * var(--s));
+  --vc: calc(clamp(0, var(--v), 0.5) * var(--s) * var(--r));
+
   --mv: 4px;
-  --mh: calc(var(--mv) + (var(--s) - 2*var(--hc))/2);
-  --f: calc(2*var(--s)*var(--r) + 4*var(--mv)  - 2*var(--vc) - 2px);
-  padding-bottom: calc(var(--s) * 1.5); /* adjust for extra rows */
+  --mh: calc(var(--mv) + (var(--s) - 2 * var(--hc)) / 2);
+  --f: calc(2 * var(--s) * var(--r) + 4 * var(--mv) - 2 * var(--vc) - 2px);
+
+  padding-bottom: calc(var(--s) * 1.5);
 }
 
-
 .honeycomb-container {
-  font-size: 0; /*disable white space between inline block element */
-  display: inline-block; /* already inline-block children */
+  display: inline-block;
+  font-size: 0;
   max-width: 1400px;
-  margin: 0 auto;        /* center horizontally */
+  margin: 0 auto;
 }
 
 .honeycomb-container > div {
-  position: relative; /* This is the key change */
-  width: var(--s);
-  margin: var(--mv) var(--mh);
-  height: calc(var(--s)*var(--r)); 
+  position: relative;
   display: inline-block;
-  font-size:initial;
-  clip-path: polygon(var(--hc) 0, calc(100% - var(--hc)) 0,100% var(--vc),100% calc(100% - var(--vc)), calc(100% - var(--hc)) 100%,var(--hc) 100%,0 calc(100% - var(--vc)),0 var(--vc));
-  margin-bottom: calc(var(--mv) - var(--vc)); 
+
+  width: var(--s);
+  height: calc(var(--s) * var(--r));
+
+  margin: var(--mv) var(--mh);
+  margin-bottom: calc(var(--mv) - var(--vc));
+
+  font-size: initial;
+  overflow: hidden;
+
+  clip-path: polygon(
+    var(--hc) 0,
+    calc(100% - var(--hc)) 0,
+    100% var(--vc),
+    100% calc(100% - var(--vc)),
+    calc(100% - var(--hc)) 100%,
+    var(--hc) 100%,
+    0 calc(100% - var(--vc)),
+    0 var(--vc)
+  );
 }
 
+/* Flow helpers */
 .honeycomb-container::before {
   content: "";
-  width: calc(var(--s)/2 + var(--mh));
   float: left;
+  width: calc(var(--s) / 2 + var(--mh));
   height: 135%;
-  shape-outside: repeating-linear-gradient(     
-    #0000 0 calc(var(--f) - 2px),      
-    #000  0 var(--f));
+
+  shape-outside: repeating-linear-gradient(
+    #0000 0 calc(var(--f) - 2px),
+    #000 0 var(--f)
+  );
 }
 
 .honeycomb-container::after {
@@ -58,6 +77,10 @@
   max-width: 1000px;
 }
 
+/* =====================================================
+   HEX ITEMS (IMAGE + OVERLAY)
+   ===================================================== */
+
 .hex-img {
   width: 100%;
   height: 100%;
@@ -66,37 +89,40 @@
 
 .hex-text {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  
-  /* Centering Logic */
+  inset: 0;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  
-  /* Visuals */
-  background: rgba(0, 85, 184, 0.7); /* Dark tint on hover */
-  color: white !important;
+
   padding: 20px;
   box-sizing: border-box;
-  
-  /* Hidden by default */
+  text-align: center;
+
+  background: rgba(0, 85, 184, 0.7);
+  color: white !important;
+
   opacity: 0;
   transition: opacity 0.3s ease;
-  pointer-events: none; /* Allows mouse to still "hit" the parent div */
+  pointer-events: none;
 }
 
-/* Text spacing */
-.hex-text h3 { margin: 0 0 5px 0; font-size: 1.5rem; color: white !important;}
-.hex-text p { margin: 0; font-size: 1rem; color: white !important;}
+/* Overlay text */
+.hex-text h3 {
+  margin: 0 0 5px;
+  font-size: 1.5rem;
+  color: white !important;
+}
 
-/*White line*/
+.hex-text p {
+  margin: 0;
+  font-size: 1rem;
+  color: white !important;
+}
+
 .hex-text h3::after {
-  content: '';
+  content: "";
   display: block;
   width: 25%;
   height: 2px;
@@ -104,38 +130,27 @@
   margin: 10px auto;
 }
 
-/* Show on Hover */
+/* Hover */
 .honeycomb-container div:hover .hex-text {
   opacity: 1;
 }
 
+/* =====================================================
+   HEX CONTENT (GENERIC)
+   ===================================================== */
 
-@media (max-width: 575px) {
-  .honeycomb {
-    --s: 120px;
-    --mv: 3px;
-    --mh: calc(var(--mv) + (var(--s) - 2*var(--hc))/2);
-    --f: calc(2*var(--s)*var(--r) + 4*var(--mv)  - 2*var(--vc) - 2px);
-  }
-  
-  .honeycomb-container {
-    max-width: 90%;
-  }
-
-.hex-text h3 { margin: 0 0 2px 0; font-size: 0.9rem}
-.hex-text p { margin: 0; font-size: 0.7rem; }
-}
-
-/* ================= HEX CONTENT ================= */
 .hex img {
-  left: -100%;
-  right: -100%;
   width: 100%;
   height: 100%;
+  margin: 0 auto;
+
   object-fit: cover;
   object-position: center;
-  margin: 0 auto;
-  transform: rotate3d(0,0,0,0deg);
+
+  left: -100%;
+  right: -100%;
+
+  transform: rotate3d(0, 0, 0, 0deg);
 }
 
 .hexContent h3,
@@ -145,9 +160,8 @@
   padding: 0;
 }
 
-/* 2. Create the line using the ::after pseudo-element */
 .hexContent h3::after {
-  content: '';
+  content: "";
   display: block;
   width: 25%;
   height: 2px;
@@ -155,82 +169,123 @@
   margin: 10px auto;
 }
 
-/* ================= HEXAGON SIZING / RESPONSIVE ================= */
-@media (min-width:1201px) {
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+/* Honeycomb small screens */
+@media (max-width: 575px) {
+  .honeycomb {
+    --s: 120px;
+    --mv: 3px;
+    --mh: calc(var(--mv) + (var(--s) - 2 * var(--hc)) / 2);
+    --f: calc(2 * var(--s) * var(--r) + 4 * var(--mv) - 2 * var(--vc) - 2px);
+  }
+
+  .honeycomb-container {
+    max-width: 90%;
+  }
+
+  .hex-text h3 {
+    font-size: 0.9rem;
+    margin-bottom: 2px;
+  }
+
+  .hex-text p {
+    font-size: 0.7rem;
+  }
+}
+
+/* Grid responsiveness */
+@media (min-width: 1201px) {
   #hexGrid { padding-bottom: 4.4%; }
-  .hex { width: 20%; } /* 5 hex per row */
+  .hex { width: 20%; }
   .hex:nth-child(9n+6) { margin-left: 10%; }
 }
 
-@media (max-width:1200px) and (min-width:901px) {
+@media (max-width: 1200px) and (min-width: 901px) {
   #hexGrid { padding-bottom: 5.5%; }
-  .hex { width: 25%; } /* 4 hex per row */
+  .hex { width: 25%; }
   .hex:nth-child(7n+5) { margin-left: 12.5%; }
 }
 
-@media (max-width:900px) and (min-width:601px) {
+@media (max-width: 900px) and (min-width: 601px) {
   #hexGrid { padding-bottom: 7.4%; }
-  .hex { width: 33.333%; } /* 3 hex per row */
+  .hex { width: 33.333%; }
   .hex:nth-child(5n+4) { margin-left: 16.666%; }
 }
 
-@media (max-width:600px) {
+@media (max-width: 600px) {
   #hexGrid { padding-bottom: 11.2%; }
-  .hex { width: 50%; } /* 2 hex per row */
+  .hex { width: 50%; }
   .hex:nth-child(3n+3) { margin-left: 25%; }
 }
 
-@media (max-width:400px) {
+@media (max-width: 400px) {
   #hexGrid { font-size: 13px; }
 }
 
-/* MODAL BACKDROP */
+/* =====================================================
+   MODAL
+   ===================================================== */
+
 .hexModal {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.65);
+  z-index: 9999;
+
   display: none;
   justify-content: center;
   align-items: center;
-  z-index: 9999;
+
+  background: rgba(0, 0, 0, 0.65);
 }
 
-/* HEXAGONAL POP-UP */
 .hexModal-content {
   width: clamp(300px, 70%, 800px);
-  background: white;
+  max-height: 90vh;
+
   padding: 25px;
-  position: relative;
+  overflow-y: auto;
+
+  background: white;
   color: #000;
   box-sizing: border-box;
-
-  max-height: 90vh;
-  overflow-y: auto;
+  position: relative;
 }
 
-/* CLOSE BUTTON */
 .hexModal-close {
   position: absolute;
   top: 10px;
   right: 15px;
-  background: none;
+
   border: none;
+  background: none;
   font-size: 32px;
   cursor: pointer;
 }
 
-/* CONTENT STYLING */
-.most-person__imagehex{
-  object-fit: cover;
-  margin: 0 auto 0.75rem auto;
-  transition: transform 0.3s ease;
+.hexModal-content h3 { margin-bottom: 8px; }
+.hexModal-content p { margin-bottom: 10px; }
+
+#modalBio p {
+  margin-bottom: 10px;
+}
+
+/* =====================================================
+   PERSON (SHARED)
+   ===================================================== */
+
+.most-person__imagehex {
   display: flex;
   justify-content: center;
 
-  /* Remove circle */
+  margin: 0 auto 0.75rem;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+
   border-radius: 0;
 
-  /* Hexagon mask */
   clip-path: polygon(
     25% 6.7%,
     75% 6.7%,
@@ -251,19 +306,6 @@
   height: 300px;
 }
 
-
-.hexModal-content h3 {
-  margin: 0 0 8px;
-}
-
-.hexModal-content p {
-  margin: 0 0 10px;
-}
-
-#modalBio p {
-  margin-bottom: 10px;
-}
-
 .most-person__social a {
   display: inline-block;
   margin: 0 5px 5px 0;
@@ -275,56 +317,17 @@
   margin-top: 10px;
 }
 
-/* Single person styling */
-.most-person__page-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem; /* spacing between elements */
-  max-width: 800px;
-  width: 100%;
-  text-align: center;
-}
+/* =====================================================
+   MODAL PERSON DETAILS
+   ===================================================== */
 
-.most-person__page-content .text-muted {
-  color: var(--fbk-gray);
-}
-
-.most-person__page-text,
-.most-person__page-text p{
-  color: black !important;
-}
-
-.most-person__page-text a{
-  color: var(--fbk-blue) !important;
-}
-
-.most-person__page-content a.btn {
-  color: var(--text-dark);
-}
-
-.most-section--force-white .most-person__page-content a.btn-light {
-  color: var(--text-dark);
-}
-
-.hexLink-div a {
-  display: block;
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.honeycomb-container > div {
-  overflow: hidden;
-}
-
-#modalSocial,
 #modalImage,
+#modalSocial,
 #most-person__imagehex {
   display: flex;
-  justify-content: center; /* horizontal centering */
-  align-items: center;     /* vertical alignment (optional) */
-  gap: 0.5rem;             /* spacing between icons */
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 #modalName {
@@ -333,31 +336,72 @@
 }
 
 #modalPosition {
-  text-align: center;
   font-size: 1.5rem;
+  text-align: center;
   margin-bottom: 0.5rem;
-
 }
 
-#modalSocial {
+/* =====================================================
+   SINGLE PERSON PAGE
+   ===================================================== */
+
+.most-person__page-content {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  max-width: 800px;
+
+  gap: 2rem;
+  text-align: center;
 }
 
-/* PERSONAL PAGE*/
+.most-person__page-content .text-muted {
+  color: var(--fbk-gray);
+}
 
+.most-person__page-text,
+.most-person__page-text p {
+  color: black !important;
+}
+
+.most-person__page-text a {
+  color: var(--fbk-blue) !important;
+}
+
+.most-person__page-content a.btn,
+.most-section--force-white .most-person__page-content a.btn-light {
+  color: var(--text-dark);
+}
+
+/* Position styling */
 .most-person .text-muted {
-  font-size: 1.8rem;   /* bigger than default */
-  text-align: center;  /* ensure centered */
   display: block;
+  text-align: center;
+  font-size: 1.8rem;
 }
 
+/* Social centered */
 .most-person__social {
   display: flex;
-  justify-content: center;  /* horizontal center */
+  justify-content: center;
   align-items: center;
-  flex-wrap: wrap;          /* wrap nicely on small screens */
+  flex-wrap: wrap;
+
   gap: 0.5rem;
-  font-size: 1.2rem;
   margin-top: 1rem;
+
+  font-size: 1.2rem;
+}
+
+/* =====================================================
+   LINKS
+   ===================================================== */
+
+.hexLink-div a {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
