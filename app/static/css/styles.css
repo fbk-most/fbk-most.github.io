@@ -75,6 +75,7 @@ body {
 
 .main {
   flex: 1;
+  padding-top: var(--header-height, 125px);
 }
 
 .main a,
@@ -150,6 +151,9 @@ body {
 }
 
 @media (max-width: 600px) {
+  .main {
+    padding-top: var(--header-height, 200px);
+  }
   .content {
     padding: 1.4rem 1rem;
   }
