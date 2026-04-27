@@ -64,9 +64,7 @@ async def person_detail(request: Request, slug: str):
 
     person = parse_file(people_directory+slug+".md")
 
-    #TODO: 404 if alumni or redirect to people
-
-    if not person:
+    if not person or person["status"] == "alumni":
         from fastapi import HTTPException
         raise HTTPException(status_code=404, detail="Person not found")
 
