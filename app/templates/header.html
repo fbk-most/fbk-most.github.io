@@ -1,6 +1,4 @@
-<header>
-
-  <!-- TOP ROW: logos -->
+<header data-page="{{ current_page }}">
   <div class="header-top">
     <p>
       <img src="/static/images/logos/MostLogoWhite.png" alt="Left Logo">
@@ -9,38 +7,42 @@
         <span>Modeling and Simulation of Socio-Technical Systems</span>
       </span>
     </p>
-    <button type="button" class="mobile-menu-toggle" aria-label="Toggle navigation">
+    <img src="/static/images/logos/FBK_Logo_Horizontal_white.png" alt="Right Logo">
+    <button type="button" class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
       <i class="fas fa-bars"></i>
     </button>
-    <img src="/static/images/logos/FBK_Logo_Horizontal_white.png" alt="Right Logo">
   </div>
-
-  <!-- BOTTOM ROW: navigation -->
-  <div class="header-navigation">
-    <nav class="header-bottom">
-      <a href="/" {% if current_page == "home" %}class="active"{% endif %}>HOME</a>
-      <a href="/research" {% if current_page == "research" %}class="active"{% endif %}>RESEARCH & PROJECTS</a>
-      <a href="/people" {% if current_page == "people" %}class="active"{% endif %}>PEOPLE</a>
-      <a href="/events" {% if current_page == "events" %}class="active"{% endif %}>NEWS & EVENTS</a>
-      <a href="/contacts" {% if current_page == "contacts" %}class="active"{% endif %}>CONTACT</a>
-    </nav>
-
-    {% if current_page == "research" %}
-    <nav class="header-subnav">
-      <a href="#projects">Projects</a>
-      <a href="#resources">Resources</a>
-    </nav>
-    {% endif %}
-
-    {% if current_page == "people" or current_page == "phd" or current_page == "internships"%}
-    <nav class="header-subnav">
-      <a href="#team">Team</a>
-      <a href="#former">Former members</a>
-      <a href="#open">Open positions</a>
-      <a href="/phd">Available PhDs</a>
-      <a href="/internships">Available internships</a>
-    </nav>
-    {% endif %}
-  </div>
-
 </header>
+
+<!-- Drawer overlay -->
+<div class="nav-overlay" aria-hidden="true"></div>
+
+<!-- Drawer panel -->
+<nav class="nav-drawer" aria-label="Main navigation">
+  <button class="nav-drawer__close" aria-label="Close navigation">
+    <i class="fas fa-times"></i>
+  </button>
+
+  <ul class="nav-drawer__links">
+    <li><a href="/" {% if current_page == "home" %}class="active"{% endif %}>Home</a></li>
+    <li>
+      <a href="/research" {% if current_page == "research" %}class="active"{% endif %}>Research & Projects</a>
+      <ul class="nav-drawer__sub">
+        <li><a href="/research#projects">Projects</a></li>
+        <li><a href="/research#resources">Resources</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="/people" {% if current_page == "people" or current_page == "phd" or current_page == "internships" %}class="active"{% endif %}>People</a>
+      <ul class="nav-drawer__sub">
+        <li><a href="/people#team">Team</a></li>
+        <li><a href="/people#former">Former members</a></li>
+        <li><a href="/people#open">Open positions</a></li>
+        <li><a href="/phd">Available PhDs</a></li>
+        <li><a href="/internships">Available internships</a></li>
+      </ul>
+    </li>
+    <li><a href="/events" {% if current_page == "events" %}class="active"{% endif %}>News & Events</a></li>
+    <li><a href="/contacts" {% if current_page == "contacts" %}class="active"{% endif %}>Contact</a></li>
+  </ul>
+</nav>

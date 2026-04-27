@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="/static/fontawesome-free/css/all.min.css">
 
   <link rel="stylesheet" href="/static/css/styles.css">
+  <link rel="stylesheet" href="/static/css/header.css">
   <link rel="stylesheet" href="/static/css/hex_carousel.css">
   <link rel="stylesheet" href="/static/css/people.css">
   <link rel="stylesheet" href="/static/css/cookies.css">
@@ -67,6 +68,7 @@
   </div>
 
 <script>
+  // Initialize cookies
   function initCookies() {
     const banner = document.querySelector(".most-cookie");
     const overlay = document.querySelector(".most-cookie-overlay");
@@ -108,6 +110,40 @@
         pageHeader.classList.toggle("mobile-menu-open");
       });
     }
+  });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggle   = document.querySelector('.nav-toggle');
+    const drawer   = document.querySelector('.nav-drawer');
+    const overlay  = document.querySelector('.nav-overlay');
+
+    function openDrawer() {
+      drawer.classList.add('open');
+      overlay.classList.add('open');
+      toggle.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+      drawer.classList.remove('open');
+      overlay.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    toggle.addEventListener('click', openDrawer);
+    overlay.addEventListener('click', closeDrawer);
+    drawer.querySelector('.nav-drawer__close').addEventListener('click', closeDrawer);
+
+    // Close on Escape
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeDrawer();
+    });
+
+    // Close when navigating to an anchor on the same page
+    drawer.querySelectorAll('a[href*="#"]').forEach(a => {
+      a.addEventListener('click', closeDrawer);
+    });
   });
 </script>
 
