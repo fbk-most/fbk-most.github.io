@@ -415,3 +415,18 @@
   width: 100%;
   height: 100%;
 }
+
+/* Disable background scroll when modal is open */
+body.modal-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  /* NO top property here — JS sets it */
+}
+
+/* On mobile (touch), suppress the hover overlay entirely */
+@media (hover: none) {
+  .hex-text {
+    display: none;
+  }
+}

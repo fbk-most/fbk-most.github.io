@@ -99,6 +99,8 @@
     denyBtn.addEventListener("click", () => closeCookies("denied"));
   }
 
+  // Menu handers
+
   document.addEventListener("DOMContentLoaded", initCookies);
 
   document.addEventListener("DOMContentLoaded", function () {
@@ -145,6 +147,88 @@
       a.addEventListener('click', closeDrawer);
     });
   });
+
+  // Swipe to close
+  (function () {
+    const drawer = document.querySelector('.nav-drawer');
+    const overlay = document.querySelector('.nav-overlay');
+    const toggle = document.querySelector('.nav-toggle');
+    const closeBtn = document.querySelector('.nav-drawer__close');
+
+    let touchStartX = 0;
+    let touchCurrentX = 0;
+    let isSwiping = false;
+    const SWIPE_THRESHOLD = 60; // px needed to trigger close
+
+    function closeDrawer() {
+      drawer.classList.remove('open');
+      overlay.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+
+    function openDrawer() {
+      drawer.classList.add('open');
+      overlay.classList.add('open');
+      toggle.setAttribute('aria-expanded', 'true');
+    }
+
+    toggle.addEventListener('click', openDrawer);
+    closeBtn.addEventListener('click', closeDrawer);
+    overlay.addEventListener('click', closeDrawer);
+
+    // --- Swipe handling ---
+    drawer.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].clientX;
+      touchCurrentX = touchStartX;
+      isSwiping = true;
+      // Remove transition during drag for instant feedback
+      drawer.style.transition = 'none';
+    }, { passive: true });
+
+    drawer.addEventListener('touchmove', (e) => {
+      if (!isSwiping) return;
+      touchCurrentX = e.touches[0].clientX;
+      const delta = touchCurrentX - touchStartX;
+
+      // Only allow rightward swipe (positive delta)
+      if (delta > 0) {
+        drawer.style.transform = `translateX(${delta}px)`;
+        // Fade overlay proportionally
+        const progress = Math.min(delta / drawer.offsetWidth, 1);
+        overlay.style.opacity = 1 - progress;
+      }
+    }, { passive: true });
+
+    drawer.addEventListener('touchend', () => {
+      if (!isSwiping) return;
+      isSwiping = false;
+
+      // Restore transition
+      drawer.style.transition = '';
+      overlay.style.opacity = '';
+
+      const delta = touchCurrentX - touchStartX;
+
+      if (delta > SWIPE_THRESHOLD) {
+        // Animate out then close
+        drawer.style.transform = `translateX(100%)`;
+        setTimeout(() => {
+          drawer.style.transform = '';
+          closeDrawer();
+        }, 280); // matches your CSS transition duration
+      } else {
+        // Snap back
+        drawer.style.transform = '';
+      }
+    });
+
+    drawer.addEventListener('touchcancel', () => {
+      isSwiping = false;
+      drawer.style.transition = '';
+      drawer.style.transform = '';
+      overlay.style.opacity = '';
+    });
+  })();
 
 </script>
 

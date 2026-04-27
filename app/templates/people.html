@@ -157,6 +157,14 @@
 {% block extra_scripts %}
 
 <script>
+function closeModal() {
+  const scrollY = parseInt(document.body.dataset.scrollY || '0');
+  document.body.classList.remove('modal-open');
+  document.body.style.top = '';
+  window.scrollTo(0, scrollY);
+  document.getElementById('hexModal').style.display = 'none';
+}
+
 document.querySelectorAll('.hexLink-div a').forEach(link => {
   link.addEventListener('click', function(e) {
     e.preventDefault();
@@ -164,30 +172,27 @@ document.querySelectorAll('.hexLink-div a').forEach(link => {
     const filename = this.dataset.filename;
     const profileUrl = `/people/${filename}/`;
 
-    // Fill modal
     document.getElementById('modalImage').src = this.dataset.image;
     document.getElementById('modalImage').alt = this.dataset.name;
     document.getElementById('modalName').textContent = this.dataset.name;
     document.getElementById('modalPosition').textContent = this.dataset.position;
     document.getElementById('modalBio').innerHTML = this.dataset.bio;
 
-    // Social links
     const socialContainer = document.getElementById('modalSocial');
     socialContainer.innerHTML = '';
 
     const platforms = [
-      { key: 'website', base: '', icon: 'fas fa-globe', label: 'Website' },
-      { key: 'github', base: 'https://github.com/', icon: 'fab fa-github', label: 'GitHub' },
-      { key: 'twitter', base: 'https://x.com/', icon: 'fab fa-twitter', label: 'X' },
-      { key: 'linkedin', base: 'https://www.linkedin.com/in/', icon: 'fab fa-linkedin', label: 'LinkedIn' },
-      { key: 'scholar', base: 'https://scholar.google.com/citations?user=', icon: 'fas fa-graduation-cap', label: 'Google Scholar' },
-      { key: 'research_gate', base: 'https://www.researchgate.net/profile/', icon: 'fab fa-researchgate', label: 'ResearchGate' }
+      { key: 'website',      base: '',                                          icon: 'fas fa-globe',          label: 'Website' },
+      { key: 'github',       base: 'https://github.com/',                       icon: 'fab fa-github',         label: 'GitHub' },
+      { key: 'twitter',      base: 'https://x.com/',                            icon: 'fab fa-twitter',        label: 'X' },
+      { key: 'linkedin',     base: 'https://www.linkedin.com/in/',              icon: 'fab fa-linkedin',       label: 'LinkedIn' },
+      { key: 'scholar',      base: 'https://scholar.google.com/citations?user=',icon: 'fas fa-graduation-cap', label: 'Google Scholar' },
+      { key: 'research_gate',base: 'https://www.researchgate.net/profile/',     icon: 'fab fa-researchgate',   label: 'ResearchGate' }
     ];
 
     platforms.forEach(p => {
       const value = this.dataset[p.key];
       if (!value) return;
-
       const a = document.createElement('a');
       a.href = p.base ? p.base + value : value;
       a.target = '_blank';
@@ -196,30 +201,28 @@ document.querySelectorAll('.hexLink-div a').forEach(link => {
       socialContainer.appendChild(a);
     });
 
-    // Open profile page button
     const backBtn = document.getElementById('modalBackBtn');
-    if (filename && this.dataset.status !== "alumni") {
+    if (filename && this.dataset.status !== 'alumni') {
       backBtn.style.display = 'inline-block';
       backBtn.onclick = () => window.location.href = profileUrl;
     } else {
       backBtn.style.display = 'none';
     }
 
+    document.body.dataset.scrollY = window.scrollY;
+    document.body.style.top = `-${window.scrollY}px`;
+    document.body.classList.add('modal-open');
     document.getElementById('hexModal').style.display = 'flex';
   });
 });
 
-// Close modal
-document.getElementById('modalCloseBtn').onclick = () => {
-  document.getElementById('hexModal').style.display = 'none';
-};
+document.getElementById('modalCloseBtn').onclick = closeModal;
 
 window.onclick = function(e) {
-  if (e.target.id === 'hexModal') {
-    document.getElementById('hexModal').style.display = 'none';
-  }
+  if (e.target.id === 'hexModal') closeModal();
 };
 </script>
+
 {% endblock %}
 
 

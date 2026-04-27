@@ -61,7 +61,7 @@
 
 </section>
 
-<section class="content" id="semninars">
+<section class="content" id="seminars">
   <h2>Seminars</h2>
 
     <p>Our group believes that knowledge is best shared. That's why we try to organize weekly seminars, the list is shown below. Some of this seminar are open to the public. For these 
@@ -93,15 +93,15 @@
   {% if total_pages > 1 %}
   <div class="pagination">
     {% if has_prev %}
-    <a href="?page={{ page - 1 }}" class="page-link">Previous</a>
+    <a href="?page={{ page - 1 }}#seminars" class="page-link">Previous</a>
     {% endif %}
     
     {% for page_num in range(1, total_pages + 1) %}
-    <a href="?page={{ page_num }}" class="page-link {% if page_num == page %}active{% endif %}">{{ page_num }}</a>
+    <a href="?page={{ page_num }}#seminars" class="page-link {% if page_num == page %}active{% endif %}">{{ page_num }}</a>
     {% endfor %}
     
     {% if has_next %}
-    <a href="?page={{ page + 1 }}" class="page-link">Next</a>
+    <a href="?page={{ page + 1 }}#seminars" class="page-link">Next</a>
     {% endif %}
   </div>
   {% endif %}
