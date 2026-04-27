@@ -6,4 +6,4 @@
 secrets.txt
 _old
 *.pyc
-app/__pycache__/*
+app/__pycache__

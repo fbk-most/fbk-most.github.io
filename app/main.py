@@ -83,6 +83,8 @@ async def events(request: Request, page: int = Query(1, ge=1)):
     seminars_file = Path("app/static/data/seminars.json")
     with open(seminars_file, "r") as f:
         seminars = json.load(f)
+
+    seminars = seminars[::-1]
     
     # Pagination
     items_per_page = 10
