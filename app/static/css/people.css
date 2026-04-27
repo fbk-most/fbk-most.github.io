@@ -191,6 +191,7 @@
 
     width: 100%;
     padding-bottom: calc(var(--s) * 1.5);
+    padding-left: calc(var(--s) / var(--mh)); /* compensate for ::before float offset, try also 2+ var */
   }
 
   .honeycomb-container {
@@ -226,6 +227,7 @@
   .hex-text p {
     font-size: 0.7rem;
   }
+
 }
 
 @media (max-width: 400px) {
