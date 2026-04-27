@@ -53,6 +53,8 @@
     0 calc(100% - var(--vc)),
     0 var(--vc)
   );
+
+  overflow: hidden;
 }
 
 /* Flow helpers */
@@ -177,94 +179,60 @@
 /* Honeycomb small screens */
 @media (max-width: 768px) {
   .honeycomb {
+    --s: 95px;   /* smaller hex size — fits 2-3 per row */
+    --r: 0.85;
+    --h: 0.25;
+    --v: 0.5;
+    --hc: calc(clamp(0, var(--h), 0.5) * var(--s));
+    --vc: calc(clamp(0, var(--v), 0.5) * var(--s) * var(--r));
+    --mv: 3px;
+    --mh: calc(var(--mv) + (var(--s) - 2 * var(--hc)) / 2);
+    --f: calc(2 * var(--s) * var(--r) + 4 * var(--mv) - 2 * var(--vc) - 2px);
+
     width: 100%;
-    overflow-x: hidden;
+    padding-bottom: calc(var(--s) * 1.5);
   }
 
   .honeycomb-container {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
+    /* Keep inline-block + float trick — do NOT switch to grid */
+    display: inline-block;
+    margin-top: 1rem;
     max-width: 100%;
-    margin: 0 auto;
-    padding: 0 0.75rem;
   }
 
+  /* Re-declare ::before with the mobile --f value */
   .honeycomb-container::before {
-    display: none;
-  }
-
-  .honeycomb-container > div {
-    display: block;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 1.15;
-    margin: 0;
+    display: block; /* restore — don't hide it */
+    width: calc(var(--s) / 2 + var(--mh));
+    height: 135%;
+    shape-outside: repeating-linear-gradient(
+      #0000 0 calc(var(--f) - 2px),
+      #000 0 var(--f)
+    );
   }
 
   .hex-text {
-    padding: 14px;
+    padding: 10px;
   }
 
   .hex-text h3 {
-    font-size: 1rem;
-  }
-
-  .hex-text p {
-    font-size: 0.85rem;
-  }
-}
-
-@media (max-width: 575px) {
-  .honeycomb-container {
-    grid-template-columns: 1fr;
-    gap: 12px;
-    padding: 0 0.6rem;
-  }
-
-  .honeycomb-container > div {
-    aspect-ratio: 1.1;
-  }
-
-  .hex-text h3 {
-    font-size: 0.95rem;
-    margin-bottom: 2px;
-  }
-
-  .hex-text p {
     font-size: 0.8rem;
   }
-}
 
-/* Grid responsiveness */
-@media (min-width: 1201px) {
-  #hexGrid { padding-bottom: 4.4%; }
-  .hex { width: 20%; }
-  .hex:nth-child(9n+6) { margin-left: 10%; }
-}
+  .hex-text h3::after {
+    margin: 6px auto;
+  }
 
-@media (max-width: 1200px) and (min-width: 901px) {
-  #hexGrid { padding-bottom: 5.5%; }
-  .hex { width: 25%; }
-  .hex:nth-child(7n+5) { margin-left: 12.5%; }
-}
-
-@media (max-width: 900px) and (min-width: 601px) {
-  #hexGrid { padding-bottom: 7.4%; }
-  .hex { width: 33.333%; }
-  .hex:nth-child(5n+4) { margin-left: 16.666%; }
-}
-
-@media (max-width: 600px) {
-  #hexGrid { padding-bottom: 11.2%; }
-  .hex { width: 50%; }
-  .hex:nth-child(3n+3) { margin-left: 25%; }
+  .hex-text p {
+    font-size: 0.7rem;
+  }
 }
 
 @media (max-width: 400px) {
-  #hexGrid { font-size: 13px; }
+  .honeycomb {
+    --s: 78px;
+  }
 }
-
 /* =====================================================
    MODAL
    ===================================================== */
