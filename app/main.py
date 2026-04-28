@@ -118,11 +118,17 @@ async def events(request: Request, page: int = Query(1, ge=1)):
 
     # Build display lists
     def build_news_items(news_list):
+        def normalize_image(image_path):
+            if not image_path:
+                return ""
+            return image_path if image_path.startswith("/") else f"/{image_path}"
+
         return [
             {
                 "label": f"{item['DATE']} - {item['TITLE']}",
                 "description": item["DESCRIPTION"],
-                "link": item["Link"]
+                "link": item["Link"],
+                "image": normalize_image(item.get("Image", ""))
             }
             for item in news_list
         ]

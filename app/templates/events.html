@@ -9,12 +9,21 @@
 
   <div class="most-section">
     {% for news in recent_news %}
-      <div class="most-section__block_small block_colored smaller-p">
-        <h4>{{ news.label }}</h4>
+      <div class="most-section__block_small block_colored smaller-p news-card">
+        <div class="news-card__header">
+          {% if news.image %}
+            <div class="news-card__media">
+              <img class="news-card__heximage" src="{{ news.image }}" alt="{{ news.label }}">
+            </div>
+          {% endif %}
+          <h4 class="news-card__title">{{ news.label }}</h4>
+        </div>
+        <div class="news-card__body">
           {{ news.description | safe }}
           {% if news.link %}
             <a href="{{ news.link }}">Link</a>
           {% endif %}
+        </div>
       </div>
     {% endfor %}
   </div>
