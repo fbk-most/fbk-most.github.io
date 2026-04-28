@@ -14,7 +14,7 @@
   </div>
 
   <!-- ======= HEX CAROUSEL ======= -->
-  <h2 style="margin: 6rem 0 3rem 0;">MoST Recent News</h2>
+  <h2 class="carousel-header">Recent News</h2>
   {% if news_items %}
   <div class="hex-carousel-section">
     <button class="hex-nav left"  id="hexPrev" aria-label="Previous news">&#8249;</button>
@@ -87,161 +87,181 @@
 
 {% block extra_scripts %}
 <script>
-  const HEX_NEWS = {{ news_items | tojson }};
-  if (!HEX_NEWS || !HEX_NEWS.length) {
-    console.warn('No news items available for the hex carousel.');
-  } else {
+  (() => {
+    const HEX_NEWS = {{ news_items | tojson }};
+    if (!HEX_NEWS || !HEX_NEWS.length) {
+      console.warn("No news items available for the hex carousel.");
+      return;
+    }
 
-  /* Palette: two shades of FBK blue, cycling */
-  const COLORS = ["#0057B7", "#2E4083", "#183b59", "#1a5ea8", "#3a5090"];
+    let current = 0;
+    const total = HEX_NEWS.length;
 
-  let current = 0;
-  const total  = HEX_NEWS.length;
-
-  function mod(n, m) { return ((n % m) + m) % m; }
-
-  /* Build an SVG hexagon polygon points string */
-  function hexPoints(w, h) {
-    const cx = w / 2, cy = h / 2, r = Math.min(w, h) * 0.48;
-    return Array.from({ length: 6 }, (_, i) => {
-      const a = Math.PI / 180 * (60 * i);
-      return `${cx + r * Math.cos(a)},${cy + r * Math.sin(a)}`;
-    }).join(" ");
-  }
-
-  function renderCarousel() {
-    const carousel = document.getElementById("hexCarousel");
-    const positions = [
-      { offset: -1, cls: "side"   },
-      { offset:  0, cls: "center" },
-      { offset: +1, cls: "side"   },
-    ];
-
-    carousel.innerHTML = "";
-
-    positions.forEach(({ offset, cls }) => {
-      const idx   = mod(current + offset, total);
-      const item  = HEX_NEWS[idx];
-      const color = COLORS[idx % COLORS.length];
-      const isCenter = cls === "center";
-      const W = 240, H = 240;
-
-      const wrap = document.createElement("div");
-      wrap.className   = `hex-wrap ${cls}`;
-      wrap.dataset.idx = idx;
-      const clipId = `hex-clip-${idx}`;
-      const pts = hexPoints(W, H);
-
-      wrap.innerHTML = `
-        <div class="hexagon">
-          <svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <defs>
-              <clipPath id="${clipId}">
-                <polygon points="${pts}" />
-              </clipPath>
-            </defs>
-
-            ${item.image
-              ? `<image href="${item.image}" x="0" y="0" width="${W}" height="${H}"
-                  clip-path="url(#${clipId})"
-                  preserveAspectRatio="xMidYMid slice" />`
-              : ''}
-          </svg>
-        </div>`;
-
-      if (!isCenter) {
-        wrap.addEventListener("click", () => {
-          current = idx;
-          renderCarousel();
-          renderDots();
-        });
-      }
-
-      carousel.appendChild(wrap);
-      if (isCenter) {
-        wrap.style.cursor = "pointer";
-        wrap.addEventListener("click", () => {
-          window.location.href = "/events#news";
-        });
-      }
-    });
-  }
-
-  function parseLabel(item) {
-    const [date, ...rest] = item.label.split(' - ');
-    return {
-      date: date || '',
-      title: rest.join(' - ') || item.label,
-    };
-  }
-
-  function renderCurrentLabel() {
-    const labelEl = document.getElementById("hexCurrentLabel");
-    const item = HEX_NEWS[current];
-    const { date, title } = parseLabel(item);
-    labelEl.innerHTML = `
-      <a href="/events#news" style="text-decoration: none; color: inherit; display: block; cursor: pointer;">
-        <div class="hex-current-date">${date}</div>
-        <div class="hex-current-title">${title}</div>
-      </a>
-    `;
-  }
-
-  function renderDots() {
-    const dotsEl = document.getElementById("hexDots");
-    dotsEl.innerHTML = "";
-    HEX_NEWS.forEach((_, i) => {
-      const d = document.createElement("div");
-      d.className = "hex-dot" + (i === current ? " active" : "");
-      d.setAttribute("aria-label", `Go to news ${i + 1}`);
-      d.addEventListener("click", () => { current = i; renderCarousel(); renderDots(); });
-      dotsEl.appendChild(d);
-    });
-    renderCurrentLabel();
-  }
-
-  document.getElementById("hexPrev").addEventListener("click", () => {
-    current = mod(current - 1, total);
-    renderCarousel(); renderDots();
-  });
-
-  document.getElementById("hexNext").addEventListener("click", () => {
-    current = mod(current + 1, total);
-    renderCarousel(); renderDots();
-  });
-
-  /* Initial render */
-  renderCarousel();
-  renderDots();
-
-  /* Auto-rotate every 5 seconds */
     let autoTimer = null;
 
-  function resetTimer() {
-    if (autoTimer) clearInterval(autoTimer);
-    autoTimer = setInterval(() => {
-      current = mod(current + 1, total);
+    const mod = (n, m) => ((n % m) + m) % m;
+
+    function hexPoints(w, h) {
+      const cx = w / 2, cy = h / 2, r = Math.min(w, h) * 0.48;
+      return Array.from({ length: 6 }, (_, i) => {
+        const a = (Math.PI / 180) * (60 * i);
+        return `${cx + r * Math.cos(a)},${cy + r * Math.sin(a)}`;
+      }).join(" ");
+    }
+
+    function parseLabel(item) {
+      const [date, ...rest] = item.label.split(" - ");
+      return {
+        date: date || "",
+        title: rest.join(" - ") || item.label,
+      };
+    }
+
+    function renderCarousel() {
+      const carousel = document.getElementById("hexCarousel");
+      if (!carousel) return;
+
+      const positions = [
+        { offset: -1, cls: "side" },
+        { offset: 0, cls: "center" },
+        { offset: 1, cls: "side" },
+      ];
+
+      carousel.innerHTML = "";
+
+      positions.forEach(({ offset, cls }) => {
+        const idx = mod(current + offset, total);
+        const item = HEX_NEWS[idx];
+
+        const W = 240, H = 240;
+        const clipId = `hex-clip-${idx}`;
+        const pts = hexPoints(W, H);
+        const isCenter = cls === "center";
+
+        const wrap = document.createElement("div");
+        wrap.className = `hex-wrap ${cls}`;
+        wrap.dataset.idx = idx;
+
+        wrap.innerHTML = `
+          <div class="hexagon">
+            <svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <clipPath id="${clipId}">
+                  <polygon points="${pts}" />
+                </clipPath>
+              </defs>
+
+              ${
+                item.image
+                  ? `<image href="${item.image}"
+                      width="${W}" height="${H}"
+                      clip-path="url(#${clipId})"
+                      preserveAspectRatio="xMidYMid slice" />`
+                  : ""
+              }
+            </svg>
+          </div>
+        `;
+
+        wrap.style.cursor = "pointer";
+
+        wrap.addEventListener("click", () => {
+          if (isCenter) {
+            window.location.href = "/events#news";
+          } else {
+            current = idx;
+            render();
+            resetTimer();
+          }
+        });
+
+        carousel.appendChild(wrap);
+      });
+    }
+
+    function renderDots() {
+      const dotsEl = document.getElementById("hexDots");
+      if (!dotsEl) return;
+
+      dotsEl.innerHTML = "";
+
+      HEX_NEWS.forEach((_, i) => {
+        const dot = document.createElement("div");
+        dot.className = "hex-dot" + (i === current ? " active" : "");
+
+        dot.addEventListener("click", () => {
+          current = i;
+          render();
+          resetTimer();
+        });
+
+        dotsEl.appendChild(dot);
+      });
+
+      renderCurrentLabel();
+    }
+
+    function renderCurrentLabel() {
+      const labelEl = document.getElementById("hexCurrentLabel");
+      if (!labelEl) return;
+
+      const item = HEX_NEWS[current];
+      const { date, title } = parseLabel(item);
+
+      labelEl.innerHTML = `
+        <a href="/events#news" style="text-decoration:none;color:inherit;display:block;">
+          <div class="hex-current-date">${date}</div>
+          <div class="hex-current-title">${title}</div>
+        </a>
+      `;
+    }
+
+    function render() {
       renderCarousel();
       renderDots();
-    }, 5000);
-  }
+    }
 
-  document.getElementById("hexPrev").addEventListener("click", () => {
-    current = mod(current - 1, total);
-    renderCarousel(); renderDots();
-    resetTimer();
-  });
+    function resetTimer() {
+      if (autoTimer) clearInterval(autoTimer);
 
-  document.getElementById("hexNext").addEventListener("click", () => {
-    current = mod(current + 1, total);
-    renderCarousel(); renderDots();
-    resetTimer();
-  });
+      autoTimer = setInterval(() => {
+        current = mod(current + 1, total);
+        render();
+      }, 5000);
+    }
 
-  /* Initial render */
-  renderCarousel();
-  renderDots();
-  resetTimer(); // start the timer
-  }
+    function bindControls() {
+      const prev = document.getElementById("hexPrev");
+      const next = document.getElementById("hexNext");
+
+      if (prev) {
+        prev.addEventListener("click", () => {
+          current = mod(current - 1, total);
+          render();
+          resetTimer();
+        });
+      }
+
+      if (next) {
+        next.addEventListener("click", () => {
+          current = mod(current + 1, total);
+          render();
+          resetTimer();
+        });
+      }
+    }
+
+    function init() {
+      render();
+      bindControls();
+      resetTimer();
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", init);
+    } else {
+      init();
+    }
+  })();
 </script>
 {% endblock %}

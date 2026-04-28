@@ -131,8 +131,8 @@ def parse_seminars_csv(response):
 
 response = download_csv(LINK_NEWS)
 news_list = parses_news_csv(response)
-save_json("_data/news.json", news_list)
+save_json("app/static/data/news.json", news_list)
 
 response = download_csv(LINK_SEMINARS)
 seminars_list = parse_seminars_csv(response)
-save_json("_data/seminars.json", seminars_list)
+save_json("app/static/data/seminars.json", seminars_list)
