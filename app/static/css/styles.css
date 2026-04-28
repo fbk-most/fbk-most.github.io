@@ -138,6 +138,11 @@ body {
 
 /* ── Responsive content ── */
 @media (max-width: 768px) {
+  
+  .main {
+    padding-top: var(--header-height, 100px);
+  }
+
   .content {
     padding: 1.8rem 1.2rem;
     max-width: 95%;
@@ -153,11 +158,22 @@ body {
     font-size: 1rem;
     text-align: left;
   }
+
+  .most-title {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .brand-text {
+    align-items: flex-start;
+  }
+
 }
 
 @media (max-width: 600px) {
   .main {
-    padding-top: var(--header-height, 200px);
+    padding-top: var(--header-height, 100px);
   }
   .content {
     padding: 1.4rem 1rem;
