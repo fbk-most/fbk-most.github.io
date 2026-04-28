@@ -19,7 +19,7 @@
   --mh: calc(var(--mv) + (var(--s) - 2 * var(--hc)) / 2);
   --f: calc(2 * var(--s) * var(--r) + 4 * var(--mv) - 2 * var(--vc) - 2px);
 
-  padding-bottom: calc(var(--s) * 1.5);
+  padding-bottom: calc(var(--s)); /*calc(var(--s) * 1.5)*/
 }
 
 .honeycomb-container {
@@ -190,7 +190,7 @@
     --f: calc(2 * var(--s) * var(--r) + 4 * var(--mv) - 2 * var(--vc) - 2px);
 
     width: 100%;
-    padding-bottom: calc(var(--s) * 1.5);
+    padding-bottom: calc(var(--s)); /*calc(var(--s) * 1.5)*/
     padding-left: calc(var(--s) / var(--mh)); /* compensate for ::before float offset, try also 2+ var */
   }
 

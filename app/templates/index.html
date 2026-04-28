@@ -14,6 +14,7 @@
   </div>
 
   <!-- ======= HEX CAROUSEL ======= -->
+  <h2 style="margin: 6rem 0 3rem 0;">MoST Recent News</h2>
   {% if news_items %}
   <div class="hex-carousel-section">
     <button class="hex-nav left"  id="hexPrev" aria-label="Previous news">&#8249;</button>
@@ -24,7 +25,7 @@
   <div class="hex-dots" id="hexDots"></div>
   {% endif %}
 
-  <h2 style="margin-top: 2rem;">About MoST</h2>
+  <h2 style="margin-top: 6rem;">About MoST</h2>
   <p>The Modeling and Simulation of Socio-Technical Systems (MoST) unit at 
     <a href="https://www.fbk.eu/" target="_blank">Fondazione Bruno Kessler</a> 
     researches models and simulations of complex socio-technical systems to support
@@ -157,6 +158,12 @@
       }
 
       carousel.appendChild(wrap);
+      if (isCenter) {
+        wrap.style.cursor = "pointer";
+        wrap.addEventListener("click", () => {
+          window.location.href = "/events#news";
+        });
+      }
     });
   }
 
@@ -172,10 +179,11 @@
     const labelEl = document.getElementById("hexCurrentLabel");
     const item = HEX_NEWS[current];
     const { date, title } = parseLabel(item);
-
     labelEl.innerHTML = `
-      <div class="hex-current-date">${date}</div>
-      <div class="hex-current-title">${title}</div>
+      <a href="/events#news" style="text-decoration: none; color: inherit; display: block; cursor: pointer;">
+        <div class="hex-current-date">${date}</div>
+        <div class="hex-current-title">${title}</div>
+      </a>
     `;
   }
 
@@ -207,11 +215,33 @@
   renderDots();
 
   /* Auto-rotate every 5 seconds */
-  setInterval(() => {
+    let autoTimer = null;
+
+  function resetTimer() {
+    if (autoTimer) clearInterval(autoTimer);
+    autoTimer = setInterval(() => {
+      current = mod(current + 1, total);
+      renderCarousel();
+      renderDots();
+    }, 5000);
+  }
+
+  document.getElementById("hexPrev").addEventListener("click", () => {
+    current = mod(current - 1, total);
+    renderCarousel(); renderDots();
+    resetTimer();
+  });
+
+  document.getElementById("hexNext").addEventListener("click", () => {
     current = mod(current + 1, total);
-    renderCarousel();
-    renderDots();
-  }, 5000);
+    renderCarousel(); renderDots();
+    resetTimer();
+  });
+
+  /* Initial render */
+  renderCarousel();
+  renderDots();
+  resetTimer(); // start the timer
   }
 </script>
 {% endblock %}

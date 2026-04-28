@@ -20,13 +20,26 @@ header {
   padding: 1.5rem 2rem;
 }
 
-.header-top p {
-  font-family: 'Roboto Condensed', 'Arial Narrow', sans-serif;
+.header-top a {
+  text-decoration: none;
+  color: inherit;        /* keeps original text color */
+  display: flex;         /* preserves your layout */
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.brand-link {
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  flex: 1 1 auto;
+
+  flex: 1 1 auto;   /* THIS is what was keeping layout stable */
   min-width: 0;
+
+  font-family: 'Roboto Condensed', 'Arial Narrow', sans-serif;
+
+  text-decoration: none;
+  color: inherit;
 }
 
 .header-brand-text {

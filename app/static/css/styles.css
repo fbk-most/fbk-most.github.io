@@ -366,17 +366,10 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
-  padding: 0.8rem 2rem;
+  gap: clamp(0.6rem, 2vw, 1.5rem);
+  padding: clamp(0.6rem, 2vw, 1.2rem) clamp(1rem, 4vw, 3rem);
   margin: 0 auto;
   width: fit-content;
-}
-
-.most-title p {
-  font-family: 'Roboto Condensed', 'Arial Narrow', sans-serif;
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
 }
 
 .brand-text {
@@ -384,24 +377,28 @@ footer {
   flex-direction: column;
   justify-content: center;
   color: var(--fbk-blue);
-  line-height: 1.1;
+  line-height: 0.95;
+  font-family: 'Roboto Condensed', 'Arial Narrow', sans-serif;
+  gap: 0.6rem;
+}
+
+.most-title img {
+  height: clamp(3.5rem, 8vw, 7rem);
+  width: auto;
+  object-fit: contain;
 }
 
 .brand-text span:first-child {
   font-weight: 700;
-  font-size: 4rem;
+  font-size: clamp(2rem, 6vw, 5rem);
+  white-space: nowrap;
 }
 
 .brand-text span:last-child {
   font-weight: 600;
-  font-size: 1.6rem;
+  font-size: clamp(0.85rem, 2vw, 1.8rem);
   opacity: 0.9;
-}
-
-.most-title img {
-  height: 6rem;
-  width: auto;
-  object-fit: contain;
+  white-space: nowrap;
 }
 
 /* Research */
@@ -444,7 +441,7 @@ footer {
   padding: 12px 28px;
   background: var(--fbk-blue);
   color: white !important;
-  text-decoration: none;
+  text-decoration: underline !important;
   border-radius: var(--radius-sm);
   font-weight: 600;
   transition: background var(--transition);
