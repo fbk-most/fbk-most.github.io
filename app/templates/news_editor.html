@@ -1,0 +1,215 @@
+{% extends "base.html" %}
+
+{% block title %}MoST - News Editor{% endblock %}
+
+{% block content %}
+
+<section class="content" id="news-editor">
+  <h2>News Editor</h2>
+  
+  <!-- Tab Navigation -->
+  <div class="tab-navigation">
+    <button class="tab-button active" onclick="showTab('current')">Create new</button>
+    <button class="tab-button" onclick="showTab('edit')">Edit News</button>
+  </div>
+
+  <!-- Edit Tab -->
+  <div id="edit-tab" class="tab-content">
+    <h3>Edit News Item</h3>
+    
+    <div class="field-group">
+      <label for="news-select">Select News by Title</label>
+      <select id="news-select" onchange="loadNewsForEdit()">
+        <option value="">Choose a news item...</option>
+        <!-- Options will be populated by JavaScript -->
+      </select>
+    </div>
+
+    <form id="editForm" class="hidden">
+      <div class="field-group">
+        <label class="required">Title</label>
+        <input type="text" id="edit-title" name="title" required>
+      </div>
+
+      <div class="field-group">
+        <label class="required">Date</label>
+        <input type="date" id="edit-date" name="date" required>
+      </div>
+
+      <div class="field-group">
+        <label class="required">Description</label>
+        <div class="rich-editor-wrapper">
+          <div class="rich-editor-toolbar" id="editorToolbar">
+            <button type="button" class="toolbar-btn" data-cmd="bold" title="Bold (Ctrl+B)"><b>B</b></button>
+            <button type="button" class="toolbar-btn" data-cmd="italic" title="Italic (Ctrl+I)"><i>I</i></button>
+            <button type="button" class="toolbar-btn" data-cmd="underline" title="Underline (Ctrl+U)"><u>U</u></button>
+            <div class="toolbar-sep"></div>
+            <button type="button" class="toolbar-btn" data-cmd="insertUnorderedList" title="Bullet list">&#8226;&#8212;</button>
+            <button type="button" class="toolbar-btn" data-cmd="insertOrderedList" title="Numbered list">1&#8212;</button>
+            <div class="toolbar-sep"></div>
+            <button type="button" class="toolbar-btn" data-cmd="createLink" title="Insert link">&#128279;</button>
+            <button type="button" class="toolbar-btn" data-cmd="removeFormat" title="Clear formatting">&#10005;</button>
+          </div>
+          <div id="edit-description-editor"
+              class="rich-editor-content"
+              contenteditable="true"
+              data-placeholder="Enter description..."></div>
+        </div>
+        <textarea id="edit-description" name="description" class="hidden" required></textarea>
+      </div>
+
+      <div class="field-group">
+        <label>External Link</label>
+        <input type="url" id="edit-link" name="link" placeholder="https://...">
+      </div>
+
+      <div class="field-group">
+        <label>Image</label>
+        <div class="edit-image-picker">
+          <div class="edit-image-preview" id="editImagePreview">
+            <img id="editImagePreviewImg" alt="News image preview">
+            <span class="edit-image-placeholder" id="editImagePlaceholder">No image selected</span>
+          </div>
+          <div>
+            <button type="button" class="btn btn-blue edit-image-button" onclick="document.getElementById('editImageFile').click()">
+              <span class="edit-image-button-icon">✎</span>
+              Change image
+            </button>
+            <input type="file" id="editImageFile" accept="image/*" class="hidden">
+            <input type="hidden" id="edit-image" name="image">
+          </div>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label>Show Always</label>
+        <input type="checkbox" id="edit-show-always" name="showAlways">
+      </div>
+
+      <button type="button" class="btn btn-blue" onclick="saveEditedNews()">Save Changes</button>
+      <!-- <button type="button" class="btn btn-red" onclick="deleteNews()">Delete News</button> -->
+    </form>
+  </div>
+
+  <!-- Creation Tab -->
+  <div id="current-tab" class="tab-content active">
+    <h3>Create New News Entry</h3>
+    
+    <form id="newsForm">
+      <h3>Use Template</h3>
+
+      <div class="field-group">
+        <label>Template</label>
+        <select name="type" id="newsType" onchange="toggleFields()" required>
+          <option value="other">---</option>
+          <option value="paper">Paper</option>
+          <option value="member">Team Member</option>
+          <option value="tool">Tool</option>
+        </select>
+      </div>
+
+      <!-- Paper fields -->
+      <div id="paperFields" class="type-fields">
+        <div class="field-group"><label class="required">Paper Type</label><input type="text" name="paperType" placeholder="e.g. Journal Article" required></div>
+        <div class="field-group"><label class="required">Paper Title</label><input type="text" name="paperTitle" required></div>
+        <div class="field-group"><label>Status/Venue</label><input type="text" name="venue" placeholder="e.g. published in IEEE"></div>
+        <div class="field-group"><label class="required">Abstract</label><textarea name="abstract" rows="3" required></textarea></div>
+      </div>
+
+      <!-- Member fields -->
+      <div id="memberFields" class="type-fields hidden">
+        <div class="field-group"><label class="required">First Name</label><input type="text" name="memberName"></div>
+        <div class="field-group"><label class="required">Full Name</label><input type="text" name="memberFullName"></div>
+        <div class="field-group"><label class="required">Position</label><input type="text" name="position"></div>
+        <div class="field-group"><label class="required">Description/Background</label><textarea name="jobDescription" rows="3"></textarea></div>
+      </div>
+
+      <!-- Tool fields -->
+      <div id="toolFields" class="type-fields hidden">
+        <div class="field-group"><label class="required">Tool Name</label><input type="text" name="toolName"></div>
+        <div class="field-group"><label>Version</label><input type="text" name="version"></div>
+        <div class="field-group"><label class="required">Description</label><textarea name="toolDescription" rows="3" required></textarea></div>
+      </div>
+
+      <hr>
+
+      <button type="button" id="prevBtn" class="btn btn-blue" onclick="showPreview()">Preview Message</button>
+    </form>
+
+    <div id="previewBox">
+      <h3>Preview - Additional Data</h3>
+
+    <!-- Generated preview (for templated types) -->
+      <div id="generatedPreview">
+        <div class="field-group">
+          <label>Title <span class="hint">(edit if needed)</span></label>
+          <input type="text" id="create-title" name="generatedTitle">
+        </div>
+
+      <div class="field-group">
+        <label>News Date</label>
+        <input type="date" name="date" id="dateField">
+      </div>
+
+        <div class="field-group">
+          <label> Description <span class="hint">(edit if needed)</span></label>
+          <div class="rich-editor-wrapper">
+            <div class="rich-editor-toolbar" id="createGenEditorToolbar">
+              <button type="button" class="toolbar-btn" data-cmd="bold" title="Bold (Ctrl+B)"><b>B</b></button>
+              <button type="button" class="toolbar-btn" data-cmd="italic" title="Italic (Ctrl+I)"><i>I</i></button>
+              <button type="button" class="toolbar-btn" data-cmd="underline" title="Underline (Ctrl+U)"><u>U</u></button>
+              <div class="toolbar-sep"></div>
+              <button type="button" class="toolbar-btn" data-cmd="insertUnorderedList" title="Bullet list">&#8226;&#8212;</button>
+              <button type="button" class="toolbar-btn" data-cmd="insertOrderedList" title="Numbered list">1&#8212;</button>
+              <div class="toolbar-sep"></div>
+              <button type="button" class="toolbar-btn" data-cmd="createLink" title="Insert link">&#128279;</button>
+              <button type="button" class="toolbar-btn" data-cmd="removeFormat" title="Clear formatting">&#10005;</button>
+            </div>
+            <div id="create-gen-description-editor"
+                class="rich-editor-content"
+                contenteditable="true"
+                data-placeholder="Generated description will appear here..."></div>
+          </div>
+          <textarea id="create-gen-description" name="generatedDescription" class="hidden"></textarea>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label>Image</label>
+        <div class="edit-image-picker">
+          <div class="edit-image-preview" id="createImagePreview">
+            <img id="createImagePreviewImg" 
+                src="/static/images/news/FBK_Povo_Building_Baroni_6_cropped.webp" 
+                alt="News image preview">
+          </div>
+          <div>
+            <button type="button" class="btn btn-blue edit-image-button" onclick="document.getElementById('createImageFile').click()">
+              <span class="edit-image-button-icon">✎</span>
+              Choose image
+            </button>
+            <button type="button" class="btn btn-blue" onclick="clearCreateImage()" id="clearImageBtn" style="display:none;">
+              ✕ Use default
+            </button>
+            <input type="file" id="createImageFile" accept="image/*" class="hidden">
+            <input type="hidden" id="create-image" name="image">
+          </div>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label>External Link</label>
+        <input type="url" name="link" placeholder="https://...">
+      </div>
+
+      <div class="field-group">
+        <label>Show Always</label>
+        <input type="checkbox" id="edit-show-always" name="showAlways">
+      </div>
+      
+      <button type="button" id="pubBtn" class="btn btn-green" onclick="submitFinal()">Looks Good, Publish!</button>
+    </div>
+  </div>
+
+</section>
+
+{% endblock %}

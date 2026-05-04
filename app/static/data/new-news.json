@@ -1,0 +1,90 @@
+[
+  {
+    "Title": "Sketching Out Our Website!",
+    "Date": "2025-03-25",
+    "Description": "<p>This is the beginning of our online presence. We're building a new website describing our research unit and its activities! We will use this first blog post to understand how to use the <a href=\\\"https://jekyllrb.com/\\\">Jekyll</a> static site generator and customize it to our publishing needs. We will therefore frequently change the content of this blog post to reflect our progress in setting up the website and to experiment with different features.</p>",
+    "Link": "",
+    "Image": "/static/images/news/Keyboard_Franceschini_cropped.webp",
+    "ShowAlways": false
+  },
+  {
+    "Title": "Congratulations on Jesus PhD Defense!",
+    "Date": "2025-12-11",
+    "Description": "<p>We are thrilled to congratulate our colleague Jesus, who was awarded Cum Laude after successfully defending his PhD thesis! We are sure that this is just the start of a brilliant research career.<br>The thesis titled \"An Agent Based Journey in Social Systems Research\" was developed under the supervision of Jose J. Ramasco and Sandro Meloni from IFISC at the University of the Balearic Islands.</p>",
+    "Link": "",
+    "Image": "/static/images/news/Jesus-defense.webp",
+    "ShowAlways": false
+  },
+  {
+    "Title": "Unveiling Our New Research Group Logo",
+    "Date": "2025-12-16",
+    "Description": "<p>We are proud to share the result of a collaborative journey that blends structure and complexity into a logo the fully represents us.<br>Creating our new logo was an iterative, collaborative process, reflecting the spirit of our research group. We ultimately chose a <b>hexagon</b> to represent connections, structure, and the modeling at the heart of our work. Inside, the <b>\"stretch and fold\" pattern</b> - drawn from ideas in chaos theory and fractals - symbolizes how simple rules can generate complex, intricate behavior. Just as in chaotic systems, this motif combines expansion and folding to create dynamic patterns within an orderly framework, mirroring the interplay of order and complexity in our research.</p>",
+    "Link": "",
+    "Image": "/static/images/news/logo-news.webp",
+    "ShowAlways": true
+  },
+  {
+    "Title": "HARMONIE project kick-off!",
+    "Date": "2025-11-17",
+    "Description": "<p>Today in Barcelona we are kicking-off the HARMONIE project!<br>Coordinated by the Barcelona Supercomputing Center (BSC), the HARMONIE project aims to develop advanced tools that support informed policymaking cncerning urban air and noise pollution - a challenge for many European cities. The kick-off of the project took place today in Barcelona.</p>",
+    "Link": "",
+    "Image": "static/images/news/harmonie.webp",
+    "ShowAlways": false
+  },
+  {
+    "Title": "Welcome Ambra to the team!",
+    "Date": "2026-01-12",
+    "Description": "<p>Ambra Vanella joins the MoST research unit as an intern, where she will contribute to research on stakeholder engagement in the design of Civic Digital Twins. Her work will focus on co-design processes, gamification strategies, and qualitative and quantitative data analysis to support participatory approaches and territorial decision-making.</p>",
+    "Link": "",
+    "Image": "/static/images/people/ambra-vanella.jpeg",
+    "ShowAlways": false
+  },
+  {
+    "Title": "New preprint: simulating the impacts of traffic policies before implementation",
+    "Date": "2026-01-13",
+    "Description": "<p>A new preprint is now available on <a href=\"https://arxiv.org/abs/2601.07735\">arXiv</a>, <b>\"Evaluating Impacts of Traffic Regulations in Complex Mobility Systems Using Scenario-Based Simulations\"</b>, addressing a key challenge faced by cities when introducing new mobility policies. <br>Measures such as low-emission zones or congestion pricing are often implemented with clear goals in mind, yet their real-world effects can be difficult to anticipate. The work presents a scenario-based simulation approach that combines transportation system dynamics with realistic models of human behavior and adaptation. This allows the analysis of both direct policy effects and wider systemic impacts on urban accessibility and mobility patterns. The aim is to provide city planners and policymakers with more robust tools to explore \"what-if\" scenarios and better understand the full range of consequences before policies are put into practice.</p>",
+    "Link": "https://arxiv.org/abs/2601.07735",
+    "Image": "/static/images/news/burzacchi2026evaluating.png",
+    "ShowAlways": false
+  },
+  {
+    "Title": "Civic-Digital-Twins version 0.6 is out!",
+    "Date": "2026-02-03",
+    "Description": "<p>The new version of our framework is out. Here is the list of key changes:</p><ul>  <li>engine-redesign</li>  <li>added support for time series</li>  <li>standardizes models, ensembles and evaluations</li></ul><p>This new version is also a good starting point for future extensions that are already under development. Stay tuned!</p>",
+    "Link": "https://github.com/fbk-most/civic-digital-twins",
+    "Image": "/static/images/news/CDT.png",
+    "ShowAlways": false
+  },
+  {
+    "Title": "Fast Traffic Simulator v0.1.0 is out!",
+    "Date": "2026-03-05",
+    "Description": "<p>We are pleased to announce the release of <strong>Fast Traffic Simulator</strong>, a new <strong>microscopic traffic simulator</strong> designed for directed road networks.</p><p>The library simulates individual vehicles travelling across a road network from origin to destination,allowing users to study traffic dynamics, congestion, and routing behavior. It supports dynamic routeupdates and realistic vehicle movement.</p><p>The library is easy to use: all it takes to get it up and running is the time-varying traffic demand and the list of nodes and edges of the network.</p>",
+    "Link": "https://pypi.org/project/fast-traffic-simulator/",
+    "Image": "/static/images/news/Keyboard_Franceschini_cropped.webp",
+    "ShowAlways": false
+  },
+  {
+    "Title": "Our Work Accepted at SIS-FENStatS 2026",
+    "Date": "2026-04-12",
+    "Description": "<p>We are pleased to announce that our team has been accepted to present our work at the <strong>SIS-FENStatS 2026 Conference</strong> at Sapienza University in <strong>Rome</strong> (June 22-25).</p><p>Our contribution, <strong>\"Differentiated Imputation of Sporadic and Clustered Missing Values in Traffic Time Series\"</strong>, introduces a novel methodology that distinguishes between isolated and clustered missing data in time series and implements novel imputation techniques tailored for these missing data type.Validated on real traffic data, our approach applies tailored imputation strategies, improving accuracy over standard techniques and offering a scalable solution for traffic data analysis.</p>",
+    "Link": "https://sis2026.sis-statistica.it/",
+    "Image": "/static/images/news/SIS-FENStatS-2026.webp",
+    "ShowAlways": false
+  },
+  {
+    "Title": "PhD Opportunities - Join Our Research Group!",
+    "Date": "2026-04-20",
+    "Description": "<p>We are offering <strong>two fully funded PhD positions</strong> within our research group:</p><ul>    <li>        <strong>C5 - Modeling and Simulation of Urban Digital Twins</strong><br>        Application deadline: <strong>15 May 2026</strong>    </li>    <li>        <strong>Cognitive and Motivational Mechanisms for Active Citizen Engagement in Urban Digital Twins</strong><br>        Application deadline: <strong>21 May 2026</strong>    </li></ul><p>    Both positions are hosted directly within our research group, ensuring that PhD candidates are     fully integrated into a collaborative environment and actively involved in daily research activities.</p><p>    For more details, please refer to the link below.</p>",
+    "Link": "https://most.fbk.eu/phd",
+    "Image": "/static/images/news/phd.png",
+    "ShowAlways": true
+  },
+  {
+    "Title": "Internship Opportunities Now Open",
+    "Date": "2026-04-21",
+    "Description": "<p>We are offering curricular internship opportunities for motivated students eager to work on cutting-edge urban research projects.</p><p>Example topics include:</p><ul><li><b>Urban mobility modeling and analysis:</b> explore traffic patterns using data-driven models</li><li><b>Urban environment characterization and analysis:</b> analyze cities through geospatial and network data</li>Additional topics can be discussed based on the candidate's interests and alignment with the group's research activities.</ul><p></p><p>These internships provide hands-on research experience, collaboration with interdisciplinary teams, and opportunities to contribute to scientific publications. For more details, please refer to the link below.</p>",
+    "Link": "https://most.fbk.eu/internships/",
+    "Image": "/static/images/news/internship.png",
+    "ShowAlways": false
+  }
+]

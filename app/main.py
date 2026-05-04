@@ -160,3 +160,26 @@ async def digital_urban_futures(request: Request):
 @app.get("/digital_urban_futures_archive")
 async def digital_urban_futures_archive(request: Request):
     return templates.TemplateResponse(request, "digital_urban_futures_archive.html", {"current_page": "digital_urban_futures_archive"})
+
+@app.get("/news-editor")
+async def contacts(request: Request):
+    return templates.TemplateResponse(request, "news_editor.html", {"current_page": "news_editor"})
+
+@app.post("/api/update-news")
+async def update_news(request: Request):
+    try:
+        data = await request.json()
+        news_data = data.get("newsData", [])
+        
+        # Validate the data structure
+        if not isinstance(news_data, list):
+            return {"error": "Invalid data format"}
+        
+        # Write to the new-news.json file
+        news_file = Path("app/static/data/new-news.json")
+        with open(news_file, "w", encoding="utf-8") as f:
+            json.dump(news_data, f, ensure_ascii=False, indent=2)
+        
+        return {"success": True}
+    except Exception as e:
+        return {"error": str(e)}
