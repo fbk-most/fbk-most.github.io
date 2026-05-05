@@ -94,5 +94,13 @@
     "Link": "https://github.com/fbk-most/civic-digital-twins",
     "Image": "/assets/images/news/Keyboard_Franceschini_cropped.webp",
     "Priority": 10
+  },
+  {
+    "TITLE": "Workshop on AI compliance at FBK",
+    "DATE": "2026-04-22",
+    "DESCRIPTION": "<p>As <b>MoST</b>, we are proud to participate in the workshop focused on AI compliance and reliability organized by Digital Society Center at Fondazione Bruno Kessler.</p><p>The rapid expansion of artificial intelligence brings a critical challenge to the forefront: <b>How do we guarantee that AI systems are reliable, and fully aligned with legal standards</b>?Today, compliance is far more than a regulatory obligation-it is a fundamental pillar for ensuring that innovation is both high-quality and sustainable.</p>",
+    "Link": "https://magazine.fbk.eu/it/news/fbk-e-la-grande-sfida-della-compliance-nellia/",
+    "Image": "/assets/images/news/MOsT_compliance_workshop.png",
+    "Priority": 10
   }
 ]
