@@ -53,7 +53,7 @@
     "DESCRIPTION": "<p>The new version of our framework is out. Here is the list of key changes:</p><ul>  <li>engine-redesign</li>  <li>added support for time series</li>  <li>standardizes models, ensembles and evaluations</li></ul><p>This new version is also a good starting point for future extensions that are already under development. Stay tuned!</p>",
     "Link": "https://github.com/fbk-most/civic-digital-twins",
     "Image": "/assets/images/news/Keyboard_Franceschini_cropped.webp",
-    "Priority": 10
+    "Priority": 6
   },
   {
     "TITLE": "Fast Traffic Simulator v0.1.0 is out!",
@@ -85,6 +85,14 @@
     "DESCRIPTION": "<p>We are offering curricular internship opportunities for motivated students eager to work on cutting-edge urban research projects.</p><p>Example topics include:<ul><li><b>Urban mobility modeling and analysis:</b> explore traffic patterns using data-driven models</li><li><b>Urban environment characterization and analysis:</b> analyze cities through geospatial and network data</li>Additional topics can be discussed based on the candidate's interests and alignment with the group's research activities.</ul></p><p>These internships provide hands-on research experience, collaboration with interdisciplinary teams, and opportunities to contribute to scientific publications. For more details, please refer to the link below.</p>",
     "Link": "https://most.fbk.eu/internships/",
     "Image": "/assets/images/news/FBK_Povo_Building_Baroni_6_cropped.webp",
+    "Priority": 10
+  },
+  {
+    "TITLE": "Civic-Digital-Twins version 0.9.0 is out!",
+    "DATE": "2026-05-04",
+    "DESCRIPTION": "<p>v0.9.0 brings typed, named axes to the Civic-Digital-Twins framework, making it easier than ever to build and evaluate flexible digital twin models across any combination of scenarios, parameters, and uncertainty dimensions.</p>",
+    "Link": "https://github.com/fbk-most/civic-digital-twins",
+    "Image": "/assets/images/news/Keyboard_Franceschini_cropped.webp",
     "Priority": 10
   }
 ]
