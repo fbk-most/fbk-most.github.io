@@ -102,5 +102,13 @@
     "Link": "https://magazine.fbk.eu/it/news/fbk-e-la-grande-sfida-della-compliance-nellia/",
     "Image": "/assets/images/news/MOsT_compliance_workshop.png",
     "Priority": 10
+  },
+  {
+    "TITLE": "MoST at Urban Digital Futures 2026",
+    "DATE": "2026-05-13",
+    "DESCRIPTION": "<p>Our research unit participated in the workshop <b>\"Futuri Digitali Urbani 2026\"</b> held at Politecnico di Milano on May 12-13, 2026, co-organized by Luca Gaeta, Carolina Pacchi, Otello Palmini, and Marco Pistore.</p> <p>The two-day event explored <b>how digital technologies are transforming urban spaces</b>, bringing together experts from philosophy, urban planning, sociology, design, and computer science.</p> <p> During the workshop, Marco Pistore chaired the third session on \"Perceptions of the Cybernetic City\", and Maryam Sajedinia presented her doctoral research on measured and lived city perspectives at the poster session.</p>",
+    "Link": "https://most.fbk.eu/digital_urban_futures/programma_2026/",
+    "Image": "/assets/images/news/FUD.webp",
+    "Priority": 10
   }
 ]
