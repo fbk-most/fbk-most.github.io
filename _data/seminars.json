@@ -207,7 +207,7 @@
     "Date": "2026-03-25",
     "Title": "Outdoor thermal comfort in urban areas",
     "Speaker": "Guadalupe Sol Escalante",
-    "Topic": "Research-related"
+    "Topic": "Visitors"
   },
   {
     "Date": "2026-04-02",
@@ -226,5 +226,11 @@
     "Title": "Chatbot for AIxPA",
     "Speaker": "Federica Lago",
     "Topic": "Research-related"
+  },
+  {
+    "Date": "2026-05-20",
+    "Title": "The civic-digital-twin library",
+    "Speaker": "Marco Pistore",
+    "Topic": "Programming skills"
   }
 ]
