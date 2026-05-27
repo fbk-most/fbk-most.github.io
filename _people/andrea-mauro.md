@@ -2,7 +2,7 @@
 name: "Andrea Mauro"
 position: "Intern"
 status: "current" # or "alumni" or "visitor"
-image: "/assets/images/people/andrea-mauro.jpeg" # optional
+image: "/assets/images/people/andrea-mauro.jpg" # optional
 # github:  "andrea00mauro00"
 # linkedin: 
 order: 4
