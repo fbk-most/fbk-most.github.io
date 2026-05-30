@@ -110,5 +110,13 @@
     "Link": "https://most.fbk.eu/digital_urban_futures/programma_2026/",
     "Image": "/assets/images/news/FUD.webp",
     "Priority": 10
+  },
+  {
+    "TITLE": "Prof. Andrew Mondschein visiting MoST",
+    "DATE": "2026-05-28",
+    "DESCRIPTION": "<p>We recently hosted <b>Prof. Andrew Mondschein</b>, University of Virginia and Visiting Scholar at the University of Bologna, for a seminar exploring <b>urban mobility as a human experience</b>. His presentation highlighted the need to <i>move beyond traditional traffic and accessibility metrics</i> to better understand how streets and urban environments influence <i>attention, emotions, cognition, and wellbeing</i>.</p><p>The seminar also sparked discussion on the role of <b>civic digital twins</b>, including the Bologna Digital Twin, in supporting more human-centered approaches to transport planning.</p><p>We thank Prof. Mondschein for his inspiring contribution and looks forward to future opportunities for collaboration and exchange!</p>",
+    "Link": "https://www.arch.virginia.edu/people/andrew-mondschein",
+    "Image": "/assets/images/news/cover_slide_andrew.png",
+    "Priority": 10
   }
 ]
