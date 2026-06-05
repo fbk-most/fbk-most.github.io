@@ -118,5 +118,13 @@
     "Link": "https://www.arch.virginia.edu/people/andrew-mondschein",
     "Image": "/assets/images/news/cover_slide_andrew.png",
     "Priority": 10
+  },
+  {
+    "TITLE": "Welcome Andrea to the team!",
+    "DATE": "2026-06-03",
+    "DESCRIPTION": "<p>Andrea Mauro joins the MoST research unit as an intern, where he will contribute to research on policy impacts in Civic Digital Twins.</p> <p>His work will focus on statistical and machine-learning algorithms to identify policy effects on the urban mobility.</p>",
+    "Link": "",
+    "Image": "/assets/images/news/new_member.webp",
+    "Priority": 8
   }
 ]
