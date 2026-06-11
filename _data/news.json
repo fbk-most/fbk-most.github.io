@@ -126,5 +126,13 @@
     "Link": "",
     "Image": "/assets/images/news/new_member.webp",
     "Priority": 8
+  },
+  {
+    "TITLE": "Advancing Digital Twins: Four Projects presented at FBK's Digital Society Center",
+    "DATE": "2026-06-10",
+    "DESCRIPTION": "<p>MoST joined the Digital Society center at FBK to present four of our recently started projects advancing Digital Twin technology&mdash;with our distinctive focus on social dynamics and participatory science.</p><p>Our team and collaborators unveiled:</p><ul><li><strong>TERRAE</strong> &mdash; Digital Twins-Enabled Rural Resilience in Agriculture and Forestry</li><li><strong>HARMONIE</strong> &mdash; Health Assessment Refinement for Mitigating Noise and Air Quality Effects</li><li><strong>AIxPA 2026</strong> &mdash; Artificial Intelligence for Public Administrations</li><li><strong>ECHO TWIN</strong> &mdash; Edge-Cloud-HPC Optimized Twins Based on Workflow-Enhanced Inference Networks</li></ul><p>These initiatives explore how digital technologies can address real-world challenges&mdash;from rural sustainability to air quality monitoring to public sector innovation. The common thread? Bridging computational sophistication with practical, human-centered outcomes.</p><p>We're genuinely excited about what lies ahead and look forward to sharing progress with you!</p>",
+    "Link": "",
+    "Image": "/assets/images/news/DIGIS_project_presentations.png",
+    "Priority": 10
   }
 ]
