@@ -93,7 +93,7 @@
     "DESCRIPTION": "<p>v0.9.0 brings typed, named axes to the Civic-Digital-Twins framework, making it easier than ever to build and evaluate flexible digital twin models across any combination of scenarios, parameters, and uncertainty dimensions.</p>",
     "Link": "https://github.com/fbk-most/civic-digital-twins",
     "Image": "/assets/images/news/Keyboard_Franceschini_cropped.webp",
-    "Priority": 10
+    "Priority": 5
   },
   {
     "TITLE": "Workshop on AI compliance at FBK",
@@ -133,6 +133,22 @@
     "DESCRIPTION": "<p>MoST joined the Digital Society center at FBK to present four of our recently started projects advancing Digital Twin technology&mdash;with our distinctive focus on social dynamics and participatory science.</p><p>Our team and collaborators unveiled:</p><ul><li><strong>TERRAE</strong> &mdash; Digital Twins-Enabled Rural Resilience in Agriculture and Forestry</li><li><strong>HARMONIE</strong> &mdash; Health Assessment Refinement for Mitigating Noise and Air Quality Effects</li><li><strong>AIxPA 2026</strong> &mdash; Artificial Intelligence for Public Administrations</li><li><strong>ECHO TWIN</strong> &mdash; Edge-Cloud-HPC Optimized Twins Based on Workflow-Enhanced Inference Networks</li></ul><p>These initiatives explore how digital technologies can address real-world challenges&mdash;from rural sustainability to air quality monitoring to public sector innovation. The common thread? Bridging computational sophistication with practical, human-centered outcomes.</p><p>We're genuinely excited about what lies ahead and look forward to sharing progress with you!</p>",
     "Link": "",
     "Image": "/assets/images/news/DIGIS_project_presentations.png",
+    "Priority": 10
+  },
+  {
+    "TITLE": "Filling the Gaps: New Method Tackles Missing Data in Traffic Sensors",
+    "DATE": "2026-06-22",
+    "DESCRIPTION": "<p>Traffic sensors generate a continuous stream of data that cities rely on for monitoring and planning &mdash; but sensor failures and maintenance windows regularly break that stream, leaving missing values that can bias analyses and undermine downstream models.<br /><br />Arianna Burzacchi from the MoST Unit at Fondazione Bruno Kessler presented a new approach to this problem at <strong>SIS-FENStatS 2026</strong>, held at Sapienza University of Rome (June 22&ndash;25, 2026). The key idea: not all missing values are the same, and treating them differently makes a real difference.<br /><br />The work by Marko P'yeshchyk, Arianna Burzacchi, and Marco Pistore is available as a conference paper, alongside an open-source implementation at <a href=\"https://github.com/fbk-most/ts-missing-values\" target=\"_blank\" rel=\"noopener nofollow noreferrer\">github.com/fbk-most/ts-missing-values</a>.</p>",
+    "Link": "",
+    "Image": "/assets/images/news/sapienza.png",
+    "Priority": 10
+  },
+  {
+    "TITLE": "Civic-Digital-Twins version 0.10.0 is out!",
+    "DATE": "2026-06-22",
+    "DESCRIPTION": "<p>A new declarative API lets you define a complete model with typed inputs, outputs, and computation logic in a few lines.<br /><br />This release also introduces:</p><ul><li>Typed model contracts (@inputs, @outputs, @functions)</li><li>Scenario-based what-if analysis</li><li>Automated exploration of thousands of parameter combinations</li><li>Incremental and resumable evaluations</li><li>Faster execution of large models with multiple decision paths</li><li>A cleaner separation between model definition and evaluation<br /><br />The goal is simple: spend less time on framework boilerplate and more time building models.</li></ul>",
+    "Link": "https://github.com/fbk-most/civic-digital-twins",
+    "Image": "/assets/images/news/Keyboard_Franceschini_cropped.webp",
     "Priority": 10
   }
 ]
