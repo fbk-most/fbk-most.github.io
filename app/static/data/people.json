@@ -1,0 +1,141 @@
+{
+  "current": [
+    {
+      "name": "Marco Pistore",
+      "position": "Head of Unit",
+      "image": "/static/images/people/marco-pistore.png",
+      "linkedin": "marco-pistore",
+      "order": "0",
+      "bio": "Marco Pistore is the lead researcher of the [MoST](/) research unit at [Fondazione Bruno Kessler](https://www.fbk.eu/). His current research interests focus on novel modeling and simulation techniques for complex socio-technical systems (eg. cities, rural areas, complex organizations), by exploiting, developing and integrating data science, artificial intelligence and complex systems approaches.\n\nMarco received his PhD in Computer Science from the University of Pisa in 1998 with a thesis on a theoretical model to describe distributed systems with history-dependent behavior.\n\nHe subsequently gained over 25 years of research experience in various fields, including artificial intelligence, software engineering, software architectures and distributed systems, ranging from basic to “mission oriented” and industrial research.\n\nDuring 2021-2024, he served as director of the [Digital Society](https://digis.fbk.eu/) research center of Fondazione Bruno Kessler, a multidisciplinary team of more than 100 PhD students, researchers, technologists and managers with the mission to perform advanced research and develop innovative digital technology to address key challenges of the future digital society.\n\nMarco has strong leadership and management experience, gained primarily in science and academia, but with significant experience in business. An eclectic approach to research and leadership that has led him to learn about and adopt a variety of scientific and management methods and approaches and helped develop his critical thinking skills."
+    },
+    {
+      "name": "Arianna Burzacchi",
+      "position": "PostDoc Researcher",
+      "image": "/static/images/people/arianna-burzacchi.jpg",
+      "github": "araiari",
+      "scholar": "pjltXLAAAAAJ",
+      "research_gate": "Arianna-Burzacchi",
+      "order": "2",
+      "bio": "Arianna Burzacchi is a PostDoc researcher at the [MoST research unit](/). She currently works on the modeling and analysis of mobility data within the [Bologna Digital Twin](https://pmg.fbk.eu/gdb/) project.\n\nBefore joining [FBK](https://www.fbk.eu/), Arianna was a PhD student at the [MOX Laboratory](https://mox.polimi.it/) of Politecnico di Milano, focusing her research on privacy-preserving data analysis of mobility data.\n\nHer research interests span between different statistical learning applications, especially non-parametric statistics and network\nanalysis for mobility data."
+    },
+    {
+      "name": "Federica Lago",
+      "position": "Researcher",
+      "image": "/static/images/people/federica-lago.jpg",
+      "github": "Flake22",
+      "scholar": "JKV8RK8AAAAJ",
+      "order": "2",
+      "bio": "Federica Lago is a Researcher at the [MoST research unit](/).\n\nBefore joining FBK, Federica earned a Ph.D. in Information and Communication Technology (ICT) from the University of Trento, with a thesis titled “On the Preservation of Media Trustworthiness in the Social Media Era.” During her doctoral studies, she collaborated with various academic and industrial partners. Following her Ph.D., she spent three years in industry, working on projects related to Artificial Intelligence and Computer Vision."
+    },
+    {
+      "name": "Jesús A. Moreno López",
+      "position": "PostDoc Researcher",
+      "image": "/static/images/people/jesus-moreno.png",
+      "github": "jmorenolopez",
+      "scholar": "0aDu28kAAAAJ",
+      "order": "2",
+      "bio": "Jesús Moreno is a PostDoc researcher at the [MoST research unit](/). He currently works on modelling of the Civic Digital Twin.\n\nBefore joining [FBK](https://www.fbk.eu/), Jesús was a PhD student at the [Institute for Interdisciplinary Physics and Complex Systems (IFISC)](https://ifisc.uib-csic.es/en/) in Mallorca, focusing his research on agent-based models for the analysis of complexity in social systems. His research interests span from the foundations of complexity to the applications of complexity-centered tools in real-world challenges."
+    },
+    {
+      "name": "Chiara Bellatreccia",
+      "position": "PhD Student",
+      "image": "/static/images/people/chiara-bellatreccia.jpg",
+      "github": "ChiaraBellatreccia",
+      "linkedin": "chiara-bellatreccia-b41a1a155",
+      "order": "3",
+      "bio": "PhD Student @ University of Pisa\n\n<!--more--> <!-- excerpt separator -->\n\nI am a PhD candidate in the National PhD Program at the University of Pisa in AI & Society, currently based at the University of Bologna, where I am part of the MoST research team. I hold a Bachelor’s degree in Physics and a Master’s degree in Artificial Intelligence, a path that has led me to focus my research on the ethical and fairness-related aspects of AI systems.\n\nMy current doctoral research is centered on the development of an optimizer aimed at improving fairness and robustness within the Digital Twin of Bologna.\n\nOutside of academia, I enjoy singing and performing in theatre, as well as playing the piano, which allows me to balance my technical work with creative expression."
+    },
+    {
+      "name": "Maryam Sajedinia",
+      "position": "PhD Student",
+      "image": "/static/images/people/maryam-sajedinia.jpg",
+      "twitter": "maryamsajedinia",
+      "github": "maryamsajedi",
+      "scholar": "T4_lXfkAAAAJ&hl",
+      "order": "3",
+      "bio": "Maryam Sajedinia is a PhD student at the [MoST research unit](/). Her research focuses on urban heat islands in Bologna, analysing both urban characteristics and sociodemographic aspect of the city. \n\nMaryam earned a **Master’s degree in Stochastic and Data Science** from the [University of Torino](https://www.unito.it/)."
+    },
+    {
+      "name": "Sammer Sheereen",
+      "position": "Research Assistant",
+      "image": "/static/images/people/sammer-sheereen.jpeg",
+      "github": "ssheereen",
+      "order": "3",
+      "bio": "Sammer Sheereen is a Research Assistant at the [MoST research unit](/), where she is working in the field of Urban data analysis, with specific focus on slow mobility.\n\nSammer earned a **Master's degree in Applied Mathematics** from Riphah International University, focusing her research on Computational Fluid Dynamics (CFD)."
+    },
+    {
+      "name": "Arianna Ricci",
+      "position": "Research assistant",
+      "image": "/static/images/people/arianna-ricci.jpeg",
+      "github": "riesz98",
+      "linkedin": "arianna-ricci-80a5a0231",
+      "order": "4",
+      "bio": "Arianna Ricci is a research assistant at the [MoST research unit](/). She achieved her **Master’s degree in Mathematics** at the [University of Trento](https://www.unitn.it/). Before her current position, Arianna wrote her thesis at FBK on topics involving deep learning and signal processing, and then worked two years at Fondazione Bruno Kessler on projects about model-based designing and testing within the railway sector."
+    },
+    {
+      "name": "Maja Dall'Acqua",
+      "position": "Research Assistant",
+      "image": "/static/images/people/maja-dallacqua.jpeg",
+      "github": "majada14",
+      "order": "4",
+      "bio": "Maja Dall'Acqua is a Research Assistant student at the [Most research unit](/). She currently works on modelling of the Civic Digital Twin.\n\nMaja is pursuing a Master's degree in Data Science at the [University of Trento](https://www.unitn.it/it), focusing her studies on the application of geospatial tools to understand neighbourhood dynamics within cities."
+    },
+    {
+      "name": "Marko P'yeshchyk",
+      "position": "Research assistant",
+      "image": "/static/images/people/marko-pyeshchyk.jpg",
+      "order": "4",
+      "bio": "Marko P'yeshchyk is a research assistant at the [MoST research unit](/) where he works on the uncertainty theme of the Digital Twin project of Bologna.\n\nMarko has graduated in Computer Engineering at the [ALMA MATER STUDIORUM - Università di Bologna](https://corsi.unibo.it/magistrale/ingegneriainformatica) with a thesis focused on Time Series analysis to predict  the car traffic data."
+    },
+    {
+      "name": "Ambra Vanella",
+      "position": "Intern",
+      "image": "/static/images/people/ambra-vanella.jpeg",
+      "order": "5",
+      "bio": "Ambra Vanella is a graduate in Sociology from the [University of Bologna](https://www.unibo.it/it), with a background in research methodologies and a strong interest in territorial analysis, spatial planning, and sustainability. From January 2026, she is carrying out a traineeship at the [Most research unit](/), where she is working on the study and validation of techniques, methodologies, and best practices to enhance stakeholder engagement in the design of Civic Digital Twins. \n\n<!--more-->\n\nHer work focuses in particular on co-design processes, gamification strategies, and qualitative and quantitative data analysis, exploring how participatory approaches and spatial analysis can support the understanding of territorial dynamics and decision-making processes. Ambra is currently doing her master's in Organization, Society, and Technology at the [University of Trento](https://www.unitn.it/), where this traineeship is part of her educational pathway."
+    }
+  ],
+  "visitor": [],
+  "alumni": [
+    {
+      "name": "Luca Gaeta",
+      "position": "Visiting Research Fellow",
+      "image": "/static/images/people/luca-gaeta.jpg",
+      "website": "https://onlineservices.polimi.it/manifesti/manifesti/controller/ricerche/RicercaPerDocentiPublic.do?EVN_ELENCO_DIDATTICA=evento&lang=IT&k_doc=72234&aa=2023&n_docente=gaeta&tab_ricerca=2&jaf_currentWFID=main",
+      "github": "lgaeta68",
+      "linkedin": "luca-gaeta-672b31337",
+      "research_gate": "Luca-Gaeta",
+      "order": "0",
+      "from-to": "from March to June 2025",
+      "bio": "As a visiting research fellow at the [MoST research unit](/), Luca Gaeta analyzed urban hybrid spaces and related planning issues between March and June 2025.\n\nBeyond visiting [FBK](https://www.fbk.eu/), Luca is a full professor of urban planning at Politecnico di Milano, [Department of Architecture and Urban Studies](https://www.dastu.polimi.it/), and was chair of the PhD programme in Urban planning, design and policy until December 2024."
+    },
+    {
+      "name": "Simone Basso",
+      "position": "Senior Technologist",
+      "image": "/static/images/people/simone-basso.jpg",
+      "twitter": "bassosimone",
+      "github": "bassosimone",
+      "scholar": "f_TerfgAAAAJ",
+      "order": "2",
+      "from-to": "from January to August 2025",
+      "bio": "Simone Basso was a Senior Technologist at the [MoST unit](/) from January to August 2025. He managed the development of the [DT Model](https://github.com/fbk-most/dt-model) evaluation engine.\n\nBefore joining [FBK](https://www.fbk.eu/), Simone was measuring internet censorship at the [Open Observatory of Network Interference](\nhttps://ooni.org/), internet performance at [Measurement Lab](https://www.measurementlab.net/), and network neutrality at the [Nexa Center for Internet & Society](https://nexa.polito.it/)."
+    },
+    {
+      "name": "Piergiorgio Vivenzio",
+      "position": "Visiting PhD Student",
+      "image": "/static/images/people/piergiorgio-vivenzio.jpg",
+      "linkedin": "piergiorgio-vivenzio-a44720242",
+      "order": "3",
+      "from-to": "December 2024 to May 2025",
+      "bio": "Piergiorgio Vivenzio is a PhD student in Urban and Regional Development at the Politecnico di Torino.\n\nHe was a visiting researcher at FBK's [MoST unit](/) from December 2024 to May 2025. He studied and developed a dynamic simulation model of student housing distribution.\n\nHe holds a degree in Statistical and Economic Methods for Decision Making and has worked as a research fellow at the University of Turin. He has also collaborated with the startup MetroPolis SRL."
+    },
+    {
+      "name": "Guadalupe Sol Escalante",
+      "position": "Visiting Student",
+      "image": "/static/images/people/guadalupe-escalante.jpg",
+      "order": "4",
+      "from-to": "from March to July 2025",
+      "bio": "Guadalupe Escalante is a Geospatial Engineer from the National University of Córdoba, Argentina.\n\nFrom March to July 2025, she did an internship at the [MoST research unit](/), where she explored the contribution of remote sensing to digital twins projects.\n\nGuadalupe is pursuing a Master's degree in Spatial Information Applications at the [Gulich Institute](https://ig.conae.unc.edu.ar/) (CONAE/UNC), where she is conducting this internship. She focuses on the study of territorial dynamics, has participated in projects at the [Center for Territorial Studies](https://cetunc.org/) (FCEFYN), and headed the Environmental Territorial Planning area at the Ministry of Environment of the Province of Córdoba, Argentina."
+    }
+  ]
+}
