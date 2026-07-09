@@ -3,7 +3,6 @@ import requests
 import csv, json
 import unicodedata
 
-LINK_NEWS = os.environ.get("LINK_NEWS")
 LINK_SEMINARS = os.environ.get("LINK_SEMINARS")
 
 UNICODE_PUNCT_MAP = {
@@ -16,22 +15,19 @@ UNICODE_PUNCT_MAP = {
     "‘": "'",
     "‚": "'",
     "‛": "'",
-
     # Dashes
     "–": "-",
     "—": "-",
     "−": "-",
-
     # Ellipsis
     "…": "...",
-
     # Misc
-    " ": " ",   # non-breaking space
+    " ": " ",  # non-breaking space
 }
 
 
 def to_ascii_safe(s: str) -> str:
-    #Fix mojibake if present
+    # Fix mojibake if present
     if likely_mojibake(s):
         s = repair_mojibake(s)
 
@@ -39,7 +35,7 @@ def to_ascii_safe(s: str) -> str:
     for u, a in UNICODE_PUNCT_MAP.items():
         s = s.replace(u, a)
 
-    #Possible further normalization steps commented out for now
+    # Possible further normalization steps commented out for now
     # Normalize accents (é → e, ñ → n)
     # s = unicodedata.normalize("NFKD", s)
 
@@ -47,6 +43,7 @@ def to_ascii_safe(s: str) -> str:
     # s = s.encode("ascii", "ignore").decode("ascii")
 
     return s
+
 
 def likely_mojibake(s: str) -> bool:
     # heuristics: common mojibake fragments (Ã, â, sequences like â, and replacement char)
@@ -60,38 +57,13 @@ def repair_mojibake(s: str) -> str:
     except Exception:
         return s  # if repair fails, return original
 
+
 def download_csv(sheet_id):
     URL = f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv"
 
     response = requests.get(URL)
     response.raise_for_status()
     return response
-
-
-def parses_news_csv(response):
-    # Read CSV lines
-    lines = response.text.splitlines()
-    reader = csv.DictReader(lines[2:])  # skip the first comment row
-
-    news_list = []
-
-    for row in reader:
-        if not row["TITLE"]:
-            continue
-
-        for k, v in list(row.items()):
-            if isinstance(v, str):
-                row[k] = to_ascii_safe(v)
-
-        # Priority to 0 if missing or invalid
-        if not row.get("Priority") or not row["Priority"].isdigit():
-            row["Priority"] = 0
-        else:
-            row["Priority"] = int(row["Priority"])
-
-        news_list.append(row)
-
-    return news_list
 
 
 def save_json(dest_file, news_list):
@@ -128,10 +100,6 @@ def parse_seminars_csv(response):
 
     return seminar_list
 
-
-response = download_csv(LINK_NEWS)
-news_list = parses_news_csv(response)
-save_json("app/static/data/news.json", news_list)
 
 response = download_csv(LINK_SEMINARS)
 seminars_list = parse_seminars_csv(response)

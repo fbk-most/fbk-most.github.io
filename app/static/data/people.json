@@ -93,6 +93,13 @@
       "image": "/static/images/people/ambra-vanella.jpeg",
       "order": "5",
       "bio": "Ambra Vanella is a graduate in Sociology from the [University of Bologna](https://www.unibo.it/it), with a background in research methodologies and a strong interest in territorial analysis, spatial planning, and sustainability. From January 2026, she is carrying out a traineeship at the [Most research unit](/), where she is working on the study and validation of techniques, methodologies, and best practices to enhance stakeholder engagement in the design of Civic Digital Twins. \n\n<!--more-->\n\nHer work focuses in particular on co-design processes, gamification strategies, and qualitative and quantitative data analysis, exploring how participatory approaches and spatial analysis can support the understanding of territorial dynamics and decision-making processes. Ambra is currently doing her master's in Organization, Society, and Technology at the [University of Trento](https://www.unitn.it/), where this traineeship is part of her educational pathway."
+    },
+    {
+      "name": "Andrea Mauro",
+      "position": "Intern",
+      "image": "/static/images/people/andrea-mauro.jpg",
+      "order": "5",
+      "bio": "Andrea Mauro is a master student of Data Science at [University of Trento](https://www.unitn.it/it), with a background in economics and statistics and a strong interest in causal inference and stastical learning. From May 2026 he is carrying out an internship at [Most research unit](https://most.fbk.eu) , specifically in modelling causal impacts of policies within  Bologna Digital Twins project.\n\n<!--more-->"
     }
   ],
   "visitor": [],
