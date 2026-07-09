@@ -274,3 +274,40 @@ async def update_news(request: Request):
         return {"success": True}
     except Exception as e:
         return {"error": str(e)}
+
+
+@app.get("/people-editor")
+async def news_editor(request: Request):
+    return templates.TemplateResponse(
+        request, "people_editor.html", {"current_page": "people_editor"}
+    )
+
+
+@app.get("/people-adder")
+async def news_editor(request: Request):
+    return templates.TemplateResponse(
+        request, "people_adder.html", {"current_page": "people_adder"}
+    )
+
+
+@app.post("/api/update-people")
+async def update_people(request: Request):
+    try:
+        data = await request.json()
+
+        # Validate the data structure
+        if not isinstance(data, dict):
+            return {"error": "Invalid data format"}
+
+        expected_keys = {"current", "visitor", "alumni"}
+        if not expected_keys.issubset(data.keys()):
+            return {"error": "Missing required categories"}
+
+        people_file = Path("app/static/data/people.json")
+        with open(people_file, "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+
+        return {"success": True}
+
+    except Exception as e:
+        return {"error": str(e)}

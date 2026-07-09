@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+
+{% block title %}MoST - Add new person {% endblock %}
+
+{% block content %}
+
+<section class="content" id="people-editor">
+  <h2>Add new person</h2>
+
+  <div id="current-tab" class="tab-content active">
+
+    <form id="newsForm">
+
+      <div class="field-group">
+        <label class="required">Category</label>
+        <select id="create-category" name="category" onchange="togglePeopleFields()">
+          <option value="current">Current Members</option>
+          <option value="visitor">Visitors</option>
+          <option value="alumni">Alumni</option>
+        </select>
+      </div>
+
+      <div class="field-group">
+        <label class="required">Name</label>
+        <input type="text" id="create-name" name="name" required>
+      </div>
+
+      <div class="field-group">
+        <label class="required">Surname</label>
+        <input type="text" id="create-surname" name="surname" required>
+      </div>
+
+      <div class="field-group">
+        <label class="required">Position</label>
+        <input type="text" id="create-position" name="position" required>
+      </div>
+
+      <div class="field-group">
+        <label class="required">Role</label>
+        <select id="role" name="role">
+          <option value="1">Head of Unit</option>
+          <option value="2">Senior member (after PhD)</option>
+          <option value="3">PhD student</option>
+          <option value="4">Junior researcher (before PhD)</option>
+          <option value="5">Intern</option>         
+        </select>
+      </div>
+
+      <div class="field-group hidden" id="create-from-to-group">
+        <label class="required">From - To</label>
+        <input type="text" id="create-from-to" name="from-to" placeholder="e.g. 2019-2022">
+      </div>
+
+      <div class="field-group">
+        <label class="required">Bio</label>
+        <div class="rich-editor-wrapper">
+          <div class="rich-editor-toolbar" id="createGenEditorToolbar">
+            <button type="button" class="toolbar-btn" data-cmd="bold" title="Bold (Ctrl+B)"><b>B</b></button>
+            <button type="button" class="toolbar-btn" data-cmd="italic" title="Italic (Ctrl+I)"><i>I</i></button>
+            <button type="button" class="toolbar-btn" data-cmd="underline" title="Underline (Ctrl+U)"><u>U</u></button>
+            <div class="toolbar-sep"></div>
+            <button type="button" class="toolbar-btn" data-cmd="insertUnorderedList" title="Bullet list">&#8226;&#8212;</button>
+            <button type="button" class="toolbar-btn" data-cmd="insertOrderedList" title="Numbered list">1&#8212;</button>
+            <div class="toolbar-sep"></div>
+            <button type="button" class="toolbar-btn" data-cmd="createLink" title="Insert link">&#128279;</button>
+            <button type="button" class="toolbar-btn" data-cmd="removeFormat" title="Clear formatting">&#10005;</button>
+          </div>
+          <div id="create-gen-description-editor"
+              class="rich-editor-content"
+              contenteditable="true"
+              data-placeholder="Enter bio..."></div>
+        </div>
+        <textarea id="create-gen-description" name="bio" class="hidden"></textarea>
+      </div>
+
+      <div class="field-group">
+        <label class="required">Image</label>
+        <div class="edit-image-picker">
+          <div class="edit-image-preview" id="createImagePreview">
+            <img id="createImagePreviewImg"
+                src=""
+                alt="Person image preview">
+          </div>
+          <div>
+            <button type="button" class="btn btn-blue edit-image-button" onclick="document.getElementById('createImageFile').click()">
+              <span class="edit-image-button-icon">✎</span>
+              Choose image
+            </button>
+            <input type="file" id="createImageFile" accept="image/*" class="hidden">
+            <input type="hidden" id="create-image" name="image">
+          </div>
+        </div>
+      </div>
+
+      <fieldset class="field-group">
+        <legend>Social &amp; Links</legend>
+
+        <div class="field-group">
+          <label>Website</label>
+          <input type="url" id="create-website" name="website" placeholder="https://...">
+        </div>
+
+        <div class="field-group">
+          <label>LinkedIn</label>
+          <input type="url" id="create-linkedin" name="linkedin" placeholder="https://linkedin.com/in/...">
+        </div>
+
+        <div class="field-group">
+          <label>GitHub</label>
+          <input type="url" id="create-github" name="github" placeholder="https://github.com/...">
+        </div>
+
+        <div class="field-group">
+          <label>Google Scholar</label>
+          <input type="url" id="create-scholar" name="scholar" placeholder="https://scholar.google.com/...">
+        </div>
+
+        <div class="field-group">
+          <label>ResearchGate</label>
+          <input type="url" id="create-research_gate" name="research_gate" placeholder="https://www.researchgate.net/...">
+        </div>
+
+        <div class="field-group">
+          <label>Twitter / X</label>
+          <input type="url" id="create-twitter" name="twitter" placeholder="https://twitter.com/...">
+        </div>
+      </fieldset>
+
+      <button type="button" id="pubBtn" class="btn btn-blue" onclick="submitPeople()">Confirm</button>
+
+    </form>
+
+</section>
+
+{% endblock %}

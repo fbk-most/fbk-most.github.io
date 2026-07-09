@@ -1,4 +1,5 @@
 class Settings:
-    PROJECT_NAME = "FastAPI Base"
+    PROJECT_NAME = "MoST Website"
+
 
 settings = Settings()

@@ -34,60 +34,11 @@ document.addEventListener('DOMContentLoaded', function () {
     .addEventListener('change', handleCreateImageFileChange);
 });
 
-// ─── Tab switching ────────────────────────────────────────────────────────────
-
-function showTab(tabName) {
-  document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-  document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
-  document.getElementById(tabName + '-tab').classList.add('active');
-  event.target.classList.add('active');
-}
-
-// ─── Rich text editor ─────────────────────────────────────────────────────────
-
-function initToolbar(toolbarId, editorId) {
-  const toolbar = document.getElementById(toolbarId);
-  const editor  = document.getElementById(editorId);
-  if (!toolbar || !editor) return;
-
-  toolbar.addEventListener('mousedown', function (e) {
-    const btn = e.target.closest('.toolbar-btn');
-    if (!btn) return;
-    e.preventDefault(); // keep focus in editor
-    const cmd = btn.dataset.cmd;
-    if (cmd === 'createLink') {
-      const url = prompt('Enter URL:');
-      if (url) document.execCommand('createLink', false, url);
-    } else {
-      document.execCommand(cmd, false, null);
-    }
-    updateToolbarState(toolbarId);
-  });
-
-  editor.addEventListener('keyup',   () => updateToolbarState(toolbarId));
-  editor.addEventListener('mouseup', () => updateToolbarState(toolbarId));
-  editor.addEventListener('focus',   () => updateToolbarState(toolbarId));
-}
-
-function updateToolbarState(toolbarId) {
-  const cmds = ['bold', 'italic', 'underline', 'insertUnorderedList', 'insertOrderedList'];
-  cmds.forEach(cmd => {
-    const btn = document.querySelector(`#${toolbarId} .toolbar-btn[data-cmd="${cmd}"]`);
-    if (btn) btn.classList.toggle('active', document.queryCommandState(cmd));
-  });
-}
-
-function syncEditor(editorId, textareaId) {
-  const editor   = document.getElementById(editorId);
-  const textarea = document.getElementById(textareaId);
-  if (editor && textarea) textarea.value = editor.innerHTML;
-}
-
 // ─── News data loading ────────────────────────────────────────────────────────
 
 async function loadNewsData() {
   try {
-    const response = await fetch('/static/data/new-news.json');
+    const response = await fetch('/static/data/news.json');
     newsData = await response.json();
     populateNewsSelect();
   } catch (error) {
@@ -131,29 +82,16 @@ function loadNewsForEdit() {
 }
 
 function setEditImagePreview(src) {
-  const img         = document.getElementById('editImagePreviewImg');
-  const placeholder = document.getElementById('editImagePlaceholder');
-  const hidden      = document.getElementById('edit-image');
-
-  if (src) {
-    img.src               = src;
-    img.style.display     = 'block';
-    placeholder.style.display = 'none';
-    hidden.value          = src;
-  } else {
-    img.src               = '';
-    img.style.display     = 'none';
-    placeholder.style.display = 'block';
-    hidden.value          = '';
-  }
+    setImagePreview(
+        'editImagePreviewImg',
+        'editImagePlaceholder',
+        'edit-image',
+        src
+    );
 }
 
 function handleEditImageFileChange(e) {
-  const file = e.target.files[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = () => setEditImagePreview(reader.result);
-  reader.readAsDataURL(file);
+    previewUploadedImage(e, setEditImagePreview);
 }
 
 async function saveEditedNews() {

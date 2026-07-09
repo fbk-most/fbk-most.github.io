@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+
+{% block title %}MoST - People Editor{% endblock %}
+
+{% block content %}
+
+<section class="content" id="people-editor">
+  <h2>People Editor</h2>
+
+  <!-- Edit Tab -->
+  <div id="edit-tab" class="tab-content active">
+
+    <div class="field-group">
+      <label for="category-select">Category</label>
+      <select id="category-select" onchange="onCategoryChange()">
+        <option value="current">Current Members</option>
+        <option value="visitor">Visitors</option>
+        <option value="alumni">Alumni</option>
+      </select>
+    </div>
+
+    <div class="field-group">
+      <label for="person-select">Select Person</label>
+      <select id="person-select" onchange="loadPersonForEdit()">
+        <option value="">Choose a person...</option>
+        <!-- Options will be populated by JavaScript -->
+      </select>
+    </div>
+
+    <form id="editForm" class="hidden">
+      <div class="field-group">
+        <label class="required">Name</label>
+        <input type="text" id="edit-name" name="name" required>
+      </div>
+
+      <div class="field-group">
+        <label class="required">Surname</label>
+        <input type="text" id="edit-surname" name="surname" required>
+      </div>
+
+      <div class="field-group">
+        <label class="required">Position</label>
+        <input type="text" id="edit-position" name="position" required>
+      </div>
+
+      <div class="field-group">
+        <label>Order</label>
+        <input type="number" id="edit-order" name="order">
+      </div>
+
+      <div class="field-group hidden" id="edit-from-to-group">
+        <label>From - To</label>
+        <input type="text" id="edit-from-to" name="from-to" placeholder="e.g. 2019-2022">
+      </div>
+
+      <div class="field-group">
+        <label class="required">Bio</label>
+        <div class="rich-editor-wrapper">
+          <div class="rich-editor-toolbar" id="editorToolbar">
+            <button type="button" class="toolbar-btn" data-cmd="bold" title="Bold (Ctrl+B)"><b>B</b></button>
+            <button type="button" class="toolbar-btn" data-cmd="italic" title="Italic (Ctrl+I)"><i>I</i></button>
+            <button type="button" class="toolbar-btn" data-cmd="underline" title="Underline (Ctrl+U)"><u>U</u></button>
+            <div class="toolbar-sep"></div>
+            <button type="button" class="toolbar-btn" data-cmd="insertUnorderedList" title="Bullet list">&#8226;&#8212;</button>
+            <button type="button" class="toolbar-btn" data-cmd="insertOrderedList" title="Numbered list">1&#8212;</button>
+            <div class="toolbar-sep"></div>
+            <button type="button" class="toolbar-btn" data-cmd="createLink" title="Insert link">&#128279;</button>
+            <button type="button" class="toolbar-btn" data-cmd="removeFormat" title="Clear formatting">&#10005;</button>
+          </div>
+          <div id="edit-bio-editor"
+              class="rich-editor-content"
+              contenteditable="true"
+              data-placeholder="Enter bio..."></div>
+        </div>
+        <textarea id="edit-bio" name="bio" class="hidden" required></textarea>
+      </div>
+
+      <div class="field-group">
+        <label>Image</label>
+        <div class="edit-image-picker">
+          <div class="edit-image-preview" id="editImagePreview">
+            <img id="editImagePreviewImg" alt="Person image preview">
+            <span class="edit-image-placeholder" id="editImagePlaceholder">No image selected</span>
+          </div>
+          <div>
+            <button type="button" class="btn btn-blue edit-image-button" onclick="document.getElementById('editImageFile').click()">
+              <span class="edit-image-button-icon">✎</span>
+              Change image
+            </button>
+            <input type="file" id="editImageFile" accept="image/*" class="hidden">
+            <input type="hidden" id="edit-image" name="image">
+          </div>
+        </div>
+      </div>
+
+      <fieldset class="field-group">
+        <legend>Social &amp; Links</legend>
+
+        <div class="field-group">
+          <label>Website</label>
+          <input type="url" id="edit-website" name="website" placeholder="https://...">
+        </div>
+
+        <div class="field-group">
+          <label>LinkedIn</label>
+          <input type="url" id="edit-linkedin" name="linkedin" placeholder="https://linkedin.com/in/...">
+        </div>
+
+        <div class="field-group">
+          <label>GitHub</label>
+          <input type="url" id="edit-github" name="github" placeholder="https://github.com/...">
+        </div>
+
+        <div class="field-group">
+          <label>Google Scholar</label>
+          <input type="url" id="edit-scholar" name="scholar" placeholder="https://scholar.google.com/...">
+        </div>
+
+        <div class="field-group">
+          <label>ResearchGate</label>
+          <input type="url" id="edit-research_gate" name="research_gate" placeholder="https://www.researchgate.net/...">
+        </div>
+
+        <div class="field-group">
+          <label>Twitter / X</label>
+          <input type="url" id="edit-twitter" name="twitter" placeholder="https://twitter.com/...">
+        </div>
+      </fieldset>
+
+      <button type="button" class="btn btn-blue" onclick="savePerson()">Save Changes</button>
+      <button type="button" class="btn btn-red" onclick="deletePerson()">Delete Person</button>
+    </form>
+  </div>
+
+</section>
+
+{% endblock %}
