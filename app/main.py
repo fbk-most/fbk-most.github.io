@@ -145,9 +145,9 @@ async def person_detail(request: Request, slug: str):
     )
 
 
-@app.get("/phd")
-async def phd(request: Request):
-    return templates.TemplateResponse(request, "phd.html", {"current_page": "phd"})
+# @app.get("/phd")
+# async def phd(request: Request):
+#     return templates.TemplateResponse(request, "phd.html", {"current_page": "phd"})
 
 
 @app.get("/internships")
