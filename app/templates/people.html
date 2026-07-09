@@ -21,10 +21,10 @@
           href="#"
           data-filename="{{ person.filename }}"
           data-status="{{ person.status }}"
-          data-name="{{ person.name }}"
+          data-name="{{ person.name }}  {{ person.surname }}"
           data-position="{{ person.position }}"
           data-image="{{ person.image }}"
-          data-bio="{{ person.content }}"
+          data-bio="{{ person.bio }}"
           data-website="{{ person.website }}"
           data-github="{{ person.github }}"
           data-twitter="{{ person.twitter }}"
@@ -32,9 +32,9 @@
           data-scholar="{{ person.scholar }}"
           data-research_gate="{{ person.research_gate }}">
   
-          <img class="hex-img" src="{{ person.image }}" alt="{{ person.name }}">
+          <img class="hex-img" src="{{ person.image }}" alt="{{ person.name }} {{ person.surname }}">
           <div class="hex-text">
-            <h3>{{ person.name }}</h3>
+            <h3>{{ person.name }} {{ person.surname }}</h3>
             <p>{{ person.position }}</p>
           </div>
         </a>
@@ -61,10 +61,10 @@
           href="#"
           data-filename="{{ person.filename }}"
           data-status="{{ person.status }}"
-          data-name="{{ person.name }}"
+          data-name="{{ person.name }}  {{ person.surname }}"
           data-position="{{ person.position }}"
           data-image="{{ person.image }}"
-          data-bio="{{ person.content }}"
+          data-bio="{{ person.bio }}"
           data-website="{{ person.website }}"
           data-github="{{ person.github }}"
           data-twitter="{{ person.twitter }}"
@@ -72,9 +72,9 @@
           data-scholar="{{ person.scholar }}"
           data-research_gate="{{ person.research_gate }}">
   
-          <img class="hex-img" src="{{ person.image }}" alt="{{ person.name }}">
+          <img class="hex-img" src="{{ person.image }}" alt="{{ person.name }}  {{ person.surname }}">
           <div class="hex-text">
-            <h3>{{ person.name }}</h3>
+            <h3>{{ person.name }}  {{ person.surname }}</h3>
             <p>{{ person.position }}</p>
           </div>
         </a>

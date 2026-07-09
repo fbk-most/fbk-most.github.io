@@ -1,17 +1,14 @@
-from fastapi import FastAPI, Request, Query
+from fastapi import FastAPI, HTTPException, Request, Query
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 import json
 from pathlib import Path
 from datetime import datetime, timedelta
 
-from app.src.utils import parse_file, parse_directory
-
 app = FastAPI()
 
 app.mount("/static", StaticFiles(directory="app/static"), name="static")
 templates = Jinja2Templates(directory="app/templates")
-people_directory = "app/static/people/"  # change this
 
 
 def _normalize_image(image_path):
@@ -31,6 +28,48 @@ def _load_news():
     news.sort(key=lambda x: x["parsed_date"], reverse=True)
 
     return news
+
+
+def _slugify(name, surname):
+    raw = f"{name or ''}-{surname or ''}".strip("-").lower()
+    return "-".join(raw.split())
+
+
+def _people_sort_key(person):
+    order = person.get("order")
+    try:
+        order_val = int(order)
+    except (TypeError, ValueError):
+        order_val = float("inf")
+    return (
+        order_val,
+        (person.get("surname") or "").lower(),
+        (person.get("name") or "").lower(),
+    )
+
+
+def _prepare_person(person):
+    enriched = dict(person)
+    enriched["image"] = _normalize_image(enriched.get("image", ""))
+    enriched["display_name"] = (
+        f"{(enriched.get('name') or '').strip()} {(enriched.get('surname') or '').strip()}".strip()
+    )
+    enriched["slug"] = _slugify(enriched.get("name"), enriched.get("surname"))
+    return enriched
+
+
+def _load_people():
+    people_file = Path("app/static/data/people.json")
+    with open(people_file, "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    result = {}
+    for bucket in ("current", "visitor", "alumni"):
+        people_list = [_prepare_person(p) for p in data.get(bucket, [])]
+        people_list.sort(key=_people_sort_key)
+        result[bucket] = people_list
+
+    return result
 
 
 @app.get("/")
@@ -72,24 +111,33 @@ async def research(request: Request):
 
 @app.get("/people")
 async def people(request: Request):
-
-    current, former = parse_directory(people_directory)
+    people_data = _load_people()
     return templates.TemplateResponse(
         request,
         "people.html",
-        {"current_page": "people", "current_people": current, "former_people": former},
+        {
+            "current_page": "people",
+            "current_people": people_data["current"],
+            "visitor_people": people_data["visitor"],
+            "former_people": people_data["alumni"],
+        },
     )
 
 
 @app.get("/people/{slug}")
 async def person_detail(request: Request, slug: str):
-    directory = "app/static/people"
+    people_data = _load_people()
 
-    person = parse_file(people_directory + slug + ".md")
+    person = None
+    status = None
+    for bucket in ("current", "visitor", "alumni"):
+        match = next((p for p in people_data[bucket] if p["slug"] == slug), None)
+        if match:
+            person = match
+            status = bucket
+            break
 
-    if not person or person["status"] == "alumni":
-        from fastapi import HTTPException
-
+    if not person or status == "alumni":
         raise HTTPException(status_code=404, detail="Person not found")
 
     return templates.TemplateResponse(

@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 
-{% block title %}MoST - {{ person.name }}{% endblock %}
+{% block title %}MoST - {{ person.name }}  {{ person.surname }}{% endblock %}
 
 {% block content %}
 
 <section class="content">
   <div class="most-person text-center">
-    <img class="most-person__imagehex most-person__imagehex--lg" src="{{ person.image }}" alt="{{ person.name }}" />
-    <h2 class="mb-1">{{ person.name }}</h2>
+    <img class="most-person__imagehex most-person__imagehex--lg" src="{{ person.image }}" alt="{{ person.name }}  {{ person.surname }}" />
+    <h2 class="mb-1">{{ person.name }} {{ person.surname }}</h2>
     <div class="text-muted mb-3">{{ person.position }}</div>
 
     <div class="most-person__social mb-4">
@@ -44,7 +44,7 @@
     </div>
 
     <div class="most-person__bio text-left">
-      {{ person.content | safe }}
+      {{ person.bio | safe }}
     </div>
   </div>
 </section>
