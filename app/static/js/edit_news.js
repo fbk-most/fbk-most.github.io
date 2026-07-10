@@ -9,6 +9,7 @@ const DEFAULT_IMAGES = {
 
 // ─── State ────────────────────────────────────────────────────────────────────
 
+let currentPeople = [];
 let newsData = [];
 let currentEditIndex = -1;
 
@@ -18,6 +19,8 @@ document.addEventListener('DOMContentLoaded', function () {
   initToolbar('editorToolbar', 'edit-description-editor');
   initToolbar('createEditorToolbar', 'create-description-editor');
   initToolbar('createGenEditorToolbar', 'create-gen-description-editor');
+
+  loadCurrentPeopleData();
 
   const dateField = document.getElementById('dateField');
   if (dateField) dateField.value = new Date().toISOString().split('T')[0];
@@ -37,9 +40,91 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const createImageFile = document.getElementById('createImageFile');
   if (createImageFile) createImageFile.addEventListener('change', handleCreateImageFileChange);
+
+  const memberSelect = document.getElementById('memberSelect');
+  if (memberSelect) {
+    memberSelect.addEventListener('change', () => {
+      if (document.getElementById('newsType').value === 'member') {
+        updateDefaultImagePreview('member');
+      }
+    });
+  }
 });
 
+function validateForm() {
+  const type = document.getElementById('newsType').value;
+
+  let fields = [];
+
+  switch (type) {
+    case 'paper':
+      fields = [
+        document.querySelector('[name="paperType"]'),
+        document.querySelector('[name="paperTitle"]'),
+        document.querySelector('[name="abstract"]')
+      ];
+      break;
+
+    case 'member':
+      fields = [
+        document.getElementById('memberSelect'),
+        document.querySelector('[name="jobDescription"]')
+      ];
+      break;
+
+    case 'tool':
+      fields = [
+        document.querySelector('[name="toolName"]'),
+        document.querySelector('[name="toolDescription"]')
+      ];
+      break;
+
+    case 'other':
+      // Nothing to validate before preview
+      return true;
+  }
+
+  for (const field of fields) {
+    if (!field.value.trim()) {
+      alert(`Please fill in "${field.previousElementSibling?.textContent.replace('*', '').trim()}" before continuing.`);
+      field.focus();
+      return false;
+    }
+  }
+
+  return true;
+}
+
 // ─── News data loading ────────────────────────────────────────────────────────
+
+async function loadCurrentPeopleData() {
+  try {
+    const response = await fetch(`/static/data/people.json?t=${Date.now()}`);
+    const data = await response.json();
+    currentPeople = data.current || [];
+    console.log(currentPeople);
+    populateMemberSelect();
+  } catch (error) {
+    console.error('Error loading people data:', error);
+  }
+}
+
+function populateMemberSelect() {
+  const select = document.getElementById("memberSelect");
+  if (!select) return;
+
+  select.innerHTML = '<option value="">Select a member...</option>';
+
+  currentPeople.forEach((person, index) => {
+    const option = document.createElement("option");
+    option.value = index;
+
+    // Adjust these depending on your JSON structure
+    option.textContent = person.name + " " + person.surname;
+
+    select.appendChild(option);
+  });
+}
 
 async function loadNewsData() {
   try {
@@ -180,13 +265,21 @@ function updateDefaultImagePreview(type) {
   const hidden = document.getElementById('create-image');
   if (hidden.dataset.custom === 'true') return;
 
-  const src = DEFAULT_IMAGES[type] || '/static/images/news/FBK_Povo_Building_Baroni_6_cropped.webp';
-  const img = document.getElementById('createImagePreviewImg');
+  let src;
 
+  if (type === 'member') {
+    const memberIndex = document.getElementById('memberSelect').value;
+    const person = currentPeople[memberIndex];
+
+    src = person?.image || DEFAULT_IMAGES.member;
+  } else {
+    src = DEFAULT_IMAGES[type] || DEFAULT_IMAGES.other;
+  }
+
+  const img = document.getElementById('createImagePreviewImg');
   img.src = src;
   hidden.value = src;
 }
-
 function handleCreateImageFileChange(e) {
   const file = e.target.files[0];
   if (!file) return;
@@ -227,10 +320,21 @@ function buildTitleAndDescription(type, formData) {
       title       = `New ${formData.paperType}: ${formData.paperTitle}`;
       description = `Our new ${formData.paperType} "${formData.paperTitle}" ${formData.venue || 'is available out'}.\n\n${formData.abstract}`;
       break;
-    case 'member':
-      title       = `Welcome ${formData.memberName} to the team!`;
-      description = `${formData.memberFullName} joins the MoST research unit as an ${formData.position}, ${formData.jobDescription}`;
+    case 'member': {
+      const person = currentPeople[formData.memberId];
+
+      if (!person) break;
+
+      const fullName = person.name + " " + person.surname || "";
+      const firstName = person.name || "";
+      const position = person.position || "";
+
+      title = `Welcome ${firstName} to the team!`;
+      description =
+        `${fullName} joins the MoST research unit as ${position}. ${formData.jobDescription}`;
+
       break;
+    }
     case 'tool':
       title       = formData.version && formData.version.trim()
         ? `${formData.toolName} version ${formData.version} is out!`
@@ -250,6 +354,11 @@ function textToHtml(text) {
 }
 
 function showPreview() {
+
+  if (!validateForm()) {
+    return;
+  }
+  
   const type     = document.getElementById('newsType').value;
   const formData = getFormData();
 
@@ -310,7 +419,31 @@ async function submitFinal() {
     return;
   }
 
-  // Append the new item so it appears at the end of the news list
+  // Upload custom image if necessary
+  const imageInput = document.getElementById('createImageFile');
+  const file = imageInput.files[0];
+
+  if (file) {
+    const response = await fetch('/api/upload-news-image', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        filename: file.name,
+        data: data.Image
+      })
+    });
+
+    const result = await response.json();
+
+    if (!result.success) {
+      alert(result.error || 'Failed to upload image.');
+      return;
+    }
+
+    // Replace the base64 data with the static path
+    data.Image = `/static/images/news/${result.path}`;
+  }
+
   const updatedNewsData = [...newsData, data];
 
   try {

@@ -12,6 +12,9 @@ app = FastAPI()
 app.mount("/static", StaticFiles(directory="app/static"), name="static")
 templates = Jinja2Templates(directory="app/templates")
 
+PEOPLE_IMAGES_DIR = Path("app/static/images/people")
+NEWS_IMAGES_DIR = Path("app/static/images/news")
+
 
 def _normalize_image(image_path):
     if not image_path:
@@ -285,14 +288,52 @@ async def news_editor(request: Request):
     )
 
 
+@app.post("/api/upload-news-image")
+async def upload_news_image(request: Request):
+    try:
+        data = await request.json()
+
+        filename = Path(data.get("filename", "")).name  # strip any path
+        data_url = data.get("data", "")
+
+        if not filename:
+            return {"error": "Missing filename"}
+
+        match = re.match(r"^data:image/(\w+);base64,(.+)$", data_url, re.DOTALL)
+        if not match:
+            return {"error": "Invalid image data"}
+
+        ext = match.group(1).lower()
+        ext = "jpg" if ext == "jpeg" else ext
+
+        if ext not in {"png", "jpg", "webp", "gif"}:
+            return {"error": "Unsupported image type"}
+
+        # Ensure filename has the correct extension
+        filename = f"{Path(filename).stem}.{ext}"
+
+        image_bytes = base64.b64decode(match.group(2))
+
+        NEWS_IMAGES_DIR.mkdir(parents=True, exist_ok=True)
+
+        file_path = NEWS_IMAGES_DIR / filename
+        with open(file_path, "wb") as f:
+            f.write(image_bytes)
+
+        return {
+            "success": True,
+            "path": filename,
+        }
+
+    except Exception as e:
+        return {"error": str(e)}
+
+
 @app.get("/people-adder")
 async def news_editor(request: Request):
     return templates.TemplateResponse(
         request, "people_adder.html", {"current_page": "people_adder"}
     )
-
-
-PEOPLE_IMAGES_DIR = Path("app/static/images/people")
 
 
 @app.post("/api/upload-people-image")

@@ -118,10 +118,21 @@
 
       <!-- Member fields -->
       <div id="memberFields" class="type-fields hidden">
-        <div class="field-group"><label class="required">First Name</label><input type="text" name="memberName"></div>
-        <div class="field-group"><label class="required">Full Name</label><input type="text" name="memberFullName"></div>
-        <div class="field-group"><label class="required">Position</label><input type="text" name="position"></div>
-        <div class="field-group"><label class="required">Description/Background</label><textarea name="jobDescription" rows="3"></textarea></div>
+        <div class="field-group">
+          <label class="required">Current Member</label>
+          <select name="memberId" id="memberSelect">
+            <option value="">Select a member...</option>
+          </select>
+        </div>
+
+        <div class="field-group">
+          <label class="required">Description / Background</label>
+          <textarea
+            name="jobDescription"
+            rows="4"
+            placeholder="Describe the member's background..."
+          ></textarea>
+        </div>
       </div>
 
       <!-- Tool fields -->
