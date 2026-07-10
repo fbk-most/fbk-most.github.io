@@ -9,7 +9,7 @@
 
   <div id="current-tab" class="tab-content active">
 
-    <form id="newsForm">
+    <form id="peopleForm">
 
       <div class="field-group">
         <label class="required">Category</label>
@@ -37,18 +37,13 @@
 
       <div class="field-group">
         <label class="required">Role</label>
-        <select id="role" name="role">
+        <select id="order" name="order">
           <option value="1">Head of Unit</option>
           <option value="2">Senior member (after PhD)</option>
           <option value="3">PhD student</option>
           <option value="4">Junior researcher (before PhD)</option>
           <option value="5">Intern</option>         
         </select>
-      </div>
-
-      <div class="field-group hidden" id="create-from-to-group">
-        <label class="required">From - To</label>
-        <input type="text" id="create-from-to" name="from-to" placeholder="e.g. 2019-2022">
       </div>
 
       <div class="field-group">
@@ -80,6 +75,7 @@
             <img id="createImagePreviewImg"
                 src=""
                 alt="Person image preview">
+            <span class="edit-image-placeholder" id="createImagePlaceholder">No image selected</span>
           </div>
           <div>
             <button type="button" class="btn btn-blue edit-image-button" onclick="document.getElementById('createImageFile').click()">
@@ -126,7 +122,7 @@
         </div>
       </fieldset>
 
-      <button type="button" id="pubBtn" class="btn btn-blue" onclick="submitPeople()">Confirm</button>
+      <button type="button" id="pubBtn" class="btn btn-blue" onclick="submitPerson()">Confirm</button>
 
     </form>
 

@@ -19,19 +19,24 @@ document.addEventListener('DOMContentLoaded', function () {
   initToolbar('createEditorToolbar', 'create-description-editor');
   initToolbar('createGenEditorToolbar', 'create-gen-description-editor');
 
-  document.getElementById('dateField').value = new Date().toISOString().split('T')[0];
+  const dateField = document.getElementById('dateField');
+  if (dateField) dateField.value = new Date().toISOString().split('T')[0];
+
+  // Only run the news init on pages that actually have the news form.
+  if (!document.getElementById('newsForm')) return;
 
   // Explicitly initialize the custom flag before toggleFields runs
   const createImageHidden = document.getElementById('create-image');
-  createImageHidden.dataset.custom = 'false';
+  if (createImageHidden) createImageHidden.dataset.custom = 'false';
 
   loadNewsData();
   toggleFields();
 
-  document.getElementById('editImageFile')
-    .addEventListener('change', handleEditImageFileChange);
-  document.getElementById('createImageFile')
-    .addEventListener('change', handleCreateImageFileChange);
+  const editImageFile = document.getElementById('editImageFile');
+  if (editImageFile) editImageFile.addEventListener('change', handleEditImageFileChange);
+
+  const createImageFile = document.getElementById('createImageFile');
+  if (createImageFile) createImageFile.addEventListener('change', handleCreateImageFileChange);
 });
 
 // ─── News data loading ────────────────────────────────────────────────────────

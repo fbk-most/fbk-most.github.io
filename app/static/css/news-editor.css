@@ -254,6 +254,28 @@
   color: var(--color-orange);
 }
 
+#newsForm fieldset.field-group,
+#peopleForm fieldset.field-group,
+#editForm fieldset.field-group {
+  padding: 1rem 1.25rem;
+  border: 1px solid rgba(0, 87, 183, 0.18);
+  border-radius: var(--radius-sm);
+  background: rgba(240, 248, 255, 0.75);
+  margin-top: 1rem;
+}
+
+#newsForm fieldset.field-group legend,
+#peopleForm fieldset.field-group legend,
+#editForm fieldset.field-group legend {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-main-header);
+  padding: 0 0.4rem;
+}
+
 /* ── Inputs, selects, textareas ── */
 .field-group input[type="text"],
 .field-group input[type="date"],

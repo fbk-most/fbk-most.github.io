@@ -11,6 +11,65 @@ let peopleData = { current: [], visitor: [], alumni: [] };
 let currentEditCategory = 'current';
 let currentPeopleEditIndex = -1;
 
+// ─── Image upload ─────────────────────────────────────────────────────────────
+
+// A few common letters don't decompose into base+accent via NFD (e.g. Polish
+// "Ł" or Danish "Ø" are their own codepoints), so they'd otherwise be dropped
+// entirely instead of degrading to a sensible ASCII letter.
+const NON_DECOMPOSING_TRANSLIT = {
+  'ł': 'l', 'Ł': 'L',
+  'đ': 'd', 'Đ': 'D',
+  'ø': 'o', 'Ø': 'O',
+  'ß': 'ss',
+  'æ': 'ae', 'Æ': 'AE',
+  'œ': 'oe', 'Œ': 'OE',
+};
+
+// Turns "Jäne  O'Brien" into "jane-obrien": strips accents, lowercases,
+// replaces anything that isn't a-z/0-9 with a hyphen, and collapses repeats.
+function normalizeImageFilename(name, surname) {
+  const combined = `${name || ''}-${surname || ''}`
+    .split('')
+    .map(char => NON_DECOMPOSING_TRANSLIT[char] || char)
+    .join('');
+
+  const raw = combined
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, ''); // strip remaining accents/diacritics
+
+  return raw
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+// If `imageValue` is a freshly-uploaded data: URI, uploads it to the server
+// under a name-surname-based filename and returns the resulting static path.
+// If it's already a path (unchanged existing image), returns it unchanged.
+async function persistPersonImage(imageValue, name, surname) {
+  if (!imageValue || !imageValue.startsWith('data:')) {
+    return imageValue || '';
+  }
+
+  const filename = normalizeImageFilename(name, surname);
+  if (!filename) {
+    throw new Error('Cannot save image: name and surname are required first.');
+  }
+
+  const response = await fetch('/api/upload-people-image', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ filename, data: imageValue }),
+  });
+
+  const result = await response.json();
+  if (!response.ok || result.error) {
+    throw new Error(result.error || 'Image upload failed.');
+  }
+
+  return result.path;
+}
+
 // ─── Init ─────────────────────────────────────────────────────────────────────
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -29,14 +88,14 @@ document.addEventListener('DOMContentLoaded', function () {
   const editImageFile = document.getElementById('editImageFile');
   if (editImageFile) editImageFile.addEventListener('change', handleEditImageFileChange);
 
-  if (document.getElementById('newsForm')) togglePeopleFields();
+  if (document.getElementById('peopleForm')) togglePeopleFields();
 });
 
 // ─── People data loading ──────────────────────────────────────────────────────
 
 async function loadPeopleData() {
   try {
-    const response = await fetch('/static/data/people.json');
+    const response = await fetch(`/static/data/people.json?t=${Date.now()}`);
     const data = await response.json();
     peopleData = {
       current: data.current || [],
@@ -52,6 +111,15 @@ async function loadPeopleData() {
 function personLabel(person) {
   const name = `${person.name || ''} ${person.surname || ''}`.trim();
   return name || '(unnamed)';
+}
+
+function onCategoryChange() {
+  currentEditCategory = document.getElementById('category-select').value;
+  populatePersonSelect();
+
+  const editForm = document.getElementById('editForm');
+  if (editForm) editForm.classList.add('hidden');
+  currentPeopleEditIndex = -1;
 }
 
 function populatePersonSelect() {
@@ -73,13 +141,6 @@ function populatePersonSelect() {
 
 // ─── Edit tab ─────────────────────────────────────────────────────────────────
 
-function onCategoryChange() {
-  document.getElementById('editForm').classList.add('hidden');
-  document.getElementById('person-select').value = '';
-  currentPeopleEditIndex = -1;
-  populatePersonSelect();
-}
-
 function loadPersonForEdit() {
   const categorySelect = document.getElementById('category-select');
   const category = categorySelect ? categorySelect.value : 'current';
@@ -97,22 +158,19 @@ function loadPersonForEdit() {
   currentPeopleEditIndex = index;
   const person = list[index];
 
-  document.getElementById('edit-name').value            = person.name     || '';
-  document.getElementById('edit-surname').value          = person.surname  || '';
-  document.getElementById('edit-position').value         = person.position || '';
-  document.getElementById('edit-order').value            = person.order    ?? '';
-  document.getElementById('edit-from-to').value          = person['from-to'] || '';
-  document.getElementById('edit-bio-editor').innerHTML   = person.bio      || '';
+  document.getElementById('edit-name').value          = person.name     || '';
+  document.getElementById('edit-surname').value        = person.surname  || '';
+  document.getElementById('edit-position').value       = person.position || '';
+  document.getElementById('edit-order').value           = person.order    ?? '';
+  document.getElementById('edit-category').value       = category;               // sync the edit-category dropdown
+  document.getElementById('edit-bio-editor').innerHTML = person.bio      || '';
 
   SOCIAL_FIELDS.forEach(field => {
     const input = document.getElementById(`edit-${field}`);
     if (input) input.value = person[field] || '';
   });
 
-  document.getElementById('edit-from-to-group').classList.toggle('hidden', category !== 'alumni');
-
   setEditImagePreview(person.image || '');
-
   document.getElementById('editForm').classList.remove('hidden');
 }
 
@@ -130,6 +188,10 @@ function handleEditImageFileChange(e) {
 }
 
 function buildPersonFromForm(prefix, category) {
+  const orderEl = prefix === 'edit'
+    ? document.getElementById('edit-order')
+    : document.getElementById('order');
+
   const person = {
     name:     document.getElementById(`${prefix}-name`).value,
     surname:  document.getElementById(`${prefix}-surname`).value,
@@ -143,13 +205,8 @@ function buildPersonFromForm(prefix, category) {
     if (value) person[field] = value;
   });
 
-  const orderValue = document.getElementById(`${prefix}-order`).value;
+  const orderValue = orderEl ? orderEl.value : '';
   person.order = orderValue !== '' ? orderValue : '';
-
-  if (category === 'alumni') {
-    const fromTo = document.getElementById(`${prefix}-from-to`);
-    person['from-to'] = fromTo ? fromTo.value : '';
-  }
 
   return person;
 }
@@ -158,10 +215,29 @@ async function savePerson() {
   syncEditor('edit-bio-editor', 'edit-bio');
   if (currentPeopleEditIndex < 0) return;
 
-  const person = buildPersonFromForm('edit', currentEditCategory);
+  const newCategory = document.getElementById('edit-category').value;  // Fix 3
+  const person = buildPersonFromForm('edit', newCategory);
   person.bio = document.getElementById('edit-bio').value;
 
-  peopleData[currentEditCategory][currentPeopleEditIndex] = person;
+  if (!person.name || !person.surname || !person.position || !person.bio || !person.image) {
+    alert('Name, surname, position, bio and image are required.');
+    return;
+  }
+
+  try {
+    person.image = await persistPersonImage(person.image, person.name, person.surname);
+  } catch (error) {
+    console.error('Error uploading image:', error);
+    alert(error.message || 'Error uploading image.');
+    return;
+  }
+
+  if (newCategory !== currentEditCategory) {
+    peopleData[currentEditCategory].splice(currentPeopleEditIndex, 1);
+    peopleData[newCategory].push(person);
+  } else {
+    peopleData[currentEditCategory][currentPeopleEditIndex] = person;
+  }
 
   try {
     const response = await fetch('/api/update-people', {
@@ -171,8 +247,15 @@ async function savePerson() {
     });
     if (response.ok) {
       alert('Person updated successfully!');
+      currentEditCategory = newCategory;  // Fix 3: keep state in sync
+
+      const categorySelect = document.getElementById('category-select');
+      if (categorySelect) categorySelect.value = newCategory;
+
       await loadPeopleData();
       populatePersonSelect();
+      document.getElementById('editForm').classList.add('hidden');
+      document.getElementById('person-select').value = '';
     } else {
       alert('Error updating person.');
     }
@@ -213,12 +296,6 @@ async function deletePerson() {
 // ─── Create tab ───────────────────────────────────────────────────────────────
 
 function togglePeopleFields() {
-  const categorySelect = document.getElementById('create-category');
-  const category = categorySelect ? categorySelect.value : 'current';
-
-  const fromToGroup = document.getElementById('create-from-to-group');
-  if (fromToGroup) fromToGroup.classList.toggle('hidden', category !== 'alumni');
-
   updatePeopleDefaultImagePreview();
 }
 
@@ -241,7 +318,8 @@ function handlePeopleCreateImageFileChange(e) {
     img.style.display     = 'block';
     hidden.value          = reader.result;
     hidden.dataset.custom = 'true';
-    document.getElementById('clearImageBtn').style.display = '';
+    const clearBtn = document.getElementById('clearImageBtn');
+    if (clearBtn) clearBtn.style.display = '';
   };
   reader.readAsDataURL(file);
 }
@@ -253,8 +331,16 @@ async function submitPerson() {
   const person   = buildPersonFromForm('create', category);
   person.bio     = document.getElementById('create-gen-description').value;
 
-  if (!person.name || !person.surname || !person.position || !person.bio) {
-    alert('Name, surname, position and bio are required.');
+  if (!person.name || !person.surname || !person.position || !person.bio || !person.image) {
+    alert('Name, surname, position, bio and image are required.');
+    return;
+  }
+
+  try {
+    person.image = await persistPersonImage(person.image, person.name, person.surname);
+  } catch (error) {
+    console.error('Error uploading image:', error);
+    alert(error.message || 'Error uploading image.');
     return;
   }
 
@@ -276,11 +362,12 @@ async function submitPerson() {
       alert('Person published successfully!');
       // Reload people data and reset the form
       await loadPeopleData();
-      document.getElementById('newsForm').reset();
+      document.getElementById('peopleForm').reset();
       document.getElementById('create-gen-description-editor').innerHTML = '';
       document.getElementById('create-image').dataset.custom = 'false';
-      document.getElementById('clearImageBtn').style.display = 'none';
-      togglePeopleFields(); // resets image preview to default
+      const clearBtn = document.getElementById('clearImageBtn');
+      if (clearBtn) clearBtn.style.display = 'none';
+      togglePeopleFields(); // resets image preview
     } else {
       alert('Error publishing person.');
     }

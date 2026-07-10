@@ -28,6 +28,16 @@
     </div>
 
     <form id="editForm" class="hidden">
+
+    <div class="field-group">
+      <label for="edit-category">Change category</label>
+      <select id="edit-category">
+        <option value="current">Current Members</option>
+        <option value="visitor">Visitors</option>
+        <option value="alumni">Alumni</option>
+      </select>
+    </div>
+
       <div class="field-group">
         <label class="required">Name</label>
         <input type="text" id="edit-name" name="name" required>
@@ -44,13 +54,14 @@
       </div>
 
       <div class="field-group">
-        <label>Order</label>
-        <input type="number" id="edit-order" name="order">
-      </div>
-
-      <div class="field-group hidden" id="edit-from-to-group">
-        <label>From - To</label>
-        <input type="text" id="edit-from-to" name="from-to" placeholder="e.g. 2019-2022">
+        <label class="required">Role</label>
+        <select id="edit-order" name="order">
+          <option value="1">Head of Unit</option>
+          <option value="2">Senior member (after PhD)</option>
+          <option value="3">PhD student</option>
+          <option value="4">Junior researcher (before PhD)</option>
+          <option value="5">Intern</option>         
+        </select>
       </div>
 
       <div class="field-group">
