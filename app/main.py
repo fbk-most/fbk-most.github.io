@@ -1,16 +1,65 @@
-from fastapi import FastAPI, HTTPException, Request, Query
+from dotenv import load_dotenv
+from fastapi import FastAPI, HTTPException, Request, Query, Depends
+from fastapi.security import HTTPBasic, HTTPBasicCredentials
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 import json
 import base64
+import os
 import re
+import secrets
 from pathlib import Path
 from datetime import datetime, timedelta
+
+# Load environment variables from the project .env file if present
+env_path = Path(__file__).resolve().parent.parent / ".env"
+if env_path.exists():
+    load_dotenv(env_path, override=False)
+else:
+    load_dotenv(override=False)
 
 app = FastAPI()
 
 app.mount("/static", StaticFiles(directory="app/static"), name="static")
 templates = Jinja2Templates(directory="app/templates")
+
+# --- Admin authentication (HTTP Basic) -------------------------------------
+# Credentials are read from environment variables so they never need to be
+# committed to the repo. Set ADMIN_USERNAME / ADMIN_PASSWORD wherever the
+# app is deployed (e.g. in a .env file loaded by docker-compose, or in your
+# hosting provider's environment settings). See .env.example.
+
+security = HTTPBasic()
+
+ADMIN_USERNAME = os.environ.get("ADMIN_USERNAME", "admin")
+ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD", "changeme")
+
+if ADMIN_PASSWORD == "changeme":
+    print(
+        "WARNING: ADMIN_PASSWORD is not set - using the insecure default. "
+        "Set ADMIN_USERNAME and ADMIN_PASSWORD environment variables before "
+        "deploying to production."
+    )
+
+
+def verify_admin(credentials: HTTPBasicCredentials = Depends(security)):
+    """Dependency that protects the admin-only pages/endpoints.
+
+    Uses secrets.compare_digest to avoid leaking timing information, and
+    returns a 401 with a WWW-Authenticate header so browsers show their
+    native login prompt.
+    """
+    is_correct_username = secrets.compare_digest(credentials.username, ADMIN_USERNAME)
+    is_correct_password = secrets.compare_digest(credentials.password, ADMIN_PASSWORD)
+
+    if not (is_correct_username and is_correct_password):
+        raise HTTPException(
+            status_code=401,
+            detail="Incorrect username or password",
+            headers={"WWW-Authenticate": "Basic"},
+        )
+    return credentials.username
+
 
 PEOPLE_IMAGES_DIR = Path("app/static/images/people")
 NEWS_IMAGES_DIR = Path("app/static/images/news")
@@ -255,14 +304,14 @@ async def digital_urban_futures_archive(request: Request):
 
 
 @app.get("/news-editor")
-async def news_editor(request: Request):
+async def news_editor(request: Request, admin: str = Depends(verify_admin)):
     return templates.TemplateResponse(
         request, "news_editor.html", {"current_page": "news_editor"}
     )
 
 
 @app.post("/api/update-news")
-async def update_news(request: Request):
+async def update_news(request: Request, admin: str = Depends(verify_admin)):
     try:
         data = await request.json()
         news_data = data.get("newsData", [])
@@ -282,14 +331,14 @@ async def update_news(request: Request):
 
 
 @app.get("/people-editor")
-async def news_editor(request: Request):
+async def people_editor(request: Request, admin: str = Depends(verify_admin)):
     return templates.TemplateResponse(
         request, "people_editor.html", {"current_page": "people_editor"}
     )
 
 
 @app.post("/api/upload-news-image")
-async def upload_news_image(request: Request):
+async def upload_news_image(request: Request, admin: str = Depends(verify_admin)):
     try:
         data = await request.json()
 
@@ -330,14 +379,14 @@ async def upload_news_image(request: Request):
 
 
 @app.get("/people-adder")
-async def news_editor(request: Request):
+async def people_adder(request: Request, admin: str = Depends(verify_admin)):
     return templates.TemplateResponse(
         request, "people_adder.html", {"current_page": "people_adder"}
     )
 
 
 @app.post("/api/upload-people-image")
-async def upload_people_image(request: Request):
+async def upload_people_image(request: Request, admin: str = Depends(verify_admin)):
     try:
         data = await request.json()
         filename = data.get("filename", "")
@@ -370,7 +419,7 @@ async def upload_people_image(request: Request):
 
 
 @app.post("/api/update-people")
-async def update_people(request: Request):
+async def update_people(request: Request, admin: str = Depends(verify_admin)):
     try:
         data = await request.json()
 

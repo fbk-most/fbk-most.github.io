@@ -74,14 +74,9 @@ contains automatic checks to ensure that the changes, once deployed, would not
 break the website. Once the pull request has been merged the website will be
 automatically deployed and updated.
 
-### Adding a New Team Member
+### Adding a New Team Member, News and Events
 
-TODO
-
-### Adding News and Events
-
-News, events are seminars are handled via Google Sheets, which are in visualization-only mode inside MoST Drive Folder.
-Events might also be present in MoST Google Calendar.
+Ask administrators for instructions.
 
 ### Adding Seminars
 

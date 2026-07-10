@@ -4,6 +4,7 @@
 .DS_Store
 .venv/
 secrets.txt
+.env
 _old
 *.pyc
 *.xfc
