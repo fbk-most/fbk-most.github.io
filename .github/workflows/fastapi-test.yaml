@@ -1,0 +1,27 @@
+# This workflow builds the website using the actions that GitHub
+# would use to deploy, so we can check for errors inside PRs.
+name: Test FastAPI Build
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"  # or your version
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Check application imports
+        run: |
+          python -c "import main"

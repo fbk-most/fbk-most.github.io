@@ -29,7 +29,6 @@ jobs:
 
       - name: Download Google Sheet CSV
         env:
-          LINK_NEWS: ${{ secrets.LINK_NEWS }}
           LINK_SEMINARS: ${{ secrets.LINK_SEMINARS }}
         run: python scripts/download_csvs.py
 
