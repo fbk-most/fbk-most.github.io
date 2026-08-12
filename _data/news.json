@@ -4,7 +4,7 @@
     "DATE": "2025-03-25",
     "DESCRIPTION": "This is the beginning of our online presence. We're building a new website describing our research unit and its activities! We will use this first blog post to understand how to use the <a href=\\\"https://jekyllrb.com/\\\">Jekyll</a> static site generator and customize it to our publishing needs. We will therefore frequently change the content of this blog post to reflect our progress in setting up the website and to experiment with different features.",
     "Link": "",
-    "Image": "",
+    "Image": "/assets/images/news/Keyboard_Franceschini_cropped.webp",
     "Priority": 8
   },
   {
@@ -28,7 +28,7 @@
     "DATE": "2025-11-17",
     "DESCRIPTION": "Today in Barcelona we are kicking-off the HARMONIE project!<br>Coordinated by the Barcelona Supercomputing Center (BSC), the HARMONIE project aims to develop advanced tools that support informed policymaking cncerning urban air and noise pollution - a challenge for many European cities. The kick-off of the project took place today in Barcelona.",
     "Link": "",
-    "Image": "https://magazine.fbk.eu/wp-content/uploads/2025/11/Bronquios__Progetto-Harmonie-1600x880.png",
+    "Image": "assets/images/news/harmonie.webp",
     "Priority": 10
   },
   {
@@ -36,7 +36,7 @@
     "DATE": "2026-01-12",
     "DESCRIPTION": "Ambra Vanella joins the MoST research unit as an intern, where she will contribute to research on stakeholder engagement in the design of Civic Digital Twins. Her work will focus on co-design processes, gamification strategies, and qualitative and quantitative data analysis to support participatory approaches and territorial decision-making.",
     "Link": "",
-    "Image": "/assets/images/news/new_member.webp",
+    "Image": "/assets/images/people/ambra-vanella.jpeg",
     "Priority": 8
   },
   {
@@ -52,7 +52,7 @@
     "DATE": "2026-02-03",
     "DESCRIPTION": "<p>The new version of our framework is out. Here is the list of key changes:</p><ul>  <li>engine-redesign</li>  <li>added support for time series</li>  <li>standardizes models, ensembles and evaluations</li></ul><p>This new version is also a good starting point for future extensions that are already under development. Stay tuned!</p>",
     "Link": "https://github.com/fbk-most/civic-digital-twins",
-    "Image": "/assets/images/news/Keyboard_Franceschini_cropped.webp",
+    "Image": "/assets/images/news/CDT.png",
     "Priority": 6
   },
   {
@@ -68,7 +68,7 @@
     "DATE": "2026-04-12",
     "DESCRIPTION": "<p>We are pleased to announce that our team has been accepted to present our work at the <strong>SIS-FENStatS 2026 Conference</strong> at Sapienza University in <strong>Rome</strong> (June 22-25).</p><p>Our contribution, <strong>\"Differentiated Imputation of Sporadic and Clustered Missing Values in Traffic Time Series\"</strong>, introduces a novel methodology that distinguishes between isolated and clustered missing data in time series and implements novel imputation techniques tailored for these missing data type.Validated on real traffic data, our approach applies tailored imputation strategies, improving accuracy over standard techniques and offering a scalable solution for traffic data analysis.</p>",
     "Link": "https://sis2026.sis-statistica.it/",
-    "Image": "/assets/images/news/SIS-FENStatS-2026.png",
+    "Image": "/assets/images/news/SIS-FENStatS-2026.webp",
     "Priority": 10
   },
   {
@@ -76,7 +76,7 @@
     "DATE": "2026-04-20",
     "DESCRIPTION": "<p>We are offering <strong>two fully funded PhD positions</strong> within our research group:</p><ul>    <li>        <strong>C5 - Modeling and Simulation of Urban Digital Twins</strong><br>        Application deadline: <strong>15 May 2026</strong>    </li>    <li>        <strong>Cognitive and Motivational Mechanisms for Active Citizen Engagement in Urban Digital Twins</strong><br>        Application deadline: <strong>21 May 2026</strong>    </li></ul><p>    Both positions are hosted directly within our research group, ensuring that PhD candidates are     fully integrated into a collaborative environment and actively involved in daily research activities.</p><p>    For more details, please refer to the link below.</p>",
     "Link": "https://most.fbk.eu/phd",
-    "Image": "/assets/images/news/phD.webp",
+    "Image": "/assets/images/news/phd.png",
     "Priority": 1
   },
   {
@@ -84,7 +84,7 @@
     "DATE": "2026-04-21",
     "DESCRIPTION": "<p>We are offering curricular internship opportunities for motivated students eager to work on cutting-edge urban research projects.</p><p>Example topics include:<ul><li><b>Urban mobility modeling and analysis:</b> explore traffic patterns using data-driven models</li><li><b>Urban environment characterization and analysis:</b> analyze cities through geospatial and network data</li>Additional topics can be discussed based on the candidate's interests and alignment with the group's research activities.</ul></p><p>These internships provide hands-on research experience, collaboration with interdisciplinary teams, and opportunities to contribute to scientific publications. For more details, please refer to the link below.</p>",
     "Link": "https://most.fbk.eu/internships/",
-    "Image": "/assets/images/news/FBK_Povo_Building_Baroni_6_cropped.webp",
+    "Image": "/assets/images/news/internship.png",
     "Priority": 10
   },
   {
@@ -92,7 +92,7 @@
     "DATE": "2026-05-04",
     "DESCRIPTION": "<p>v0.9.0 brings typed, named axes to the Civic-Digital-Twins framework, making it easier than ever to build and evaluate flexible digital twin models across any combination of scenarios, parameters, and uncertainty dimensions.</p>",
     "Link": "https://github.com/fbk-most/civic-digital-twins",
-    "Image": "/assets/images/news/Keyboard_Franceschini_cropped.webp",
+    "Image": "/assets/images/news/CDT.png",
     "Priority": 5
   },
   {
@@ -100,7 +100,7 @@
     "DATE": "2026-04-22",
     "DESCRIPTION": "<p>As <b>MoST</b>, we are proud to participate in the workshop focused on AI compliance and reliability organized by Digital Society Center at Fondazione Bruno Kessler.</p><p>The rapid expansion of artificial intelligence brings a critical challenge to the forefront: <b>How do we guarantee that AI systems are reliable, and fully aligned with legal standards</b>?Today, compliance is far more than a regulatory obligation-it is a fundamental pillar for ensuring that innovation is both high-quality and sustainable.</p>",
     "Link": "https://magazine.fbk.eu/it/news/fbk-e-la-grande-sfida-della-compliance-nellia/",
-    "Image": "/assets/images/news/MOsT_compliance_workshop.png",
+    "Image": "/assets/images/news/MOsT_compliance_workshop_cropped.png",
     "Priority": 10
   },
   {
@@ -108,7 +108,7 @@
     "DATE": "2026-05-13",
     "DESCRIPTION": "<p>Our research unit participated in the workshop <b>\"Futuri Digitali Urbani 2026\"</b> held at Politecnico di Milano on May 12-13, 2026, co-organized by Luca Gaeta, Carolina Pacchi, Otello Palmini, and Marco Pistore.</p> <p>The two-day event explored <b>how digital technologies are transforming urban spaces</b>, bringing together experts from philosophy, urban planning, sociology, design, and computer science.</p> <p> During the workshop, Marco Pistore chaired the third session on \"Perceptions of the Cybernetic City\", and Maryam Sajedinia presented her doctoral research on measured and lived city perspectives at the poster session.</p>",
     "Link": "https://most.fbk.eu/digital_urban_futures/programma_2026/",
-    "Image": "/assets/images/news/FUD.webp",
+    "Image": "/assets/images/news/FUD.jpeg",
     "Priority": 10
   },
   {
@@ -132,7 +132,7 @@
     "DATE": "2026-06-10",
     "DESCRIPTION": "<p>MoST joined the Digital Society center at FBK to present four of our recently started projects advancing Digital Twin technology&mdash;with our distinctive focus on social dynamics and participatory science.</p><p>Our team and collaborators unveiled:</p><ul><li><strong>TERRAE</strong> &mdash; Digital Twins-Enabled Rural Resilience in Agriculture and Forestry</li><li><strong>HARMONIE</strong> &mdash; Health Assessment Refinement for Mitigating Noise and Air Quality Effects</li><li><strong>AIxPA 2026</strong> &mdash; Artificial Intelligence for Public Administrations</li><li><strong>ECHO TWIN</strong> &mdash; Edge-Cloud-HPC Optimized Twins Based on Workflow-Enhanced Inference Networks</li></ul><p>These initiatives explore how digital technologies can address real-world challenges&mdash;from rural sustainability to air quality monitoring to public sector innovation. The common thread? Bridging computational sophistication with practical, human-centered outcomes.</p><p>We're genuinely excited about what lies ahead and look forward to sharing progress with you!</p>",
     "Link": "",
-    "Image": "/assets/images/news/DIGIS_project_presentations.png",
+    "Image": "/assets/images/news/DIGISprojectpresentation.webp",
     "Priority": 10
   },
   {
@@ -140,7 +140,7 @@
     "DATE": "2026-06-22",
     "DESCRIPTION": "<p>Traffic sensors generate a continuous stream of data that cities rely on for monitoring and planning &mdash; but sensor failures and maintenance windows regularly break that stream, leaving missing values that can bias analyses and undermine downstream models.<br /><br />Arianna Burzacchi from the MoST Unit at Fondazione Bruno Kessler presented a new approach to this problem at <strong>SIS-FENStatS 2026</strong>, held at Sapienza University of Rome (June 22&ndash;25, 2026). The key idea: not all missing values are the same, and treating them differently makes a real difference.<br /><br />The work by Marko P'yeshchyk, Arianna Burzacchi, and Marco Pistore is available as a conference paper, alongside an open-source implementation at <a href=\"https://github.com/fbk-most/ts-missing-values\" target=\"_blank\" rel=\"noopener nofollow noreferrer\">github.com/fbk-most/ts-missing-values</a>.</p>",
     "Link": "",
-    "Image": "/assets/images/news/sapienza.png",
+    "Image": "/assets/images/news/SIS.webp",
     "Priority": 10
   },
   {
@@ -148,7 +148,15 @@
     "DATE": "2026-06-22",
     "DESCRIPTION": "<p>A new declarative API lets you define a complete model with typed inputs, outputs, and computation logic in a few lines.<br /><br />This release also introduces:</p><ul><li>Typed model contracts (@inputs, @outputs, @functions)</li><li>Scenario-based what-if analysis</li><li>Automated exploration of thousands of parameter combinations</li><li>Incremental and resumable evaluations</li><li>Faster execution of large models with multiple decision paths</li><li>A cleaner separation between model definition and evaluation<br /><br />The goal is simple: spend less time on framework boilerplate and more time building models.</li></ul>",
     "Link": "https://github.com/fbk-most/civic-digital-twins",
-    "Image": "/assets/images/news/Keyboard_Franceschini_cropped.webp",
+    "Image": "/assets/images/news/CDT.png",
+    "Priority": 10
+  },
+  {
+    "TITLE": "PhD Opportunities - Join Our Research Group!",
+    "DATE": "2026-08-12",
+    "DESCRIPTION": "\"<p>We are offering <strong>two fully funded PhD positions</strong> within our research group: <strong>C4 - Modeling and Simulation of Urban Digital Twins</strong></p><p> The position is hosted directly within our research group, ensuring that PhD candidate is fully integrated into a collaborative environment and actively involved in daily research activities.</p><p>Application deadline: <strong>27 August 2026</strong></p><p>For more details, please refer to the link below.</p>\"",
+    "Link": "https://most.fbk.eu/phd",
+    "Image": "/assets/images/news/phd.png",
     "Priority": 10
   }
 ]

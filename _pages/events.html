@@ -2,20 +2,13 @@
 layout: base
 title: News and Events
 permalink: /events/
+current_page: events
 ---
 
-<!-- ===== BANNER SECTION ===== -->
-<section class="most-section most-section--banner">
-  <h1>News and Events</h1>
-</section>
+<section class="content" id="news">
+  <h2>News</h2>
 
-<!-- ===== NEWS ===== -->
-<section id="news" class="most-section most-section--white">
-
-  <h2 class="most-section__title">News</h2>
-
-  <!-- === Recent news (last 3 months) === -->
-  <div class="most-section__content">
+  <div class="most-section">
     {% assign all_news = site.data.news %}
     {% assign today = 'now' | date: "%s" | plus: 0 %}
     {% assign three_months_ago = today | minus: 7776000 %}
@@ -36,71 +29,71 @@ permalink: /events/
     {% assign older_news = older_news | sort: "DATE" | reverse %}
 
     {% for post in recent_news %}
-      <div class="most-section__block" style="background-color: rgba(0, 85, 184, 0.15);">
-        <h3>{{ post.DATE | date: "%d-%m-%Y" }} - {{ post.TITLE }}</h3>
-        <p>{{ post.DESCRIPTION }}</p>
-        {% assign link = post.Link | default: "" | strip %}
-        {% if link != "" %}
-          <p><a href="{{ link }}" target="_blank">Link</a></p>
-        {% endif %}
+      <div class="most-section__block_small block_colored smaller-p news-card">
+        <div class="news-card__header">
+          {% if post.Image and post.Image != "" %}
+            <div class="news-card__media">
+              <img class="news-card__heximage" src="{{ post.Image | relative_url }}" alt="{{ post.TITLE }}">
+            </div>
+          {% endif %}
+          <h4 class="news-card__title">{{ post.DATE | date: "%d-%m-%Y" }} - {{ post.TITLE }}</h4>
+        </div>
+        <div class="news-card__body">
+          <p>{{ post.DESCRIPTION }}</p>
+          {% assign link = post.Link | default: "" | strip %}
+          {% if link != "" %}
+            <a href="{{ link }}" target="_blank">Link</a>
+          {% endif %}
+        </div>
       </div>
     {% endfor %}
   </div>
 
   <!-- === Past news (older than 3 months) === -->
   <button class="past-news-toggle">Past news ▼</button>
-  <div class="most-section__content">
-    <div class="past-news-list" style="display:none; margin-top:1rem;">
-      {% for post in older_news %}
-        <div class="most-section__block">
-          <h3>{{ post.DATE | date: "%d-%m-%Y" }} - {{ post.TITLE }}</h3>
-        </div>
-      {% endfor %}
-    </div>
+  <div class="past-news-list hidden">
+    {% for post in older_news %}
+      <p class="past-news-list-item">{{ post.DATE | date: "%d-%m-%Y" }} - {{ post.TITLE }}</p>
+    {% endfor %}
   </div>
 </section>
 
-
-<!-- ===== EVENTS ===== -->
-<section id="events" class="most-section most-section--blue">
-
-  <h2 class="most-section__title">Events</h2>
-  <div class="calendar-container reveal">
+<section class="content" id="events">
+  <h2>Events</h2>
+  <div class="calendar-container">
     <iframe src="https://calendar.google.com/calendar/embed?src=341a597c57a54f7bd0f11bb2da6fa9f5140a9cb1e75c4d24bd662b7968614789%40group.calendar.google.com&ctz=Europe%2FRome"></iframe>
   </div>
-
 </section>
 
-<!-- ===== SEMINARS ===== -->
-<section id="seminars" class="most-section most-section--white">
-  <h2 class="most-section__title">Seminars</h2>
+<section class="content" id="seminars">
+  <h2>Seminars</h2>
 
-  <p class="news-p reveal">Our group believes that knowledge is best shared. That's why we organize weekly seminars.<br>
+  <p>Our group believes that knowledge is best shared. That's why we organize weekly seminars.<br>
     Below is a list of public seminars, and in the <b>calendar</b> above, you can find links to attend upcoming events.
   </p>
-  
+
   <div class="table-container">
-  <table id="seminars-table" class="reveal">
-    <thead>
-      <tr>
-        <th>Date</th>
-        <th>Title</th>
-        <th>Speaker</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% assign seminars = site.data.seminars | sort: "Date" | reverse %}
-      {% for seminar in seminars %}
-      <tr>
-        <td>{{ seminar.Date | date: "%d-%m-%Y" }}</td>
-        <td>{{ seminar.Title }}</td>
-        <td>{{ seminar.Speaker }}</td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+    <table id="seminars-table">
+      <thead>
+        <tr>
+          <th class="col-center">Date</th>
+          <th class="col-center">Title</th>
+          <th class="col-center">Speaker</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% assign seminars = site.data.seminars | sort: "Date" | reverse %}
+        {% for seminar in seminars %}
+        <tr>
+          <td class="col-center">{{ seminar.Date | date: "%d-%m-%Y" }}</td>
+          <td>{{ seminar.Title }}</td>
+          <td>{{ seminar.Speaker }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
   <div id="seminars-pagination" class="pagination"></div>
-</div>
 </section>
 
 <script>
@@ -135,23 +128,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
     pagination.innerHTML = "";
 
-    // Previous button
     if (currentPage > 1) {
-      const prev = document.createElement("button");
-      prev.textContent = "← Previous";
-      prev.onclick = () => showPage(currentPage - 1);
+      const prev = document.createElement("a");
+      prev.textContent = "Previous";
+      prev.href = "#";
+      prev.className = "page-link";
+      prev.onclick = (e) => { e.preventDefault(); showPage(currentPage - 1); };
       pagination.appendChild(prev);
     }
 
-    const info = document.createElement("span");
-    info.textContent = ` Page ${currentPage} / ${totalPages} `;
-    pagination.appendChild(info);
+    for (let p = 1; p <= totalPages; p++) {
+      const link = document.createElement("a");
+      link.textContent = p;
+      link.href = "#";
+      link.className = "page-link" + (p === currentPage ? " active" : "");
+      link.onclick = (e) => { e.preventDefault(); showPage(p); };
+      pagination.appendChild(link);
+    }
 
-    // Next button
     if (currentPage < totalPages) {
-      const next = document.createElement("button");
-      next.textContent = "Next →";
-      next.onclick = () => showPage(currentPage + 1);
+      const next = document.createElement("a");
+      next.textContent = "Next";
+      next.href = "#";
+      next.className = "page-link";
+      next.onclick = (e) => { e.preventDefault(); showPage(currentPage + 1); };
       pagination.appendChild(next);
     }
   }

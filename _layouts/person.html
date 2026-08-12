@@ -2,13 +2,14 @@
 layout: base
 title: AAA
 permalink: /people/:name/
+current_page: people
 ---
 
-<section class="most-section most-section--force-white">
+<section class="content">
   <div class="most-person__page-content">
     <img class="most-person__imagehex most-person__imagehex--lg" src="{{ page.image | relative_url }}" alt="{{ page.name }}" />
 
-    <h1 class="most-person__page-text ">{{ page.name }}</h1>
+    <h2 class="most-person__page-text ">{{ page.name }}</h2>
     <div class="text-muted mb-3">{{ page.position }}</div>
 
     <div class="most-person__social mb-3">

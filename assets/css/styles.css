@@ -1,0 +1,560 @@
+/* =========================================
+   CUSTOM PROPERTIES
+   ========================================= */
+
+:root {
+  --fbk-blue: #0057B7;
+  --fbk-dark-blue: #2e4083;
+  --fbk-gray: #97999b;
+  --text-dark: #2b2b2b;
+
+  --color-main-header: #183b59;
+  --color-main-background: #ecf0f5;
+  --color-main-foreground: rgba(0, 0, 0, 0.5);
+  --color-violet: #8e6ecf;
+  --color-fuchsia: #db509f;
+  --color-aqua: #7ac8cc;
+  --color-orange: #e8533b;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.07);
+  --transition: 0.2s ease;
+}
+
+/* =========================================
+   RESET & BASE
+   ========================================= */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  scroll-padding-top: var(--header-height, 125px);
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: var(--color-main-background);
+  color: var(--text-dark);
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* =========================================
+   PARALLAX BACKGROUND
+   ========================================= */
+
+.parallax {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(0, 87, 183, 0.15), transparent 20%),
+    radial-gradient(circle at 80% 30%, rgba(46, 64, 131, 0.15), transparent 25%),
+    radial-gradient(circle at 50% 80%, rgba(0, 87, 183, 0.15), transparent 30%);
+  z-index: -1;
+}
+
+/* =========================================
+   MAIN
+   ========================================= */
+
+.main {
+  flex: 1;
+  padding-top: var(--header-height, 125px);
+}
+
+.main a,
+.main a:visited {
+  color: var(--fbk-blue);
+}
+
+/* =========================================
+   CONTENT
+   ========================================= */
+
+.content {
+  padding: 3rem 2rem;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.content h1 {
+  font-size: 3.4rem;
+  text-align: center;
+  text-decoration: underline;
+  margin-bottom: 2rem;
+}
+
+.content h2 {
+  font-size: 2.6rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.content h3 {
+  font-size: 1.9rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.content h4 {
+  font-size: 1.35rem;
+  margin-bottom: 0.5rem;
+}
+
+.content p,
+.content ul,
+.content li {
+  font-size: 1.15rem;
+  line-height: 1.65;
+  text-align: justify;
+  margin-bottom: 1rem;
+}
+
+.content ul {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+  list-style-position: inside;
+}
+
+/* ── Responsive content ── */
+@media (max-width: 768px) {
+  
+  .main {
+    padding-top: var(--header-height, 100px);
+  }
+
+  .content {
+    padding: 1.8rem 1.2rem;
+    max-width: 95%;
+  }
+
+  .content h1 { font-size: 2.4rem; }
+  .content h2 { font-size: 1.9rem; }
+  .content h3 { font-size: 1.45rem; }
+
+  .content p,
+  .content ul,
+  .content li {
+    font-size: 1rem;
+    text-align: left;
+  }
+
+  .most-title {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .brand-text {
+    align-items: flex-start;
+  }
+
+}
+
+@media (max-width: 600px) {
+  .main {
+    padding-top: var(--header-height, 100px);
+  }
+  .content {
+    padding: 1.4rem 1rem;
+  }
+
+  .content h1 { font-size: 2rem; }
+  .content h2 { font-size: 1.6rem; }
+  .content h3 { font-size: 1.2rem; }
+}
+
+/* =========================================
+   LAYOUT BLOCKS
+   ========================================= */
+
+.most-section {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  font-size: 1.15rem;
+  line-height: 1.65;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .most-section {
+    gap: 1rem;
+  }
+
+  .news-card {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .news-card__media {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+}
+
+.most-section__block {
+  flex: 1 1 500px;
+  padding: 1.5rem;
+}
+
+.most-section__block_small {
+  flex: 1 1 400px;
+  padding: 1rem;
+}
+
+.news-card {
+  display: block;
+}
+
+.news-card__header {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+}
+
+.news-card__media {
+  min-width: 110px;
+  width: 110px;
+  height: 110px;
+  flex-shrink: 0;
+}
+
+.news-card__heximage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  clip-path: polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%);
+  border-radius: 0;
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.08);
+}
+
+.news-card__title {
+  margin: 0;
+  align-self: center;
+}
+
+.news-card__body {
+  min-width: 0;
+}
+
+.block_colored {
+  background: rgba(255, 255, 255, 0.82);
+  border-radius: var(--radius-lg);
+  border-top: 5px solid var(--fbk-blue);
+  box-shadow: var(--shadow-card);
+}
+
+/* =========================================
+   TABLES
+   ========================================= */
+
+.table-container {
+  margin: 2rem 0;
+  overflow-x: auto;
+}
+
+.table-container table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.88);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  font-size: 1.1rem;
+}
+
+.table-container thead {
+  background: var(--color-main-header);
+  color: white;
+}
+
+.table-container th {
+  text-align: left;
+  padding: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.table-container th.col-center,
+.table-container td.col-center {
+  text-align: center;
+}
+
+.table-container td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.table-container tbody tr:nth-child(even) {
+  background: rgba(0, 87, 183, 0.04);
+}
+
+.table-container tbody tr:hover {
+  background: rgba(0, 87, 183, 0.1);
+  transition: background var(--transition);
+}
+
+.table-container a {
+  color: var(--fbk-blue);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.table-container a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .table-container th,
+  .table-container td {
+    padding: 0.65rem 0.75rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* =========================================
+   PAGINATION
+   ========================================= */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+}
+
+.page-link {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--fbk-blue);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(0, 87, 183, 0.2);
+  font-weight: 500;
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+}
+
+.page-link:hover,
+.page-link.active {
+  background: var(--color-main-header);
+  color: white !important;
+  border-color: var(--color-main-header);
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+footer {
+  background: var(--color-main-header);
+  color: white;
+  padding: 2rem;
+  margin-top: auto;
+  flex-shrink: 0;
+}
+
+.minimal-footer__wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.minimal-footer__cols {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.minimal-footer__col strong {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.minimal-footer__col a i {
+  color: white;
+  font-size: 1.2rem;
+}
+
+.minimal-footer__meta {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  text-align: center;
+}
+
+.most-footer a,
+.minimal-footer a {
+  color: white !important;
+}
+
+.spaced__tabs i {
+  margin-left: 10px;
+  margin-right: 10px;
+  text-decoration: none;
+}
+
+/* =========================================
+   SPECIFIC COMPONENTS
+   ========================================= */
+
+/* Brand title block */
+.most-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.6rem, 2vw, 1.5rem);
+  padding: clamp(0.6rem, 2vw, 1.2rem) clamp(1rem, 4vw, 3rem);
+  margin: 0 auto;
+  width: fit-content;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--fbk-blue);
+  line-height: 0.95;
+  font-family: 'Roboto Condensed', 'Arial Narrow', sans-serif;
+  gap: 0.6rem;
+}
+
+.most-title img {
+  height: clamp(3.5rem, 8vw, 7rem);
+  width: auto;
+  object-fit: contain;
+}
+
+.brand-text span:first-child {
+  font-weight: 700;
+  font-size: clamp(2rem, 6vw, 5rem);
+  white-space: nowrap;
+}
+
+.brand-text span:last-child {
+  font-weight: 600;
+  font-size: clamp(0.85rem, 2vw, 1.8rem);
+  opacity: 0.9;
+  white-space: nowrap;
+}
+
+/* Research */
+.projects-img {
+  height: 80px;
+  width: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Calendar embed */
+.calendar-container {
+  display: flex;
+  justify-content: center;
+}
+
+.calendar-container iframe {
+  width: 800px;
+  height: 600px;
+  border: none;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .calendar-container iframe {
+    width: 100%;
+  }
+}
+
+/* Button link */
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.my-button {
+  display: inline-block;
+  padding: 12px 28px;
+  background: var(--fbk-blue);
+  color: white !important;
+  text-decoration: underline !important;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  transition: background var(--transition);
+}
+
+.my-button:hover {
+  background: var(--fbk-dark-blue);
+}
+
+/* Past news */
+.past-news-toggle {
+  display: inline-block;
+  width: 100%;
+  padding: 12px 24px;
+  background: var(--color-main-header);
+  color: white !important;
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  font-size: 1.15rem;
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  transition: background var(--transition);
+}
+
+.past-news-toggle:hover {
+  background: var(--fbk-blue);
+}
+
+.past-news-list {
+  margin: 3rem 0 2rem;
+}
+
+.past-news-list-item {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 1rem;
+}
+
+/* Smaller text variant inside blocks */
+.most-section__block_small.smaller-p h4 {
+  font-size: 1.15rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+.most-section__block_small.smaller-p p,
+.most-section__block_small.smaller-p a,
+.most-section__block_small.smaller-p ul,
+.most-section__block_small.smaller-p li {
+  font-size: 1rem;
+  line-height: 1.45;
+}

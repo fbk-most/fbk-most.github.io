@@ -1,0 +1,212 @@
+/* =========================================
+   HEX CAROUSEL
+   ========================================= */
+
+.carousel-header {
+  margin-top: 6rem;
+  margin-bottom: -1rem !important;
+  color: var(--color-main-header);
+  font-size: 1.8rem !important;
+}
+
+.hex-carousel-section {
+  position: relative;
+  padding: 0 56px;
+  margin: 1rem 0;
+}
+
+.hex-carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 500px;
+  overflow: hidden;
+  padding: 1rem 0;
+}
+
+/* --- Wrapper for each hexagon item --- */
+.hex-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  flex-shrink: 0;
+  margin: 0 30px;
+}
+
+.hex-wrap.center {
+  z-index: 10;
+  transform: scale(2);  /* was scale(1) — makes center ~325px visually */
+  cursor: default;
+}
+
+.hex-wrap.side {
+  z-index: 5;
+  transform: scale(1.2);  /* was 0.6 — slightly tighter */
+  opacity: 0.75;
+}
+
+.hex-wrap.side:hover {
+  opacity: 0.85;
+}
+
+/* --- The hexagon element --- */
+.hexagon {
+  position: relative;
+  width: 260px;   /* was 240 */
+  height: 260px;
+}
+
+.hexagon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.hex-current-label {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 1rem;
+  padding: 0 1rem;
+}
+
+.hex-current-date {
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgba(24, 59, 89, 0.8);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.hex-current-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--color-main-header);
+  line-height: 1.5;
+}
+
+/* --- Nav buttons --- */
+.hex-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 87, 183, 0.2);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 20;
+  font-size: 1.3rem;
+  color: var(--color-main-header);
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+  line-height: 1;
+}
+
+.hex-nav:hover {
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.hex-nav.left  { left: 0; }
+.hex-nav.right { right: 0; }
+
+/* --- Dot indicators --- */
+.hex-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  padding-bottom: 0.5rem;
+}
+
+.hex-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(24, 59, 89, 0.22);
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.hex-dot.active {
+  background: var(--fbk-blue);
+  transform: scale(1.25);
+}
+
+.hex-dot:hover:not(.active) {
+  background: rgba(0, 87, 183, 0.45);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .hex-carousel-section {
+    padding: 0 1rem;
+  }
+
+  .hex-carousel {
+    min-height: auto;
+    padding: 1rem 0;
+  }
+
+  .hexagon {
+    width: 180px;
+    height: 180px; /* keep explicit height to match width */
+    min-width: none;
+    aspect-ratio: 1 / 1; /* add this as a safeguard */
+  }
+
+  .hexagon svg {
+    width: 100%;
+    height: 100%;
+    display: block; /* removes inline baseline gap */
+  }
+
+  .hex-wrap {
+    margin: 0 10px;
+  }
+
+  .hex-wrap.center {
+    transform: scale(1.4); /* or even scale(1) */
+  }
+
+  .hex-wrap.side {
+    display: none;
+  }
+
+  .hex-current-label {
+    max-width: 100%;
+    padding: 0 0.75rem;
+  }
+
+  .hex-current-date {
+    font-size: 0.9rem;
+  }
+
+  .hex-current-title {
+    font-size: 1.2rem;
+  }
+
+  .hex-nav {
+    width: 34px;
+    height: 34px;
+    font-size: 1rem;
+  }
+
+  .hex-nav.left { left: 0.5rem; }
+  .hex-nav.right { right: 0.5rem; }
+}
+
+@media (max-width: 576px) {
+  .hexagon {
+    width: 150px;
+    height: 150px;
+    min-width: none;
+    aspect-ratio: 1 / 1;
+  }
+}
