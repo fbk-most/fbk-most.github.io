@@ -158,5 +158,13 @@
     "Link": "https://most.fbk.eu/phd",
     "Image": "/assets/images/news/phd.png",
     "Priority": 10
+  },
+  {
+    "TITLE": "Simulation-driven decision-making for cities: our new publication is out!",
+    "DATE": "2026-09-02",
+    "DESCRIPTION": "<p>We are pleased to announce the publication of <strong>\"Evaluating impacts of traffic regulations in complex mobility systems using scenario-based simulations\"</strong> in <strong>Transport Policy (Vol. 189, 2026)</strong>.</p><p>This work presents a simulation-based framework for ex-ante evaluation of urban mobility policies, integrating traffic dynamics with behavioral responses. Through a case study in Bologna, we demonstrate how policy design choices and modeling assumptions substantially affect outcomes, enabling more informed and transparent decision-making for cities.</p><p>Authors: <strong>Arianna Burzacchi and Marco Pistore</strong></p><p>Read the full paper <a href=\"https://doi.org/10.1016/j.tranpol.2026.104381\">here</a>!</p>",
+    "Link": "https://doi.org/10.1016/j.tranpol.2026.104381",
+    "Image": "/assets/images/news/burzacchi2026evaluating.png",
+    "Priority": 10
   }
 ]
