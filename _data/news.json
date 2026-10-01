@@ -149,7 +149,7 @@
     "DESCRIPTION": "<p>A new declarative API lets you define a complete model with typed inputs, outputs, and computation logic in a few lines.<br /><br />This release also introduces:</p><ul><li>Typed model contracts (@inputs, @outputs, @functions)</li><li>Scenario-based what-if analysis</li><li>Automated exploration of thousands of parameter combinations</li><li>Incremental and resumable evaluations</li><li>Faster execution of large models with multiple decision paths</li><li>A cleaner separation between model definition and evaluation<br /><br />The goal is simple: spend less time on framework boilerplate and more time building models.</li></ul>",
     "Link": "https://github.com/fbk-most/civic-digital-twins",
     "Image": "/assets/images/news/CDT.png",
-    "Priority": 10
+    "Priority": 5
   },
   {
     "TITLE": "PhD Opportunities - Join Our Research Group!",
@@ -173,6 +173,14 @@
     "DESCRIPTION": "<p>Comunit&agrave; rurali europee pi&ugrave; resilienti grazie a dati, intelligenza artificiale e Digital Twin.</p><p>Ha preso il via TERRAE, progetto europeo coordinato da Fondazione Bruno Kessler - FBK e che riunisce 17 organizzazioni di 8 paesi. Nei prossimi quattro anni il consorzio svilupper&agrave; nuovi strumenti digitali per aiutare le aree rurali ad affrontare cambiamento climatico, spopolamento e trasformazioni economiche e sociali.</p><p>Al centro del progetto il Digital Twin, una rappresentazione digitale dinamica del territorio che integra dati ambientali, geografici, sociali ed economici. Attraverso intelligenza artificiale, simulazioni e visualizzazioni 3D sar&agrave; possibile esplorare scenari futuri e valutare l&rsquo;impatto di politiche e interventi prima di applicarli sul territorio.</p><p>Le soluzioni saranno sperimentate in cinque territori rurali europei. Tra questi le Valli Giudicarie, dove FBK e Provincia Autonoma di Trento lavoreranno sulla resilienza del sistema forestale, dalla salute dei boschi e diffusione del bostrico alla produzione di legname e disponibilit&agrave; di manodopera.</p>",
     "Link": "https://magazine.fbk.eu/en/news/terrae-guidato-da-fbk-il-progetto-europeo-per-il-futuro-delle-comunita-rurali/",
     "Image": "/assets/images/news/260902_kom_terrae_FBK_1.jpg",
+    "Priority": 10
+  },
+  {
+    "TITLE": "Civic-Digital-Twins version 0.12.0 is out!",
+    "DATE": "2026-10-01",
+    "DESCRIPTION": "<p>Until now, the library has been primarily focused on scalar values and <strong>time series</strong>. With this release, we're taking a broader approach: the core abstractions can now represent and operate on <strong>multiple types of data and domains</strong>, not just time.</p><p>Some of the key pieces that make this possible:</p><li>Support for <strong>multiple domain axes, including spatial grids</strong> - extending the scope from time to <strong>space and time</strong></li> <li>More expressive operations across axes, including broadcasting and reductions</li> <li>A more flexible model for <strong>typed parameters, configurations, and scenarios</strong></li> <li>Improvements to the engine and model validation to make these abstractions more robust</li> <li>Support for working with different types of indices, including <strong>categorical and distribution-based indices</strong></li><p>The goal is to make the library less tied to a specific kind of data and provide a foundation that can work with <strong>different dimensions, domains, and model structures</strong>, matching the requirements of the new application domains where we are using CDT.</p><p>There's still plenty to build, but this release marks an important evolution <strong>toward a more general modeling framework.</strong></p>",
+    "Link": "https://github.com/fbk-most/civic-digital-twins",
+    "Image": "/assets/images/news/CDT.png",
     "Priority": 10
   }
 ]
