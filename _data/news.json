@@ -182,5 +182,13 @@
     "Link": "https://github.com/fbk-most/civic-digital-twins",
     "Image": "/assets/images/news/CDT.png",
     "Priority": 10
+  },
+  {
+    "TITLE": "Internship Opportunities Now Open",
+    "DATE": "2026-10-01",
+    "DESCRIPTION": "<p>We are offering curricular internship opportunities for motivated students eager to work on cutting-edge urban research projects.</p><p>Example topics include:<ul><li><b>Sensitivity & Risk Analysis:</b> Design and integrate methods tailored for modular, multi-component models to evaluate uncertainty propagation, risk assessment, and global sensitivity in complex socio-technical systems.</li><li><b>Surrogate Modelling:</b> Design and integrate surrogate models (e.g., Gaussian processes, neural surrogates) to accelerate computationally expensive simulation runs.</li><li><b>Spatio-Temporal Uncertainty:</b> Develop approaches to represent uncertainty and model sensitivity for multidimensional simulation outputs within the Civic Digital Twins framework (e.g., using real-world use cases like the Bologna Digital Twin).</li>Additional topics can be discussed based on the candidate's interests and alignment with the group's research activities.</ul></p><p>These internships provide hands-on research experience, collaboration with interdisciplinary teams, and opportunities to contribute to scientific publications. For more details, please refer to the link below.</p>",
+    "Link": "https://most.fbk.eu/internships/",
+    "Image": "/assets/images/news/internship.png",
+    "Priority": 10
   }
 ]
