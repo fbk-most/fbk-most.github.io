@@ -178,7 +178,7 @@
   {
     "TITLE": "Civic-Digital-Twins version 0.12.0 is out!",
     "DATE": "2026-10-01",
-    "DESCRIPTION": "<p>Until now, the library has been primarily focused on scalar values and <strong>time series</strong>. With this release, we're taking a broader approach: the core abstractions can now represent and operate on <strong>multiple types of data and domains</strong>, not just time.</p><p>Some of the key pieces that make this possible:</p><li>Support for <strong>multiple domain axes, including spatial grids</strong> - extending the scope from time to <strong>space and time</strong></li> <li>More expressive operations across axes, including broadcasting and reductions</li> <li>A more flexible model for <strong>typed parameters, configurations, and scenarios</strong></li> <li>Improvements to the engine and model validation to make these abstractions more robust</li> <li>Support for working with different types of indices, including <strong>categorical and distribution-based indices</strong></li><p>The goal is to make the library less tied to a specific kind of data and provide a foundation that can work with <strong>different dimensions, domains, and model structures</strong>, matching the requirements of the new application domains where we are using CDT.</p><p>There's still plenty to build, but this release marks an important evolution <strong>toward a more general modeling framework.</strong></p>",
+    "DESCRIPTION": "<p>Until now, the library has been primarily focused on scalar values and <strong>time series</strong>. With this release, we're taking a broader approach: the core abstractions can now represent and operate on <strong>multiple types of data and domains</strong>, not just time.</p><p>Some of the key pieces that make this possible:</p><ul><li>Support for <strong>multiple domain axes, including spatial grids</strong> - extending the scope from time to <strong>space and time</strong></li> <li>More expressive operations across axes, including broadcasting and reductions</li> <li>A more flexible model for <strong>typed parameters, configurations, and scenarios</strong></li> <li>Improvements to the engine and model validation to make these abstractions more robust</li> <li>Support for working with different types of indices, including <strong>categorical and distribution-based indices</strong></li></ul><p>The goal is to make the library less tied to a specific kind of data and provide a foundation that can work with <strong>different dimensions, domains, and model structures</strong>, matching the requirements of the new application domains where we are using CDT.</p><p>There's still plenty to build, but this release marks an important evolution <strong>toward a more general modeling framework.</strong></p>",
     "Link": "https://github.com/fbk-most/civic-digital-twins",
     "Image": "/assets/images/news/CDT.png",
     "Priority": 10
@@ -189,6 +189,22 @@
     "DESCRIPTION": "<p>We are offering curricular internship opportunities for motivated students eager to work on cutting-edge urban research projects.</p><p>Example topics include:<ul><li><b>Sensitivity & Risk Analysis:</b> Design and integrate methods tailored for modular, multi-component models to evaluate uncertainty propagation, risk assessment, and global sensitivity in complex socio-technical systems.</li><li><b>Surrogate Modelling:</b> Design and integrate surrogate models (e.g., Gaussian processes, neural surrogates) to accelerate computationally expensive simulation runs.</li><li><b>Spatio-Temporal Uncertainty:</b> Develop approaches to represent uncertainty and model sensitivity for multidimensional simulation outputs within the Civic Digital Twins framework (e.g., using real-world use cases like the Bologna Digital Twin).</li>Additional topics can be discussed based on the candidate's interests and alignment with the group's research activities.</ul></p><p>These internships provide hands-on research experience, collaboration with interdisciplinary teams, and opportunities to contribute to scientific publications. For more details, please refer to the link below.</p>",
     "Link": "https://most.fbk.eu/internships/",
     "Image": "/assets/images/news/internship.png",
+    "Priority": 10
+  },
+  {
+    "TITLE": "HARMONIE 1st General Assembly in Sarajevo!",
+    "DATE": "2026-11-02",
+    "DESCRIPTION": "<p>Last week, the HARMONIE consortium gathered in Sarajevo, Bosnia and Herzegovina, for our 1st General Assembly! </p><p>As we approach our first anniversary, partners reviewed the progress made across the different work packages, shared key achievements and challenges, and discussed priorities for the next phase of the project.</p><p>From air quality and noise monitoring to health research, digital twins, citizen engagement and our five pilot cities, the discussions highlighted how the different areas of HARMONIE are progressing towards our shared goal: healthier and more sustainable cities. </p><p>The meeting also allowed us to exchange ideas, strengthen coordination and align our next steps across the consortium.</p>",
+    "Link": "https://www.linkedin.com/posts/harmonieproject_harmonieproject-horizoneurope-urbanhealth-activity-7522958292764217345-6IiI?utm_source=share&utm_medium=member_desktop&rcm=ACoAACBbhxgBUjrbfo_EKaMYzqh5mfgrdz_Gehg",
+    "Image": "/assets/images/news/harmonie-sarajevo.jpeg",
+    "Priority": 10
+  },
+  {
+    "TITLE": "Event: Bologna's Civic Digital Twin: Democratic Practices for Urban Simulation and Action",
+    "DATE": "2026-10-20",
+    "DESCRIPTION": "<p>Last week, Marco Pistore, Head of MoST at FBK, together with Stefania Paolazzi from the Municipality of Bologna, presented the Bologna Civic Digital Twin at the University of Virginia.</p><p>The talk explored how digital twins can go beyond technological innovation to support more inclusive urban planning, citizen participation, and democratic decision-making.</p><p>At MoST, we are committed to developing modeling and simulation approaches that help address the complexity of socio-technical systems and contribute to shaping better cities. </p>",
+    "Link": "https://dtdlab.virginia.edu/event/civic-digital-twin/",
+    "Image": "/assets/images/news/Bologna-UVA.avif",
     "Priority": 10
   }
 ]
