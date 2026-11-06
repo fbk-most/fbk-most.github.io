@@ -6,7 +6,7 @@ image: "/assets/images/people/giuditta-bellosi.jpg" # optional
 linkedin: "giudittabellosi" # optional
 scholar: "fRNDJoEAAAAJ" # optional Google Scholar ID
 order: "3"
-vis-order: "N"
+vis-order: 10
 ---
 
 I am a PhD candidate in the National PhD Program at the University of Pisa in AI & Society, currently based at the University of Bologna. I hold a Master's degree in Mathematics and a professional background in Data Analytics. I am a member of the feminist association Period Think Tank, which focuses on data feminism and bias within AI.
