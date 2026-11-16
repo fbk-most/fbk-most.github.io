@@ -10,7 +10,7 @@ linkedin: "samuele-nigrone" # optional
 #scholar: "id" # optional Google Scholar ID
 #twitter: "username" # optional
 order: 3
-vis-order: 
+vis-order: 10
 ---
 
 Samuele Nigrone is a PhD student at the [MoST research unit](/) and at the department of Psychology and Cognitive Science, University of Trento.
